@@ -1,0 +1,6 @@
+#include "ProtocolBuffers.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/ProtocolBuffers" "${PODS_ROOT}/Headers/Private/ProtocolBuffers/ProtocolBuffers" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/MSWeakTimer" "${PODS_ROOT}/Headers/Public/ProtocolBuffers" "${PODS_ROOT}/Headers/Public/ProtocolBuffers/ProtocolBuffers"
+OTHER_LDFLAGS = ${PROTOCOLBUFFERS_OTHER_LDFLAGS}
+PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES

@@ -1,0 +1,13 @@
+PODS:
+  - MSWeakTimer (1.1.0)
+  - ProtocolBuffers (1.9.8)
+
+DEPENDENCIES:
+  - MSWeakTimer (~> 1.1)
+  - ProtocolBuffers (~> 1.9)
+
+SPEC CHECKSUMS:
+  MSWeakTimer: 9426150f933b80ed3acf3f6d228e4b61f0e303c8
+  ProtocolBuffers: 9a4a171c0c7cc8f21dd29aeca4f9ac775d84a880
+
+COCOAPODS: 0.38.2

@@ -1,0 +1,1130 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		D528C58A1B44567B00E4FC8C /* Underdark-Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D528C58D1B44567B00E4FC8C /* Build configuration list for PBXAggregateTarget "Underdark-Universal" */;
+			buildPhases = (
+				D528C58E1B44568700E4FC8C /* Universal Framework */,
+			);
+			dependencies = (
+			);
+			name = "Underdark-Universal";
+			productName = "Underdark-Universal";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		2F1C7E918CF22913ADFDFF7A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA337C95ACE2828E733481E0 /* libPods.a */; };
+		373C217E5BA05C9ACD8C3CA1 /* UDNsdTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = 373C24894221C1C5A90F07F6 /* UDNsdTransport.h */; };
+		373C24F8F2B23BAC5F598C11 /* UDNsdTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 373C2B9DBAEAB335CFFFAEC6 /* UDNsdTransport.m */; };
+		373C283730F845BF75B511A0 /* UDNsdBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 373C222D5E588991176D437D /* UDNsdBrowser.m */; };
+		373C2980A17274938C7679C9 /* UDNsdBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 373C266D1B9178E5540EC653 /* UDNsdBrowser.h */; };
+		373C2A2C15C0B210ADBEEC3C /* UDNsdServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 373C2F98CBCA65F3234B3A3C /* UDNsdServer.h */; };
+		373C2A3715A6B64DAE8714B7 /* UDNsdAdvertiser.m in Sources */ = {isa = PBXBuildFile; fileRef = 373C206B6A43A73E593C5CD8 /* UDNsdAdvertiser.m */; };
+		373C2ED7897748DF23D3DF8B /* UDNsdServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 373C2967D01997B3D20222FB /* UDNsdServer.m */; };
+		373C2F3ECEDA842FDC866B59 /* UDNsdAdvertiser.h in Headers */ = {isa = PBXBuildFile; fileRef = 373C28A8E8DB3E86AD2FDC6C /* UDNsdAdvertiser.h */; };
+		6EC09173A08BCFB48B6F7F07 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA337C95ACE2828E733481E0 /* libPods.a */; };
+		D506552F1B4323D7002D192D /* SLBluetoothTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655051B4323D7002D192D /* SLBluetoothTransport.h */; };
+		D50655301B4323D7002D192D /* SLBluetoothTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655061B4323D7002D192D /* SLBluetoothTransport.m */; };
+		D50655311B4323D7002D192D /* UDBonjourLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655071B4323D7002D192D /* UDBonjourLink.h */; };
+		D50655321B4323D7002D192D /* UDBonjourLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655081B4323D7002D192D /* UDBonjourLink.m */; };
+		D50655331B4323D7002D192D /* UDBonjourTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655091B4323D7002D192D /* UDBonjourTransport.h */; };
+		D50655341B4323D7002D192D /* UDBonjourTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = D506550A1B4323D7002D192D /* UDBonjourTransport.m */; };
+		D50655351B4323D7002D192D /* UDBtBeacon.h in Headers */ = {isa = PBXBuildFile; fileRef = D506550B1B4323D7002D192D /* UDBtBeacon.h */; };
+		D50655361B4323D7002D192D /* UDBtBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = D506550C1B4323D7002D192D /* UDBtBeacon.m */; };
+		D50655371B4323D7002D192D /* SLBtCentral.h in Headers */ = {isa = PBXBuildFile; fileRef = D506550D1B4323D7002D192D /* SLBtCentral.h */; };
+		D50655381B4323D7002D192D /* SLBtCentral.m in Sources */ = {isa = PBXBuildFile; fileRef = D506550E1B4323D7002D192D /* SLBtCentral.m */; };
+		D50655391B4323D7002D192D /* SLBtCentralLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D506550F1B4323D7002D192D /* SLBtCentralLink.h */; };
+		D506553A1B4323D7002D192D /* SLBtCentralLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655101B4323D7002D192D /* SLBtCentralLink.m */; };
+		D506553B1B4323D7002D192D /* SLBtPeripheral.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655111B4323D7002D192D /* SLBtPeripheral.h */; };
+		D506553C1B4323D7002D192D /* SLBtPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655121B4323D7002D192D /* SLBtPeripheral.m */; };
+		D506553D1B4323D7002D192D /* SLBtPeripheralLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655131B4323D7002D192D /* SLBtPeripheralLink.h */; };
+		D506553E1B4323D7002D192D /* SLBtPeripheralLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655141B4323D7002D192D /* SLBtPeripheralLink.m */; };
+		D506553F1B4323D7002D192D /* SLInetLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655151B4323D7002D192D /* SLInetLink.h */; };
+		D50655401B4323D7002D192D /* SLInetLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655161B4323D7002D192D /* SLInetLink.m */; };
+		D50655411B4323D7002D192D /* SLInetReach.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655171B4323D7002D192D /* SLInetReach.h */; };
+		D50655421B4323D7002D192D /* SLInetReach.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655181B4323D7002D192D /* SLInetReach.m */; };
+		D50655431B4323D7002D192D /* SLInetTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655191B4323D7002D192D /* SLInetTransport.h */; };
+		D50655441B4323D7002D192D /* SLInetTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = D506551A1B4323D7002D192D /* SLInetTransport.m */; };
+		D50655451B4323D7002D192D /* SLMultipeerLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D506551B1B4323D7002D192D /* SLMultipeerLink.h */; };
+		D50655461B4323D7002D192D /* SLMultipeerLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D506551C1B4323D7002D192D /* SLMultipeerLink.m */; };
+		D50655471B4323D7002D192D /* SLMultipeerTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = D506551D1B4323D7002D192D /* SLMultipeerTransport.h */; };
+		D50655481B4323D7002D192D /* SLMultipeerTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = D506551E1B4323D7002D192D /* SLMultipeerTransport.m */; };
+		D50655491B4323D7002D192D /* UDRunLoopThread.h in Headers */ = {isa = PBXBuildFile; fileRef = D506551F1B4323D7002D192D /* UDRunLoopThread.h */; };
+		D506554A1B4323D7002D192D /* UDRunLoopThread.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655201B4323D7002D192D /* UDRunLoopThread.m */; };
+		D506554D1B4323D7002D192D /* UDWifiReach.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655231B4323D7002D192D /* UDWifiReach.h */; };
+		D506554E1B4323D8002D192D /* UDWifiReach.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655241B4323D7002D192D /* UDWifiReach.m */; };
+		D506554F1B4323D8002D192D /* UDAggLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655251B4323D7002D192D /* UDAggLink.h */; };
+		D50655501B4323D8002D192D /* UDAggLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655261B4323D7002D192D /* UDAggLink.m */; };
+		D50655511B4323D8002D192D /* UDAggTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655271B4323D7002D192D /* UDAggTransport.h */; };
+		D50655521B4323D8002D192D /* UDAggTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655281B4323D7002D192D /* UDAggTransport.m */; };
+		D50655531B4323D8002D192D /* UDAsyncUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655291B4323D7002D192D /* UDAsyncUtils.h */; };
+		D50655541B4323D8002D192D /* UDAsyncUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D506552A1B4323D7002D192D /* UDAsyncUtils.m */; };
+		D507B69D1BFCFFED00788BA1 /* UDRouterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D507B69C1BFCFFED00788BA1 /* UDRouterTests.m */; };
+		D507B6A91BFD07E500788BA1 /* UDMockHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D507B6A01BFD07E500788BA1 /* UDMockHandler.m */; };
+		D507B6AA1BFD07E500788BA1 /* UDMockLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D507B6A21BFD07E500788BA1 /* UDMockLink.m */; };
+		D507B6AB1BFD07E500788BA1 /* UDMockMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = D507B6A41BFD07E500788BA1 /* UDMockMesh.m */; };
+		D507B6AC1BFD07E500788BA1 /* UDMockNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D507B6A61BFD07E500788BA1 /* UDMockNode.m */; };
+		D507B6AD1BFD07E500788BA1 /* UDMockTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = D507B6A81BFD07E500788BA1 /* UDMockTransport.m */; };
+		D50A92471B471421003F9B38 /* UDBonjourBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = D50A92451B471421003F9B38 /* UDBonjourBrowser.h */; };
+		D50A92481B471421003F9B38 /* UDBonjourBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = D50A92461B471421003F9B38 /* UDBonjourBrowser.m */; };
+		D50A924B1B471432003F9B38 /* UDBonjourServer.h in Headers */ = {isa = PBXBuildFile; fileRef = D50A92491B471432003F9B38 /* UDBonjourServer.h */; };
+		D50A924C1B471432003F9B38 /* UDBonjourServer.m in Sources */ = {isa = PBXBuildFile; fileRef = D50A924A1B471432003F9B38 /* UDBonjourServer.m */; };
+		D50A92561B48583A003F9B38 /* UDBtReach.h in Headers */ = {isa = PBXBuildFile; fileRef = D50A92541B48583A003F9B38 /* UDBtReach.h */; };
+		D50A92571B48583A003F9B38 /* UDBtReach.m in Sources */ = {isa = PBXBuildFile; fileRef = D50A92551B48583A003F9B38 /* UDBtReach.m */; };
+		D51565C51B44233400101C06 /* UDLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = D51565C31B44233400101C06 /* UDLogging.h */; };
+		D51565C61B44233400101C06 /* UDLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = D51565C41B44233400101C06 /* UDLogging.m */; };
+		D51565CE1B442E1D00101C06 /* Commands.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = D51565C81B442E1D00101C06 /* Commands.pb.h */; };
+		D51565CF1B442E1D00101C06 /* Commands.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = D51565C91B442E1D00101C06 /* Commands.pb.m */; };
+		D51565D01B442E1D00101C06 /* Events.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = D51565CA1B442E1D00101C06 /* Events.pb.h */; };
+		D51565D11B442E1D00101C06 /* Events.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = D51565CB1B442E1D00101C06 /* Events.pb.m */; };
+		D51565D21B442E1D00101C06 /* Frames.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = D51565CC1B442E1D00101C06 /* Frames.pb.h */; };
+		D51565D31B442E1D00101C06 /* Frames.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = D51565CD1B442E1D00101C06 /* Frames.pb.m */; };
+		D51565DA1B4432DC00101C06 /* UDConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = D51565D81B4432DC00101C06 /* UDConfig.h */; };
+		D51565DB1B4432DC00101C06 /* UDConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D51565D91B4432DC00101C06 /* UDConfig.m */; };
+		D5287AB21B485FB7002A0B5E /* UDReach.h in Headers */ = {isa = PBXBuildFile; fileRef = D5287AB11B485FB0002A0B5E /* UDReach.h */; };
+		D528C59C1B44895500E4FC8C /* UDLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D528C5941B44895500E4FC8C /* UDLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D528C59D1B44895500E4FC8C /* UDTimeExtender.h in Headers */ = {isa = PBXBuildFile; fileRef = D528C5951B44895500E4FC8C /* UDTimeExtender.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D528C59E1B44895500E4FC8C /* UDTimeExtender.m in Sources */ = {isa = PBXBuildFile; fileRef = D528C5961B44895500E4FC8C /* UDTimeExtender.m */; };
+		D528C59F1B44895500E4FC8C /* UDTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = D528C5971B44895500E4FC8C /* UDTransport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D528C5A01B44895500E4FC8C /* UDTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = D528C5981B44895500E4FC8C /* UDTransport.m */; };
+		D528C5A11B44895500E4FC8C /* UDUnderdark.h in Headers */ = {isa = PBXBuildFile; fileRef = D528C5991B44895500E4FC8C /* UDUnderdark.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D528C5A21B44895500E4FC8C /* UDUnderdark.m in Sources */ = {isa = PBXBuildFile; fileRef = D528C59A1B44895500E4FC8C /* UDUnderdark.m */; };
+		D528C5A31B44895500E4FC8C /* Underdark.h in Headers */ = {isa = PBXBuildFile; fileRef = D528C59B1B44895500E4FC8C /* Underdark.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D528C5A41B448A0400E4FC8C /* UDTimeExtender.m in Headers */ = {isa = PBXBuildFile; fileRef = D528C5961B44895500E4FC8C /* UDTimeExtender.m */; settings = {ATTRIBUTES = (Public, ); }; };
+		D528C5A51B448A0400E4FC8C /* UDTransport.m in Headers */ = {isa = PBXBuildFile; fileRef = D528C5981B44895500E4FC8C /* UDTransport.m */; settings = {ATTRIBUTES = (Public, ); }; };
+		D528C5A61B448A0400E4FC8C /* UDUnderdark.m in Headers */ = {isa = PBXBuildFile; fileRef = D528C59A1B44895500E4FC8C /* UDUnderdark.m */; settings = {ATTRIBUTES = (Public, ); }; };
+		D559CCCA1BA3256E0057CF17 /* UDNsdService.h in Headers */ = {isa = PBXBuildFile; fileRef = D559CCC81BA3256E0057CF17 /* UDNsdService.h */; };
+		D559CCCB1BA3256E0057CF17 /* UDNsdService.m in Sources */ = {isa = PBXBuildFile; fileRef = D559CCC91BA3256E0057CF17 /* UDNsdService.m */; };
+		D559CCCD1BA462B90057CF17 /* UDNsdUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D559CCCC1BA462B90057CF17 /* UDNsdUtil.m */; };
+		D59425A11BFC27D30069B5F8 /* Packets.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = D594259F1BFC27D30069B5F8 /* Packets.pb.h */; };
+		D59425A21BFC27D30069B5F8 /* Packets.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = D59425A01BFC27D30069B5F8 /* Packets.pb.m */; };
+		D59425A51BFC282F0069B5F8 /* UDPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = D59425A31BFC282F0069B5F8 /* UDPacket.h */; };
+		D59425A61BFC282F0069B5F8 /* UDPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = D59425A41BFC282F0069B5F8 /* UDPacket.m */; };
+		D59425A91BFC28EE0069B5F8 /* UDPacketKind.h in Headers */ = {isa = PBXBuildFile; fileRef = D59425A71BFC28EE0069B5F8 /* UDPacketKind.h */; };
+		D59425AA1BFC28EE0069B5F8 /* UDPacketKind.m in Sources */ = {isa = PBXBuildFile; fileRef = D59425A81BFC28EE0069B5F8 /* UDPacketKind.m */; };
+		D59425AD1BFC2B230069B5F8 /* UDRouterImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = D59425AB1BFC2B230069B5F8 /* UDRouterImpl.h */; };
+		D59425AE1BFC2B230069B5F8 /* UDRouterImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = D59425AC1BFC2B230069B5F8 /* UDRouterImpl.m */; };
+		D59425B11BFC2B370069B5F8 /* UDRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = D59425AF1BFC2B370069B5F8 /* UDRouter.h */; };
+		D59425B21BFC2B370069B5F8 /* UDRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D59425B01BFC2B370069B5F8 /* UDRouter.m */; };
+		D5983C321B46EF0F00F7B6F9 /* UDLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D5983C311B46EF0600F7B6F9 /* UDLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5A364B71C2773BB0054DB0A /* Packet+Builders.h in Headers */ = {isa = PBXBuildFile; fileRef = D5A364B51C2773BB0054DB0A /* Packet+Builders.h */; };
+		D5A364B81C2773BB0054DB0A /* Packet+Builders.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A364B61C2773BB0054DB0A /* Packet+Builders.m */; };
+		D5C7DA311BA5A525009DDD00 /* UDNsdLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C7DA2F1BA5A525009DDD00 /* UDNsdLink.h */; };
+		D5C7DA321BA5A525009DDD00 /* UDNsdLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C7DA301BA5A525009DDD00 /* UDNsdLink.m */; };
+		D5C7DA351BA5FB30009DDD00 /* UDNsdServerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C7DA341BA5FB30009DDD00 /* UDNsdServerTests.m */; };
+		D5C9426F1C0C56D400949913 /* UDUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C9426D1C0C56D400949913 /* UDUtil.h */; };
+		D5C942701C0C56D400949913 /* UDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C9426E1C0C56D400949913 /* UDUtil.m */; };
+		D5DDCE9E1B430F21007B8E3E /* Underdark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5DDCE921B430F21007B8E3E /* Underdark.framework */; };
+		D5DDCEA51B430F21007B8E3E /* UDNsdBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DDCEA41B430F21007B8E3E /* UDNsdBrowserTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5DDCE9F1B430F21007B8E3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5DDCE891B430F21007B8E3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5DDCE911B430F21007B8E3E;
+			remoteInfo = Underdark;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1E0A05D00306112B07A1AAEA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		373C206B6A43A73E593C5CD8 /* UDNsdAdvertiser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdAdvertiser.m; sourceTree = "<group>"; };
+		373C222D5E588991176D437D /* UDNsdBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdBrowser.m; sourceTree = "<group>"; };
+		373C24894221C1C5A90F07F6 /* UDNsdTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDNsdTransport.h; sourceTree = "<group>"; };
+		373C266D1B9178E5540EC653 /* UDNsdBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDNsdBrowser.h; sourceTree = "<group>"; };
+		373C28A8E8DB3E86AD2FDC6C /* UDNsdAdvertiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDNsdAdvertiser.h; sourceTree = "<group>"; };
+		373C2967D01997B3D20222FB /* UDNsdServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdServer.m; sourceTree = "<group>"; };
+		373C2B9DBAEAB335CFFFAEC6 /* UDNsdTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdTransport.m; sourceTree = "<group>"; };
+		373C2F98CBCA65F3234B3A3C /* UDNsdServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDNsdServer.h; sourceTree = "<group>"; };
+		D50655051B4323D7002D192D /* SLBluetoothTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBluetoothTransport.h; sourceTree = "<group>"; };
+		D50655061B4323D7002D192D /* SLBluetoothTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBluetoothTransport.m; sourceTree = "<group>"; };
+		D50655071B4323D7002D192D /* UDBonjourLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDBonjourLink.h; sourceTree = "<group>"; };
+		D50655081B4323D7002D192D /* UDBonjourLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDBonjourLink.m; sourceTree = "<group>"; };
+		D50655091B4323D7002D192D /* UDBonjourTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDBonjourTransport.h; sourceTree = "<group>"; };
+		D506550A1B4323D7002D192D /* UDBonjourTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDBonjourTransport.m; sourceTree = "<group>"; };
+		D506550B1B4323D7002D192D /* UDBtBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDBtBeacon.h; sourceTree = "<group>"; };
+		D506550C1B4323D7002D192D /* UDBtBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDBtBeacon.m; sourceTree = "<group>"; };
+		D506550D1B4323D7002D192D /* SLBtCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBtCentral.h; sourceTree = "<group>"; };
+		D506550E1B4323D7002D192D /* SLBtCentral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBtCentral.m; sourceTree = "<group>"; };
+		D506550F1B4323D7002D192D /* SLBtCentralLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBtCentralLink.h; sourceTree = "<group>"; };
+		D50655101B4323D7002D192D /* SLBtCentralLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBtCentralLink.m; sourceTree = "<group>"; };
+		D50655111B4323D7002D192D /* SLBtPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBtPeripheral.h; sourceTree = "<group>"; };
+		D50655121B4323D7002D192D /* SLBtPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBtPeripheral.m; sourceTree = "<group>"; };
+		D50655131B4323D7002D192D /* SLBtPeripheralLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBtPeripheralLink.h; sourceTree = "<group>"; };
+		D50655141B4323D7002D192D /* SLBtPeripheralLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBtPeripheralLink.m; sourceTree = "<group>"; };
+		D50655151B4323D7002D192D /* SLInetLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLInetLink.h; sourceTree = "<group>"; };
+		D50655161B4323D7002D192D /* SLInetLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLInetLink.m; sourceTree = "<group>"; };
+		D50655171B4323D7002D192D /* SLInetReach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLInetReach.h; sourceTree = "<group>"; };
+		D50655181B4323D7002D192D /* SLInetReach.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLInetReach.m; sourceTree = "<group>"; };
+		D50655191B4323D7002D192D /* SLInetTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLInetTransport.h; sourceTree = "<group>"; };
+		D506551A1B4323D7002D192D /* SLInetTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLInetTransport.m; sourceTree = "<group>"; };
+		D506551B1B4323D7002D192D /* SLMultipeerLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMultipeerLink.h; sourceTree = "<group>"; };
+		D506551C1B4323D7002D192D /* SLMultipeerLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMultipeerLink.m; sourceTree = "<group>"; };
+		D506551D1B4323D7002D192D /* SLMultipeerTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMultipeerTransport.h; sourceTree = "<group>"; };
+		D506551E1B4323D7002D192D /* SLMultipeerTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMultipeerTransport.m; sourceTree = "<group>"; };
+		D506551F1B4323D7002D192D /* UDRunLoopThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDRunLoopThread.h; sourceTree = "<group>"; };
+		D50655201B4323D7002D192D /* UDRunLoopThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDRunLoopThread.m; sourceTree = "<group>"; };
+		D50655231B4323D7002D192D /* UDWifiReach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDWifiReach.h; sourceTree = "<group>"; };
+		D50655241B4323D7002D192D /* UDWifiReach.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDWifiReach.m; sourceTree = "<group>"; };
+		D50655251B4323D7002D192D /* UDAggLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDAggLink.h; sourceTree = "<group>"; };
+		D50655261B4323D7002D192D /* UDAggLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDAggLink.m; sourceTree = "<group>"; };
+		D50655271B4323D7002D192D /* UDAggTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDAggTransport.h; sourceTree = "<group>"; };
+		D50655281B4323D7002D192D /* UDAggTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDAggTransport.m; sourceTree = "<group>"; };
+		D50655291B4323D7002D192D /* UDAsyncUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDAsyncUtils.h; sourceTree = "<group>"; };
+		D506552A1B4323D7002D192D /* UDAsyncUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDAsyncUtils.m; sourceTree = "<group>"; };
+		D507B69C1BFCFFED00788BA1 /* UDRouterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDRouterTests.m; sourceTree = "<group>"; };
+		D507B69F1BFD07E500788BA1 /* UDMockHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDMockHandler.h; sourceTree = "<group>"; };
+		D507B6A01BFD07E500788BA1 /* UDMockHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDMockHandler.m; sourceTree = "<group>"; };
+		D507B6A11BFD07E500788BA1 /* UDMockLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDMockLink.h; sourceTree = "<group>"; };
+		D507B6A21BFD07E500788BA1 /* UDMockLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDMockLink.m; sourceTree = "<group>"; };
+		D507B6A31BFD07E500788BA1 /* UDMockMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDMockMesh.h; sourceTree = "<group>"; };
+		D507B6A41BFD07E500788BA1 /* UDMockMesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDMockMesh.m; sourceTree = "<group>"; };
+		D507B6A51BFD07E500788BA1 /* UDMockNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDMockNode.h; sourceTree = "<group>"; };
+		D507B6A61BFD07E500788BA1 /* UDMockNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDMockNode.m; sourceTree = "<group>"; };
+		D507B6A71BFD07E500788BA1 /* UDMockTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDMockTransport.h; sourceTree = "<group>"; };
+		D507B6A81BFD07E500788BA1 /* UDMockTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDMockTransport.m; sourceTree = "<group>"; };
+		D50A92451B471421003F9B38 /* UDBonjourBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDBonjourBrowser.h; sourceTree = "<group>"; };
+		D50A92461B471421003F9B38 /* UDBonjourBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDBonjourBrowser.m; sourceTree = "<group>"; };
+		D50A92491B471432003F9B38 /* UDBonjourServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDBonjourServer.h; sourceTree = "<group>"; };
+		D50A924A1B471432003F9B38 /* UDBonjourServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDBonjourServer.m; sourceTree = "<group>"; };
+		D50A92541B48583A003F9B38 /* UDBtReach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDBtReach.h; sourceTree = "<group>"; };
+		D50A92551B48583A003F9B38 /* UDBtReach.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDBtReach.m; sourceTree = "<group>"; };
+		D51565C31B44233400101C06 /* UDLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDLogging.h; sourceTree = "<group>"; };
+		D51565C41B44233400101C06 /* UDLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDLogging.m; sourceTree = "<group>"; };
+		D51565C81B442E1D00101C06 /* Commands.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commands.pb.h; sourceTree = "<group>"; };
+		D51565C91B442E1D00101C06 /* Commands.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Commands.pb.m; sourceTree = "<group>"; };
+		D51565CA1B442E1D00101C06 /* Events.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.pb.h; sourceTree = "<group>"; };
+		D51565CB1B442E1D00101C06 /* Events.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Events.pb.m; sourceTree = "<group>"; };
+		D51565CC1B442E1D00101C06 /* Frames.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frames.pb.h; sourceTree = "<group>"; };
+		D51565CD1B442E1D00101C06 /* Frames.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Frames.pb.m; sourceTree = "<group>"; };
+		D51565D81B4432DC00101C06 /* UDConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDConfig.h; sourceTree = "<group>"; };
+		D51565D91B4432DC00101C06 /* UDConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDConfig.m; sourceTree = "<group>"; };
+		D5287AB11B485FB0002A0B5E /* UDReach.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDReach.h; sourceTree = "<group>"; };
+		D528C5941B44895500E4FC8C /* UDLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDLink.h; sourceTree = "<group>"; };
+		D528C5951B44895500E4FC8C /* UDTimeExtender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDTimeExtender.h; sourceTree = "<group>"; };
+		D528C5961B44895500E4FC8C /* UDTimeExtender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDTimeExtender.m; sourceTree = "<group>"; };
+		D528C5971B44895500E4FC8C /* UDTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDTransport.h; sourceTree = "<group>"; };
+		D528C5981B44895500E4FC8C /* UDTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDTransport.m; sourceTree = "<group>"; };
+		D528C5991B44895500E4FC8C /* UDUnderdark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDUnderdark.h; sourceTree = "<group>"; };
+		D528C59A1B44895500E4FC8C /* UDUnderdark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDUnderdark.m; sourceTree = "<group>"; };
+		D528C59B1B44895500E4FC8C /* Underdark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Underdark.h; sourceTree = "<group>"; };
+		D539EC7E1B45555A00A7D6E9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		D559CCC81BA3256E0057CF17 /* UDNsdService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDNsdService.h; sourceTree = "<group>"; };
+		D559CCC91BA3256E0057CF17 /* UDNsdService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdService.m; sourceTree = "<group>"; };
+		D559CCCC1BA462B90057CF17 /* UDNsdUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdUtil.m; sourceTree = "<group>"; };
+		D559CCCE1BA462C80057CF17 /* UDNsdUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDNsdUtil.h; sourceTree = "<group>"; };
+		D594259F1BFC27D30069B5F8 /* Packets.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Packets.pb.h; sourceTree = "<group>"; };
+		D59425A01BFC27D30069B5F8 /* Packets.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Packets.pb.m; sourceTree = "<group>"; };
+		D59425A31BFC282F0069B5F8 /* UDPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPacket.h; sourceTree = "<group>"; };
+		D59425A41BFC282F0069B5F8 /* UDPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPacket.m; sourceTree = "<group>"; };
+		D59425A71BFC28EE0069B5F8 /* UDPacketKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPacketKind.h; sourceTree = "<group>"; };
+		D59425A81BFC28EE0069B5F8 /* UDPacketKind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPacketKind.m; sourceTree = "<group>"; };
+		D59425AB1BFC2B230069B5F8 /* UDRouterImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDRouterImpl.h; sourceTree = "<group>"; };
+		D59425AC1BFC2B230069B5F8 /* UDRouterImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDRouterImpl.m; sourceTree = "<group>"; };
+		D59425AF1BFC2B370069B5F8 /* UDRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDRouter.h; sourceTree = "<group>"; };
+		D59425B01BFC2B370069B5F8 /* UDRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDRouter.m; sourceTree = "<group>"; };
+		D5983C311B46EF0600F7B6F9 /* UDLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDLogger.h; sourceTree = "<group>"; };
+		D5A364B51C2773BB0054DB0A /* Packet+Builders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Packet+Builders.h"; sourceTree = "<group>"; };
+		D5A364B61C2773BB0054DB0A /* Packet+Builders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Packet+Builders.m"; sourceTree = "<group>"; };
+		D5C7DA2F1BA5A525009DDD00 /* UDNsdLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDNsdLink.h; sourceTree = "<group>"; };
+		D5C7DA301BA5A525009DDD00 /* UDNsdLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdLink.m; sourceTree = "<group>"; };
+		D5C7DA341BA5FB30009DDD00 /* UDNsdServerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdServerTests.m; sourceTree = "<group>"; };
+		D5C9426D1C0C56D400949913 /* UDUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDUtil.h; sourceTree = "<group>"; };
+		D5C9426E1C0C56D400949913 /* UDUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDUtil.m; sourceTree = "<group>"; };
+		D5DDCE921B430F21007B8E3E /* Underdark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Underdark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5DDCE961B430F21007B8E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5DDCE9D1B430F21007B8E3E /* UnderdarkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnderdarkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5DDCEA31B430F21007B8E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5DDCEA41B430F21007B8E3E /* UDNsdBrowserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UDNsdBrowserTests.m; sourceTree = "<group>"; };
+		DB5439547293491E288D9B18 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EA337C95ACE2828E733481E0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5DDCE8E1B430F21007B8E3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F1C7E918CF22913ADFDFF7A /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5DDCE9A1B430F21007B8E3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5DDCE9E1B430F21007B8E3E /* Underdark.framework in Frameworks */,
+				6EC09173A08BCFB48B6F7F07 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		373C266D77B188D618829782 /* Nsd */ = {
+			isa = PBXGroup;
+			children = (
+				373C24894221C1C5A90F07F6 /* UDNsdTransport.h */,
+				373C2B9DBAEAB335CFFFAEC6 /* UDNsdTransport.m */,
+				D559CCCE1BA462C80057CF17 /* UDNsdUtil.h */,
+				D559CCCC1BA462B90057CF17 /* UDNsdUtil.m */,
+				D559CCC81BA3256E0057CF17 /* UDNsdService.h */,
+				D559CCC91BA3256E0057CF17 /* UDNsdService.m */,
+				373C266D1B9178E5540EC653 /* UDNsdBrowser.h */,
+				373C222D5E588991176D437D /* UDNsdBrowser.m */,
+				373C28A8E8DB3E86AD2FDC6C /* UDNsdAdvertiser.h */,
+				373C206B6A43A73E593C5CD8 /* UDNsdAdvertiser.m */,
+				373C2F98CBCA65F3234B3A3C /* UDNsdServer.h */,
+				373C2967D01997B3D20222FB /* UDNsdServer.m */,
+				D5C7DA2F1BA5A525009DDD00 /* UDNsdLink.h */,
+				D5C7DA301BA5A525009DDD00 /* UDNsdLink.m */,
+			);
+			name = Nsd;
+			sourceTree = "<group>";
+		};
+		D50655581B432416002D192D /* Aggregate */ = {
+			isa = PBXGroup;
+			children = (
+				D50655251B4323D7002D192D /* UDAggLink.h */,
+				D50655261B4323D7002D192D /* UDAggLink.m */,
+				D50655271B4323D7002D192D /* UDAggTransport.h */,
+				D50655281B4323D7002D192D /* UDAggTransport.m */,
+			);
+			name = Aggregate;
+			sourceTree = "<group>";
+		};
+		D50655591B432425002D192D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D5983C301B46EEC000F7B6F9 /* Logging */,
+				D51565D81B4432DC00101C06 /* UDConfig.h */,
+				D51565D91B4432DC00101C06 /* UDConfig.m */,
+				D506551F1B4323D7002D192D /* UDRunLoopThread.h */,
+				D50655201B4323D7002D192D /* UDRunLoopThread.m */,
+				D50655291B4323D7002D192D /* UDAsyncUtils.h */,
+				D506552A1B4323D7002D192D /* UDAsyncUtils.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		D506555A1B43242F002D192D /* Bonjour */ = {
+			isa = PBXGroup;
+			children = (
+				D506555B1B432461002D192D /* Beacon */,
+				D50655071B4323D7002D192D /* UDBonjourLink.h */,
+				D50655081B4323D7002D192D /* UDBonjourLink.m */,
+				D50655091B4323D7002D192D /* UDBonjourTransport.h */,
+				D506550A1B4323D7002D192D /* UDBonjourTransport.m */,
+				D50A92451B471421003F9B38 /* UDBonjourBrowser.h */,
+				D50A92461B471421003F9B38 /* UDBonjourBrowser.m */,
+				D50A92491B471432003F9B38 /* UDBonjourServer.h */,
+				D50A924A1B471432003F9B38 /* UDBonjourServer.m */,
+			);
+			name = Bonjour;
+			sourceTree = "<group>";
+		};
+		D506555B1B432461002D192D /* Beacon */ = {
+			isa = PBXGroup;
+			children = (
+				D506550B1B4323D7002D192D /* UDBtBeacon.h */,
+				D506550C1B4323D7002D192D /* UDBtBeacon.m */,
+			);
+			name = Beacon;
+			sourceTree = "<group>";
+		};
+		D506555C1B4324BF002D192D /* Multipeer */ = {
+			isa = PBXGroup;
+			children = (
+				D506551B1B4323D7002D192D /* SLMultipeerLink.h */,
+				D506551C1B4323D7002D192D /* SLMultipeerLink.m */,
+				D506551D1B4323D7002D192D /* SLMultipeerTransport.h */,
+				D506551E1B4323D7002D192D /* SLMultipeerTransport.m */,
+			);
+			name = Multipeer;
+			sourceTree = "<group>";
+		};
+		D506555D1B4324D7002D192D /* Inet */ = {
+			isa = PBXGroup;
+			children = (
+				D50655151B4323D7002D192D /* SLInetLink.h */,
+				D50655161B4323D7002D192D /* SLInetLink.m */,
+				D50655171B4323D7002D192D /* SLInetReach.h */,
+				D50655181B4323D7002D192D /* SLInetReach.m */,
+				D50655191B4323D7002D192D /* SLInetTransport.h */,
+				D506551A1B4323D7002D192D /* SLInetTransport.m */,
+			);
+			name = Inet;
+			sourceTree = "<group>";
+		};
+		D506555E1B4324E1002D192D /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				D506555F1B4324E7002D192D /* Central */,
+				D50655601B4324ED002D192D /* Peripheral */,
+				D50655051B4323D7002D192D /* SLBluetoothTransport.h */,
+				D50655061B4323D7002D192D /* SLBluetoothTransport.m */,
+			);
+			name = Bluetooth;
+			sourceTree = "<group>";
+		};
+		D506555F1B4324E7002D192D /* Central */ = {
+			isa = PBXGroup;
+			children = (
+				D506550D1B4323D7002D192D /* SLBtCentral.h */,
+				D506550E1B4323D7002D192D /* SLBtCentral.m */,
+				D506550F1B4323D7002D192D /* SLBtCentralLink.h */,
+				D50655101B4323D7002D192D /* SLBtCentralLink.m */,
+			);
+			name = Central;
+			sourceTree = "<group>";
+		};
+		D50655601B4324ED002D192D /* Peripheral */ = {
+			isa = PBXGroup;
+			children = (
+				D50655111B4323D7002D192D /* SLBtPeripheral.h */,
+				D50655121B4323D7002D192D /* SLBtPeripheral.m */,
+				D50655131B4323D7002D192D /* SLBtPeripheralLink.h */,
+				D50655141B4323D7002D192D /* SLBtPeripheralLink.m */,
+			);
+			name = Peripheral;
+			sourceTree = "<group>";
+		};
+		D507B69E1BFD022000788BA1 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				D507B69F1BFD07E500788BA1 /* UDMockHandler.h */,
+				D507B6A01BFD07E500788BA1 /* UDMockHandler.m */,
+				D507B6A11BFD07E500788BA1 /* UDMockLink.h */,
+				D507B6A21BFD07E500788BA1 /* UDMockLink.m */,
+				D507B6A31BFD07E500788BA1 /* UDMockMesh.h */,
+				D507B6A41BFD07E500788BA1 /* UDMockMesh.m */,
+				D507B6A51BFD07E500788BA1 /* UDMockNode.h */,
+				D507B6A61BFD07E500788BA1 /* UDMockNode.m */,
+				D507B6A71BFD07E500788BA1 /* UDMockTransport.h */,
+				D507B6A81BFD07E500788BA1 /* UDMockTransport.m */,
+			);
+			name = Mock;
+			sourceTree = "<group>";
+		};
+		D50A92531B485811003F9B38 /* Reach */ = {
+			isa = PBXGroup;
+			children = (
+				D5287AB11B485FB0002A0B5E /* UDReach.h */,
+				D50655231B4323D7002D192D /* UDWifiReach.h */,
+				D50655241B4323D7002D192D /* UDWifiReach.m */,
+				D50A92541B48583A003F9B38 /* UDBtReach.h */,
+				D50A92551B48583A003F9B38 /* UDBtReach.m */,
+			);
+			name = Reach;
+			sourceTree = "<group>";
+		};
+		D51565C21B44230300101C06 /* Transport */ = {
+			isa = PBXGroup;
+			children = (
+				D50A92531B485811003F9B38 /* Reach */,
+				D50655581B432416002D192D /* Aggregate */,
+				D506555A1B43242F002D192D /* Bonjour */,
+				D506555E1B4324E1002D192D /* Bluetooth */,
+				D506555D1B4324D7002D192D /* Inet */,
+				D506555C1B4324BF002D192D /* Multipeer */,
+				373C266D77B188D618829782 /* Nsd */,
+			);
+			name = Transport;
+			sourceTree = "<group>";
+		};
+		D51565C71B442E1000101C06 /* Protobuf */ = {
+			isa = PBXGroup;
+			children = (
+				D594259F1BFC27D30069B5F8 /* Packets.pb.h */,
+				D59425A01BFC27D30069B5F8 /* Packets.pb.m */,
+				D51565C81B442E1D00101C06 /* Commands.pb.h */,
+				D51565C91B442E1D00101C06 /* Commands.pb.m */,
+				D51565CA1B442E1D00101C06 /* Events.pb.h */,
+				D51565CB1B442E1D00101C06 /* Events.pb.m */,
+				D51565CC1B442E1D00101C06 /* Frames.pb.h */,
+				D51565CD1B442E1D00101C06 /* Frames.pb.m */,
+			);
+			name = Protobuf;
+			sourceTree = "<group>";
+		};
+		D528C5931B44895500E4FC8C /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				D528C59B1B44895500E4FC8C /* Underdark.h */,
+				D528C5991B44895500E4FC8C /* UDUnderdark.h */,
+				D528C59A1B44895500E4FC8C /* UDUnderdark.m */,
+				D5983C311B46EF0600F7B6F9 /* UDLogger.h */,
+				D528C5941B44895500E4FC8C /* UDLink.h */,
+				D528C5951B44895500E4FC8C /* UDTimeExtender.h */,
+				D528C5961B44895500E4FC8C /* UDTimeExtender.m */,
+				D528C5971B44895500E4FC8C /* UDTransport.h */,
+				D528C5981B44895500E4FC8C /* UDTransport.m */,
+				D5C9426D1C0C56D400949913 /* UDUtil.h */,
+				D5C9426E1C0C56D400949913 /* UDUtil.m */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		D594259E1BFC27C70069B5F8 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D5A364B51C2773BB0054DB0A /* Packet+Builders.h */,
+				D5A364B61C2773BB0054DB0A /* Packet+Builders.m */,
+				D59425A71BFC28EE0069B5F8 /* UDPacketKind.h */,
+				D59425A81BFC28EE0069B5F8 /* UDPacketKind.m */,
+				D59425A31BFC282F0069B5F8 /* UDPacket.h */,
+				D59425A41BFC282F0069B5F8 /* UDPacket.m */,
+				D59425AF1BFC2B370069B5F8 /* UDRouter.h */,
+				D59425B01BFC2B370069B5F8 /* UDRouter.m */,
+				D59425AB1BFC2B230069B5F8 /* UDRouterImpl.h */,
+				D59425AC1BFC2B230069B5F8 /* UDRouterImpl.m */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		D5983C301B46EEC000F7B6F9 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				D51565C31B44233400101C06 /* UDLogging.h */,
+				D51565C41B44233400101C06 /* UDLogging.m */,
+			);
+			name = Logging;
+			sourceTree = "<group>";
+		};
+		D5DDCE881B430F21007B8E3E = {
+			isa = PBXGroup;
+			children = (
+				D5DDCE941B430F21007B8E3E /* Underdark */,
+				D5DDCEA11B430F21007B8E3E /* UnderdarkTests */,
+				D5DDCEBB1B431257007B8E3E /* Libraries */,
+				D5DDCE931B430F21007B8E3E /* Products */,
+				EA3E80C195227F465C8A9E1C /* Pods */,
+				F1FCBAC4CA5D41198528A219 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D5DDCE931B430F21007B8E3E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5DDCE921B430F21007B8E3E /* Underdark.framework */,
+				D5DDCE9D1B430F21007B8E3E /* UnderdarkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5DDCE941B430F21007B8E3E /* Underdark */ = {
+			isa = PBXGroup;
+			children = (
+				D539EC7E1B45555A00A7D6E9 /* Podfile */,
+				D528C5931B44895500E4FC8C /* Public */,
+				D594259E1BFC27C70069B5F8 /* Router */,
+				D51565C21B44230300101C06 /* Transport */,
+				D50655591B432425002D192D /* Util */,
+				D51565C71B442E1000101C06 /* Protobuf */,
+				D5DDCE951B430F21007B8E3E /* Supporting Files */,
+			);
+			path = Underdark;
+			sourceTree = "<group>";
+		};
+		D5DDCE951B430F21007B8E3E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5DDCE961B430F21007B8E3E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D5DDCEA11B430F21007B8E3E /* UnderdarkTests */ = {
+			isa = PBXGroup;
+			children = (
+				D507B69E1BFD022000788BA1 /* Mock */,
+				D507B69C1BFCFFED00788BA1 /* UDRouterTests.m */,
+				D5DDCEA41B430F21007B8E3E /* UDNsdBrowserTests.m */,
+				D5C7DA341BA5FB30009DDD00 /* UDNsdServerTests.m */,
+				D5DDCEA21B430F21007B8E3E /* Supporting Files */,
+			);
+			path = UnderdarkTests;
+			sourceTree = "<group>";
+		};
+		D5DDCEA21B430F21007B8E3E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5DDCEA31B430F21007B8E3E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D5DDCEBB1B431257007B8E3E /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		EA3E80C195227F465C8A9E1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB5439547293491E288D9B18 /* Pods.debug.xcconfig */,
+				1E0A05D00306112B07A1AAEA /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F1FCBAC4CA5D41198528A219 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA337C95ACE2828E733481E0 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D5DDCE8F1B430F21007B8E3E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D528C59C1B44895500E4FC8C /* UDLink.h in Headers */,
+				D528C59D1B44895500E4FC8C /* UDTimeExtender.h in Headers */,
+				D528C5A41B448A0400E4FC8C /* UDTimeExtender.m in Headers */,
+				D528C59F1B44895500E4FC8C /* UDTransport.h in Headers */,
+				D528C5A51B448A0400E4FC8C /* UDTransport.m in Headers */,
+				D528C5A11B44895500E4FC8C /* UDUnderdark.h in Headers */,
+				D50A924B1B471432003F9B38 /* UDBonjourServer.h in Headers */,
+				D528C5A61B448A0400E4FC8C /* UDUnderdark.m in Headers */,
+				D528C5A31B44895500E4FC8C /* Underdark.h in Headers */,
+				D50655531B4323D8002D192D /* UDAsyncUtils.h in Headers */,
+				D51565CE1B442E1D00101C06 /* Commands.pb.h in Headers */,
+				D5287AB21B485FB7002A0B5E /* UDReach.h in Headers */,
+				D50655411B4323D7002D192D /* SLInetReach.h in Headers */,
+				D59425A91BFC28EE0069B5F8 /* UDPacketKind.h in Headers */,
+				D506553D1B4323D7002D192D /* SLBtPeripheralLink.h in Headers */,
+				D5A364B71C2773BB0054DB0A /* Packet+Builders.h in Headers */,
+				D51565D01B442E1D00101C06 /* Events.pb.h in Headers */,
+				D506553F1B4323D7002D192D /* SLInetLink.h in Headers */,
+				D50655431B4323D7002D192D /* SLInetTransport.h in Headers */,
+				D51565DA1B4432DC00101C06 /* UDConfig.h in Headers */,
+				D50655311B4323D7002D192D /* UDBonjourLink.h in Headers */,
+				D51565C51B44233400101C06 /* UDLogging.h in Headers */,
+				D559CCCA1BA3256E0057CF17 /* UDNsdService.h in Headers */,
+				D50A92471B471421003F9B38 /* UDBonjourBrowser.h in Headers */,
+				D506554F1B4323D8002D192D /* UDAggLink.h in Headers */,
+				D50655471B4323D7002D192D /* SLMultipeerTransport.h in Headers */,
+				D50655331B4323D7002D192D /* UDBonjourTransport.h in Headers */,
+				D50A92561B48583A003F9B38 /* UDBtReach.h in Headers */,
+				D506553B1B4323D7002D192D /* SLBtPeripheral.h in Headers */,
+				D50655511B4323D8002D192D /* UDAggTransport.h in Headers */,
+				D59425A11BFC27D30069B5F8 /* Packets.pb.h in Headers */,
+				D50655391B4323D7002D192D /* SLBtCentralLink.h in Headers */,
+				D506554D1B4323D7002D192D /* UDWifiReach.h in Headers */,
+				D5983C321B46EF0F00F7B6F9 /* UDLogger.h in Headers */,
+				D506552F1B4323D7002D192D /* SLBluetoothTransport.h in Headers */,
+				D50655371B4323D7002D192D /* SLBtCentral.h in Headers */,
+				D5C7DA311BA5A525009DDD00 /* UDNsdLink.h in Headers */,
+				D59425B11BFC2B370069B5F8 /* UDRouter.h in Headers */,
+				D5C9426F1C0C56D400949913 /* UDUtil.h in Headers */,
+				D50655491B4323D7002D192D /* UDRunLoopThread.h in Headers */,
+				D50655351B4323D7002D192D /* UDBtBeacon.h in Headers */,
+				D50655451B4323D7002D192D /* SLMultipeerLink.h in Headers */,
+				D51565D21B442E1D00101C06 /* Frames.pb.h in Headers */,
+				373C2980A17274938C7679C9 /* UDNsdBrowser.h in Headers */,
+				373C2F3ECEDA842FDC866B59 /* UDNsdAdvertiser.h in Headers */,
+				D59425A51BFC282F0069B5F8 /* UDPacket.h in Headers */,
+				373C2A2C15C0B210ADBEEC3C /* UDNsdServer.h in Headers */,
+				D59425AD1BFC2B230069B5F8 /* UDRouterImpl.h in Headers */,
+				373C217E5BA05C9ACD8C3CA1 /* UDNsdTransport.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D5DDCE911B430F21007B8E3E /* Underdark */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5DDCEA81B430F21007B8E3E /* Build configuration list for PBXNativeTarget "Underdark" */;
+			buildPhases = (
+				7441B5CE9FAC6F7230A21FE0 /* Check Pods Manifest.lock */,
+				D50655011B4322F8002D192D /* Protocol Buffers */,
+				D5DDCE8D1B430F21007B8E3E /* Sources */,
+				D5DDCE8E1B430F21007B8E3E /* Frameworks */,
+				D5DDCE8F1B430F21007B8E3E /* Headers */,
+				D5DDCE901B430F21007B8E3E /* Resources */,
+				92BC5D7F78874E250A3A6AE5 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Underdark;
+			productName = Underdark;
+			productReference = D5DDCE921B430F21007B8E3E /* Underdark.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D5DDCE9C1B430F21007B8E3E /* UnderdarkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5DDCEAB1B430F21007B8E3E /* Build configuration list for PBXNativeTarget "UnderdarkTests" */;
+			buildPhases = (
+				254EB093935DAF364917F069 /* Check Pods Manifest.lock */,
+				D5DDCE991B430F21007B8E3E /* Sources */,
+				D5DDCE9A1B430F21007B8E3E /* Frameworks */,
+				D5DDCE9B1B430F21007B8E3E /* Resources */,
+				B85BC8EA896FB69DADF526E0 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5DDCEA01B430F21007B8E3E /* PBXTargetDependency */,
+			);
+			name = UnderdarkTests;
+			productName = UnderdarkTests;
+			productReference = D5DDCE9D1B430F21007B8E3E /* UnderdarkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5DDCE891B430F21007B8E3E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = UD;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Underdark;
+				TargetAttributes = {
+					D528C58A1B44567B00E4FC8C = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					D5DDCE911B430F21007B8E3E = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					D5DDCE9C1B430F21007B8E3E = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
+			};
+			buildConfigurationList = D5DDCE8C1B430F21007B8E3E /* Build configuration list for PBXProject "Underdark" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D5DDCE881B430F21007B8E3E;
+			productRefGroup = D5DDCE931B430F21007B8E3E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5DDCE911B430F21007B8E3E /* Underdark */,
+				D5DDCE9C1B430F21007B8E3E /* UnderdarkTests */,
+				D528C58A1B44567B00E4FC8C /* Underdark-Universal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D5DDCE901B430F21007B8E3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5DDCE9B1B430F21007B8E3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		254EB093935DAF364917F069 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7441B5CE9FAC6F7230A21FE0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		92BC5D7F78874E250A3A6AE5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B85BC8EA896FB69DADF526E0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D50655011B4322F8002D192D /* Protocol Buffers */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Protocol Buffers";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PATH=$PATH:/usr/local/bin\n#protoc --proto_path ../../../solid-proto ../../../solid-proto/Frames.proto --objc_out=Underdark\n#protoc --proto_path ../../../solid-proto ../../../solid-proto/Packets.proto --objc_out=Underdark\n#protoc --proto_path ../../../solid-proto ../../../solid-proto/Commands.proto --objc_out=Underdark\n#protoc --proto_path ../../../solid-proto ../../../solid-proto/Events.proto --objc_out=Underdark\n";
+		};
+		D528C58E1B44568700E4FC8C /* Universal Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Universal Framework";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# https://medium.com/@syshen/create-an-ios-universal-framework-148eb130a46c\n\n######################\n# Options\n######################\n\nREVEAL_ARCHIVE_IN_FINDER=true\n\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\n\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_NAME}.framework\"\n\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_NAME}.framework\"\n\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\n\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_NAME}.framework\"\n\n\n######################\n# Build Frameworks\n######################\n\nxcodebuild -workspace ${PROJECT_NAME}.xcworkspace -scheme ${PROJECT_NAME} -sdk iphonesimulator -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphonesimulator 2>&1\n\nxcodebuild -workspace ${PROJECT_NAME}.xcworkspace -scheme ${PROJECT_NAME} -sdk iphoneos -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos 2>&1\n\n######################\n# Create directory for universal\n######################\n\nrm -rf \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${FRAMEWORK}\"\n\n\n######################\n# Copy files Framework\n######################\n\ncp -r \"${DEVICE_LIBRARY_PATH}/.\" \"${FRAMEWORK}\"\n\n\n######################\n# Make an universal binary\n######################\n\nlipo \"${SIMULATOR_LIBRARY_PATH}/${FRAMEWORK_NAME}\" \"${DEVICE_LIBRARY_PATH}/${FRAMEWORK_NAME}\" -create -output \"${FRAMEWORK}/${FRAMEWORK_NAME}\" | echo\n\n# For Swift framework, Swiftmodule needs to be copied in the universal framework\nif [ -d \"${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\ncp -f \"${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/*\" \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\nfi\n\nif [ -d \"${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\ncp -f \"${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/*\" \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\nfi\n\n######################\n# On Release, copy the result to release directory\n######################\nOUTPUT_DIR=\"${PROJECT_DIR}/Output/${FRAMEWORK_NAME}-${CONFIGURATION}-iphoneuniversal/\"\n\nrm -rf \"$OUTPUT_DIR\"\nmkdir -p \"$OUTPUT_DIR\"\n\ncp -r \"${FRAMEWORK}\" \"$OUTPUT_DIR\"\n\nrm -f \"$OUTPUT_DIR/${FRAMEWORK_NAME}.zip\"\ncd \"${OUTPUT_DIR}\"\nzip -r \"${FRAMEWORK_NAME}.zip\" \"${FRAMEWORK_NAME}.framework\"\n\nif [ ${REVEAL_ARCHIVE_IN_FINDER} = true ]; then\nopen \"${OUTPUT_DIR}/\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D5DDCE8D1B430F21007B8E3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D50655501B4323D8002D192D /* UDAggLink.m in Sources */,
+				D5A364B81C2773BB0054DB0A /* Packet+Builders.m in Sources */,
+				D506554E1B4323D8002D192D /* UDWifiReach.m in Sources */,
+				D5C942701C0C56D400949913 /* UDUtil.m in Sources */,
+				D50655381B4323D7002D192D /* SLBtCentral.m in Sources */,
+				D50655361B4323D7002D192D /* UDBtBeacon.m in Sources */,
+				D50A92571B48583A003F9B38 /* UDBtReach.m in Sources */,
+				D59425AE1BFC2B230069B5F8 /* UDRouterImpl.m in Sources */,
+				D528C5A01B44895500E4FC8C /* UDTransport.m in Sources */,
+				D5C7DA321BA5A525009DDD00 /* UDNsdLink.m in Sources */,
+				D50655421B4323D7002D192D /* SLInetReach.m in Sources */,
+				D59425AA1BFC28EE0069B5F8 /* UDPacketKind.m in Sources */,
+				D50655461B4323D7002D192D /* SLMultipeerLink.m in Sources */,
+				D528C5A21B44895500E4FC8C /* UDUnderdark.m in Sources */,
+				D50655401B4323D7002D192D /* SLInetLink.m in Sources */,
+				D59425B21BFC2B370069B5F8 /* UDRouter.m in Sources */,
+				D50655441B4323D7002D192D /* SLInetTransport.m in Sources */,
+				D50655481B4323D7002D192D /* SLMultipeerTransport.m in Sources */,
+				D559CCCD1BA462B90057CF17 /* UDNsdUtil.m in Sources */,
+				D50A924C1B471432003F9B38 /* UDBonjourServer.m in Sources */,
+				D50655321B4323D7002D192D /* UDBonjourLink.m in Sources */,
+				D528C59E1B44895500E4FC8C /* UDTimeExtender.m in Sources */,
+				D59425A21BFC27D30069B5F8 /* Packets.pb.m in Sources */,
+				D506554A1B4323D7002D192D /* UDRunLoopThread.m in Sources */,
+				D51565D31B442E1D00101C06 /* Frames.pb.m in Sources */,
+				D51565C61B44233400101C06 /* UDLogging.m in Sources */,
+				D51565DB1B4432DC00101C06 /* UDConfig.m in Sources */,
+				D51565D11B442E1D00101C06 /* Events.pb.m in Sources */,
+				D559CCCB1BA3256E0057CF17 /* UDNsdService.m in Sources */,
+				D59425A61BFC282F0069B5F8 /* UDPacket.m in Sources */,
+				D50655521B4323D8002D192D /* UDAggTransport.m in Sources */,
+				D50655541B4323D8002D192D /* UDAsyncUtils.m in Sources */,
+				D51565CF1B442E1D00101C06 /* Commands.pb.m in Sources */,
+				D506553E1B4323D7002D192D /* SLBtPeripheralLink.m in Sources */,
+				D50A92481B471421003F9B38 /* UDBonjourBrowser.m in Sources */,
+				D506553C1B4323D7002D192D /* SLBtPeripheral.m in Sources */,
+				D50655341B4323D7002D192D /* UDBonjourTransport.m in Sources */,
+				D506553A1B4323D7002D192D /* SLBtCentralLink.m in Sources */,
+				D50655301B4323D7002D192D /* SLBluetoothTransport.m in Sources */,
+				373C283730F845BF75B511A0 /* UDNsdBrowser.m in Sources */,
+				373C2A3715A6B64DAE8714B7 /* UDNsdAdvertiser.m in Sources */,
+				373C2ED7897748DF23D3DF8B /* UDNsdServer.m in Sources */,
+				373C24F8F2B23BAC5F598C11 /* UDNsdTransport.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5DDCE991B430F21007B8E3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D507B6AC1BFD07E500788BA1 /* UDMockNode.m in Sources */,
+				D5DDCEA51B430F21007B8E3E /* UDNsdBrowserTests.m in Sources */,
+				D507B6AB1BFD07E500788BA1 /* UDMockMesh.m in Sources */,
+				D5C7DA351BA5FB30009DDD00 /* UDNsdServerTests.m in Sources */,
+				D507B6AD1BFD07E500788BA1 /* UDMockTransport.m in Sources */,
+				D507B6AA1BFD07E500788BA1 /* UDMockLink.m in Sources */,
+				D507B69D1BFCFFED00788BA1 /* UDRouterTests.m in Sources */,
+				D507B6A91BFD07E500788BA1 /* UDMockHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5DDCEA01B430F21007B8E3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5DDCE911B430F21007B8E3E /* Underdark */;
+			targetProxy = D5DDCE9F1B430F21007B8E3E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D528C58B1B44567B00E4FC8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D528C58C1B44567B00E4FC8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D5DDCEA61B430F21007B8E3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D5DDCEA71B430F21007B8E3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D5DDCEA91B430F21007B8E3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB5439547293491E288D9B18 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Underdark/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = io.underdark.lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D5DDCEAA1B430F21007B8E3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E0A05D00306112B07A1AAEA /* Pods.release.xcconfig */;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Underdark/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = io.underdark.lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		D5DDCEAC1B430F21007B8E3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB5439547293491E288D9B18 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = UnderdarkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.underdark.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D5DDCEAD1B430F21007B8E3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E0A05D00306112B07A1AAEA /* Pods.release.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = UnderdarkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.underdark.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D528C58D1B44567B00E4FC8C /* Build configuration list for PBXAggregateTarget "Underdark-Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D528C58B1B44567B00E4FC8C /* Debug */,
+				D528C58C1B44567B00E4FC8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5DDCE8C1B430F21007B8E3E /* Build configuration list for PBXProject "Underdark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5DDCEA61B430F21007B8E3E /* Debug */,
+				D5DDCEA71B430F21007B8E3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5DDCEA81B430F21007B8E3E /* Build configuration list for PBXNativeTarget "Underdark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5DDCEA91B430F21007B8E3E /* Debug */,
+				D5DDCEAA1B430F21007B8E3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5DDCEAB1B430F21007B8E3E /* Build configuration list for PBXNativeTarget "UnderdarkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5DDCEAC1B430F21007B8E3E /* Debug */,
+				D5DDCEAD1B430F21007B8E3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D5DDCE891B430F21007B8E3E /* Project object */;
+}

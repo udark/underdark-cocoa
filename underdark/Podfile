@@ -1,0 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+inhibit_all_warnings!
+
+link_with 'Underdark', 'UnderdarkTests'
+
+pod 'ProtocolBuffers', '~> 1.9'
+pod 'MSWeakTimer', '~> 1.1'
