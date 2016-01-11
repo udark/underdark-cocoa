@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4CA53D06DCD80C79B690645E396372112DDA0422",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "859C3B54A6409A16490F30528EA917721A07A918" : 0,
+    "4CA53D06DCD80C79B690645E396372112DDA0422" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "41516C71-32E9-4A39-AD86-50ED5CEF88C2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "859C3B54A6409A16490F30528EA917721A07A918" : "solidarity\/",
+    "4CA53D06DCD80C79B690645E396372112DDA0422" : "underdark-cocoa\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "UDApp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "udapp\/UDApp.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/udark\/underdark-cocoa.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4CA53D06DCD80C79B690645E396372112DDA0422"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/glint\/solidarity.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "859C3B54A6409A16490F30528EA917721A07A918"
+    }
+  ]
+}

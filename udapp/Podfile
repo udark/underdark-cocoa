@@ -1,0 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.1'
+
+link_with 'UDApp'
+inhibit_all_warnings!
+
+pod 'ProtocolBuffers', '~> 1.9'
+pod 'MSWeakTimer', '~> 1.1'
