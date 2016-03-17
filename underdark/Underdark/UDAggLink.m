@@ -51,6 +51,14 @@
 	return [_links containsObject:link];
 }
 
+- (void) disconnect
+{
+	for(id<UDLink> link in _links)
+	{
+		[link disconnect];
+	}
+}
+
 - (void) addLink:(id<UDLink>)link
 {
 	[_links addObject:link];
@@ -80,12 +88,9 @@
 	[link sendFrame:data];
 }
 
-- (void) disconnect
+- (void) sendData:(nonnull id<UDData>)data
 {
-	for(id<UDLink> link in _links)
-	{
-		[link disconnect];
-	}
+	
 }
 
 @end

@@ -17,10 +17,11 @@
 #import "UDAggTransport.h"
 
 #import "UDAggLink.h"
+#import "UDAggData.h"
 #import "UDLogging.h"
 #import "UDAsyncUtils.h"
 
-@interface UDAggTransport()
+@interface UDAggTransport() <UDAggDataDelegate>
 {
 	int32_t _appId;
 	__weak id<UDTransportDelegate> _delegate;
