@@ -96,11 +96,12 @@
 {
 	// User queue.
 	UDAggData* aggData = [[UDAggData alloc] initWithData:data delegate:_transport];
-	[aggData acquire];
+	[data giveup];
 	
 	sldispatch_async(_transport.ioqueue, ^{
-		[_transport enqueueData:aggData];		
-	});
+		[_transport enqueueData:aggData];
+		[aggData giveup];
+	});	
 }
 
 - (void) sendDataToChildren:(nonnull UDAggData*)data
@@ -108,7 +109,6 @@
 	// I/O queue.
 	id<UDLink> link = [_links firstObject];
 	if(!link) {
-		[data dispose];
 		return;
 	}
 	

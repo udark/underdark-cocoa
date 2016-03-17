@@ -38,7 +38,11 @@
  */
 - (void) sendFrame:(nonnull NSData*)frameData;
 
-- (void) sendData:(nonnull id<UDData>)frameData;
+/**
+ * Sends bytes to remote device as single atomic frame.
+ * @param data bytes to send. Automatically calls giveup() on that object.
+ */
+- (void) sendData:(nonnull id<UDData>)data;
 
 @end
 

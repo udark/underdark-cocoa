@@ -156,6 +156,11 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 #pragma mark - SLLink
 
+- (void) sendData:(nonnull id<UDData>)data
+{
+	
+}
+
 - (void) sendFrame:(NSData*)data
 {
 	// Transport queue.

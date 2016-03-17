@@ -16,7 +16,7 @@
 
 #import "UDAggData.h"
 
-#import "UDLink.h"
+#import "UDAggLink.h"
 
 @implementation UDAggData
 {
@@ -29,6 +29,8 @@
 		return self;
 	
 	_data = data;
+	[_data acquire];
+	
 	_delegate = delegate;
 
 	return self;

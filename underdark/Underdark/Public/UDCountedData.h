@@ -12,6 +12,9 @@
 
 @interface UDCountedData : NSObject <UDData>
 
+/**
+ * Inits ref counted data object with ref count = 1.
+ */
 - (instancetype) init NS_DESIGNATED_INITIALIZER;
 
 /**

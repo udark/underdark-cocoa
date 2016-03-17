@@ -179,6 +179,7 @@
 - (void) enqueueData:(nonnull UDAggData*)data
 {
 	// I/O queue.
+	[data acquire];
 	[_dataQueue addObject:data];
 	
 	if(_dataQueue.count == 1)
@@ -197,6 +198,7 @@
 	UDAggData* data = _dataQueue.firstObject;
 	[_dataQueue removeObjectAtIndex:0];
 	
-	[data.link sendData:data];
+	[data.link sendDataToChildren:data];
+	[data giveup];
 }
 @end

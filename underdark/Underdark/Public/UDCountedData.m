@@ -19,7 +19,7 @@
 	if(!(self = [super init]))
 		return self;
 	
-	_refCount = 0;
+	_refCount = 1;
 	_refCountLock = [[NSObject alloc] init];
 	
 	return self;

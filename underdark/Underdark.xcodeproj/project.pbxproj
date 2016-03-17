@@ -252,6 +252,8 @@
 		373C266D77B188D618829782 /* Nsd */ = {
 			isa = PBXGroup;
 			children = (
+				D5C7DA2F1BA5A525009DDD00 /* UDNsdLink.h */,
+				D5C7DA301BA5A525009DDD00 /* UDNsdLink.m */,
 				373C24894221C1C5A90F07F6 /* UDNsdTransport.h */,
 				373C2B9DBAEAB335CFFFAEC6 /* UDNsdTransport.m */,
 				D559CCCE1BA462C80057CF17 /* UDNsdUtil.h */,
@@ -264,8 +266,6 @@
 				373C206B6A43A73E593C5CD8 /* UDNsdAdvertiser.m */,
 				373C2F98CBCA65F3234B3A3C /* UDNsdServer.h */,
 				373C2967D01997B3D20222FB /* UDNsdServer.m */,
-				D5C7DA2F1BA5A525009DDD00 /* UDNsdLink.h */,
-				D5C7DA301BA5A525009DDD00 /* UDNsdLink.m */,
 			);
 			name = Nsd;
 			sourceTree = "<group>";

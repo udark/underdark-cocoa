@@ -20,6 +20,7 @@
 #import "UDLink.h"
 
 @class UDAggData;
+@class UDAggLink;
 
 @protocol UDAggDataDelegate <NSObject>
 
@@ -31,7 +32,7 @@
 @interface UDAggData : UDCountedData
 
 @property (nonatomic, weak) id<UDAggDataDelegate> delegate;
-@property (nonatomic, weak) id<UDLink> link;
+@property (nonatomic, weak) UDAggLink* link;
 
 - (nullable instancetype) initWithData:(nonnull id<UDData>)data delegate:(nullable id<UDAggDataDelegate>)delegate;
 
