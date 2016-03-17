@@ -17,14 +17,14 @@
 /**
  * Protocol for raw frame data storage for sending and receiving.
  */
-@protocol UDFrameData <NSObject>
+@protocol UDData <NSObject>
 
 /**
  * Retrieves data from object.
  * Implementations should call the completion handler
  * with retrieved data as argument, or null if data cannot be retrieved.
  */
-- (void) retrieve:(void (^)(nullable NSData* data) )completion;
+- (void) retrieve:(void (^ _Nonnull)( NSData* _Nullable  data) )completion;
 
 /**
  * Disposes this UDFrameData object, making any data that it uses irrelevant.

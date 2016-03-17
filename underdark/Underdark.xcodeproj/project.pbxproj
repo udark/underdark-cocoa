@@ -117,7 +117,9 @@
 		D5983C321B46EF0F00F7B6F9 /* UDLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D5983C311B46EF0600F7B6F9 /* UDLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5A364B71C2773BB0054DB0A /* Packet+Builders.h in Headers */ = {isa = PBXBuildFile; fileRef = D5A364B51C2773BB0054DB0A /* Packet+Builders.h */; };
 		D5A364B81C2773BB0054DB0A /* Packet+Builders.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A364B61C2773BB0054DB0A /* Packet+Builders.m */; };
-		D5B889971C9AA6C500DCAEC5 /* UDFrameData.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B889961C9AA6C500DCAEC5 /* UDFrameData.h */; };
+		D5B889971C9AA6C500DCAEC5 /* UDData.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B889961C9AA6C500DCAEC5 /* UDData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B8899B1C9AA9B300DCAEC5 /* UDMemoryData.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B889991C9AA9B300DCAEC5 /* UDMemoryData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B8899C1C9AA9B300DCAEC5 /* UDMemoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B8899A1C9AA9B300DCAEC5 /* UDMemoryData.m */; };
 		D5C7DA311BA5A525009DDD00 /* UDNsdLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C7DA2F1BA5A525009DDD00 /* UDNsdLink.h */; };
 		D5C7DA321BA5A525009DDD00 /* UDNsdLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C7DA301BA5A525009DDD00 /* UDNsdLink.m */; };
 		D5C7DA351BA5FB30009DDD00 /* UDNsdServerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C7DA341BA5FB30009DDD00 /* UDNsdServerTests.m */; };
@@ -237,7 +239,9 @@
 		D5983C311B46EF0600F7B6F9 /* UDLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDLogger.h; sourceTree = "<group>"; };
 		D5A364B51C2773BB0054DB0A /* Packet+Builders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Packet+Builders.h"; sourceTree = "<group>"; };
 		D5A364B61C2773BB0054DB0A /* Packet+Builders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Packet+Builders.m"; sourceTree = "<group>"; };
-		D5B889961C9AA6C500DCAEC5 /* UDFrameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDFrameData.h; sourceTree = "<group>"; };
+		D5B889961C9AA6C500DCAEC5 /* UDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDData.h; sourceTree = "<group>"; };
+		D5B889991C9AA9B300DCAEC5 /* UDMemoryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDMemoryData.h; sourceTree = "<group>"; };
+		D5B8899A1C9AA9B300DCAEC5 /* UDMemoryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDMemoryData.m; sourceTree = "<group>"; };
 		D5C7DA2F1BA5A525009DDD00 /* UDNsdLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDNsdLink.h; sourceTree = "<group>"; };
 		D5C7DA301BA5A525009DDD00 /* UDNsdLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdLink.m; sourceTree = "<group>"; };
 		D5C7DA341BA5FB30009DDD00 /* UDNsdServerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdServerTests.m; sourceTree = "<group>"; };
@@ -507,7 +511,9 @@
 		D5B889981C9AA92800DCAEC5 /* FrameData */ = {
 			isa = PBXGroup;
 			children = (
-				D5B889961C9AA6C500DCAEC5 /* UDFrameData.h */,
+				D5B889961C9AA6C500DCAEC5 /* UDData.h */,
+				D5B889991C9AA9B300DCAEC5 /* UDMemoryData.h */,
+				D5B8899A1C9AA9B300DCAEC5 /* UDMemoryData.m */,
 			);
 			name = FrameData;
 			sourceTree = "<group>";
@@ -607,6 +613,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D528C59C1B44895500E4FC8C /* UDLink.h in Headers */,
+				D5B8899B1C9AA9B300DCAEC5 /* UDMemoryData.h in Headers */,
 				D528C59D1B44895500E4FC8C /* UDTimeExtender.h in Headers */,
 				D528C5A41B448A0400E4FC8C /* UDTimeExtender.m in Headers */,
 				D528C59F1B44895500E4FC8C /* UDTransport.h in Headers */,
@@ -641,7 +648,7 @@
 				D506554D1B4323D7002D192D /* UDWifiReach.h in Headers */,
 				D5983C321B46EF0F00F7B6F9 /* UDLogger.h in Headers */,
 				D506552F1B4323D7002D192D /* SLBluetoothTransport.h in Headers */,
-				D5B889971C9AA6C500DCAEC5 /* UDFrameData.h in Headers */,
+				D5B889971C9AA6C500DCAEC5 /* UDData.h in Headers */,
 				D50655371B4323D7002D192D /* SLBtCentral.h in Headers */,
 				D5C7DA311BA5A525009DDD00 /* UDNsdLink.h in Headers */,
 				D59425B11BFC2B370069B5F8 /* UDRouter.h in Headers */,
@@ -861,6 +868,7 @@
 				D506554E1B4323D8002D192D /* UDWifiReach.m in Sources */,
 				D5C942701C0C56D400949913 /* UDUtil.m in Sources */,
 				D50655381B4323D7002D192D /* SLBtCentral.m in Sources */,
+				D5B8899C1C9AA9B300DCAEC5 /* UDMemoryData.m in Sources */,
 				D50655361B4323D7002D192D /* UDBtBeacon.m in Sources */,
 				D50A92571B48583A003F9B38 /* UDBtReach.m in Sources */,
 				D59425AE1BFC2B230069B5F8 /* UDRouterImpl.m in Sources */,
