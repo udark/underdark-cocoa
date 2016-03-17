@@ -16,10 +16,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Packets.pb.h"
+#import "UDData.h"
 
-@interface Packet (Builders)
+typedef NSData* _Nullable (^UDLazyDataRetrieveBlock)();
 
-+ (nullable Packet*) packetFromData:(nonnull NSData*)data;
+@interface UDLazyData : NSObject<UDData>
+
+@property (nonatomic, readonly, getter=disposed) bool disposed;
+
+- (nullable instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block;
 
 @end
