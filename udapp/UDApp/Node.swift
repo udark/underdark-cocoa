@@ -60,21 +60,16 @@ class Node: NSObject, UDTransportDelegate
 		controller?.updateFramesCount();
 	}
 	
-	func broadcastFrame(frameData: NSData)
+	func broadcastFrame(frameData: UDData)
 	{
 		if(links.isEmpty) { return; }
 		
-		++framesCount;
+		//++framesCount;
 		controller?.updateFramesCount();
 		
 		for link in links
 		{
-			let data = UDLazyData(queue: nil, block: { () -> NSData? in
-				return frameData
-			})
-			
-			link.sendData(data);
-			//link.sendFrame(frameData);
+			link.sendData(frameData);
 		}
 	}
 	
