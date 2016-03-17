@@ -14,49 +14,25 @@
  * limitations under the License.
  */
 
-#import "SLInetLink.h"
+typedef void (^UDDataRetrieveBlock)(NSData* _Nullable data);
 
-#import "SLInetTransport.h"
+/**
+ * Protocol for raw frame data storage for sending and receiving.
+ */
+@protocol UDData <NSObject>
 
-@interface SLInetLink()
+@property (nonatomic, readonly) bool disposed;
 
-@property (nonatomic, weak) SLInetTransport* transport;
+/**
+ * Disposes this UDFrameData object, making any data that it uses irrelevant.
+ */
+- (void) dispose;
 
-@end
-
-@implementation SLInetLink
-
-- (instancetype) initWithTransport:(SLInetTransport*)transport nodeId:(int64_t)nodeId
-{
-	if(!(self = [super init]))
-		return self;
-	
-	_transport = transport;
-	
-	_nodeId = nodeId;
-	_slowLink = true;
-	
-	return self;
-}
-
-- (void) dealloc
-{
-	
-}
-
-- (int16_t) priority
-{
-	return 20;
-}
-
-- (void) sendFrame:(NSData*)data
-{
-	[self.transport link:self sentFrame:data];
-}
-
-- (void) disconnect
-{
-	
-}
+/**
+ * Retrieves data from object.
+ * Implementations should call the completion handler
+ * with retrieved data as argument, or null if data cannot be retrieved.
+ */
+- (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion;
 
 @end

@@ -20,6 +20,6 @@
 
 @interface Packet (Builders)
 
-+ (nullable Packet*) packetFromData:(NSData*)data;
++ (nullable Packet*) packetFromData:(nonnull NSData*)data;
 
 @end

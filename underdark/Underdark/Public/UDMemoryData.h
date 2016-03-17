@@ -16,28 +16,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDTransport.h"
-#import "UDRunLoopThread.h"
+#import "UDData.h"
 
-@class SLInetLink;
+@interface UDMemoryData : NSObject<UDData>
 
-@interface SLInetTransport : NSObject <UDTransport>
+@property (nonatomic, readonly, getter=disposed) bool disposed;
 
-@property (nonatomic, weak) id<UDTransportDelegate> delegate;
-
-@property (nonatomic, readonly) int64_t nodeId;
-@property (nonatomic, readonly) dispatch_queue_t queue;
-@property (nonatomic, readonly) bool isConnecting;
-
-- (instancetype) init NS_UNAVAILABLE;
-
-- (instancetype) initWithNodeId:(int64_t)nodeId queue:(dispatch_queue_t)queue NS_DESIGNATED_INITIALIZER;
-
-- (void) start;
-- (void) stop;
-
-- (void) connect;
-
-- (void) link:(SLInetLink*)link sentFrame:(NSData*)frameData;
+- (instancetype) initWithData:(NSData*)data;
 
 @end

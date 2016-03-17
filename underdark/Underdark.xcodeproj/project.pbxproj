@@ -31,32 +31,12 @@
 		373C2ED7897748DF23D3DF8B /* UDNsdServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 373C2967D01997B3D20222FB /* UDNsdServer.m */; };
 		373C2F3ECEDA842FDC866B59 /* UDNsdAdvertiser.h in Headers */ = {isa = PBXBuildFile; fileRef = 373C28A8E8DB3E86AD2FDC6C /* UDNsdAdvertiser.h */; };
 		6EC09173A08BCFB48B6F7F07 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA337C95ACE2828E733481E0 /* libPods.a */; };
-		D506552F1B4323D7002D192D /* SLBluetoothTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655051B4323D7002D192D /* SLBluetoothTransport.h */; };
-		D50655301B4323D7002D192D /* SLBluetoothTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655061B4323D7002D192D /* SLBluetoothTransport.m */; };
 		D50655311B4323D7002D192D /* UDBonjourLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655071B4323D7002D192D /* UDBonjourLink.h */; };
 		D50655321B4323D7002D192D /* UDBonjourLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655081B4323D7002D192D /* UDBonjourLink.m */; };
 		D50655331B4323D7002D192D /* UDBonjourTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655091B4323D7002D192D /* UDBonjourTransport.h */; };
 		D50655341B4323D7002D192D /* UDBonjourTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = D506550A1B4323D7002D192D /* UDBonjourTransport.m */; };
 		D50655351B4323D7002D192D /* UDBtBeacon.h in Headers */ = {isa = PBXBuildFile; fileRef = D506550B1B4323D7002D192D /* UDBtBeacon.h */; };
 		D50655361B4323D7002D192D /* UDBtBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = D506550C1B4323D7002D192D /* UDBtBeacon.m */; };
-		D50655371B4323D7002D192D /* SLBtCentral.h in Headers */ = {isa = PBXBuildFile; fileRef = D506550D1B4323D7002D192D /* SLBtCentral.h */; };
-		D50655381B4323D7002D192D /* SLBtCentral.m in Sources */ = {isa = PBXBuildFile; fileRef = D506550E1B4323D7002D192D /* SLBtCentral.m */; };
-		D50655391B4323D7002D192D /* SLBtCentralLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D506550F1B4323D7002D192D /* SLBtCentralLink.h */; };
-		D506553A1B4323D7002D192D /* SLBtCentralLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655101B4323D7002D192D /* SLBtCentralLink.m */; };
-		D506553B1B4323D7002D192D /* SLBtPeripheral.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655111B4323D7002D192D /* SLBtPeripheral.h */; };
-		D506553C1B4323D7002D192D /* SLBtPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655121B4323D7002D192D /* SLBtPeripheral.m */; };
-		D506553D1B4323D7002D192D /* SLBtPeripheralLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655131B4323D7002D192D /* SLBtPeripheralLink.h */; };
-		D506553E1B4323D7002D192D /* SLBtPeripheralLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655141B4323D7002D192D /* SLBtPeripheralLink.m */; };
-		D506553F1B4323D7002D192D /* SLInetLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655151B4323D7002D192D /* SLInetLink.h */; };
-		D50655401B4323D7002D192D /* SLInetLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655161B4323D7002D192D /* SLInetLink.m */; };
-		D50655411B4323D7002D192D /* SLInetReach.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655171B4323D7002D192D /* SLInetReach.h */; };
-		D50655421B4323D7002D192D /* SLInetReach.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655181B4323D7002D192D /* SLInetReach.m */; };
-		D50655431B4323D7002D192D /* SLInetTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655191B4323D7002D192D /* SLInetTransport.h */; };
-		D50655441B4323D7002D192D /* SLInetTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = D506551A1B4323D7002D192D /* SLInetTransport.m */; };
-		D50655451B4323D7002D192D /* SLMultipeerLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D506551B1B4323D7002D192D /* SLMultipeerLink.h */; };
-		D50655461B4323D7002D192D /* SLMultipeerLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D506551C1B4323D7002D192D /* SLMultipeerLink.m */; };
-		D50655471B4323D7002D192D /* SLMultipeerTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = D506551D1B4323D7002D192D /* SLMultipeerTransport.h */; };
-		D50655481B4323D7002D192D /* SLMultipeerTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = D506551E1B4323D7002D192D /* SLMultipeerTransport.m */; };
 		D50655491B4323D7002D192D /* UDRunLoopThread.h in Headers */ = {isa = PBXBuildFile; fileRef = D506551F1B4323D7002D192D /* UDRunLoopThread.h */; };
 		D506554A1B4323D7002D192D /* UDRunLoopThread.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655201B4323D7002D192D /* UDRunLoopThread.m */; };
 		D506554D1B4323D7002D192D /* UDWifiReach.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655231B4323D7002D192D /* UDWifiReach.h */; };
@@ -117,10 +97,15 @@
 		D5983C321B46EF0F00F7B6F9 /* UDLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D5983C311B46EF0600F7B6F9 /* UDLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5A364B71C2773BB0054DB0A /* Packet+Builders.h in Headers */ = {isa = PBXBuildFile; fileRef = D5A364B51C2773BB0054DB0A /* Packet+Builders.h */; };
 		D5A364B81C2773BB0054DB0A /* Packet+Builders.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A364B61C2773BB0054DB0A /* Packet+Builders.m */; };
+		D5B889971C9AA6C500DCAEC5 /* UDData.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B889961C9AA6C500DCAEC5 /* UDData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B8899B1C9AA9B300DCAEC5 /* UDMemoryData.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B889991C9AA9B300DCAEC5 /* UDMemoryData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B8899C1C9AA9B300DCAEC5 /* UDMemoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B8899A1C9AA9B300DCAEC5 /* UDMemoryData.m */; };
+		D5B889A11C9AABB300DCAEC5 /* UDLazyData.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B8899F1C9AABB300DCAEC5 /* UDLazyData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B889A21C9AABB300DCAEC5 /* UDLazyData.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B889A01C9AABB300DCAEC5 /* UDLazyData.m */; };
 		D5C7DA311BA5A525009DDD00 /* UDNsdLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C7DA2F1BA5A525009DDD00 /* UDNsdLink.h */; };
 		D5C7DA321BA5A525009DDD00 /* UDNsdLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C7DA301BA5A525009DDD00 /* UDNsdLink.m */; };
 		D5C7DA351BA5FB30009DDD00 /* UDNsdServerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C7DA341BA5FB30009DDD00 /* UDNsdServerTests.m */; };
-		D5C9426F1C0C56D400949913 /* UDUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C9426D1C0C56D400949913 /* UDUtil.h */; };
+		D5C9426F1C0C56D400949913 /* UDUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C9426D1C0C56D400949913 /* UDUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5C942701C0C56D400949913 /* UDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C9426E1C0C56D400949913 /* UDUtil.m */; };
 		D5DDCE9E1B430F21007B8E3E /* Underdark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5DDCE921B430F21007B8E3E /* Underdark.framework */; };
 		D5DDCEA51B430F21007B8E3E /* UDNsdBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DDCEA41B430F21007B8E3E /* UDNsdBrowserTests.m */; };
@@ -146,32 +131,12 @@
 		373C2967D01997B3D20222FB /* UDNsdServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdServer.m; sourceTree = "<group>"; };
 		373C2B9DBAEAB335CFFFAEC6 /* UDNsdTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdTransport.m; sourceTree = "<group>"; };
 		373C2F98CBCA65F3234B3A3C /* UDNsdServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDNsdServer.h; sourceTree = "<group>"; };
-		D50655051B4323D7002D192D /* SLBluetoothTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBluetoothTransport.h; sourceTree = "<group>"; };
-		D50655061B4323D7002D192D /* SLBluetoothTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBluetoothTransport.m; sourceTree = "<group>"; };
 		D50655071B4323D7002D192D /* UDBonjourLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDBonjourLink.h; sourceTree = "<group>"; };
 		D50655081B4323D7002D192D /* UDBonjourLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDBonjourLink.m; sourceTree = "<group>"; };
 		D50655091B4323D7002D192D /* UDBonjourTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDBonjourTransport.h; sourceTree = "<group>"; };
 		D506550A1B4323D7002D192D /* UDBonjourTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDBonjourTransport.m; sourceTree = "<group>"; };
 		D506550B1B4323D7002D192D /* UDBtBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDBtBeacon.h; sourceTree = "<group>"; };
 		D506550C1B4323D7002D192D /* UDBtBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDBtBeacon.m; sourceTree = "<group>"; };
-		D506550D1B4323D7002D192D /* SLBtCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBtCentral.h; sourceTree = "<group>"; };
-		D506550E1B4323D7002D192D /* SLBtCentral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBtCentral.m; sourceTree = "<group>"; };
-		D506550F1B4323D7002D192D /* SLBtCentralLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBtCentralLink.h; sourceTree = "<group>"; };
-		D50655101B4323D7002D192D /* SLBtCentralLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBtCentralLink.m; sourceTree = "<group>"; };
-		D50655111B4323D7002D192D /* SLBtPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBtPeripheral.h; sourceTree = "<group>"; };
-		D50655121B4323D7002D192D /* SLBtPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBtPeripheral.m; sourceTree = "<group>"; };
-		D50655131B4323D7002D192D /* SLBtPeripheralLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBtPeripheralLink.h; sourceTree = "<group>"; };
-		D50655141B4323D7002D192D /* SLBtPeripheralLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBtPeripheralLink.m; sourceTree = "<group>"; };
-		D50655151B4323D7002D192D /* SLInetLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLInetLink.h; sourceTree = "<group>"; };
-		D50655161B4323D7002D192D /* SLInetLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLInetLink.m; sourceTree = "<group>"; };
-		D50655171B4323D7002D192D /* SLInetReach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLInetReach.h; sourceTree = "<group>"; };
-		D50655181B4323D7002D192D /* SLInetReach.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLInetReach.m; sourceTree = "<group>"; };
-		D50655191B4323D7002D192D /* SLInetTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLInetTransport.h; sourceTree = "<group>"; };
-		D506551A1B4323D7002D192D /* SLInetTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLInetTransport.m; sourceTree = "<group>"; };
-		D506551B1B4323D7002D192D /* SLMultipeerLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMultipeerLink.h; sourceTree = "<group>"; };
-		D506551C1B4323D7002D192D /* SLMultipeerLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMultipeerLink.m; sourceTree = "<group>"; };
-		D506551D1B4323D7002D192D /* SLMultipeerTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMultipeerTransport.h; sourceTree = "<group>"; };
-		D506551E1B4323D7002D192D /* SLMultipeerTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMultipeerTransport.m; sourceTree = "<group>"; };
 		D506551F1B4323D7002D192D /* UDRunLoopThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDRunLoopThread.h; sourceTree = "<group>"; };
 		D50655201B4323D7002D192D /* UDRunLoopThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDRunLoopThread.m; sourceTree = "<group>"; };
 		D50655231B4323D7002D192D /* UDWifiReach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDWifiReach.h; sourceTree = "<group>"; };
@@ -236,6 +201,11 @@
 		D5983C311B46EF0600F7B6F9 /* UDLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDLogger.h; sourceTree = "<group>"; };
 		D5A364B51C2773BB0054DB0A /* Packet+Builders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Packet+Builders.h"; sourceTree = "<group>"; };
 		D5A364B61C2773BB0054DB0A /* Packet+Builders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Packet+Builders.m"; sourceTree = "<group>"; };
+		D5B889961C9AA6C500DCAEC5 /* UDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDData.h; sourceTree = "<group>"; };
+		D5B889991C9AA9B300DCAEC5 /* UDMemoryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDMemoryData.h; sourceTree = "<group>"; };
+		D5B8899A1C9AA9B300DCAEC5 /* UDMemoryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDMemoryData.m; sourceTree = "<group>"; };
+		D5B8899F1C9AABB300DCAEC5 /* UDLazyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDLazyData.h; sourceTree = "<group>"; };
+		D5B889A01C9AABB300DCAEC5 /* UDLazyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDLazyData.m; sourceTree = "<group>"; };
 		D5C7DA2F1BA5A525009DDD00 /* UDNsdLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDNsdLink.h; sourceTree = "<group>"; };
 		D5C7DA301BA5A525009DDD00 /* UDNsdLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdLink.m; sourceTree = "<group>"; };
 		D5C7DA341BA5FB30009DDD00 /* UDNsdServerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdServerTests.m; sourceTree = "<group>"; };
@@ -342,63 +312,6 @@
 			name = Beacon;
 			sourceTree = "<group>";
 		};
-		D506555C1B4324BF002D192D /* Multipeer */ = {
-			isa = PBXGroup;
-			children = (
-				D506551B1B4323D7002D192D /* SLMultipeerLink.h */,
-				D506551C1B4323D7002D192D /* SLMultipeerLink.m */,
-				D506551D1B4323D7002D192D /* SLMultipeerTransport.h */,
-				D506551E1B4323D7002D192D /* SLMultipeerTransport.m */,
-			);
-			name = Multipeer;
-			sourceTree = "<group>";
-		};
-		D506555D1B4324D7002D192D /* Inet */ = {
-			isa = PBXGroup;
-			children = (
-				D50655151B4323D7002D192D /* SLInetLink.h */,
-				D50655161B4323D7002D192D /* SLInetLink.m */,
-				D50655171B4323D7002D192D /* SLInetReach.h */,
-				D50655181B4323D7002D192D /* SLInetReach.m */,
-				D50655191B4323D7002D192D /* SLInetTransport.h */,
-				D506551A1B4323D7002D192D /* SLInetTransport.m */,
-			);
-			name = Inet;
-			sourceTree = "<group>";
-		};
-		D506555E1B4324E1002D192D /* Bluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				D506555F1B4324E7002D192D /* Central */,
-				D50655601B4324ED002D192D /* Peripheral */,
-				D50655051B4323D7002D192D /* SLBluetoothTransport.h */,
-				D50655061B4323D7002D192D /* SLBluetoothTransport.m */,
-			);
-			name = Bluetooth;
-			sourceTree = "<group>";
-		};
-		D506555F1B4324E7002D192D /* Central */ = {
-			isa = PBXGroup;
-			children = (
-				D506550D1B4323D7002D192D /* SLBtCentral.h */,
-				D506550E1B4323D7002D192D /* SLBtCentral.m */,
-				D506550F1B4323D7002D192D /* SLBtCentralLink.h */,
-				D50655101B4323D7002D192D /* SLBtCentralLink.m */,
-			);
-			name = Central;
-			sourceTree = "<group>";
-		};
-		D50655601B4324ED002D192D /* Peripheral */ = {
-			isa = PBXGroup;
-			children = (
-				D50655111B4323D7002D192D /* SLBtPeripheral.h */,
-				D50655121B4323D7002D192D /* SLBtPeripheral.m */,
-				D50655131B4323D7002D192D /* SLBtPeripheralLink.h */,
-				D50655141B4323D7002D192D /* SLBtPeripheralLink.m */,
-			);
-			name = Peripheral;
-			sourceTree = "<group>";
-		};
 		D507B69E1BFD022000788BA1 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,12 +344,9 @@
 		D51565C21B44230300101C06 /* Transport */ = {
 			isa = PBXGroup;
 			children = (
-				D50A92531B485811003F9B38 /* Reach */,
 				D50655581B432416002D192D /* Aggregate */,
+				D50A92531B485811003F9B38 /* Reach */,
 				D506555A1B43242F002D192D /* Bonjour */,
-				D506555E1B4324E1002D192D /* Bluetooth */,
-				D506555D1B4324D7002D192D /* Inet */,
-				D506555C1B4324BF002D192D /* Multipeer */,
 				373C266D77B188D618829782 /* Nsd */,
 			);
 			name = Transport;
@@ -460,6 +370,7 @@
 		D528C5931B44895500E4FC8C /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				D5B889981C9AA92800DCAEC5 /* FrameData */,
 				D528C59B1B44895500E4FC8C /* Underdark.h */,
 				D528C5991B44895500E4FC8C /* UDUnderdark.h */,
 				D528C59A1B44895500E4FC8C /* UDUnderdark.m */,
@@ -499,6 +410,18 @@
 				D51565C41B44233400101C06 /* UDLogging.m */,
 			);
 			name = Logging;
+			sourceTree = "<group>";
+		};
+		D5B889981C9AA92800DCAEC5 /* FrameData */ = {
+			isa = PBXGroup;
+			children = (
+				D5B889961C9AA6C500DCAEC5 /* UDData.h */,
+				D5B889991C9AA9B300DCAEC5 /* UDMemoryData.h */,
+				D5B8899A1C9AA9B300DCAEC5 /* UDMemoryData.m */,
+				D5B8899F1C9AABB300DCAEC5 /* UDLazyData.h */,
+				D5B889A01C9AABB300DCAEC5 /* UDLazyData.m */,
+			);
+			name = FrameData;
 			sourceTree = "<group>";
 		};
 		D5DDCE881B430F21007B8E3E = {
@@ -596,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D528C59C1B44895500E4FC8C /* UDLink.h in Headers */,
+				D5B8899B1C9AA9B300DCAEC5 /* UDMemoryData.h in Headers */,
 				D528C59D1B44895500E4FC8C /* UDTimeExtender.h in Headers */,
 				D528C5A41B448A0400E4FC8C /* UDTimeExtender.m in Headers */,
 				D528C59F1B44895500E4FC8C /* UDTransport.h in Headers */,
@@ -607,37 +531,29 @@
 				D50655531B4323D8002D192D /* UDAsyncUtils.h in Headers */,
 				D51565CE1B442E1D00101C06 /* Commands.pb.h in Headers */,
 				D5287AB21B485FB7002A0B5E /* UDReach.h in Headers */,
-				D50655411B4323D7002D192D /* SLInetReach.h in Headers */,
 				D59425A91BFC28EE0069B5F8 /* UDPacketKind.h in Headers */,
-				D506553D1B4323D7002D192D /* SLBtPeripheralLink.h in Headers */,
 				D5A364B71C2773BB0054DB0A /* Packet+Builders.h in Headers */,
 				D51565D01B442E1D00101C06 /* Events.pb.h in Headers */,
-				D506553F1B4323D7002D192D /* SLInetLink.h in Headers */,
-				D50655431B4323D7002D192D /* SLInetTransport.h in Headers */,
 				D51565DA1B4432DC00101C06 /* UDConfig.h in Headers */,
 				D50655311B4323D7002D192D /* UDBonjourLink.h in Headers */,
 				D51565C51B44233400101C06 /* UDLogging.h in Headers */,
 				D559CCCA1BA3256E0057CF17 /* UDNsdService.h in Headers */,
 				D50A92471B471421003F9B38 /* UDBonjourBrowser.h in Headers */,
 				D506554F1B4323D8002D192D /* UDAggLink.h in Headers */,
-				D50655471B4323D7002D192D /* SLMultipeerTransport.h in Headers */,
 				D50655331B4323D7002D192D /* UDBonjourTransport.h in Headers */,
 				D50A92561B48583A003F9B38 /* UDBtReach.h in Headers */,
-				D506553B1B4323D7002D192D /* SLBtPeripheral.h in Headers */,
 				D50655511B4323D8002D192D /* UDAggTransport.h in Headers */,
 				D59425A11BFC27D30069B5F8 /* Packets.pb.h in Headers */,
-				D50655391B4323D7002D192D /* SLBtCentralLink.h in Headers */,
 				D506554D1B4323D7002D192D /* UDWifiReach.h in Headers */,
 				D5983C321B46EF0F00F7B6F9 /* UDLogger.h in Headers */,
-				D506552F1B4323D7002D192D /* SLBluetoothTransport.h in Headers */,
-				D50655371B4323D7002D192D /* SLBtCentral.h in Headers */,
+				D5B889971C9AA6C500DCAEC5 /* UDData.h in Headers */,
 				D5C7DA311BA5A525009DDD00 /* UDNsdLink.h in Headers */,
 				D59425B11BFC2B370069B5F8 /* UDRouter.h in Headers */,
 				D5C9426F1C0C56D400949913 /* UDUtil.h in Headers */,
 				D50655491B4323D7002D192D /* UDRunLoopThread.h in Headers */,
 				D50655351B4323D7002D192D /* UDBtBeacon.h in Headers */,
-				D50655451B4323D7002D192D /* SLMultipeerLink.h in Headers */,
 				D51565D21B442E1D00101C06 /* Frames.pb.h in Headers */,
+				D5B889A11C9AABB300DCAEC5 /* UDLazyData.h in Headers */,
 				373C2980A17274938C7679C9 /* UDNsdBrowser.h in Headers */,
 				373C2F3ECEDA842FDC866B59 /* UDNsdAdvertiser.h in Headers */,
 				D59425A51BFC282F0069B5F8 /* UDPacket.h in Headers */,
@@ -848,20 +764,16 @@
 				D5A364B81C2773BB0054DB0A /* Packet+Builders.m in Sources */,
 				D506554E1B4323D8002D192D /* UDWifiReach.m in Sources */,
 				D5C942701C0C56D400949913 /* UDUtil.m in Sources */,
-				D50655381B4323D7002D192D /* SLBtCentral.m in Sources */,
+				D5B8899C1C9AA9B300DCAEC5 /* UDMemoryData.m in Sources */,
 				D50655361B4323D7002D192D /* UDBtBeacon.m in Sources */,
 				D50A92571B48583A003F9B38 /* UDBtReach.m in Sources */,
 				D59425AE1BFC2B230069B5F8 /* UDRouterImpl.m in Sources */,
 				D528C5A01B44895500E4FC8C /* UDTransport.m in Sources */,
 				D5C7DA321BA5A525009DDD00 /* UDNsdLink.m in Sources */,
-				D50655421B4323D7002D192D /* SLInetReach.m in Sources */,
 				D59425AA1BFC28EE0069B5F8 /* UDPacketKind.m in Sources */,
-				D50655461B4323D7002D192D /* SLMultipeerLink.m in Sources */,
 				D528C5A21B44895500E4FC8C /* UDUnderdark.m in Sources */,
-				D50655401B4323D7002D192D /* SLInetLink.m in Sources */,
 				D59425B21BFC2B370069B5F8 /* UDRouter.m in Sources */,
-				D50655441B4323D7002D192D /* SLInetTransport.m in Sources */,
-				D50655481B4323D7002D192D /* SLMultipeerTransport.m in Sources */,
+				D5B889A21C9AABB300DCAEC5 /* UDLazyData.m in Sources */,
 				D559CCCD1BA462B90057CF17 /* UDNsdUtil.m in Sources */,
 				D50A924C1B471432003F9B38 /* UDBonjourServer.m in Sources */,
 				D50655321B4323D7002D192D /* UDBonjourLink.m in Sources */,
@@ -877,12 +789,8 @@
 				D50655521B4323D8002D192D /* UDAggTransport.m in Sources */,
 				D50655541B4323D8002D192D /* UDAsyncUtils.m in Sources */,
 				D51565CF1B442E1D00101C06 /* Commands.pb.m in Sources */,
-				D506553E1B4323D7002D192D /* SLBtPeripheralLink.m in Sources */,
 				D50A92481B471421003F9B38 /* UDBonjourBrowser.m in Sources */,
-				D506553C1B4323D7002D192D /* SLBtPeripheral.m in Sources */,
 				D50655341B4323D7002D192D /* UDBonjourTransport.m in Sources */,
-				D506553A1B4323D7002D192D /* SLBtCentralLink.m in Sources */,
-				D50655301B4323D7002D192D /* SLBluetoothTransport.m in Sources */,
 				373C283730F845BF75B511A0 /* UDNsdBrowser.m in Sources */,
 				373C2A3715A6B64DAE8714B7 /* UDNsdAdvertiser.m in Sources */,
 				373C2ED7897748DF23D3DF8B /* UDNsdServer.m in Sources */,

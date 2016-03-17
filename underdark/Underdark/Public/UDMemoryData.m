@@ -14,17 +14,40 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
+#import "UDMemoryData.h"
 
-@class SLInetTransport;
+@implementation UDMemoryData
+{
+	 NSData* _Nullable _data;
+}
 
-@interface SLInetReach : NSObject
+#pragma mark - Initialization
 
-- (instancetype) init NS_UNAVAILABLE;
+- (instancetype) initWithData:(NSData*)data
+{
+	if(!(self = [super init]))
+		return self;
+	
+	_data = data;
+	
+	return self;
+}
 
-- (instancetype) initWithTransport:(SLInetTransport*)transport NS_DESIGNATED_INITIALIZER;
+#pragma mark - UDData
 
-- (void) start;
-- (void) stop;
+- (bool) disposed
+{
+	return _data == nil;
+}
+
+- (void) dispose
+{
+	_data = nil;
+}
+
+- (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion
+{
+	completion(_data);
+}
 
 @end

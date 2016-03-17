@@ -16,28 +16,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SLBluetoothTransport.h"
-#import "SLBtCentralLink.h"
+#import "UDData.h"
 
-extern const int32_t SLBtTransferSizeMax;
+typedef NSData* _Nullable (^UDLazyDataRetrieveBlock)();
 
-@interface SLBtCentral : NSObject
+@interface UDLazyData : NSObject<UDData>
 
-@property (nonatomic, readonly, weak) SLBluetoothTransport* transport;
+@property (nonatomic, readonly, getter=disposed) bool disposed;
 
-@property (nonatomic, readonly) bool ready;
-
-- (instancetype) init NS_UNAVAILABLE;
-
-- (instancetype) initWithTransport:(SLBluetoothTransport*) transport NS_DESIGNATED_INITIALIZER;
-
-- (void) startScanning;
-- (void) stopScanning;
-
-- (void) disconnectLink:(SLBtCentralLink*)link;
-
-- (void) linkUnsuitable:(SLBtCentralLink*)link;
-- (void) linkConnecting:(SLBtCentralLink*)link;
-- (void) linkConnected:(SLBtCentralLink*)link;
+- (nullable instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block;
 
 @end
