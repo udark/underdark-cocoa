@@ -17,9 +17,23 @@
 #import <Foundation/Foundation.h>
 
 #import "UDCountedData.h"
+#import "UDLink.h"
 
-@interface UDMemoryData : UDCountedData
+@class UDAggData;
+@class UDAggLink;
 
-- (instancetype) initWithData:(NSData*)data;
+@protocol UDAggDataDelegate <NSObject>
+
+// Called on any thread.
+- (void) dataDisposed:(nonnull UDAggData*)data;
+
+@end
+
+@interface UDAggData : UDCountedData
+
+@property (nonatomic, weak) id<UDAggDataDelegate> delegate;
+@property (nonatomic, weak) UDAggLink* link;
+
+- (nonnull instancetype) initWithData:(nonnull id<UDData>)data delegate:(nullable id<UDAggDataDelegate>)delegate;
 
 @end

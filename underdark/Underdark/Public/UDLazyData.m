@@ -25,7 +25,7 @@
 	NSData* _Nullable volatile _data;
 }
 
-- (nullable instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block
+- (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block
 {
 	if(!(self = [super init]))
 		return self;
@@ -87,15 +87,10 @@
 			
 			if(localData == nil) {
 				localData = localBlock();
-				
-				if(localData == nil) {
-					// Cannot retrieve data - we're disposed.
-					[self dispose];
-				}
 			}
 			
-			if(!self.disposed) {
-				@synchronized(self) {
+			@synchronized(self) {
+				if(!self.disposed) {
 					_data = localData;
 				}
 			}

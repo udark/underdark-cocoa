@@ -32,9 +32,9 @@
 
 @property (nonatomic, readonly, nullable) UDRunLoopThread * ioThread;
 
-- (nullable instancetype) init NS_UNAVAILABLE;
+- (nonnull instancetype) init NS_UNAVAILABLE;
 
-- (nullable instancetype) initWithAppId:(int32_t)appId
+- (nonnull instancetype) initWithAppId:(int32_t)appId
 								 nodeId:(int64_t)nodeId
 					   delegate:(id<UDTransportDelegate> __nonnull)delegate
 						  queue:(dispatch_queue_t __nonnull)queue

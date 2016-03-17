@@ -9,6 +9,8 @@
 #ifndef Underdark_UDLink_h
 #define Underdark_UDLink_h
 
+#import "UDData.h"
+
 /**
  * Class for the connection objects with discovered remote devices.
  * All methods and properties of this class must be accessed
@@ -34,7 +36,13 @@
  * Sends bytes to remote device as single atomic frame.
  * @param frameData bytes to send.
  */
-- (void) sendFrame:(NSData*)frameData;
+- (void) sendFrame:(nonnull NSData*)frameData;
+
+/**
+ * Sends bytes to remote device as single atomic frame.
+ * @param data bytes to send. Automatically calls giveup() on that object.
+ */
+- (void) sendData:(nonnull id<UDData>)data;
 
 @end
 

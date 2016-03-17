@@ -14,36 +14,51 @@
  * limitations under the License.
  */
 
-#import "UDMemoryData.h"
+#import "UDAggData.h"
 
-@implementation UDMemoryData
+#import "UDAggLink.h"
+
+@implementation UDAggData
 {
-	 NSData* _Nullable _data;
+	id<UDData> _Nonnull _data;
 }
 
-#pragma mark - Initialization
-
-- (instancetype) initWithData:(NSData*)data
+- (nonnull instancetype) initWithData:(nonnull id<UDData>)data delegate:(nullable id<UDAggDataDelegate>)delegate
 {
 	if(!(self = [super init]))
 		return self;
 	
 	_data = data;
+	[_data acquire];
 	
+	_delegate = delegate;
+
 	return self;
 }
 
-#pragma mark - UDData
+- (void) acquire
+{
+	[super acquire];
+	[_data acquire];
+}
+
+- (void) giveup
+{
+	[_data giveup];
+	[super giveup];
+}
 
 - (void) dispose
 {
-	_data = nil;
-	[super dispose];
+	[_delegate dataDisposed:self];
 }
 
 - (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion
 {
-	completion(_data);
+	[_data retrieve:^(NSData * _Nullable data) {
+		// Any thread.
+		completion(data);
+	}];
 }
 
 @end

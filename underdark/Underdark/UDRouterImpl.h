@@ -27,7 +27,7 @@
 
 @property (nonatomic, readonly, nonnull, getter=peers) NSArray<NSNumber*> *peers;
 
-- (nullable instancetype) initWithTransport:(nonnull id<UDTransport>)transport delegate:(nullable id<UDRouterDelegate>) delegate;
+- (nonnull instancetype) initWithTransport:(nonnull id<UDTransport>)transport delegate:(nullable id<UDRouterDelegate>) delegate;
 
 - (void) sendPacketToSelf:(nonnull UDPacket*)packet;
 - (void) sendPacketToAll:(nonnull UDPacket*)packet;

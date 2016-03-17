@@ -17,22 +17,31 @@
 #import <Foundation/Foundation.h>
 
 #import "UDTransport.h"
+#import "UDAggTransport.h"
+#import "UDAggData.h"
 
 @interface UDAggLink : NSObject <UDLink>
+
+@property (nonatomic, weak, readonly) UDAggTransport* transport;
 
 @property (nonatomic, readonly) int64_t nodeId;
 @property (nonatomic, readonly) bool slowLink;
 @property (nonatomic, readonly) int16_t priority;
 
-- (instancetype) init NS_UNAVAILABLE;
-- (instancetype) initWithNodeId:(int64_t)nodeId NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype) init NS_UNAVAILABLE;
+- (nonnull instancetype) initWithNodeId:(int64_t)nodeId transport:(nonnull UDAggTransport*)transport NS_DESIGNATED_INITIALIZER;
 
 - (bool) isEmpty;
-- (bool) containsLink:(id<UDLink>)link;
-- (void) addLink:(id<UDLink>)link;
-- (void) removeLink:(id<UDLink>)link;
+- (bool) containsLink:(nonnull id<UDLink>)link;
+- (void) addLink:(nonnull id<UDLink>)link;
+- (void) removeLink:(nonnull id<UDLink>)link;
 
-- (void) sendFrame:(NSData*)data;
 - (void) disconnect;
+
+- (void) sendFrame:(nonnull NSData*)data;
+- (void) sendData:(nonnull id<UDData>)data;
+
+// Does not gives ups data.
+- (void) sendDataToChildren:(nonnull UDAggData*)data;
 
 @end
