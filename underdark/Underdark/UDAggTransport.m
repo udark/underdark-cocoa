@@ -21,7 +21,7 @@
 #import "UDLogging.h"
 #import "UDAsyncUtils.h"
 
-@interface UDAggTransport() <UDAggDataDelegate>
+@interface UDAggTransport()
 {
 	int32_t _appId;
 	__weak id<UDTransportDelegate> _delegate;
@@ -29,6 +29,8 @@
 	bool _running;
 	NSMutableArray* _transports;
 	NSMutableDictionary* _linksConnected; // nodeId to SLAggregateLink
+	
+	NSMutableArray<UDAggData*>* _dataQueue;
 }
 @end
 
@@ -44,11 +46,13 @@
 	
 	_appId = appId;
 	_queue = queue;
-	_childsQueue = dispatch_queue_create("Underdark Transport", DISPATCH_QUEUE_SERIAL);
+	_ioqueue = dispatch_queue_create("UDAggTransport", DISPATCH_QUEUE_SERIAL);
 	_delegate = delegate;
 	
 	_transports = [NSMutableArray array];
 	_linksConnected = [NSMutableDictionary dictionary];
+	
+	_dataQueue = [NSMutableArray array];
 	
 	return self;
 }
@@ -71,7 +75,7 @@
 	
 	_running = true;
 	
-	sldispatch_async(_childsQueue, ^{
+	sldispatch_async(_ioqueue, ^{
 		for(id<UDTransport> transport in _transports)
 		{
 			[transport start];
@@ -87,7 +91,7 @@
 	
 	_running = false;
 	
-	sldispatch_async(_childsQueue, ^{
+	sldispatch_async(_ioqueue, ^{
 		for(id<UDTransport> transport in _transports)
 		{
 			[transport stop];
@@ -166,6 +170,33 @@
 - (void) dataDisposed:(nonnull UDAggData*)data
 {
 	// Any thread.
+	
+	sldispatch_async(_ioqueue, ^{
+		[self sendNextData];
+	});
 }
 
+- (void) enqueueData:(nonnull UDAggData*)data
+{
+	// I/O queue.
+	[_dataQueue addObject:data];
+	
+	if(_dataQueue.count == 1)
+	{
+		[self sendNextData];
+		return;
+	}
+}
+
+- (void) sendNextData
+{
+	// I/O queue.
+	if(_dataQueue.count == 0)
+		return;
+	
+	UDAggData* data = _dataQueue.firstObject;
+	[_dataQueue removeObjectAtIndex:0];
+	
+	[data.link sendData:data];
+}
 @end

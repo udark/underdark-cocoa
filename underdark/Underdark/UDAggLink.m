@@ -16,6 +16,9 @@
 
 #import "UDAggLink.h"
 
+#import "UDMemoryData.h"
+#import "UDAsyncUtils.h"
+
 @interface UDAggLink()
 {
 	NSMutableArray* _links;
@@ -30,11 +33,12 @@
 	@throw nil;
 }
 
-- (instancetype) initWithNodeId:(int64_t)nodeId
+- (instancetype) initWithNodeId:(int64_t)nodeId transport:(UDAggTransport*)transport
 {
 	if(!(self = [super init]))
 		return self;
 	
+	_transport = transport;
 	_nodeId = nodeId;
 	_links = [NSMutableArray array];
 	
@@ -61,6 +65,7 @@
 
 - (void) addLink:(id<UDLink>)link
 {
+	// I/O queue.
 	[_links addObject:link];
 	_links = [_links sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2)
 	 {
@@ -76,21 +81,37 @@
 
 - (void) removeLink:(id<UDLink>)link
 {
+	// I/O queue.
 	[_links removeObject:link];
 }
 
 - (void) sendFrame:(NSData*)data
 {
-	id<UDLink> link = [_links firstObject];
-	if(!link)
-		return;
-	
-	[link sendFrame:data];
+	// User queue.
+	UDMemoryData* memoryData = [[UDMemoryData alloc] initWithData:data];
+	[self sendData:memoryData];
 }
 
 - (void) sendData:(nonnull id<UDData>)data
 {
+	// User queue.
+	UDAggData* aggData = [[UDAggData alloc] initWithData:data delegate:_transport];
 	
+	sldispatch_async(_transport.ioqueue, ^{
+		[_transport enqueueData:aggData];		
+	});
+}
+
+- (void) sendDataToChildren:(nonnull UDAggData*)data
+{
+	// I/O queue.
+	id<UDLink> link = [_links firstObject];
+	if(!link) {
+		[data dispose];
+		return;
+	}
+	
+	[link sendData:data];
 }
 
 @end

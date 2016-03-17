@@ -17,6 +17,7 @@
 #import <Foundation/Foundation.h>
 
 #import "UDData.h"
+#import "UDLink.h"
 
 @class UDAggData;
 
@@ -27,8 +28,11 @@
 
 @end
 
-@interface UDAggData : NSObject
+@interface UDAggData : NSObject <UDData>
 
 @property (nonatomic, weak) id<UDAggDataDelegate> delegate;
+@property (nonatomic, weak) id<UDLink> link;
+
+- (nullable instancetype) initWithData:(nonnull id<UDData>)data delegate:(nullable id<UDAggDataDelegate>)delegate;
 
 @end

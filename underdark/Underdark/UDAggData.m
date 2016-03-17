@@ -16,6 +16,8 @@
 
 #import "UDAggData.h"
 
+#import "UDLink.h"
+
 @implementation UDAggData
 {
 	id<UDData> _Nonnull _data;
