@@ -35,11 +35,6 @@
 	return self;
 }
 
-- (bool) disposed
-{
-	return _disposed;
-}
-
 - (void) dispose
 {
 	[_data dispose];
@@ -57,11 +52,8 @@
 	[_data retrieve:^(NSData * _Nullable data) {
 		// Any thread.
 		
-		@synchronized(self) {
-			if(data == nil && !_disposed) {
-				_disposed = true;
-				[_delegate dataDisposed:self];
-			}
+		if(data == nil) {
+			[self dispose];
 		}
 		
 		completion(data);

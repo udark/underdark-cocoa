@@ -21,8 +21,6 @@ typedef void (^UDDataRetrieveBlock)(NSData* _Nullable data);
  */
 @protocol UDData <NSObject>
 
-@property (nonatomic, readonly) bool disposed;
-
 /**
  * Disposes this UDFrameData object, making any data that it uses irrelevant.
  */

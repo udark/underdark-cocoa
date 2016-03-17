@@ -20,8 +20,6 @@
 
 @interface UDMemoryData : NSObject<UDData>
 
-@property (nonatomic, readonly, getter=disposed) bool disposed;
-
 - (instancetype) initWithData:(NSData*)data;
 
 @end

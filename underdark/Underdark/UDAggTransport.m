@@ -161,4 +161,11 @@
 	});
 }
 
+#pragma mark - UDAggDataDelegate
+
+- (void) dataDisposed:(nonnull UDAggData*)data
+{
+	// Any thread.
+}
+
 @end

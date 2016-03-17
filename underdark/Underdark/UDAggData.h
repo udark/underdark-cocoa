@@ -31,6 +31,4 @@
 
 @property (nonatomic, weak) id<UDAggDataDelegate> delegate;
 
-@property (nonatomic, readonly, getter=disposed) bool disposed;
-
 @end

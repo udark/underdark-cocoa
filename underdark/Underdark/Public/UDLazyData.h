@@ -22,8 +22,6 @@ typedef NSData* _Nullable (^UDLazyDataRetrieveBlock)();
 
 @interface UDLazyData : NSObject<UDData>
 
-@property (nonatomic, readonly, getter=disposed) bool disposed;
-
 - (nullable instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block;
 
 @end
