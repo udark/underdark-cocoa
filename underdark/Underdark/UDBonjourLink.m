@@ -306,9 +306,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	// frameData already acquired.
 	
 	if(_state == SLBnjStateDisconnected)
-	{
 		return;
-	}
 	
 	// Add data to output queue.
 	[_outputQueue addObject:outdata];

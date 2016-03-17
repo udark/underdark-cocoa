@@ -96,7 +96,9 @@
 {
 	// User queue.
 	UDAggData* aggData = [[UDAggData alloc] initWithData:data delegate:_transport];
-	[data giveup];
+	aggData.link = self;
+	
+	[data giveup]; // By per UDLink contract.
 	
 	sldispatch_async(_transport.ioqueue, ^{
 		[_transport enqueueData:aggData];
@@ -112,6 +114,7 @@
 		return;
 	}
 	
+	[data acquire];
 	[link sendData:data];
 }
 

@@ -199,6 +199,7 @@
 	[_dataQueue removeObjectAtIndex:0];
 	
 	[data.link sendDataToChildren:data];
+	
 	[data giveup];
 }
 @end

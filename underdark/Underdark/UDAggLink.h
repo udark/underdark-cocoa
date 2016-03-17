@@ -41,6 +41,7 @@
 - (void) sendFrame:(nonnull NSData*)data;
 - (void) sendData:(nonnull id<UDData>)data;
 
+// Does not gives ups data.
 - (void) sendDataToChildren:(nonnull UDAggData*)data;
 
 @end
