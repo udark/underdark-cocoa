@@ -14,18 +14,21 @@
  * limitations under the License.
  */
 
-#import <UIKit/UIKit.h>
+/**
+ * Protocol for raw frame data storage for sending and receiving.
+ */
+@protocol UDFrameData <NSObject>
 
-//! Project version number for Underdark.
-FOUNDATION_EXPORT double UnderdarkVersionNumber;
+/**
+ * Retrieves data from object.
+ * Implementations should call the completion handler
+ * with retrieved data as argument, or null if data cannot be retrieved.
+ */
+- (void) retrieve:(void (^)(nullable NSData* data) )completion;
 
-//! Project version string for Underdark.
-FOUNDATION_EXPORT const unsigned char UnderdarkVersionString[];
+/**
+ * Disposes this UDFrameData object, making any data that it uses irrelevant.
+ */
+- (void) dispose;
 
-// In this header, you should import all the public headers of your framework using statements like #import <Underdark/PublicHeader.h>
-
-#import <Underdark/UDUnderdark.h>
-#import <Underdark/UDTransport.h>
-#import <Underdark/UDLink.h>
-#import <Underdark/UDTimeExtender.h>
-#import <Underdark/UDUtil.h>
+@end

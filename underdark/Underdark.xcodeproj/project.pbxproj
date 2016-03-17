@@ -117,10 +117,11 @@
 		D5983C321B46EF0F00F7B6F9 /* UDLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D5983C311B46EF0600F7B6F9 /* UDLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5A364B71C2773BB0054DB0A /* Packet+Builders.h in Headers */ = {isa = PBXBuildFile; fileRef = D5A364B51C2773BB0054DB0A /* Packet+Builders.h */; };
 		D5A364B81C2773BB0054DB0A /* Packet+Builders.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A364B61C2773BB0054DB0A /* Packet+Builders.m */; };
+		D5B889971C9AA6C500DCAEC5 /* UDFrameData.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B889961C9AA6C500DCAEC5 /* UDFrameData.h */; };
 		D5C7DA311BA5A525009DDD00 /* UDNsdLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C7DA2F1BA5A525009DDD00 /* UDNsdLink.h */; };
 		D5C7DA321BA5A525009DDD00 /* UDNsdLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C7DA301BA5A525009DDD00 /* UDNsdLink.m */; };
 		D5C7DA351BA5FB30009DDD00 /* UDNsdServerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C7DA341BA5FB30009DDD00 /* UDNsdServerTests.m */; };
-		D5C9426F1C0C56D400949913 /* UDUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C9426D1C0C56D400949913 /* UDUtil.h */; };
+		D5C9426F1C0C56D400949913 /* UDUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C9426D1C0C56D400949913 /* UDUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5C942701C0C56D400949913 /* UDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C9426E1C0C56D400949913 /* UDUtil.m */; };
 		D5DDCE9E1B430F21007B8E3E /* Underdark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5DDCE921B430F21007B8E3E /* Underdark.framework */; };
 		D5DDCEA51B430F21007B8E3E /* UDNsdBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DDCEA41B430F21007B8E3E /* UDNsdBrowserTests.m */; };
@@ -236,6 +237,7 @@
 		D5983C311B46EF0600F7B6F9 /* UDLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDLogger.h; sourceTree = "<group>"; };
 		D5A364B51C2773BB0054DB0A /* Packet+Builders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Packet+Builders.h"; sourceTree = "<group>"; };
 		D5A364B61C2773BB0054DB0A /* Packet+Builders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Packet+Builders.m"; sourceTree = "<group>"; };
+		D5B889961C9AA6C500DCAEC5 /* UDFrameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDFrameData.h; sourceTree = "<group>"; };
 		D5C7DA2F1BA5A525009DDD00 /* UDNsdLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDNsdLink.h; sourceTree = "<group>"; };
 		D5C7DA301BA5A525009DDD00 /* UDNsdLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdLink.m; sourceTree = "<group>"; };
 		D5C7DA341BA5FB30009DDD00 /* UDNsdServerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdServerTests.m; sourceTree = "<group>"; };
@@ -431,8 +433,8 @@
 		D51565C21B44230300101C06 /* Transport */ = {
 			isa = PBXGroup;
 			children = (
-				D50A92531B485811003F9B38 /* Reach */,
 				D50655581B432416002D192D /* Aggregate */,
+				D50A92531B485811003F9B38 /* Reach */,
 				D506555A1B43242F002D192D /* Bonjour */,
 				D506555E1B4324E1002D192D /* Bluetooth */,
 				D506555D1B4324D7002D192D /* Inet */,
@@ -460,6 +462,7 @@
 		D528C5931B44895500E4FC8C /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				D5B889981C9AA92800DCAEC5 /* FrameData */,
 				D528C59B1B44895500E4FC8C /* Underdark.h */,
 				D528C5991B44895500E4FC8C /* UDUnderdark.h */,
 				D528C59A1B44895500E4FC8C /* UDUnderdark.m */,
@@ -499,6 +502,14 @@
 				D51565C41B44233400101C06 /* UDLogging.m */,
 			);
 			name = Logging;
+			sourceTree = "<group>";
+		};
+		D5B889981C9AA92800DCAEC5 /* FrameData */ = {
+			isa = PBXGroup;
+			children = (
+				D5B889961C9AA6C500DCAEC5 /* UDFrameData.h */,
+			);
+			name = FrameData;
 			sourceTree = "<group>";
 		};
 		D5DDCE881B430F21007B8E3E = {
@@ -630,6 +641,7 @@
 				D506554D1B4323D7002D192D /* UDWifiReach.h in Headers */,
 				D5983C321B46EF0F00F7B6F9 /* UDLogger.h in Headers */,
 				D506552F1B4323D7002D192D /* SLBluetoothTransport.h in Headers */,
+				D5B889971C9AA6C500DCAEC5 /* UDFrameData.h in Headers */,
 				D50655371B4323D7002D192D /* SLBtCentral.h in Headers */,
 				D5C7DA311BA5A525009DDD00 /* UDNsdLink.h in Headers */,
 				D59425B11BFC2B370069B5F8 /* UDRouter.h in Headers */,
