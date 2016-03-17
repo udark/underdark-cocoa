@@ -86,6 +86,8 @@
 		D559CCCD1BA462B90057CF17 /* UDNsdUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D559CCCC1BA462B90057CF17 /* UDNsdUtil.m */; };
 		D56ADE401C9AC21B00945B20 /* UDAggData.h in Headers */ = {isa = PBXBuildFile; fileRef = D56ADE3E1C9AC21B00945B20 /* UDAggData.h */; };
 		D56ADE411C9AC21B00945B20 /* UDAggData.m in Sources */ = {isa = PBXBuildFile; fileRef = D56ADE3F1C9AC21B00945B20 /* UDAggData.m */; };
+		D56ADE441C9AD63900945B20 /* UDCountedData.h in Headers */ = {isa = PBXBuildFile; fileRef = D56ADE421C9AD63900945B20 /* UDCountedData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D56ADE451C9AD63900945B20 /* UDCountedData.m in Sources */ = {isa = PBXBuildFile; fileRef = D56ADE431C9AD63900945B20 /* UDCountedData.m */; };
 		D59425A11BFC27D30069B5F8 /* Packets.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = D594259F1BFC27D30069B5F8 /* Packets.pb.h */; };
 		D59425A21BFC27D30069B5F8 /* Packets.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = D59425A01BFC27D30069B5F8 /* Packets.pb.m */; };
 		D59425A51BFC282F0069B5F8 /* UDPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = D59425A31BFC282F0069B5F8 /* UDPacket.h */; };
@@ -192,6 +194,8 @@
 		D559CCCE1BA462C80057CF17 /* UDNsdUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDNsdUtil.h; sourceTree = "<group>"; };
 		D56ADE3E1C9AC21B00945B20 /* UDAggData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDAggData.h; sourceTree = "<group>"; };
 		D56ADE3F1C9AC21B00945B20 /* UDAggData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDAggData.m; sourceTree = "<group>"; };
+		D56ADE421C9AD63900945B20 /* UDCountedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDCountedData.h; sourceTree = "<group>"; };
+		D56ADE431C9AD63900945B20 /* UDCountedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDCountedData.m; sourceTree = "<group>"; };
 		D594259F1BFC27D30069B5F8 /* Packets.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Packets.pb.h; sourceTree = "<group>"; };
 		D59425A01BFC27D30069B5F8 /* Packets.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Packets.pb.m; sourceTree = "<group>"; };
 		D59425A31BFC282F0069B5F8 /* UDPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPacket.h; sourceTree = "<group>"; };
@@ -422,6 +426,8 @@
 			isa = PBXGroup;
 			children = (
 				D5B889961C9AA6C500DCAEC5 /* UDData.h */,
+				D56ADE421C9AD63900945B20 /* UDCountedData.h */,
+				D56ADE431C9AD63900945B20 /* UDCountedData.m */,
 				D5B889991C9AA9B300DCAEC5 /* UDMemoryData.h */,
 				D5B8899A1C9AA9B300DCAEC5 /* UDMemoryData.m */,
 				D5B8899F1C9AABB300DCAEC5 /* UDLazyData.h */,
@@ -542,6 +548,7 @@
 				D51565D01B442E1D00101C06 /* Events.pb.h in Headers */,
 				D51565DA1B4432DC00101C06 /* UDConfig.h in Headers */,
 				D50655311B4323D7002D192D /* UDBonjourLink.h in Headers */,
+				D56ADE441C9AD63900945B20 /* UDCountedData.h in Headers */,
 				D51565C51B44233400101C06 /* UDLogging.h in Headers */,
 				D559CCCA1BA3256E0057CF17 /* UDNsdService.h in Headers */,
 				D56ADE401C9AC21B00945B20 /* UDAggData.h in Headers */,
@@ -775,6 +782,7 @@
 				D50655361B4323D7002D192D /* UDBtBeacon.m in Sources */,
 				D50A92571B48583A003F9B38 /* UDBtReach.m in Sources */,
 				D59425AE1BFC2B230069B5F8 /* UDRouterImpl.m in Sources */,
+				D56ADE451C9AD63900945B20 /* UDCountedData.m in Sources */,
 				D528C5A01B44895500E4FC8C /* UDTransport.m in Sources */,
 				D5C7DA321BA5A525009DDD00 /* UDNsdLink.m in Sources */,
 				D59425AA1BFC28EE0069B5F8 /* UDPacketKind.m in Sources */,

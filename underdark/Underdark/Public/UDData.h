@@ -22,9 +22,14 @@ typedef void (^UDDataRetrieveBlock)(NSData* _Nullable data);
 @protocol UDData <NSObject>
 
 /**
- * Disposes this UDFrameData object, making any data that it uses irrelevant.
+ * Acquires this data and increases its reference count.
  */
-- (void) dispose;
+- (void) acquire;
+
+/**
+ * Gives up this data and decreases its reference count.
+ */
+- (void) giveup;
 
 /**
  * Retrieves data from object.

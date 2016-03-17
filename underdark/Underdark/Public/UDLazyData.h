@@ -16,7 +16,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDData.h"
+#import "UDCountedData.h"
 
 typedef NSData* _Nullable (^UDLazyDataRetrieveBlock)();
 

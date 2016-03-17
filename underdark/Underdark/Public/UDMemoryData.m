@@ -35,14 +35,10 @@
 
 #pragma mark - UDData
 
-- (bool) disposed
-{
-	return _data == nil;
-}
-
 - (void) dispose
 {
 	_data = nil;
+	[super dispose];
 }
 
 - (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion

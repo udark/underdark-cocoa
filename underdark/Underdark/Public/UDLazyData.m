@@ -87,15 +87,10 @@
 			
 			if(localData == nil) {
 				localData = localBlock();
-				
-				if(localData == nil) {
-					// Cannot retrieve data - we're disposed.
-					[self dispose];
-				}
 			}
 			
-			if(!self.disposed) {
-				@synchronized(self) {
+			@synchronized(self) {
+				if(!self.disposed) {
 					_data = localData;
 				}
 			}
