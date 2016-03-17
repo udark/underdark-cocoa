@@ -25,7 +25,7 @@
 	NSData* _Nullable volatile _data;
 }
 
-- (nullable instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block
+- (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block
 {
 	if(!(self = [super init]))
 		return self;

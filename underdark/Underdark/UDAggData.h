@@ -34,6 +34,6 @@
 @property (nonatomic, weak) id<UDAggDataDelegate> delegate;
 @property (nonatomic, weak) UDAggLink* link;
 
-- (nullable instancetype) initWithData:(nonnull id<UDData>)data delegate:(nullable id<UDAggDataDelegate>)delegate;
+- (nonnull instancetype) initWithData:(nonnull id<UDData>)data delegate:(nullable id<UDAggDataDelegate>)delegate;
 
 @end

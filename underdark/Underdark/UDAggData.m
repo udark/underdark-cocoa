@@ -23,7 +23,7 @@
 	id<UDData> _Nonnull _data;
 }
 
-- (nullable instancetype) initWithData:(nonnull id<UDData>)data delegate:(nullable id<UDAggDataDelegate>)delegate
+- (nonnull instancetype) initWithData:(nonnull id<UDData>)data delegate:(nullable id<UDAggDataDelegate>)delegate
 {
 	if(!(self = [super init]))
 		return self;

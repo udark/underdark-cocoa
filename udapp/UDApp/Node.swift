@@ -69,7 +69,12 @@ class Node: NSObject, UDTransportDelegate
 		
 		for link in links
 		{
-			link.sendFrame(frameData);
+			let data = UDLazyData(queue: nil, block: { () -> NSData? in
+				return frameData
+			})
+			
+			link.sendData(data);
+			//link.sendFrame(frameData);
 		}
 	}
 	

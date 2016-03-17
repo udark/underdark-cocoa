@@ -28,8 +28,8 @@
 @property (nonatomic, readonly) bool slowLink;
 @property (nonatomic, readonly) int16_t priority;
 
-- (nullable instancetype) init NS_UNAVAILABLE;
-- (nullable instancetype) initWithNodeId:(int64_t)nodeId transport:(nonnull UDAggTransport*)transport NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype) init NS_UNAVAILABLE;
+- (nonnull instancetype) initWithNodeId:(int64_t)nodeId transport:(nonnull UDAggTransport*)transport NS_DESIGNATED_INITIALIZER;
 
 - (bool) isEmpty;
 - (bool) containsLink:(nonnull id<UDLink>)link;

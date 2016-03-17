@@ -36,7 +36,7 @@
 
 @implementation UDAggTransport
 
-- (nullable instancetype) initWithAppId:(int32_t)appId
+- (nonnull instancetype) initWithAppId:(int32_t)appId
 								 nodeId:(int64_t)nodeId
 							   delegate:(nullable id<UDTransportDelegate>)delegate
 								  queue:(nullable dispatch_queue_t)queue

@@ -38,9 +38,9 @@
 @property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
 @property (nonatomic, readonly, nonnull) UDRunLoopThread* ioThread;
 
-- (nullable instancetype) init NS_UNAVAILABLE;
+- (nonnull instancetype) init NS_UNAVAILABLE;
 
-- (nullable instancetype) initWithDelegate:(nonnull id<UDNsdServerDelegate>)delegate nodeId:(int64_t)nodeId queue:(nonnull dispatch_queue_t)queue NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype) initWithDelegate:(nonnull id<UDNsdServerDelegate>)delegate nodeId:(int64_t)nodeId queue:(nonnull dispatch_queue_t)queue NS_DESIGNATED_INITIALIZER;
 
 - (bool) startAccepting;
 - (void) stopAccepting;
