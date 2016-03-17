@@ -29,15 +29,17 @@
 @property (nonatomic, readonly) int16_t priority;
 
 - (nullable instancetype) init NS_UNAVAILABLE;
-- (nullable instancetype) initWithNodeId:(int64_t)nodeId transport:(nullable UDAggTransport*)transport NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype) initWithNodeId:(int64_t)nodeId transport:(nonnull UDAggTransport*)transport NS_DESIGNATED_INITIALIZER;
 
 - (bool) isEmpty;
 - (bool) containsLink:(nonnull id<UDLink>)link;
 - (void) addLink:(nonnull id<UDLink>)link;
 - (void) removeLink:(nonnull id<UDLink>)link;
 
-- (void) sendFrame:(nonnull NSData*)data;
 - (void) disconnect;
+
+- (void) sendFrame:(nonnull NSData*)data;
+- (void) sendData:(nonnull id<UDData>)data;
 
 - (void) sendDataToChildren:(nonnull UDAggData*)data;
 

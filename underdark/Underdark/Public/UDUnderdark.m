@@ -64,7 +64,7 @@ static id<UDLogger> underdarkLogger = nil;
 	{
 		bool peerToPeer = [kinds containsObject:@(UDTransportKindBluetooth)];
 		
-		id<UDTransport> childTransport = [[UDBonjourTransport alloc] initWithAppId:appId nodeId:nodeId delegate:aggTransport queue:aggTransport.childsQueue peerToPeer:peerToPeer];
+		id<UDTransport> childTransport = [[UDBonjourTransport alloc] initWithAppId:appId nodeId:nodeId delegate:aggTransport queue:aggTransport.ioqueue peerToPeer:peerToPeer];
 		
 		[aggTransport addTransport:childTransport];
 	}

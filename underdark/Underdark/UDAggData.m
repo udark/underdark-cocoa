@@ -21,7 +21,6 @@
 @implementation UDAggData
 {
 	id<UDData> _Nonnull _data;
-	bool volatile _disposed;
 }
 
 - (nullable instancetype) initWithData:(nonnull id<UDData>)data delegate:(nullable id<UDAggDataDelegate>)delegate
@@ -32,32 +31,30 @@
 	_data = data;
 	_delegate = delegate;
 
-	_disposed = false;
-
 	return self;
+}
+
+- (void) acquire
+{
+	[super acquire];
+	[_data acquire];
+}
+
+- (void) giveup
+{
+	[_data giveup];
+	[super giveup];
 }
 
 - (void) dispose
 {
-	[_data dispose];
-	
-	@synchronized(self) {
-		if(!_disposed) {
-			_disposed = true;
-			[_delegate dataDisposed:self];
-		}
-	}
+	[_delegate dataDisposed:self];
 }
 
 - (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion
 {
 	[_data retrieve:^(NSData * _Nullable data) {
 		// Any thread.
-		
-		if(data == nil) {
-			[self dispose];
-		}
-		
 		completion(data);
 	}];
 }

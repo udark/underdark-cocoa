@@ -21,15 +21,15 @@
 
 @interface UDAggTransport : NSObject <UDTransport, UDTransportDelegate, UDAggDataDelegate>
 
-@property (nonatomic, readonly) dispatch_queue_t queue;
-@property (nonatomic, readonly) dispatch_queue_t ioqueue;
+@property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
+@property (nonatomic, readonly, nonnull) dispatch_queue_t ioqueue;
 
-- (instancetype) initWithAppId:(int32_t)appId
+- (nullable instancetype) initWithAppId:(int32_t)appId
 						nodeId:(int64_t)nodeId
-					  delegate:(id<UDTransportDelegate>)delegate
-						 queue:(dispatch_queue_t)queue;
+					  delegate:(nullable id<UDTransportDelegate>)delegate
+						 queue:(nullable dispatch_queue_t)queue;
 
-- (void) addTransport:(id<UDTransport>)transport;
+- (void) addTransport:(nonnull id<UDTransport>)transport;
 
 - (void) enqueueData:(nonnull UDAggData*)data;
 

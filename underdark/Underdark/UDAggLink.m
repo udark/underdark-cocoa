@@ -33,7 +33,7 @@
 	@throw nil;
 }
 
-- (instancetype) initWithNodeId:(int64_t)nodeId transport:(UDAggTransport*)transport
+- (instancetype) initWithNodeId:(int64_t)nodeId transport:(nonnull UDAggTransport*)transport
 {
 	if(!(self = [super init]))
 		return self;
@@ -96,6 +96,7 @@
 {
 	// User queue.
 	UDAggData* aggData = [[UDAggData alloc] initWithData:data delegate:_transport];
+	[aggData acquire];
 	
 	sldispatch_async(_transport.ioqueue, ^{
 		[_transport enqueueData:aggData];		

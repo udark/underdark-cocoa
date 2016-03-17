@@ -36,10 +36,10 @@
 
 @implementation UDAggTransport
 
-- (instancetype) initWithAppId:(int32_t)appId
-						nodeId:(int64_t)nodeId
-					  delegate:(id<UDTransportDelegate>)delegate
-						 queue:(dispatch_queue_t)queue
+- (nullable instancetype) initWithAppId:(int32_t)appId
+								 nodeId:(int64_t)nodeId
+							   delegate:(nullable id<UDTransportDelegate>)delegate
+								  queue:(nullable dispatch_queue_t)queue
 {
 	if(!(self = [super init]))
 		return self;
@@ -109,7 +109,7 @@
 	
 	if(!aggregate)
 	{
-		aggregate = [[UDAggLink alloc] initWithNodeId:link.nodeId];
+		aggregate = [[UDAggLink alloc] initWithNodeId:link.nodeId transport:self];
 		_linksConnected[@(link.nodeId)] = aggregate;
 	}
 	
