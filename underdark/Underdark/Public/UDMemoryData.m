@@ -40,14 +40,14 @@
 	return _data == nil;
 }
 
-- (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion
-{
-	completion(_data);
-}
-
 - (void) dispose
 {
 	_data = nil;
+}
+
+- (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion
+{
+	completion(_data);
 }
 
 @end

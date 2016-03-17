@@ -24,15 +24,15 @@ typedef void (^UDDataRetrieveBlock)(NSData* _Nullable data);
 @property (nonatomic, readonly) bool disposed;
 
 /**
+ * Disposes this UDFrameData object, making any data that it uses irrelevant.
+ */
+- (void) dispose;
+
+/**
  * Retrieves data from object.
  * Implementations should call the completion handler
  * with retrieved data as argument, or null if data cannot be retrieved.
  */
 - (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion;
-
-/**
- * Disposes this UDFrameData object, making any data that it uses irrelevant.
- */
-- (void) dispose;
 
 @end

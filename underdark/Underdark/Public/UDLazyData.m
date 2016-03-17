@@ -43,6 +43,17 @@
 	return _block == nil;
 }
 
+- (void) dispose
+{
+	// Any thread.
+	@synchronized(self)
+	{
+		_queue = nil;
+		_block = nil;
+		_data = nil;
+	}
+}
+
 - (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion
 {
 	// I/O thread.
@@ -97,16 +108,5 @@
 	
 	completion(_data);
 } // retrieve
-
-- (void) dispose
-{
-	// Any thread.
-	@synchronized(self)
-	{
-		_queue = nil;
-		_block = nil;
-		_data = nil;
-	}
-}
 
 @end
