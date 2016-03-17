@@ -364,30 +364,7 @@ typedef NS_ENUM(NSUInteger, UDNsdState)
 		return;
 	}
 	
-	// Otherwise add frame to output queue.
-	
-	// Send big frames last.
-	const NSUInteger bigFrameSize = 1024;
-	if(data.length >= bigFrameSize)
-	{
-		[_outputQueue addObject:data];
-		return;
-	}
-	
-	// Send small frames first.
-	for(NSInteger i = 0; i < _outputQueue.count; ++i)
-	{
-		@autoreleasepool
-		{
-			NSData* queueFrame = _outputQueue[i];
-			if(queueFrame.length >= bigFrameSize)
-			{
-				[_outputQueue insertObject:data atIndex:i];
-				return;
-			}
-		}
-	}
-	
+	// Otherwise add frame to output queue.	
 	[_outputQueue addObject:data];
 } // writeFrame
 
