@@ -22,6 +22,7 @@
 #import "Frames.pb.h"
 #import "UDLogging.h"
 #import "UDAsyncUtils.h"
+#import "UDMemoryData.h"
 
 #import "UDConfig.h"
 
@@ -37,14 +38,14 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 @property (nonatomic) id<UDData> data;
 @property (nonatomic) Frame* frame;
 
-- (void) giveup;
-
 @end
 @implementation UDOutputData
 
-- (void) giveup
+- (void) dealloc
 {
-	[self.data giveup];
+	if(self.data != nil) {
+		[self.data giveup];
+	}
 }
 
 @end
@@ -214,14 +215,8 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 		_inputStream = nil;
 	}
 	
-	for(id<UDData> data in _outputQueue) {
-		[data giveup];
-	}
-	
 	[_outputQueue removeAllObjects];
 	
-	
-	[_outputData giveup];
 	_outputData = nil;
 	_outputDataOffset = 0;
 	
@@ -256,15 +251,9 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	if(_state != SLBnjStateDisconnected)
 		return;
 	
-	for(id<UDData> data in _outputQueue) {
-		[data giveup];
-	}
-	
 	[_outputQueue removeAllObjects];
 	
-	
 	_outputData = nil;
-	[_outputData giveup];
 	_outputDataOffset = 0;
 	
 	//if(_shouldLog)
@@ -283,28 +272,21 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 - (void) sendData:(nonnull id<UDData>)data
 {
-	// Transport queue.
-	[data acquire];
-	[data giveup]; // By per UDLink sendData: contract.
-	
+	// Transport queue.	
 	UDOutputData* outdata = [[UDOutputData alloc] init];
 	outdata.data = data;
-	
+	[data acquire];
+
+	[data giveup]; // By per UDLink sendData: contract.
+
 	[self performSelector:@selector(writeData:) onThread:self.transport.ioThread withObject:outdata waitUntilDone:NO];
 }
 
 - (void) sendFrame:(NSData*)data
 {
 	// Transport queue.
-	FrameBuilder* frame = [FrameBuilder new];
-	frame.kind = FrameKindPayload;
-	
-	PayloadFrameBuilder* payload = [PayloadFrameBuilder new];
-	payload.payload = data;
-	
-	frame.payload = [payload build];
-	
-	[self sendLinkFrame:[frame build]];
+	UDMemoryData* memoryData = [[UDMemoryData alloc] initWithData:data];
+	[self sendData:memoryData];
 }
 
 - (void) sendLinkFrame:(Frame*)frame
@@ -317,18 +299,6 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	[self performSelector:@selector(writeData:) onThread:self.transport.ioThread withObject:outdata waitUntilDone:NO];
 }
 
-- (void) sendLinkFrame2:(Frame*)frame
-{
-	// Any queue.
-	NSMutableData* frameData = [NSMutableData data];
-	NSData* frameBody = frame.data;
-	uint32_t frameBodySize = CFSwapInt32HostToBig((uint32_t)frameBody.length);
-	[frameData appendBytes:&frameBodySize length:sizeof(frameBodySize)];
-	[frameData appendData:frameBody];
-	
-	[self performSelector:@selector(writeFrame:) onThread:self.transport.ioThread withObject:frameData waitUntilDone:NO];
-}
-
 - (void) writeData:(UDOutputData*)outdata
 {
 	// Stream thread.
@@ -337,7 +307,6 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	
 	if(_state == SLBnjStateDisconnected)
 	{
-		[outdata giveup];
 		return;
 	}
 	
@@ -359,7 +328,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	
 	_transferStartTime = [NSDate timeIntervalSinceReferenceDate];
 	
-	[_outputData giveup];
+	_outputData = nil;
 	
 	_outputBytes = nil;
 	_outputDataOffset = 0;
