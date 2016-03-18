@@ -43,9 +43,8 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	uint8_t _inputBuffer[1024];		// Input stream buffer.
 	
 	NSMutableArray<UDOutputItem*>* _outputQueue;	// Output queue with data objects.
-	UDOutputItem* _outputData;		// Currently written UDBonjourData. If nil, then we should call write: on stream directly.
+	UDOutputItem* _outputItem;		// Currently written UDOutputItem. If nil, then we should call write: on stream directly.
 	
-	NSData* _outputBytes;			// If nil, then bytes is not yet acquired from _outputData.
 	NSUInteger _outputDataOffset;	// Count of outputData's written bytes;
 	
 	NSTimeInterval _transferStartTime;
@@ -199,7 +198,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	
 	[_outputQueue removeAllObjects];
 	
-	_outputData = nil;
+	_outputItem = nil;
 	_outputDataOffset = 0;
 	
 	if(_outputStream)
@@ -235,7 +234,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	
 	[_outputQueue removeAllObjects];
 	
-	_outputData = nil;
+	_outputItem = nil;
 	_outputDataOffset = 0;
 	
 	//if(_shouldLog)
@@ -261,17 +260,21 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 	[data giveup]; // By per UDChannel sendData: contract.
 
-	[self performSelector:@selector(writeData:) onThread:self.transport.ioThread withObject:outdata waitUntilDone:NO];
+	[self performSelector:@selector(enqueueItem:) onThread:self.transport.ioThread withObject:outdata waitUntilDone:NO];
 }
 
 - (void) sendLinkFrame:(Frame*)frame
 {
 	// Any queue.
+
+	NSData* frameData = [frame data];
 	
-	UDOutputItem* outitem = [[UDOutputItem alloc] init];
-	outitem.data = [self dataForFrame:frame];
+	UDOutputItem* frameHeader = [self itemForFrameHeader:frameData];
+	[self performSelector:@selector(enqueueItem:) onThread:self.transport.ioThread withObject:frameHeader waitUntilDone:NO];
 	
-	[self performSelector:@selector(enqueueItem:) onThread:self.transport.ioThread withObject:outitem waitUntilDone:NO];
+	UDOutputItem* frameBody = [[UDOutputItem alloc] init];
+	frameBody.data = frameData;
+	[self performSelector:@selector(enqueueItem:) onThread:self.transport.ioThread withObject:frameBody waitUntilDone:NO];
 }
 
 - (void) enqueueItem:(UDOutputItem*)outitem
@@ -286,13 +289,13 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	// Add data to output queue.
 	[_outputQueue addObject:outitem];
 	
-	// If we're not currently writing any data, start writing.
-	if(_outputData == nil) {
-		[self writeNextData];
+	// If we're not currently writing any item, start writing next.
+	if(_outputItem == nil) {
+		[self writeNextItem];
 	}
 }
 
-- (void) writeNextData
+- (void) writeNextItem
 {
 	// Stream thread.
 	
@@ -301,27 +304,25 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	
 	_transferStartTime = [NSDate timeIntervalSinceReferenceDate];
 	
-	_outputData = nil;
+	_outputItem = nil;
 	
-	_outputBytes = nil;
 	_outputDataOffset = 0;
-	_outputData = [_outputQueue firstObject];
-	if(_outputData == nil)
+	_outputItem = [_outputQueue firstObject];
+	if(_outputItem == nil)
 		return;
 	
 	[_outputQueue removeObjectAtIndex:0];
 	
-	if(_outputData.data != nil)
+	if(_outputItem.data != nil)
 	{
-		_outputBytes = _outputData.data;
 		[self writeNextBytes];
 		
 		return;
 	}
 	
-	if(_outputData.task != nil)
+	if(_outputItem.task != nil)
 	{
-		[_outputData.task retrieve:^(NSData* _Nullable data)
+		[_outputItem.task retrieve:^(NSData* _Nullable data)
 		{
 			// Any thread.
 			[self performSelector:@selector(outputDataBytesRetrieved:) onThread:self.transport.ioThread withObject:data waitUntilDone:NO];
@@ -331,7 +332,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	}
 	
 	// Empty UDOutputData object encountered — disconnecting.
-	_outputData = nil;
+	_outputItem = nil;
 	[self closeStreams];
 	
 } // writeNextData
@@ -345,29 +346,16 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	
 	if(dataBytes == nil) {
 		// Data no more actural - get next from queue.
-		[self writeNextData];
+		[self writeNextItem];
 		return;
 	}
 	
-	[_outputData markAsProcessed];
+	_outputItem.data = dataBytes;
 	
-	_outputBytes = [self dataForFrame:[frame build]];
 	[self writeNextBytes];
 }
 
 #pragma mark - Boxing
-
-- (NSData*) dataForFrame:(Frame*)frame
-{
-	// Any thread.
-	NSMutableData* frameData = [NSMutableData data];
-	NSData* frameBody = frame.data;
-	uint32_t frameBodySize = CFSwapInt32HostToBig((uint32_t)frameBody.length);
-	[frameData appendBytes:&frameBodySize length:sizeof(frameBodySize)];
-	[frameData appendData:frameBody];
-	
-	return frameData;
-}
 
 - (UDOutputItem*) itemForFrameHeader:(NSData*)frameData
 {
@@ -376,7 +364,10 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	uint32_t frameBodySize = CFSwapInt32HostToBig((uint32_t)frameData.length);
 	[headerData appendBytes:&frameBodySize length:sizeof(frameBodySize)];
 	
-	return headerData;
+	UDOutputItem* outitem = [[UDOutputItem alloc] init];
+	outitem.data = headerData;
+	
+	return outitem;
 }
 
 #pragma mark - NSStreamDelegate
@@ -476,12 +467,13 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	if(_state == SLBnjStateDisconnected)
 		return;
 	
-	if(!_outputBytes)
+	// Output queue is empty - nothing to write..
+	if(_outputItem == nil)
 		return;
 	
-	uint8_t* bytes = (uint8_t *)_outputBytes.bytes;
+	uint8_t* bytes = (uint8_t *)_outputItem.data.bytes;
 	bytes += _outputDataOffset;
-	NSInteger len = (NSInteger) MIN(sizeof(_inputBuffer), _outputBytes.length - _outputDataOffset);
+	NSInteger len = (NSInteger) MIN(sizeof(_inputBuffer), _outputItem.data.length - _outputDataOffset);
 	
 	// Writing to NSOutputStream:
 	// http://stackoverflow.com/a/23001691/1449965
@@ -511,10 +503,10 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	//LogDebug(@"Write speed %d bytes/sec", (int32_t)(_transferBytes / _transferTime));
 	
 	_outputDataOffset += result;
-	if(_outputDataOffset == _outputBytes.length)
+	if(_outputDataOffset == _outputItem.data.length)
 	{
-		// Frame is fully written - getting next from output queue.
-		[self writeNextData];
+		// Item is fully written - getting next from output queue.
+		[self writeNextItem];
 	}
 } // writeNextBytes
 

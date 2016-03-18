@@ -10,7 +10,6 @@
 
 @implementation UDOutputItem
 {
-	bool _processed;
 }
 
 - (instancetype) init
@@ -23,14 +22,6 @@
 
 - (void) dealloc
 {
-	if(!_processed) {
-		[self.task giveup];
-	}
-}
-
-- (void) markAsProcessed
-{
-	_processed = true;
 	[self.task giveup];
 }
 

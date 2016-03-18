@@ -16,6 +16,4 @@
 @property (nonatomic, nullable) NSData* data;
 @property (nonatomic, nullable) id<UDData> task;
 
-- (void) markAsProcessed;
-
 @end
