@@ -48,20 +48,27 @@
 - (UDDataBuffer*) buffer:(NSUInteger)length
 {
 	NSMutableData* data = [NSMutableData dataWithLength:length];
-	arc4random_buf(data.mutableBytes, data.length);
+	
+	if(length != 0)
+		arc4random_buf(data.mutableBytes, data.length);
 	
 	return [[UDDataBuffer alloc] initWithData:data];
 }
 
 - (void) testComposite
 {
+	UDDataBuffer* buf0 = [self buffer:0];
 	UDDataBuffer* buf1 = [self buffer:10];
 	UDDataBuffer* buf2 = [self buffer:20];
 	UDDataBuffer* buf3 = [self buffer:30];
 	
 	UDCompositeBuffer* composite = [[UDCompositeBuffer alloc] init];
+	[composite append:buf0];
 	[composite append:buf1];
+	[composite append:buf0];
 	[composite append:buf2];
+	[composite append:buf0];
+	[composite append:buf0];
 	[composite append:buf3];
 	
 	NSData* data = [composite readBytesWithOffset:6 length:31];
