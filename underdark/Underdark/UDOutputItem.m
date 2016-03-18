@@ -24,14 +24,14 @@
 - (void) dealloc
 {
 	if(!_processed) {
-		[self.data giveup];
+		[self.task giveup];
 	}
 }
 
 - (void) markAsProcessed
 {
 	_processed = true;
-	[self.data giveup];
+	[self.task giveup];
 }
 
 @end

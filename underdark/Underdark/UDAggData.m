@@ -17,10 +17,14 @@
 #import "UDAggData.h"
 
 #import "UDAggLink.h"
+#import "UDAsyncUtils.h"
+#import "Frames.pb.h"
 
 @implementation UDAggData
 {
 	id<UDData> _Nonnull _data;
+	NSData* _Nullable volatile _frameData;
+	bool volatile _disposed;
 }
 
 - (nonnull instancetype) initWithData:(nonnull id<UDData>)data delegate:(nullable id<UDAggDataDelegate>)delegate
@@ -50,15 +54,59 @@
 
 - (void) dispose
 {
+	@synchronized(self) {
+		_disposed = true;
+		_frameData = nil;
+	}
+	
 	[_delegate dataDisposed:self];
 }
 
 - (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion
 {
+	// Any thread.
+	if(_frameData != nil)
+	{
+		sldispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			completion(_frameData);
+		});
+		
+		return;
+	}
+	
 	[_data retrieve:^(NSData * _Nullable data) {
 		// Any thread.
-		completion(data);
+		
+		if(data == nil)
+		{
+			sldispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+				completion(nil);
+			});
+
+			return;
+		}
+		
+		// Building frame.
+		FrameBuilder* frame = [FrameBuilder new];
+		frame.kind = FrameKindPayload;
+		
+		PayloadFrameBuilder* payload = [PayloadFrameBuilder new];
+		payload.payload = data;
+		
+		frame.payload = [payload build];
+		
+		NSData* localData = [[frame build] data];
+		
+		@synchronized(self) {
+			if(!_disposed) {
+				_frameData = localData;
+			}
+		}
+		
+		sldispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			completion(_frameData);
+		});
 	}];
-}
+} // retrieve
 
 @end

@@ -13,8 +13,8 @@
 
 @interface UDOutputItem : NSObject
 
-@property (nonatomic) id<UDData> data;
-@property (nonatomic) Frame* frame;
+@property (nonatomic, nullable) NSData* data;
+@property (nonatomic, nullable) id<UDData> task;
 
 - (void) markAsProcessed;
 

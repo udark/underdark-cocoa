@@ -95,6 +95,7 @@
 - (void) sendData:(nonnull id<UDData>)data
 {
 	// User queue.
+	
 	UDAggData* aggData = [[UDAggData alloc] initWithData:data delegate:_transport];
 	aggData.link = self;
 	

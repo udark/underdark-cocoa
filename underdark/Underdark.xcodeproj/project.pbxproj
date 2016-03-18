@@ -424,7 +424,7 @@
 		D528C5931B44895500E4FC8C /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				D5B889981C9AA92800DCAEC5 /* FrameData */,
+				D5B889981C9AA92800DCAEC5 /* UDData */,
 				D528C59B1B44895500E4FC8C /* Underdark.h */,
 				D528C5991B44895500E4FC8C /* UDUnderdark.h */,
 				D528C59A1B44895500E4FC8C /* UDUnderdark.m */,
@@ -466,7 +466,7 @@
 			name = Logging;
 			sourceTree = "<group>";
 		};
-		D5B889981C9AA92800DCAEC5 /* FrameData */ = {
+		D5B889981C9AA92800DCAEC5 /* UDData */ = {
 			isa = PBXGroup;
 			children = (
 				D5B889961C9AA6C500DCAEC5 /* UDData.h */,
@@ -477,7 +477,7 @@
 				D5B8899F1C9AABB300DCAEC5 /* UDLazyData.h */,
 				D5B889A01C9AABB300DCAEC5 /* UDLazyData.m */,
 			);
-			name = FrameData;
+			name = UDData;
 			sourceTree = "<group>";
 		};
 		D5DDCE881B430F21007B8E3E = {

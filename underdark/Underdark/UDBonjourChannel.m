@@ -256,7 +256,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 {
 	// Transport queue.	
 	UDOutputItem* outdata = [[UDOutputItem alloc] init];
-	outdata.data = data;
+	outdata.task = data;
 	[data acquire];
 
 	[data giveup]; // By per UDChannel sendData: contract.
@@ -268,13 +268,13 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 {
 	// Any queue.
 	
-	UDOutputItem* outdata = [[UDOutputItem alloc] init];
-	outdata.frame = frame;
+	UDOutputItem* outitem = [[UDOutputItem alloc] init];
+	outitem.data = [self dataForFrame:frame];
 	
-	[self performSelector:@selector(writeData:) onThread:self.transport.ioThread withObject:outdata waitUntilDone:NO];
+	[self performSelector:@selector(enqueueItem:) onThread:self.transport.ioThread withObject:outitem waitUntilDone:NO];
 }
 
-- (void) writeData:(UDOutputItem*)outdata
+- (void) enqueueItem:(UDOutputItem*)outitem
 {
 	// Stream thread.
 	
@@ -284,7 +284,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 		return;
 	
 	// Add data to output queue.
-	[_outputQueue addObject:outdata];
+	[_outputQueue addObject:outitem];
 	
 	// If we're not currently writing any data, start writing.
 	if(_outputData == nil) {
@@ -311,17 +311,18 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	
 	[_outputQueue removeObjectAtIndex:0];
 	
-	if(_outputData.frame != nil)
+	if(_outputData.data != nil)
 	{
-		_outputBytes = [self dataForFrame:_outputData.frame];
+		_outputBytes = _outputData.data;
 		[self writeNextBytes];
 		
 		return;
 	}
 	
-	if(_outputData.data != nil)
+	if(_outputData.task != nil)
 	{
-		[_outputData.data retrieve:^(NSData * _Nullable data) {
+		[_outputData.task retrieve:^(NSData* _Nullable data)
+		{
 			// Any thread.
 			[self performSelector:@selector(outputDataBytesRetrieved:) onThread:self.transport.ioThread withObject:data waitUntilDone:NO];
 		}];
@@ -350,18 +351,11 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	
 	[_outputData markAsProcessed];
 	
-	// Building frame.
-	FrameBuilder* frame = [FrameBuilder new];
-	frame.kind = FrameKindPayload;
-	
-	PayloadFrameBuilder* payload = [PayloadFrameBuilder new];
-	payload.payload = dataBytes;
-	
-	frame.payload = [payload build];
-	
 	_outputBytes = [self dataForFrame:[frame build]];
 	[self writeNextBytes];
 }
+
+#pragma mark - Boxing
 
 - (NSData*) dataForFrame:(Frame*)frame
 {
@@ -373,6 +367,16 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	[frameData appendData:frameBody];
 	
 	return frameData;
+}
+
+- (UDOutputItem*) itemForFrameHeader:(NSData*)frameData
+{
+	// Any thread.
+	NSMutableData* headerData = [NSMutableData data];
+	uint32_t frameBodySize = CFSwapInt32HostToBig((uint32_t)frameData.length);
+	[headerData appendBytes:&frameBodySize length:sizeof(frameBodySize)];
+	
+	return headerData;
 }
 
 #pragma mark - NSStreamDelegate
