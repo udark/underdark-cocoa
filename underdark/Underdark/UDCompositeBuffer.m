@@ -77,7 +77,7 @@
 	
 	// 2. Присоединяем байты буферов, пока не закончатся байты, которые надо присоединить.
 	
-	while (len != 0)
+	while (countLeft != 0)
 	{
 		UDBuffer* buffer = _buffers[bufIndex];
 		NSData* bytes = [buffer readBytesWithOffset:0 length:MIN(buffer.length, countLeft)];
