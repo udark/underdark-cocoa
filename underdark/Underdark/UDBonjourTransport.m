@@ -58,7 +58,7 @@
 
 - (instancetype) init
 {
-	@throw nil;
+	return nil;
 }
 
 - (instancetype) initWithAppId:(int32_t)appId
@@ -298,7 +298,7 @@
 
 #pragma mark - Links
 
-- (int64_t) linkPriority
+- (int16_t) linkPriority
 {
 	if(self.peerToPeer)
 		return 15;

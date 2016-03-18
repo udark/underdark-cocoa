@@ -32,16 +32,16 @@
 - (nonnull instancetype) initWithNodeId:(int64_t)nodeId transport:(nonnull UDAggTransport*)transport NS_DESIGNATED_INITIALIZER;
 
 - (bool) isEmpty;
-- (bool) containsLink:(nonnull id<UDLink>)link;
-- (void) addLink:(nonnull id<UDLink>)link;
-- (void) removeLink:(nonnull id<UDLink>)link;
+- (bool) containsLink:(nonnull id<UDChannel>)link;
+- (void) addLink:(nonnull id<UDChannel>)link;
+- (void) removeLink:(nonnull id<UDChannel>)link;
 
 - (void) disconnect;
 
 - (void) sendFrame:(nonnull NSData*)data;
 - (void) sendData:(nonnull id<UDData>)data;
 
-// Does not gives ups data.
+// Doesn't gives up data.
 - (void) sendDataToChildren:(nonnull UDAggData*)data;
 
 @end

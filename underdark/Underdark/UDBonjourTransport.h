@@ -46,7 +46,7 @@
 - (void) browserDidFail;
 - (void) serverDidFail;
 
-- (int64_t) linkPriority;
+- (int16_t) linkPriority;
 
 - (bool) shouldConnectToNodeId:(int64_t)nodeId;
 

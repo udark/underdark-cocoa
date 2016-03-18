@@ -39,7 +39,7 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 
 - (instancetype) init
 {
-	@throw nil;
+	return nil;
 }
 
 - (instancetype) initWithTransport:(UDBonjourTransport*)transport

@@ -27,10 +27,10 @@
 	__weak id<UDTransportDelegate> _delegate;
 	
 	bool _running;
-	NSMutableArray* _transports;
-	NSMutableDictionary<NSNumber*, UDAggLink*>* _linksConnected; // nodeId to UDAggLink
+	NSMutableArray< id<UDAdapter> > * _adapters;
+	NSMutableDictionary<NSNumber*, UDAggLink*> * _linksConnected; // nodeId to UDAggLink
 	
-	NSMutableArray<UDAggData*>* _dataQueue;
+	NSMutableArray<UDAggData*> * _dataQueue;
 }
 @end
 
@@ -49,7 +49,7 @@
 	_ioqueue = dispatch_queue_create("UDAggTransport", DISPATCH_QUEUE_SERIAL);
 	_delegate = delegate;
 	
-	_transports = [NSMutableArray array];
+	_adapters = [NSMutableArray array];
 	_linksConnected = [NSMutableDictionary dictionary];
 	
 	_dataQueue = [NSMutableArray array];
@@ -62,7 +62,7 @@
 	if(!transport)
 		return;
 	
-	[_transports addObject:transport];
+	[_adapters addObject:transport];
 }
 
 #pragma mark - UDTransport
@@ -76,7 +76,7 @@
 	_running = true;
 	
 	sldispatch_async(_ioqueue, ^{
-		for(id<UDAdapter> transport in _transports)
+		for(id<UDAdapter> transport in _adapters)
 		{
 			[transport start];
 		}
@@ -92,7 +92,7 @@
 	_running = false;
 	
 	sldispatch_async(_ioqueue, ^{
-		for(id<UDAdapter> transport in _transports)
+		for(id<UDAdapter> transport in _adapters)
 		{
 			[transport stop];
 		}
@@ -101,7 +101,7 @@
 
 #pragma mark - UDAdapterDelegate
 
-- (void) transport:(id<UDAdapter>)transport linkConnected:(id<UDLink>)link
+- (void) transport:(id<UDAdapter>)transport linkConnected:(id<UDChannel>)link
 {
 	UDAggLink* aggregate = _linksConnected[@(link.nodeId)];
 	
@@ -123,7 +123,7 @@
 	}
 }
 
-- (void) transport:(id<UDAdapter>)transport linkDisconnected:(id<UDLink>)link
+- (void) transport:(id<UDAdapter>)transport linkDisconnected:(id<UDChannel>)link
 {
 	UDAggLink* aggregate = _linksConnected[@(link.nodeId)];
 	if(!aggregate)
@@ -145,7 +145,7 @@
 	}
 }
 
-- (void) transport:(id<UDAdapter>)transport link:(id<UDLink>)link didReceiveFrame:(NSData*)data
+- (void) transport:(id<UDAdapter>)transport link:(id<UDChannel>)link didReceiveFrame:(NSData*)data
 {
 	UDAggLink* aggregate = _linksConnected[@(link.nodeId)];
 	if(!aggregate)
