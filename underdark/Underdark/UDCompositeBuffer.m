@@ -28,6 +28,11 @@
 	return self;
 }
 
+- (void) append:(nonnull UDBuffer*)buffer
+{
+	[_buffers addObject:buffer];
+}
+
 #pragma mark - UDBuffer
 
 - (NSUInteger) length
@@ -42,7 +47,7 @@
 	return result;
 }
 
-- (nonnull NSData*) readBytesWithOffest:(NSUInteger)offset length:(NSUInteger)len
+- (nonnull NSData*) readBytesWithOffset:(NSUInteger)offset length:(NSUInteger)len
 {
 	NSAssert(offset + len <= self.length, @"Out of bounds");
 	
@@ -65,7 +70,7 @@
 	UDBuffer* starting = _buffers[bufIndex];
 	
 	// Appending starting buffer bytes.
-	[result appendData:[starting readBytesWithOffest:(offset - prevBuffersLen)]];
+	[result appendData:[starting readBytesWithOffset:(offset - prevBuffersLen)]];
 	
 	NSUInteger countLeft = len - (starting.length - (offset - prevBuffersLen));
 	bufIndex += 1;
@@ -75,7 +80,7 @@
 	while (len != 0)
 	{
 		UDBuffer* buffer = _buffers[bufIndex];
-		NSData* bytes = [buffer readBytesWithOffest:0 length:MIN(buffer.length, countLeft)];
+		NSData* bytes = [buffer readBytesWithOffset:0 length:MIN(buffer.length, countLeft)];
 		
 		countLeft -= bytes.length;
 		bufIndex += 1;

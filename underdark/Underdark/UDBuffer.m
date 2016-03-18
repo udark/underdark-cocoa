@@ -23,14 +23,14 @@
 	return 0;
 }
 
-- (nonnull NSData*) readBytesWithOffest:(NSUInteger)offset length:(NSUInteger)len
+- (nonnull NSData*) readBytesWithOffset:(NSUInteger)offset length:(NSUInteger)len
 {
 	return [[NSData alloc] init];
 }
 
-- (nonnull NSData*) readBytesWithOffest:(NSUInteger)offset
+- (nonnull NSData*) readBytesWithOffset:(NSUInteger)offset
 {
-	return [self readBytesWithOffest:offset length:(self.length - offset)];
+	return [self readBytesWithOffset:offset length:(self.length - offset)];
 }
 
 @end

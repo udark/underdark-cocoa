@@ -22,4 +22,6 @@
 
 @property (nonatomic, readonly, nonnull) NSMutableArray<UDBuffer*> * buffers;
 
+- (void) append:(nonnull UDBuffer*)buffer;
+
 @end

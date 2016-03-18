@@ -20,7 +20,7 @@
 
 @property (nonatomic, readonly, getter=length) NSUInteger length;
 
-- (nonnull NSData*) readBytesWithOffest:(NSUInteger)offset length:(NSUInteger)len;
-- (nonnull NSData*) readBytesWithOffest:(NSUInteger)offset;
+- (nonnull NSData*) readBytesWithOffset:(NSUInteger)offset length:(NSUInteger)len;
+- (nonnull NSData*) readBytesWithOffset:(NSUInteger)offset;
 
 @end

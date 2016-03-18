@@ -35,7 +35,7 @@
 	return _data.length;
 }
 
-- (nonnull NSData*) readBytesWithOffest:(NSUInteger)offset length:(NSUInteger)len
+- (nonnull NSData*) readBytesWithOffset:(NSUInteger)offset length:(NSUInteger)len
 {
 	NSAssert(offset + len <= self.length, @"Out of bounds");
 	
