@@ -321,7 +321,7 @@
 	[_links addObject:link];
 
 	sldispatch_async(self.queue, ^{
-		[self->_delegate transport:self linkConnected:link];
+		[self->_delegate adapter:self channelConnected:link];
 	});
 }
 
@@ -339,7 +339,7 @@
 	if(wasConnected)
 	{
 		sldispatch_async(self.queue, ^{
-			[self->_delegate transport:self linkDisconnected:link];
+			[self->_delegate adapter:self channelDisconnected:link];
 		});
 	}
 	
@@ -359,7 +359,7 @@
 - (void) link:(UDBonjourLink *)link receivedFrame:(NSData*)frameData
 {
 	// Transport queue.
-	[self->_delegate transport:self link:link didReceiveFrame:frameData];
+	[self->_delegate adapter:self channel:link didReceiveFrame:frameData];
 }
 
 @end

@@ -20,9 +20,9 @@
 
 @protocol UDAdapterDelegate <NSObject>
 
-- (void) transport:(id<UDAdapter>)transport linkConnected:(id<UDChannel>)link;
-- (void) transport:(id<UDAdapter>)transport linkDisconnected:(id<UDChannel>)link;
-- (void) transport:(id<UDAdapter>)transport link:(id<UDChannel>)link didReceiveFrame:(NSData*)frameData;
+- (void) adapter:(id<UDAdapter>)adapter channelConnected:(id<UDChannel>)channel;
+- (void) adapter:(id<UDAdapter>)adapter channelDisconnected:(id<UDChannel>)channel;
+- (void) adapter:(id<UDAdapter>)adapter channel:(id<UDChannel>)channel didReceiveFrame:(NSData*)frameData;
 
 @end
 

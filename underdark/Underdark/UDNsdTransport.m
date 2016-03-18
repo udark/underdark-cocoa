@@ -116,12 +116,12 @@
 
 - (void) server:(nonnull UDNsdServer*)server linkConnected:(nonnull UDNsdLink*)link
 {
-	[self.delegate transport:self linkConnected:link];
+	[self.delegate adapter:self channelConnected:link];
 }
 
 - (void) server:(nonnull UDNsdServer*)server linkDisconnected:(nonnull UDNsdLink*)link
 {
-	[self.delegate transport:self linkDisconnected:link];
+	[self.delegate adapter:self channelDisconnected:link];
 	
 	if(link.interfaceIndex != 0)
 	{
@@ -133,7 +133,7 @@
 
 - (void) server:(nonnull UDNsdServer*)server link:(nonnull UDNsdLink *)link didReceiveFrame:(nonnull NSData*)frameData
 {
-	[self.delegate transport:self link:link didReceiveFrame:frameData];
+	[self.delegate adapter:self channel:link didReceiveFrame:frameData];
 }
 
 

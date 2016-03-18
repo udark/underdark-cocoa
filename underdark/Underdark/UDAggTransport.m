@@ -101,7 +101,7 @@
 
 #pragma mark - UDAdapterDelegate
 
-- (void) transport:(id<UDAdapter>)transport linkConnected:(id<UDChannel>)link
+- (void) adapter:(id<UDAdapter>)transport channelConnected:(id<UDChannel>)link
 {
 	UDAggLink* aggregate = _linksConnected[@(link.nodeId)];
 	
@@ -123,16 +123,16 @@
 	}
 }
 
-- (void) transport:(id<UDAdapter>)transport linkDisconnected:(id<UDChannel>)link
+- (void) adapter:(id<UDAdapter>)transport channelDisconnected:(id<UDChannel>)channel
 {
-	UDAggLink* aggregate = _linksConnected[@(link.nodeId)];
+	UDAggLink* aggregate = _linksConnected[@(channel.nodeId)];
 	if(!aggregate)
 		return;
 	
-	if([aggregate containsLink:link])
+	if([aggregate containsLink:channel])
 	{
 		// Link was connected.
-		[aggregate removeLink:link];
+		[aggregate removeLink:channel];
 	}
 	
 	if(aggregate.isEmpty)
@@ -145,18 +145,18 @@
 	}
 }
 
-- (void) transport:(id<UDAdapter>)transport link:(id<UDChannel>)link didReceiveFrame:(NSData*)data
+- (void) adapter:(id<UDAdapter>)adapter channel:(id<UDChannel>)channel didReceiveFrame:(NSData*)data
 {
-	UDAggLink* aggregate = _linksConnected[@(link.nodeId)];
+	UDAggLink* aggregate = _linksConnected[@(channel.nodeId)];
 	if(!aggregate)
 	{
-		LogError(@"Aggregate doesn't exist for %@", link);
+		LogError(@"Aggregate doesn't exist for %@", channel);
 		return;
 	}
 	
-	if(![aggregate containsLink:link])
+	if(![aggregate containsLink:channel])
 	{
-		LogError(@"Aggregate doesn't contain %@", link);
+		LogError(@"Aggregate doesn't contain %@", channel);
 		return;
 	}
 	
