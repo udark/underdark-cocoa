@@ -20,7 +20,7 @@
 #import "UDAdapter.h"
 #import "UDAggData.h"
 
-@interface UDAggTransport : NSObject <UDTransport, UDTransportDelegate, UDAggDataDelegate>
+@interface UDAggTransport : NSObject <UDTransport, UDAdapterDelegate, UDAggDataDelegate>
 
 @property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
 @property (nonatomic, readonly, nonnull) dispatch_queue_t ioqueue;
