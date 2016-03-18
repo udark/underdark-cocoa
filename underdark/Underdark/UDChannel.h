@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
+#import "UDData.h"
 
-#import "UDBonjourAdapter.h"
+@protocol UDChannel <NSObject>
 
-@interface UDBonjourBrowser : NSObject
+@property (nonatomic, readonly) int64_t nodeId;
 
-- (instancetype) init NS_UNAVAILABLE;
+@property (nonatomic, readonly) int16_t priority;	// Lower value means higher priority (like unix nice).
 
-- (instancetype) initWithTransport:(UDBonjourAdapter*)transport NS_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly) bool slowLink;
 
-- (void) start;
-- (void) stop;
-- (void) restart;
+- (void) disconnect;
+
+- (void) sendData:(nonnull id<UDData>)data;
 
 @end

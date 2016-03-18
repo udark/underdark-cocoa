@@ -14,18 +14,23 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
+#import "UDChannel.h"
 
-#import "UDBonjourAdapter.h"
+@protocol UDAdapter;
 
-@interface UDBonjourBrowser : NSObject
+@protocol UDAdapterDelegate <NSObject>
 
-- (instancetype) init NS_UNAVAILABLE;
+- (void) adapter:(id<UDAdapter>)adapter channelConnected:(id<UDChannel>)channel;
+- (void) adapter:(id<UDAdapter>)adapter channelDisconnected:(id<UDChannel>)channel;
+- (void) adapter:(id<UDAdapter>)adapter channel:(id<UDChannel>)channel didReceiveFrame:(NSData*)frameData;
 
-- (instancetype) initWithTransport:(UDBonjourAdapter*)transport NS_DESIGNATED_INITIALIZER;
+@end
+
+@protocol UDAdapter <NSObject>
+
+@property (nonatomic, readonly) dispatch_queue_t queue;
 
 - (void) start;
 - (void) stop;
-- (void) restart;
 
 @end

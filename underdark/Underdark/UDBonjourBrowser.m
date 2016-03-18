@@ -19,14 +19,14 @@
 #include <arpa/inet.h>
 
 #import "UDLogging.h"
-#import "UDBonjourLink.h"
+#import "UDBonjourChannel.h"
 
 const NSTimeInterval UDBonjourBrowserTimeout = 10;
 
 @interface UDBonjourBrowser() <NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 {
 	bool _running;
-	__weak UDBonjourTransport* _transport;
+	__weak UDBonjourAdapter* _transport;
 	
 	NSNetServiceBrowser* _browser;
 	NSMutableArray* _servicesDiscovered;
@@ -39,10 +39,10 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 
 - (instancetype) init
 {
-	@throw nil;
+	return nil;
 }
 
-- (instancetype) initWithTransport:(UDBonjourTransport*)transport
+- (instancetype) initWithTransport:(UDBonjourAdapter*)transport
 {
 	if(!(self = [super init]))
 		return self;
@@ -165,8 +165,8 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 		return;
 	}
 	
-	UDBonjourLink * link = [[UDBonjourLink alloc] initWithNodeId:nodeId transport:_transport input:inputStream output:outputStream];
-	[_transport linkConnecting:link];
+	UDBonjourChannel* link = [[UDBonjourChannel alloc] initWithNodeId:nodeId transport:_transport input:inputStream output:outputStream];
+	[_transport channelConnecting:link];
 	
 	[link connect];
 }

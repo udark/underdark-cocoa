@@ -17,9 +17,10 @@
 #import <Foundation/Foundation.h>
 
 #import "UDTransport.h"
+#import "UDAdapter.h"
 #import "UDAggData.h"
 
-@interface UDAggTransport : NSObject <UDTransport, UDTransportDelegate, UDAggDataDelegate>
+@interface UDAggTransport : NSObject <UDTransport, UDAdapterDelegate, UDAggDataDelegate>
 
 @property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
 @property (nonatomic, readonly, nonnull) dispatch_queue_t ioqueue;
@@ -29,7 +30,7 @@
 					  delegate:(nullable id<UDTransportDelegate>)delegate
 						 queue:(nullable dispatch_queue_t)queue;
 
-- (void) addTransport:(nonnull id<UDTransport>)transport;
+- (void) addTransport:(nonnull id<UDAdapter>)transport;
 
 - (void) enqueueData:(nonnull UDAggData*)data;
 

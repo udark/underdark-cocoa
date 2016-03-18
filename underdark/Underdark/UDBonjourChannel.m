@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-#import "UDBonjourLink.h"
+#import "UDBonjourChannel.h"
 
 #import <MSWeakTimer/MSWeakTimer.h>
 
-#import "UDBonjourTransport.h"
+#import "UDBonjourAdapter.h"
 #import "Frames.pb.h"
 #import "UDLogging.h"
 #import "UDAsyncUtils.h"
@@ -67,10 +67,8 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 @end
 
-@interface UDBonjourLink () <NSStreamDelegate>
+@interface UDBonjourChannel () <NSStreamDelegate>
 {
-	__weak UDBonjourTransport * _transport;
-	
 	bool _isClient;
 	SLBnjState _state;
 	
@@ -90,23 +88,23 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	bool _heartbeatReceived;
 }
 
-@property (nonatomic, weak) UDBonjourTransport * transport;
+@property (nonatomic, weak) UDBonjourAdapter* transport;
 
 @property (nonatomic) NSInputStream* inputStream;
 @property (nonatomic) NSOutputStream* outputStream;
 
 @end
 
-@implementation UDBonjourLink
+@implementation UDBonjourChannel
 
 #pragma mark - Initialization
 
 - (instancetype) init
 {
-	@throw nil;
+	return nil;
 }
 
-- (instancetype) initWithTransport:(UDBonjourTransport *)transport input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream
+- (instancetype) initWithTransport:(UDBonjourAdapter*)transport input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream
 {
 	if(!(self = [super init]))
 		return self;
@@ -128,7 +126,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	return self;
 }
 
-- (instancetype) initWithNodeId:(int64_t)nodeId transport:(UDBonjourTransport *)transport input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream
+- (instancetype) initWithNodeId:(int64_t)nodeId transport:(UDBonjourAdapter*)transport input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream
 {
 	if(!(self = [self initWithTransport:transport input:inputStream output:outputStream]))
 		return self;
@@ -191,7 +189,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	[self closeStreams];
 }
 
-#pragma mark - UDLink
+#pragma mark - UDChannel
 
 - (void) connect
 {
@@ -253,7 +251,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 		_state = SLBnjStateDisconnected;
 		
 		sldispatch_async(_transport.queue, ^{
-			[self.transport linkDisconnected:self];
+			[self.transport channelDisconnected:self];
 			[self performSelector:@selector(onTerminated) onThread:self.transport.ioThread withObject:nil waitUntilDone:NO];
 		});
 		
@@ -276,10 +274,10 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	//if(_shouldLog)
 	//	LogDebug(@"link transport linkTerminated");
 	
-	UDBonjourTransport * transport = _transport;
+	UDBonjourAdapter* transport = _transport;
 	
 	sldispatch_async(transport.queue, ^{
-		[transport linkTerminated:self];
+		[transport channelTerminated:self];
 	});
 	
 	_transport = nil;
@@ -294,16 +292,9 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	outdata.data = data;
 	[data acquire];
 
-	[data giveup]; // By per UDLink sendData: contract.
+	[data giveup]; // By per UDChannel sendData: contract.
 
 	[self performSelector:@selector(writeData:) onThread:self.transport.ioThread withObject:outdata waitUntilDone:NO];
-}
-
-- (void) sendFrame:(NSData*)data
-{
-	// Transport queue.
-	UDMemoryData* memoryData = [[UDMemoryData alloc] initWithData:data];
-	[self sendData:memoryData];
 }
 
 - (void) sendLinkFrame:(Frame*)frame
@@ -519,13 +510,13 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	
 	uint8_t* bytes = (uint8_t *)_outputBytes.bytes;
 	bytes += _outputDataOffset;
-	NSInteger len = MIN(sizeof(_inputBuffer), _outputBytes.length - _outputDataOffset);
+	NSInteger len = (NSInteger) MIN(sizeof(_inputBuffer), _outputBytes.length - _outputDataOffset);
 	
 	// Writing to NSOutputStream:
 	// http://stackoverflow.com/a/23001691/1449965
 	// https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Streams/Articles/WritingOutputStreams.html
 	
-	NSInteger result = [_outputStream write:bytes maxLength:len];
+	NSInteger result = [_outputStream write:bytes maxLength:(NSUInteger)len];
 	if(result < 0)
 	{
 		LogError(@"Output stream error %@", _outputStream.streamError);
@@ -598,7 +589,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 			
 			if(len > 0)
 			{
-				[_inputData appendBytes:_inputBuffer length:len];
+				[_inputData appendBytes:_inputBuffer length:(NSUInteger)len];
 			}
 			else if(len < 0)
 			{
@@ -709,7 +700,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 			_timeoutTimer = [MSWeakTimer scheduledTimerWithTimeInterval:configBonjourTimeoutInterval target:self selector:@selector(checkHeartbeat) userInfo:nil repeats:YES dispatchQueue:self.transport.queue];
 
 			sldispatch_async(self.transport.queue, ^{
-				[self.transport linkConnected:self];
+				[self.transport channelConnected:self];
 			});
 			
 			continue;
@@ -729,7 +720,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 				continue;
 		
 			sldispatch_async(self.transport.queue, ^{
-				[self.transport link:self receivedFrame:frame.payload.payload];
+				[self.transport channel:self receivedFrame:frame.payload.payload];
 			});
 		}
 	} // while

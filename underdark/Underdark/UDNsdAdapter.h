@@ -17,15 +17,15 @@
 #import <Foundation/Foundation.h>
 
 
-#import "UDTransport.h"
+#import "UDAdapter.h"
 
-@interface UDNsdTransport : NSObject <UDTransport>
+@interface UDNsdAdapter : NSObject <UDAdapter>
 
 @property (nonatomic, readonly) dispatch_queue_t queue;
 
 - (instancetype) init NS_UNAVAILABLE;
 
-- (instancetype) initWithDelegate:(id<UDTransportDelegate>)delegate
+- (instancetype) initWithDelegate:(id<UDAdapterDelegate>)delegate
                             appId:(int32_t)appId
 						   nodeId:(int64_t)nodeId
 					   peerToPeer:(bool)peerToPeer

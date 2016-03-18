@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-#import "UDNsdTransport.h"
+#import "UDNsdAdapter.h"
 
 #import "UDNsdServer.h"
 #import "UDNsdBrowser.h"
 #import "UDNsdAdvertiser.h"
 #import "UDAsyncUtils.h"
 
-@interface UDNsdTransport () <UDNsdServerDelegate, UDNsdBrowserDelegate, UDNsdAdvertiserDelegate>
+@interface UDNsdAdapter () <UDNsdServerDelegate, UDNsdBrowserDelegate, UDNsdAdvertiserDelegate>
 {
 	bool _running;
 	int64_t _nodeId;
@@ -32,17 +32,17 @@
 	UDNsdBrowser* _browser;
 }
 
-@property (nonatomic, readonly, weak) id<UDTransportDelegate> delegate;
+@property (nonatomic, readonly, weak) id<UDAdapterDelegate> delegate;
 @end
 
-@implementation UDNsdTransport
+@implementation UDNsdAdapter
 
 - (instancetype) init
 {
 	@throw nil;
 }
 
-- (instancetype) initWithDelegate:(id<UDTransportDelegate>)delegate
+- (instancetype) initWithDelegate:(id<UDAdapterDelegate>)delegate
                             appId:(int32_t)appId
                            nodeId:(int64_t)nodeId
 					   peerToPeer:(bool)peerToPeer
@@ -114,14 +114,14 @@
 
 #pragma mark - UDNsdServerDelegate
 
-- (void) server:(nonnull UDNsdServer*)server linkConnected:(nonnull UDNsdLink*)link
+- (void) server:(nonnull UDNsdServer*)server linkConnected:(nonnull UDNsdChannel*)link
 {
-	[self.delegate transport:self linkConnected:link];
+	[self.delegate adapter:self channelConnected:link];
 }
 
-- (void) server:(nonnull UDNsdServer*)server linkDisconnected:(nonnull UDNsdLink*)link
+- (void) server:(nonnull UDNsdServer*)server linkDisconnected:(nonnull UDNsdChannel*)link
 {
-	[self.delegate transport:self linkDisconnected:link];
+	[self.delegate adapter:self channelDisconnected:link];
 	
 	if(link.interfaceIndex != 0)
 	{
@@ -131,9 +131,9 @@
 	}
 }
 
-- (void) server:(nonnull UDNsdServer*)server link:(nonnull UDNsdLink *)link didReceiveFrame:(nonnull NSData*)frameData
+- (void) server:(nonnull UDNsdServer*)server link:(nonnull UDNsdChannel*)link didReceiveFrame:(nonnull NSData*)frameData
 {
-	[self.delegate transport:self link:link didReceiveFrame:frameData];
+	[self.delegate adapter:self channel:link didReceiveFrame:frameData];
 }
 
 

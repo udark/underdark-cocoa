@@ -16,12 +16,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDTransport.h"
+#import "UDAdapter.h"
 #import "UDRunLoopThread.h"
 
-@class UDBonjourLink;
+@class UDBonjourChannel;
 
-@interface UDBonjourTransport : NSObject <UDTransport>
+@interface UDBonjourAdapter : NSObject <UDAdapter>
 
 @property (nonatomic, readonly) int32_t appId;
 @property (nonatomic, readonly) int64_t nodeId;
@@ -36,7 +36,7 @@
 
 - (nonnull instancetype) initWithAppId:(int32_t)appId
 								 nodeId:(int64_t)nodeId
-					   delegate:(id<UDTransportDelegate> __nonnull)delegate
+					   delegate:(id<UDAdapterDelegate> __nonnull)delegate
 						  queue:(dispatch_queue_t __nonnull)queue
 					 peerToPeer:(bool)peerToPeer NS_DESIGNATED_INITIALIZER;
 
@@ -46,15 +46,15 @@
 - (void) browserDidFail;
 - (void) serverDidFail;
 
-- (int64_t) linkPriority;
+- (int16_t) linkPriority;
 
 - (bool) shouldConnectToNodeId:(int64_t)nodeId;
 
-- (void) linkConnecting:(UDBonjourLink * __nonnull)link;
-- (void) linkConnected:( UDBonjourLink * __nonnull)link;
-- (void) linkDisconnected:(UDBonjourLink * __nonnull)link;
-- (void) linkTerminated:(UDBonjourLink * __nonnull)link;
+- (void) channelConnecting:(nonnull UDBonjourChannel*)channel;
+- (void) channelConnected:(nonnull UDBonjourChannel*)channel;
+- (void) channelDisconnected:(nonnull UDBonjourChannel*)channel;
+- (void) channelTerminated:(nonnull UDBonjourChannel*)channel;
 
-- (void) link:(UDBonjourLink * __nonnull)link receivedFrame:(NSData* __nonnull)frameData;
+- (void) channel:(nonnull UDBonjourChannel*)channel receivedFrame:(nonnull NSData*)frameData;
 
 @end

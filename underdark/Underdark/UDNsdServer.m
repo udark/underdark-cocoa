@@ -24,7 +24,7 @@
 #import "UDRunLoopThread.h"
 #import "UDLogging.h"
 #import "UDAsyncUtils.h"
-#import "UDNsdLink.h"
+#import "UDNsdChannel.h"
 
 // Listening using CFSocket:
 // https://developer.apple.com/library/mac/documentation/NetworkingInternet/Conceptual/NetworkingTopics/Articles/UsingSocketsandSocketStreams.html#//apple_ref/doc/uid/CH73-SW8
@@ -252,14 +252,14 @@ static void UDServerSocketCallBack(
 	
 	LogDebug(@"nsd accepted host '%@'", address);
 	
-	UDNsdLink* link = [[UDNsdLink alloc] initWithServer:self input:inputStream output:outputStream];
+	UDNsdChannel* link = [[UDNsdChannel alloc] initWithServer:self input:inputStream output:outputStream];
 	[self linkConnecting:link];
 	[link connect];
 } // acceptCallback
 
 - (bool) isLinkConnectedToNodeId:(int64_t)nodeId
 {
-	for(UDNsdLink* link in _links)
+	for(UDNsdChannel* link in _links)
 	{
 		if(link.nodeId == nodeId)
 			return true;
@@ -293,7 +293,7 @@ static void UDServerSocketCallBack(
 	
 	LogDebug(@"nsd connect host '%@:%d'", host, port);
 	
-	UDNsdLink* link = [[UDNsdLink alloc] initWithServer:self input:inputStream output:outputStream];
+	UDNsdChannel* link = [[UDNsdChannel alloc] initWithServer:self input:inputStream output:outputStream];
 	link.interfaceIndex = interfaceIndex;
 	[self linkConnecting:link];
 	[link connect];
@@ -301,14 +301,14 @@ static void UDServerSocketCallBack(
 
 #pragma mark - Links
 
-- (void) linkConnecting:(UDNsdLink *)link
+- (void) linkConnecting:(UDNsdChannel*)link
 {
 	// Transport queue.
 	
 	[_linksConnecting addObject:link];
 }
 
-- (void) linkConnected:(UDNsdLink *)link
+- (void) linkConnected:(UDNsdChannel*)link
 {
 	// Transport queue.
 	
@@ -318,7 +318,7 @@ static void UDServerSocketCallBack(
 	[self->_delegate server:self linkConnected:link];
 }
 
-- (void) linkDisconnected:(UDNsdLink *)link
+- (void) linkDisconnected:(UDNsdChannel*)link
 {
 	// Transport queue.
 	
@@ -337,14 +337,14 @@ static void UDServerSocketCallBack(
 	}
 }
 
-- (void) linkTerminated:(UDNsdLink *)link
+- (void) linkTerminated:(UDNsdChannel*)link
 {
 	// Transport queue.
 	
 	[_linksTerminating removeObject:link];
 }
 
-- (void) link:(UDNsdLink *)link didReceiveFrame:(NSData*)frameData
+- (void) link:(UDNsdChannel*)link didReceiveFrame:(NSData*)frameData
 {
 	// Transport queue.
 	[self->_delegate server:self link:link didReceiveFrame:frameData];

@@ -16,11 +16,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDTransport.h"
+#import "UDAdapter.h"
 
-@class UDBonjourTransport;
+@class UDBonjourAdapter;
 
-@interface UDBonjourLink : NSObject <UDLink>
+@interface UDBonjourChannel : NSObject <UDChannel>
 
 @property (nonatomic, readonly) int64_t nodeId;
 @property (nonatomic, readonly) bool slowLink;
@@ -33,13 +33,12 @@
 
 - (instancetype) init NS_UNAVAILABLE;
 
-- (instancetype) initWithTransport:(UDBonjourTransport *)transport input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithTransport:(UDBonjourAdapter*)transport input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream NS_DESIGNATED_INITIALIZER;
 
-- (instancetype) initWithNodeId:(int64_t)nodeId transport:(UDBonjourTransport *)transport input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream;
+- (instancetype) initWithNodeId:(int64_t)nodeId transport:(UDBonjourAdapter*)transport input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream;
 
 - (void) connect;
 
-- (void) sendFrame:(NSData*)data;
 - (void) disconnect;
 
 @end

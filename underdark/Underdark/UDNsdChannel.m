@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#import "UDNsdLink.h"
+#import "UDNsdChannel.h"
 
 #import <MSWeakTimer/MSWeakTimer.h>
 
@@ -31,7 +31,7 @@ typedef NS_ENUM(NSUInteger, UDNsdState)
 	UDNsdStateDisconnected
 };
 
-@interface UDNsdLink() <NSStreamDelegate>
+@interface UDNsdChannel () <NSStreamDelegate>
 {
 	UDNsdState _state;
 	
@@ -55,7 +55,7 @@ typedef NS_ENUM(NSUInteger, UDNsdState)
 
 @end
 
-@implementation UDNsdLink
+@implementation UDNsdChannel
 
 #pragma mark - Initialization
 

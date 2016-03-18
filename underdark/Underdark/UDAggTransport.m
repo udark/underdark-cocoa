@@ -27,10 +27,10 @@
 	__weak id<UDTransportDelegate> _delegate;
 	
 	bool _running;
-	NSMutableArray* _transports;
-	NSMutableDictionary* _linksConnected; // nodeId to SLAggregateLink
+	NSMutableArray< id<UDAdapter> > * _adapters;
+	NSMutableDictionary<NSNumber*, UDAggLink*> * _linksConnected; // nodeId to UDAggLink
 	
-	NSMutableArray<UDAggData*>* _dataQueue;
+	NSMutableArray<UDAggData*> * _dataQueue;
 }
 @end
 
@@ -49,7 +49,7 @@
 	_ioqueue = dispatch_queue_create("UDAggTransport", DISPATCH_QUEUE_SERIAL);
 	_delegate = delegate;
 	
-	_transports = [NSMutableArray array];
+	_adapters = [NSMutableArray array];
 	_linksConnected = [NSMutableDictionary dictionary];
 	
 	_dataQueue = [NSMutableArray array];
@@ -57,15 +57,15 @@
 	return self;
 }
 
-- (void) addTransport:(id<UDTransport>)transport
+- (void) addTransport:(id<UDAdapter>)transport
 {
 	if(!transport)
 		return;
 	
-	[_transports addObject:transport];
+	[_adapters addObject:transport];
 }
 
-#pragma mark - SLTransport
+#pragma mark - UDTransport
 
 - (void) start
 {
@@ -76,7 +76,7 @@
 	_running = true;
 	
 	sldispatch_async(_ioqueue, ^{
-		for(id<UDTransport> transport in _transports)
+		for(id<UDAdapter> transport in _adapters)
 		{
 			[transport start];
 		}
@@ -92,16 +92,16 @@
 	_running = false;
 	
 	sldispatch_async(_ioqueue, ^{
-		for(id<UDTransport> transport in _transports)
+		for(id<UDAdapter> transport in _adapters)
 		{
 			[transport stop];
 		}
 	});
 }
 
-#pragma mark - SLTransportDelegate
+#pragma mark - UDAdapterDelegate
 
-- (void) transport:(id<UDTransport>)transport linkConnected:(id<UDLink>)link
+- (void) adapter:(id<UDAdapter>)transport channelConnected:(id<UDChannel>)link
 {
 	UDAggLink* aggregate = _linksConnected[@(link.nodeId)];
 	
@@ -123,16 +123,16 @@
 	}
 }
 
-- (void) transport:(id<UDTransport>)transport linkDisconnected:(id<UDLink>)link
+- (void) adapter:(id<UDAdapter>)transport channelDisconnected:(id<UDChannel>)channel
 {
-	UDAggLink* aggregate = _linksConnected[@(link.nodeId)];
+	UDAggLink* aggregate = _linksConnected[@(channel.nodeId)];
 	if(!aggregate)
 		return;
 	
-	if([aggregate containsLink:link])
+	if([aggregate containsLink:channel])
 	{
 		// Link was connected.
-		[aggregate removeLink:link];
+		[aggregate removeLink:channel];
 	}
 	
 	if(aggregate.isEmpty)
@@ -145,18 +145,18 @@
 	}
 }
 
-- (void) transport:(id<UDTransport>)transport link:(id<UDLink>)link didReceiveFrame:(NSData*)data
+- (void) adapter:(id<UDAdapter>)adapter channel:(id<UDChannel>)channel didReceiveFrame:(NSData*)data
 {
-	UDAggLink* aggregate = _linksConnected[@(link.nodeId)];
+	UDAggLink* aggregate = _linksConnected[@(channel.nodeId)];
 	if(!aggregate)
 	{
-		LogError(@"Aggregate doesn't exist for %@", link);
+		LogError(@"Aggregate doesn't exist for %@", channel);
 		return;
 	}
 	
-	if(![aggregate containsLink:link])
+	if(![aggregate containsLink:channel])
 	{
-		LogError(@"Aggregate doesn't contain %@", link);
+		LogError(@"Aggregate doesn't contain %@", channel);
 		return;
 	}
 	

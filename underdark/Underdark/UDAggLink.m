@@ -21,7 +21,7 @@
 
 @interface UDAggLink()
 {
-	NSMutableArray* _links;
+	NSMutableArray<id<UDChannel>> * _links;
 }
 
 @end
@@ -30,7 +30,7 @@
 
 - (instancetype) init
 {
-	@throw nil;
+	return nil;
 }
 
 - (instancetype) initWithNodeId:(int64_t)nodeId transport:(nonnull UDAggTransport*)transport
@@ -50,20 +50,20 @@
 	return _links.count == 0;
 }
 
-- (bool) containsLink:(id<UDLink>)link
+- (bool) containsLink:(id<UDChannel>)link
 {
 	return [_links containsObject:link];
 }
 
 - (void) disconnect
 {
-	for(id<UDLink> link in _links)
+	for(id<UDChannel> link in _links)
 	{
 		[link disconnect];
 	}
 }
 
-- (void) addLink:(id<UDLink>)link
+- (void) addLink:(id<UDChannel>)link
 {
 	// I/O queue.
 	[_links addObject:link];
@@ -79,7 +79,7 @@
 	 }].mutableCopy;
 }
 
-- (void) removeLink:(id<UDLink>)link
+- (void) removeLink:(id<UDChannel>)link
 {
 	// I/O queue.
 	[_links removeObject:link];
@@ -109,7 +109,7 @@
 - (void) sendDataToChildren:(nonnull UDAggData*)data
 {
 	// I/O queue.
-	id<UDLink> link = [_links firstObject];
+	id<UDChannel> link = [_links firstObject];
 	if(!link) {
 		return;
 	}
