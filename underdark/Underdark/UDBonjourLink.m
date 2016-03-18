@@ -40,12 +40,29 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 @end
 @implementation UDOutputData
+{
+	bool _processed;
+}
+
+- (instancetype) init
+{
+	if(!(self = [super init]))
+		return self;
+	
+	return self;
+}
 
 - (void) dealloc
 {
-	if(self.data != nil) {
+	if(!_processed) {
 		[self.data giveup];
 	}
+}
+
+- (void) markAsProcessed
+{
+	_processed = true;
+	[self.data giveup];
 }
 
 @end
@@ -372,6 +389,8 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 		[self writeNextData];
 		return;
 	}
+	
+	[_outputData markAsProcessed];
 	
 	// Building frame.
 	FrameBuilder* frame = [FrameBuilder new];
