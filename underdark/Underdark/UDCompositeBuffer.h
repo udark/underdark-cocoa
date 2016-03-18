@@ -18,6 +18,8 @@
 
 #import "UDBuffer.h"
 
-@interface UDCompositeBuffer : NSObject
+@interface UDCompositeBuffer : UDBuffer
+
+@property (nonatomic, readonly, nonnull) NSMutableArray<UDBuffer*> * buffers;
 
 @end

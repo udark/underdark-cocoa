@@ -37,7 +37,7 @@
 
 - (nonnull NSData*) readBytesWithOffest:(NSUInteger)offset length:(NSUInteger)len
 {
-	assert(offset + len <= self.length);
+	NSAssert(offset + len <= self.length, @"Out of bounds");
 	
 	NSRange range;
 	range.location = offset;
@@ -47,7 +47,5 @@
 	
 	return result;
 }
-
-
 
 @end

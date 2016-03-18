@@ -28,4 +28,9 @@
 	return [[NSData alloc] init];
 }
 
+- (nonnull NSData*) readBytesWithOffest:(NSUInteger)offset
+{
+	return [self readBytesWithOffest:offset length:(self.length - offset)];
+}
+
 @end

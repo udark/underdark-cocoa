@@ -20,8 +20,6 @@
 
 @interface UDDataBuffer : UDBuffer
 
-@property (nonatomic, readonly, getter=length) NSUInteger length;
-
 @property (nonatomic, readonly, nonnull) NSData* data;
 
 - (nonnull instancetype) initWithData:(nonnull NSData*)data;
