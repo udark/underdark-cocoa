@@ -64,10 +64,25 @@
 	[composite append:buf2];
 	[composite append:buf3];
 	
-	NSData* data = [composite readBytesWithOffset:5 length:31];
-	XCTAssertEqual(0, memcmp(data.bytes, buf1.data.bytes, 5));
-	XCTAssertEqual(0, memcmp(data.bytes, buf2.data.bytes, 20));
-	XCTAssertEqual(0, memcmp(data.bytes, buf3.data.bytes, 6));
+	NSData* data = [composite readBytesWithOffset:6 length:31];
+	XCTAssertEqual(0, memcmp(
+							 data.bytes,
+							 buf1.data.bytes + 6,
+							 buf1.data.length - 6
+							 )
+				   );
+	XCTAssertEqual(0, memcmp(
+							 data.bytes + (buf1.data.length - 6),
+							 buf2.data.bytes,
+							 buf2.data.length
+							 )
+				   );
+	XCTAssertEqual(0, memcmp(
+							 data.bytes + (buf1.data.length - 6) + buf2.data.length,
+							 buf3.data.bytes,
+							 data.length - (buf1.data.length - 6) - buf2.data.length
+							 )
+				   );
 }
 
 @end
