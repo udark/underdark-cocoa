@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 
 #import "UDNsdServer.h"
+#import "UDLink.h"
 
 @interface UDNsdServerTests : XCTestCase <UDNsdServerDelegate>
 
