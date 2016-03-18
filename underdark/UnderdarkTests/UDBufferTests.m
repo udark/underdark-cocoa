@@ -21,6 +21,20 @@
 
 @implementation UDBufferTests
 
+- (void)invokeTest
+{
+	self.continueAfterFailure = NO;
+	
+	@try
+	{
+		[super invokeTest];
+	}
+	@finally
+	{
+		self.continueAfterFailure = YES;
+	}
+}
+
 - (void) setUp
 {
 	[super setUp];
@@ -33,8 +47,8 @@
 
 - (UDDataBuffer*) buffer:(NSUInteger)length
 {
-	NSMutableData* data = [NSMutableData data];
-	arc4random_buf(data.mutableBytes, data.length)
+	NSMutableData* data = [NSMutableData dataWithLength:length];
+	arc4random_buf(data.mutableBytes, data.length);
 	
 	return [[UDDataBuffer alloc] initWithData:data];
 }
@@ -43,14 +57,14 @@
 {
 	UDDataBuffer* buf1 = [self buffer:10];
 	UDDataBuffer* buf2 = [self buffer:20];
-	UDDataBuffer* buf2 = [self buffer:30];
+	UDDataBuffer* buf3 = [self buffer:30];
 	
 	UDCompositeBuffer* composite = [[UDCompositeBuffer alloc] init];
 	[composite append:buf1];
 	[composite append:buf2];
 	[composite append:buf3];
 	
-	NSData* data = [composite readBytesWithOffest:5 length:31];
+	NSData* data = [composite readBytesWithOffset:5 length:31];
 	XCTAssertEqual(0, memcmp(data.bytes, buf1.data.bytes, 5));
 	XCTAssertEqual(0, memcmp(data.bytes, buf2.data.bytes, 20));
 	XCTAssertEqual(0, memcmp(data.bytes, buf3.data.bytes, 6));

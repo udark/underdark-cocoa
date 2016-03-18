@@ -16,7 +16,6 @@
 		D5D071351BAEF02500AF0161 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5D071341BAEF02500AF0161 /* Assets.xcassets */; };
 		D5D071381BAEF02500AF0161 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5D071361BAEF02500AF0161 /* LaunchScreen.storyboard */; };
 		D5D071431BAEF02500AF0161 /* UDAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D071421BAEF02500AF0161 /* UDAppTests.swift */; };
-		D5D0714E1BAEF02500AF0161 /* UDAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D0714D1BAEF02500AF0161 /* UDAppUITests.swift */; };
 		D5D071641BAEF2DE00AF0161 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D071631BAEF2DE00AF0161 /* Node.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,13 +42,6 @@
 			remoteInfo = Underdark;
 		};
 		D5D0713F1BAEF02500AF0161 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5D071221BAEF02500AF0161 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D5D071291BAEF02500AF0161;
-			remoteInfo = UDApp;
-		};
-		D5D0714A1BAEF02500AF0161 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D5D071221BAEF02500AF0161 /* Project object */;
 			proxyType = 1;
@@ -86,9 +78,6 @@
 		D5D0713E1BAEF02500AF0161 /* UDAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UDAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5D071421BAEF02500AF0161 /* UDAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDAppTests.swift; sourceTree = "<group>"; };
 		D5D071441BAEF02500AF0161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D5D071491BAEF02500AF0161 /* UDAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UDAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5D0714D1BAEF02500AF0161 /* UDAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDAppUITests.swift; sourceTree = "<group>"; };
-		D5D0714F1BAEF02500AF0161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5D071631BAEF2DE00AF0161 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		E10DECAD5EAC482F6DE3F1CC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -104,13 +93,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D5D0713B1BAEF02500AF0161 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D5D071461BAEF02500AF0161 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -152,7 +134,6 @@
 				D537D9311C440D2800C76FE6 /* Underdark.xcodeproj */,
 				D5D0712C1BAEF02500AF0161 /* UDApp */,
 				D5D071411BAEF02500AF0161 /* UDAppTests */,
-				D5D0714C1BAEF02500AF0161 /* UDAppUITests */,
 				D5D0712B1BAEF02500AF0161 /* Products */,
 				85E323D8A5F842D6222D7C0F /* Pods */,
 				99AC6183B1B59A9AACCC8379 /* Frameworks */,
@@ -164,7 +145,6 @@
 			children = (
 				D5D0712A1BAEF02500AF0161 /* UDApp.app */,
 				D5D0713E1BAEF02500AF0161 /* UDAppTests.xctest */,
-				D5D071491BAEF02500AF0161 /* UDAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,15 +170,6 @@
 				D5D071441BAEF02500AF0161 /* Info.plist */,
 			);
 			path = UDAppTests;
-			sourceTree = "<group>";
-		};
-		D5D0714C1BAEF02500AF0161 /* UDAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D5D0714D1BAEF02500AF0161 /* UDAppUITests.swift */,
-				D5D0714F1BAEF02500AF0161 /* Info.plist */,
-			);
-			path = UDAppUITests;
 			sourceTree = "<group>";
 		};
 		D5D071611BAEF2B600AF0161 /* Model */ = {
@@ -260,24 +231,6 @@
 			productReference = D5D0713E1BAEF02500AF0161 /* UDAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D5D071481BAEF02500AF0161 /* UDAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D5D071581BAEF02500AF0161 /* Build configuration list for PBXNativeTarget "UDAppUITests" */;
-			buildPhases = (
-				D5D071451BAEF02500AF0161 /* Sources */,
-				D5D071461BAEF02500AF0161 /* Frameworks */,
-				D5D071471BAEF02500AF0161 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D5D0714B1BAEF02500AF0161 /* PBXTargetDependency */,
-			);
-			name = UDAppUITests;
-			productName = UDAppUITests;
-			productReference = D5D071491BAEF02500AF0161 /* UDAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -292,10 +245,6 @@
 						DevelopmentTeam = RRTBW4XF74;
 					};
 					D5D0713D1BAEF02500AF0161 = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = D5D071291BAEF02500AF0161;
-					};
-					D5D071481BAEF02500AF0161 = {
 						CreatedOnToolsVersion = 7.0;
 						TestTargetID = D5D071291BAEF02500AF0161;
 					};
@@ -322,7 +271,6 @@
 			targets = (
 				D5D071291BAEF02500AF0161 /* UDApp */,
 				D5D0713D1BAEF02500AF0161 /* UDAppTests */,
-				D5D071481BAEF02500AF0161 /* UDAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -356,13 +304,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D5D0713C1BAEF02500AF0161 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D5D071471BAEF02500AF0161 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -438,14 +379,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D5D071451BAEF02500AF0161 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D5D0714E1BAEF02500AF0161 /* UDAppUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -458,11 +391,6 @@
 			isa = PBXTargetDependency;
 			target = D5D071291BAEF02500AF0161 /* UDApp */;
 			targetProxy = D5D0713F1BAEF02500AF0161 /* PBXContainerItemProxy */;
-		};
-		D5D0714B1BAEF02500AF0161 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D5D071291BAEF02500AF0161 /* UDApp */;
-			targetProxy = D5D0714A1BAEF02500AF0161 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -602,7 +530,6 @@
 		D5D071561BAEF02500AF0161 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = UDAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.underdark.UDAppTests;
@@ -614,36 +541,11 @@
 		D5D071571BAEF02500AF0161 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = UDAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.underdark.UDAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UDApp.app/UDApp";
-			};
-			name = Release;
-		};
-		D5D071591BAEF02500AF0161 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = UDAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.underdark.UDAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = UDApp;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		D5D0715A1BAEF02500AF0161 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = UDAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.underdark.UDAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = UDApp;
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -673,15 +575,6 @@
 			buildConfigurations = (
 				D5D071561BAEF02500AF0161 /* Debug */,
 				D5D071571BAEF02500AF0161 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D5D071581BAEF02500AF0161 /* Build configuration list for PBXNativeTarget "UDAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D5D071591BAEF02500AF0161 /* Debug */,
-				D5D0715A1BAEF02500AF0161 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
