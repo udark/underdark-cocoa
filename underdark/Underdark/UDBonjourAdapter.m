@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-#import "UDBonjourTransport.h"
+#import "UDBonjourAdapter.h"
 
 @import UIKit;
 
 #import "UDLogging.h"
 #import "UDAsyncUtils.h"
 #import "UDTimeExtender.h"
-#import "UDBonjourLink.h"
+#import "UDBonjourChannel.h"
 #import "UDBtBeacon.h"
 #import "UDBtReach.h"
 #import "UDWifiReach.h"
@@ -30,7 +30,7 @@
 
 // Error codes: https://developer.apple.com/library/mac/documentation/Networking/Reference/CFNetworkErrors/index.html#//apple_ref/c/tdef/CFNetworkErrors
 
-@interface UDBonjourTransport () <UDReachDelegate, UDSuspendListener>
+@interface UDBonjourAdapter () <UDReachDelegate, UDSuspendListener>
 {
 	bool _running;
 	bool _suspended;
@@ -39,9 +39,9 @@
 	UDTimeExtender* _timeExtender;
 	
 	__weak id<UDAdapterDelegate> _delegate;
-	NSMutableArray* _linksConnecting;
-	NSMutableArray* _links;
-	NSMutableArray* _linksTerminating;
+	NSMutableArray<UDBonjourChannel*> * _channelsConnecting;
+	NSMutableArray<UDBonjourChannel*> * _channels;
+	NSMutableArray<UDBonjourChannel*> * _channelsTerminating;
 	
 	UDBtBeacon* _beacon;
 	UDBtReach* _btReach;
@@ -52,7 +52,7 @@
 
 @end
 
-@implementation UDBonjourTransport
+@implementation UDBonjourAdapter
 
 #pragma mark - Initialization
 
@@ -77,12 +77,12 @@
 	_delegate = delegate;
 	_queue = queue;
 	
-	_linksConnecting = [NSMutableArray array];
-	_links = [NSMutableArray array];
-	_linksTerminating = [NSMutableArray array];
+	_channelsConnecting = [NSMutableArray array];
+	_channels = [NSMutableArray array];
+	_channelsTerminating = [NSMutableArray array];
 	
 	_serviceType = [NSString stringWithFormat:@"_underdark1-app%d._tcp.", appId];
-	_timeExtender = [[UDTimeExtender alloc] initWithName:@"UDBonjourTransport"];
+	_timeExtender = [[UDTimeExtender alloc] initWithName:@"UDBonjourAdapter"];
 	
 	_ioThread = [[UDRunLoopThread alloc] init];
 	_ioThread.name = @"Underdark I/O";
@@ -201,7 +201,7 @@
 	if(nodeId == _nodeId)
 		return false;
 	
-	for(UDBonjourLink * link in _links)
+	for(UDBonjourChannel* link in _channels)
 	{
 		if(link.nodeId == nodeId)
 		{
@@ -210,7 +210,7 @@
 		}
 	}
 	
-	for(UDBonjourLink * link in _linksConnecting)
+	for(UDBonjourChannel* link in _channelsConnecting)
 	{
 		if(link.nodeId == nodeId)
 		{
@@ -306,40 +306,40 @@
 	return 10;
 }
 
-- (void) linkConnecting:(UDBonjourLink *)link
+- (void) channelConnecting:(nonnull UDBonjourChannel*)channel
 {
 	// Transport queue.
-	
-	[_linksConnecting addObject:link];
+
+	[_channelsConnecting addObject:channel];
 }
 
-- (void) linkConnected:(UDBonjourLink *)link
+- (void) channelConnected:(nonnull UDBonjourChannel*)channel
 {
 	// Transport queue.
 
-	[_linksConnecting removeObject:link];
-	[_links addObject:link];
+	[_channelsConnecting removeObject:channel];
+	[_channels addObject:channel];
 
 	sldispatch_async(self.queue, ^{
-		[self->_delegate adapter:self channelConnected:link];
+		[self->_delegate adapter:self channelConnected:channel];
 	});
 }
 
-- (void) linkDisconnected:(UDBonjourLink *)link
+- (void) channelDisconnected:(nonnull UDBonjourChannel*)channel
 {
 	// Transport queue.
 	
-	bool wasConnected = [_links containsObject:link];
-	[_links removeObject:link];
-	[_linksConnecting removeObject:link];
+	bool wasConnected = [_channels containsObject:channel];
+	[_channels removeObject:channel];
+	[_channelsConnecting removeObject:channel];
 
-	if(![_linksTerminating containsObject:link])
-		[_linksTerminating addObject:link];
+	if(![_channelsTerminating containsObject:channel])
+		[_channelsTerminating addObject:channel];
 	
 	if(wasConnected)
 	{
 		sldispatch_async(self.queue, ^{
-			[self->_delegate adapter:self channelDisconnected:link];
+			[self->_delegate adapter:self channelDisconnected:channel];
 		});
 	}
 	
@@ -349,17 +349,17 @@
 	}
 }
 
-- (void) linkTerminated:(UDBonjourLink *)link
+- (void) channelTerminated:(nonnull UDBonjourChannel*)channel
 {
 	// Transport queue.
-	
-	[_linksTerminating removeObject:link];
+
+	[_channelsTerminating removeObject:channel];
 }
 
-- (void) link:(UDBonjourLink *)link receivedFrame:(NSData*)frameData
+- (void) channel:(nonnull UDBonjourChannel*)channel receivedFrame:(nonnull NSData*)frameData
 {
 	// Transport queue.
-	[self->_delegate adapter:self channel:link didReceiveFrame:frameData];
+	[self->_delegate adapter:self channel:channel didReceiveFrame:frameData];
 }
 
 @end

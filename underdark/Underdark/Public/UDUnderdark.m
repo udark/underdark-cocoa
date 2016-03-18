@@ -18,8 +18,8 @@
 
 #import "UDLogging.h"
 #import "UDAggTransport.h"
-#import "UDBonjourTransport.h"
-#import "UDNsdTransport.h"
+#import "UDBonjourAdapter.h"
+#import "UDNsdAdapter.h"
 
 static id<UDLogger> underdarkLogger = nil;
 
@@ -55,7 +55,7 @@ static id<UDLogger> underdarkLogger = nil;
 	UDAggTransport* aggTransport =
 		[[UDAggTransport alloc] initWithAppId:appId nodeId:nodeId delegate:delegate queue:queue];
 	
-	/*id<UDTransport> childTransport = [[UDNsdTransport alloc] initWithDelegate:aggTransport appId:appId nodeId:nodeId peerToPeer:false queue:aggTransport.queue];
+	/*id<UDAdapter> childTransport = [[UDNsdAdapter alloc] initWithDelegate:aggTransport appId:appId nodeId:nodeId peerToPeer:false queue:aggTransport.queue];
 	[aggTransport addTransport:childTransport];
 	return aggTransport;*/
 	
@@ -64,7 +64,7 @@ static id<UDLogger> underdarkLogger = nil;
 	{
 		bool peerToPeer = [kinds containsObject:@(UDTransportKindBluetooth)];
 		
-		id<UDAdapter> childTransport = [[UDBonjourTransport alloc] initWithAppId:appId nodeId:nodeId delegate:aggTransport queue:aggTransport.ioqueue peerToPeer:peerToPeer];
+		id<UDAdapter> childTransport = [[UDBonjourAdapter alloc] initWithAppId:appId nodeId:nodeId delegate:aggTransport queue:aggTransport.ioqueue peerToPeer:peerToPeer];
 		
 		[aggTransport addTransport:childTransport];
 	}

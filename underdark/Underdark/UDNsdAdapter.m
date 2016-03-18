@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-#import "UDNsdTransport.h"
+#import "UDNsdAdapter.h"
 
 #import "UDNsdServer.h"
 #import "UDNsdBrowser.h"
 #import "UDNsdAdvertiser.h"
 #import "UDAsyncUtils.h"
 
-@interface UDNsdTransport () <UDNsdServerDelegate, UDNsdBrowserDelegate, UDNsdAdvertiserDelegate>
+@interface UDNsdAdapter () <UDNsdServerDelegate, UDNsdBrowserDelegate, UDNsdAdvertiserDelegate>
 {
 	bool _running;
 	int64_t _nodeId;
@@ -35,7 +35,7 @@
 @property (nonatomic, readonly, weak) id<UDAdapterDelegate> delegate;
 @end
 
-@implementation UDNsdTransport
+@implementation UDNsdAdapter
 
 - (instancetype) init
 {
@@ -114,12 +114,12 @@
 
 #pragma mark - UDNsdServerDelegate
 
-- (void) server:(nonnull UDNsdServer*)server linkConnected:(nonnull UDNsdLink*)link
+- (void) server:(nonnull UDNsdServer*)server linkConnected:(nonnull UDNsdChannel*)link
 {
 	[self.delegate adapter:self channelConnected:link];
 }
 
-- (void) server:(nonnull UDNsdServer*)server linkDisconnected:(nonnull UDNsdLink*)link
+- (void) server:(nonnull UDNsdServer*)server linkDisconnected:(nonnull UDNsdChannel*)link
 {
 	[self.delegate adapter:self channelDisconnected:link];
 	
@@ -131,7 +131,7 @@
 	}
 }
 
-- (void) server:(nonnull UDNsdServer*)server link:(nonnull UDNsdLink *)link didReceiveFrame:(nonnull NSData*)frameData
+- (void) server:(nonnull UDNsdServer*)server link:(nonnull UDNsdChannel*)link didReceiveFrame:(nonnull NSData*)frameData
 {
 	[self.delegate adapter:self channel:link didReceiveFrame:frameData];
 }

@@ -26,8 +26,6 @@
 
 - (void) disconnect;
 
-- (void) sendFrame:(nonnull NSData*)frameData;
-
 - (void) sendData:(nonnull id<UDData>)data;
 
 @end

@@ -16,13 +16,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDBonjourTransport.h"
+#import "UDBonjourAdapter.h"
 
 @interface UDBonjourBrowser : NSObject
 
 - (instancetype) init NS_UNAVAILABLE;
 
-- (instancetype) initWithTransport:(UDBonjourTransport*)transport NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithTransport:(UDBonjourAdapter*)transport NS_DESIGNATED_INITIALIZER;
 
 - (void) start;
 - (void) stop;

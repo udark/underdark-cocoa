@@ -19,7 +19,7 @@
 
 #import "UDAdapter.h"
 
-@interface UDNsdTransport : NSObject <UDAdapter>
+@interface UDNsdAdapter : NSObject <UDAdapter>
 
 @property (nonatomic, readonly) dispatch_queue_t queue;
 

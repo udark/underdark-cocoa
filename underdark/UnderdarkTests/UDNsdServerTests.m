@@ -117,7 +117,7 @@
 
 #pragma mark - UDNsdServerDelegate
 
-- (void) server:(nonnull UDNsdServer*)server linkConnected:(nonnull UDNsdLink*)link
+- (void) server:(nonnull UDNsdServer*)server linkConnected:(nonnull UDNsdChannel*)link
 {
 	if(server == _server1)
 		_link1 = link;
@@ -129,7 +129,7 @@
 		[_expectConnected fulfill];
 }
 
-- (void) server:(nonnull UDNsdServer*)server linkDisconnected:(nonnull UDNsdLink*)link
+- (void) server:(nonnull UDNsdServer*)server linkDisconnected:(nonnull UDNsdChannel*)link
 {
 	if(server == _server1)
 		_link1 = nil;
@@ -141,7 +141,7 @@
 		[_expectDisconnected fulfill];
 }
 
-- (void) server:(nonnull UDNsdServer*)server link:(nonnull UDNsdLink *)link didReceiveFrame:(nonnull NSData*)frameData
+- (void) server:(nonnull UDNsdServer*)server link:(nonnull UDNsdChannel*)link didReceiveFrame:(nonnull NSData*)frameData
 {
 	if(link != _link2)
 		return;

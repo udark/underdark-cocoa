@@ -17,15 +17,15 @@
 #import <Foundation/Foundation.h>
 
 #import "UDRunLoopThread.h"
-#import "UDNsdLink.h"
+#import "UDNsdChannel.h"
 
 @class UDNsdServer;
 
 @protocol UDNsdServerDelegate <NSObject>
 
-- (void) server:(nonnull UDNsdServer*)server linkConnected:(nonnull UDNsdLink*)link;
-- (void) server:(nonnull UDNsdServer*)server linkDisconnected:(nonnull UDNsdLink*)link;
-- (void) server:(nonnull UDNsdServer*)server link:(nonnull UDNsdLink *)link didReceiveFrame:(nonnull NSData*)frameData;
+- (void) server:(nonnull UDNsdServer*)server linkConnected:(nonnull UDNsdChannel*)link;
+- (void) server:(nonnull UDNsdServer*)server linkDisconnected:(nonnull UDNsdChannel*)link;
+- (void) server:(nonnull UDNsdServer*)server link:(nonnull UDNsdChannel*)link didReceiveFrame:(nonnull NSData*)frameData;
 
 @end
 
@@ -48,10 +48,10 @@
 - (bool) isLinkConnectedToNodeId:(int64_t)nodeId;
 - (void) connectToHost:(nonnull NSString*)host port:(uint16_t)port interface:(uint32_t)interfaceIndex;
 
-- (void) linkConnecting:(nonnull UDNsdLink *)link;
-- (void) linkConnected:(nonnull UDNsdLink *)link;
-- (void) linkDisconnected:(nonnull UDNsdLink *)link;
-- (void) linkTerminated:(nonnull UDNsdLink *)link;
-- (void) link:(nonnull UDNsdLink *)link didReceiveFrame:(nonnull NSData*)frameData;
+- (void) linkConnecting:(nonnull UDNsdChannel*)link;
+- (void) linkConnected:(nonnull UDNsdChannel*)link;
+- (void) linkDisconnected:(nonnull UDNsdChannel*)link;
+- (void) linkTerminated:(nonnull UDNsdChannel*)link;
+- (void) link:(nonnull UDNsdChannel*)link didReceiveFrame:(nonnull NSData*)frameData;
 
 @end

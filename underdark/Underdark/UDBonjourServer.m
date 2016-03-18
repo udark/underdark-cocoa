@@ -17,12 +17,12 @@
 #import "UDBonjourServer.h"
 
 #import "UDLogging.h"
-#import "UDBonjourLink.h"
+#import "UDBonjourChannel.h"
 
 @interface UDBonjourServer() <NSNetServiceDelegate>
 {
 	bool _running;
-	__weak UDBonjourTransport* _transport;
+	__weak UDBonjourAdapter* _transport;
 	NSNetService* _service;
 }
 @end
@@ -34,7 +34,7 @@
 	@throw nil;
 }
 
-- (instancetype) initWithTransport:(UDBonjourTransport*)transport
+- (instancetype) initWithTransport:(UDBonjourAdapter*)transport
 {
 	if(!(self = [super init]))
 		return self;
@@ -119,8 +119,8 @@
 	
 	//LogDebug(@"bnj didAcceptConnection");
 	
-	UDBonjourLink * link = [[UDBonjourLink alloc] initWithTransport:_transport input:inputStream output:outputStream];
-	[_transport linkConnecting:link];
+	UDBonjourChannel* link = [[UDBonjourChannel alloc] initWithTransport:_transport input:inputStream output:outputStream];
+	[_transport channelConnecting:link];
 	
 	[link connect];
 }

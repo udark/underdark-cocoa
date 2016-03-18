@@ -18,9 +18,9 @@
 
 #import "UDAdapter.h"
 
-@class UDNsdServer;
+@class UDBonjourAdapter;
 
-@interface UDNsdLink : NSObject <UDChannel>
+@interface UDBonjourChannel : NSObject <UDChannel>
 
 @property (nonatomic, readonly) int64_t nodeId;
 @property (nonatomic, readonly) bool slowLink;
@@ -30,15 +30,15 @@
 @property (nonatomic, readonly) NSTimeInterval transferTime;
 @property (nonatomic, readonly) NSInteger transferSpeed;
 
-@property (nonatomic) uint32_t interfaceIndex;
 
 - (instancetype) init NS_UNAVAILABLE;
 
-- (instancetype) initWithServer:(UDNsdServer*)server input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithTransport:(UDBonjourAdapter*)transport input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream NS_DESIGNATED_INITIALIZER;
+
+- (instancetype) initWithNodeId:(int64_t)nodeId transport:(UDBonjourAdapter*)transport input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream;
 
 - (void) connect;
 
-- (void) sendFrame:(NSData*)data;
 - (void) disconnect;
 
 @end
