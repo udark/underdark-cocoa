@@ -209,6 +209,8 @@
 		D5983C311B46EF0600F7B6F9 /* UDLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDLogger.h; sourceTree = "<group>"; };
 		D5A364B51C2773BB0054DB0A /* Packet+Builders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Packet+Builders.h"; sourceTree = "<group>"; };
 		D5A364B61C2773BB0054DB0A /* Packet+Builders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Packet+Builders.m"; sourceTree = "<group>"; };
+		D5A9B3271C9C04D50086DA93 /* UDChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDChannel.h; sourceTree = "<group>"; };
+		D5A9B3281C9C06F10086DA93 /* UDAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDAdapter.h; sourceTree = "<group>"; };
 		D5B889961C9AA6C500DCAEC5 /* UDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDData.h; sourceTree = "<group>"; };
 		D5B889991C9AA9B300DCAEC5 /* UDMemoryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDMemoryData.h; sourceTree = "<group>"; };
 		D5B8899A1C9AA9B300DCAEC5 /* UDMemoryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDMemoryData.m; sourceTree = "<group>"; };
@@ -354,6 +356,8 @@
 		D51565C21B44230300101C06 /* Transport */ = {
 			isa = PBXGroup;
 			children = (
+				D5A9B3281C9C06F10086DA93 /* UDAdapter.h */,
+				D5A9B3271C9C04D50086DA93 /* UDChannel.h */,
 				D50655581B432416002D192D /* Aggregate */,
 				D50A92531B485811003F9B38 /* Reach */,
 				D506555A1B43242F002D192D /* Bonjour */,

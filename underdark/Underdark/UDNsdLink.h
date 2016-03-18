@@ -16,11 +16,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDTransport.h"
+#import "UDAdapter.h"
 
 @class UDNsdServer;
 
-@interface UDNsdLink : NSObject <UDLink>
+@interface UDNsdLink : NSObject <UDChannel>
 
 @property (nonatomic, readonly) int64_t nodeId;
 @property (nonatomic, readonly) bool slowLink;

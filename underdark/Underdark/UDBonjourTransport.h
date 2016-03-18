@@ -16,12 +16,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDTransport.h"
+#import "UDAdapter.h"
 #import "UDRunLoopThread.h"
 
 @class UDBonjourLink;
 
-@interface UDBonjourTransport : NSObject <UDTransport>
+@interface UDBonjourTransport : NSObject <UDAdapter>
 
 @property (nonatomic, readonly) int32_t appId;
 @property (nonatomic, readonly) int64_t nodeId;
@@ -36,7 +36,7 @@
 
 - (nonnull instancetype) initWithAppId:(int32_t)appId
 								 nodeId:(int64_t)nodeId
-					   delegate:(id<UDTransportDelegate> __nonnull)delegate
+					   delegate:(id<UDAdapterDelegate> __nonnull)delegate
 						  queue:(dispatch_queue_t __nonnull)queue
 					 peerToPeer:(bool)peerToPeer NS_DESIGNATED_INITIALIZER;
 

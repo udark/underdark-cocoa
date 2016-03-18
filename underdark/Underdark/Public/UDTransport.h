@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-#ifndef Underdark_UDTransport_h
-#define Underdark_UDTransport_h
-
 #import "UDLink.h"
 
 extern NSString* UDBluetoothRequiredNotification;
@@ -85,4 +82,3 @@ extern NSString* UDBeaconDetectedNotification;
 
 @end
 
-#endif

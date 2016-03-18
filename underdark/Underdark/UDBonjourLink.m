@@ -191,7 +191,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	[self closeStreams];
 }
 
-#pragma mark - UDLink
+#pragma mark - UDChannel
 
 - (void) connect
 {
@@ -294,7 +294,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	outdata.data = data;
 	[data acquire];
 
-	[data giveup]; // By per UDLink sendData: contract.
+	[data giveup]; // By per UDChannel sendData: contract.
 
 	[self performSelector:@selector(writeData:) onThread:self.transport.ioThread withObject:outdata waitUntilDone:NO];
 }

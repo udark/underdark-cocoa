@@ -38,7 +38,7 @@
 	
 	UDTimeExtender* _timeExtender;
 	
-	__weak id<UDTransportDelegate> _delegate;
+	__weak id<UDAdapterDelegate> _delegate;
 	NSMutableArray* _linksConnecting;
 	NSMutableArray* _links;
 	NSMutableArray* _linksTerminating;
@@ -63,7 +63,7 @@
 
 - (instancetype) initWithAppId:(int32_t)appId
 						nodeId:(int64_t)nodeId
-					   delegate:(id<UDTransportDelegate>)delegate
+					   delegate:(id<UDAdapterDelegate>)delegate
 						  queue:(dispatch_queue_t)queue
 					 peerToPeer:(bool)peerToPeer
 {

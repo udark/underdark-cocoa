@@ -14,24 +14,20 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
+#import "UDData.h"
 
-#import "UDTransport.h"
-#import "UDAdapter.h"
-#import "UDAggData.h"
+@protocol UDChannel <NSObject>
 
-@interface UDAggTransport : NSObject <UDTransport, UDTransportDelegate, UDAggDataDelegate>
+@property (nonatomic, readonly) int64_t nodeId;
 
-@property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
-@property (nonatomic, readonly, nonnull) dispatch_queue_t ioqueue;
+@property (nonatomic, readonly) int16_t priority;	// Lower value means higher priority (like unix nice).
 
-- (nonnull instancetype) initWithAppId:(int32_t)appId
-						nodeId:(int64_t)nodeId
-					  delegate:(nullable id<UDTransportDelegate>)delegate
-						 queue:(nullable dispatch_queue_t)queue;
+@property (nonatomic, readonly) bool slowLink;
 
-- (void) addTransport:(nonnull id<UDAdapter>)transport;
+- (void) disconnect;
 
-- (void) enqueueData:(nonnull UDAggData*)data;
+- (void) sendFrame:(nonnull NSData*)frameData;
+
+- (void) sendData:(nonnull id<UDData>)data;
 
 @end

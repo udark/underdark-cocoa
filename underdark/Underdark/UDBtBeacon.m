@@ -18,7 +18,7 @@
 
 #import "UDLogging.h"
 #import "UDAsyncUtils.h"
-#import "UDTransport.h"
+#import "UDAdapter.h"
 
 @import CoreLocation;
 @import CoreBluetooth;

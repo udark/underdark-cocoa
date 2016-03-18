@@ -24,7 +24,7 @@
 
 int32_t UDPacketKindMockMessage = 1;
 
-@interface UDMockNode () <UDTransport>
+@interface UDMockNode () <UDAdapter>
 {
 	NSMutableArray* _links;
 	UDRouterImpl* _router;

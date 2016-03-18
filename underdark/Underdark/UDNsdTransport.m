@@ -32,7 +32,7 @@
 	UDNsdBrowser* _browser;
 }
 
-@property (nonatomic, readonly, weak) id<UDTransportDelegate> delegate;
+@property (nonatomic, readonly, weak) id<UDAdapterDelegate> delegate;
 @end
 
 @implementation UDNsdTransport
@@ -42,7 +42,7 @@
 	@throw nil;
 }
 
-- (instancetype) initWithDelegate:(id<UDTransportDelegate>)delegate
+- (instancetype) initWithDelegate:(id<UDAdapterDelegate>)delegate
                             appId:(int32_t)appId
                            nodeId:(int64_t)nodeId
 					   peerToPeer:(bool)peerToPeer

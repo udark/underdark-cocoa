@@ -28,7 +28,7 @@
 	
 	bool _running;
 	NSMutableArray* _transports;
-	NSMutableDictionary* _linksConnected; // nodeId to SLAggregateLink
+	NSMutableDictionary<NSNumber*, UDAggLink*>* _linksConnected; // nodeId to UDAggLink
 	
 	NSMutableArray<UDAggData*>* _dataQueue;
 }
@@ -57,7 +57,7 @@
 	return self;
 }
 
-- (void) addTransport:(id<UDTransport>)transport
+- (void) addTransport:(id<UDAdapter>)transport
 {
 	if(!transport)
 		return;
@@ -65,7 +65,7 @@
 	[_transports addObject:transport];
 }
 
-#pragma mark - SLTransport
+#pragma mark - UDTransport
 
 - (void) start
 {
@@ -76,7 +76,7 @@
 	_running = true;
 	
 	sldispatch_async(_ioqueue, ^{
-		for(id<UDTransport> transport in _transports)
+		for(id<UDAdapter> transport in _transports)
 		{
 			[transport start];
 		}
@@ -92,16 +92,16 @@
 	_running = false;
 	
 	sldispatch_async(_ioqueue, ^{
-		for(id<UDTransport> transport in _transports)
+		for(id<UDAdapter> transport in _transports)
 		{
 			[transport stop];
 		}
 	});
 }
 
-#pragma mark - SLTransportDelegate
+#pragma mark - UDAdapterDelegate
 
-- (void) transport:(id<UDTransport>)transport linkConnected:(id<UDLink>)link
+- (void) transport:(id<UDAdapter>)transport linkConnected:(id<UDLink>)link
 {
 	UDAggLink* aggregate = _linksConnected[@(link.nodeId)];
 	
@@ -123,7 +123,7 @@
 	}
 }
 
-- (void) transport:(id<UDTransport>)transport linkDisconnected:(id<UDLink>)link
+- (void) transport:(id<UDAdapter>)transport linkDisconnected:(id<UDLink>)link
 {
 	UDAggLink* aggregate = _linksConnected[@(link.nodeId)];
 	if(!aggregate)
@@ -145,7 +145,7 @@
 	}
 }
 
-- (void) transport:(id<UDTransport>)transport link:(id<UDLink>)link didReceiveFrame:(NSData*)data
+- (void) transport:(id<UDAdapter>)transport link:(id<UDLink>)link didReceiveFrame:(NSData*)data
 {
 	UDAggLink* aggregate = _linksConnected[@(link.nodeId)];
 	if(!aggregate)
