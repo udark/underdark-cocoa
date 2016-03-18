@@ -23,6 +23,7 @@
 #import "UDLogging.h"
 #import "UDAsyncUtils.h"
 #import "UDMemoryData.h"
+#import "UDOutputItem.h"
 
 #import "UDConfig.h"
 
@@ -33,40 +34,6 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	SLBnjStateDisconnected
 };
 
-@interface UDOutputData : NSObject
-
-@property (nonatomic) id<UDData> data;
-@property (nonatomic) Frame* frame;
-
-@end
-@implementation UDOutputData
-{
-	bool _processed;
-}
-
-- (instancetype) init
-{
-	if(!(self = [super init]))
-		return self;
-	
-	return self;
-}
-
-- (void) dealloc
-{
-	if(!_processed) {
-		[self.data giveup];
-	}
-}
-
-- (void) markAsProcessed
-{
-	_processed = true;
-	[self.data giveup];
-}
-
-@end
-
 @interface UDBonjourChannel () <NSStreamDelegate>
 {
 	bool _isClient;
@@ -75,8 +42,8 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	NSMutableData* _inputData;		// Input frame data buffer.
 	uint8_t _inputBuffer[1024];		// Input stream buffer.
 	
-	NSMutableArray<UDOutputData*>* _outputQueue;	// Output queue with data objects.
-	UDOutputData* _outputData;		// Currently written UDBonjourData. If nil, then we should call write: on stream directly.
+	NSMutableArray<UDOutputItem*>* _outputQueue;	// Output queue with data objects.
+	UDOutputItem* _outputData;		// Currently written UDBonjourData. If nil, then we should call write: on stream directly.
 	
 	NSData* _outputBytes;			// If nil, then bytes is not yet acquired from _outputData.
 	NSUInteger _outputDataOffset;	// Count of outputData's written bytes;
@@ -207,7 +174,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	if(_state == SLBnjStateDisconnected)
 		return;
 	
-	[self performSelector:@selector(writeData:) onThread:self.transport.ioThread withObject:[[UDOutputData alloc] init] waitUntilDone:NO];
+	[self performSelector:@selector(writeData:) onThread:self.transport.ioThread withObject:[[UDOutputItem alloc] init] waitUntilDone:NO];
 }
 
 - (void) closeStreams
@@ -288,7 +255,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 - (void) sendData:(nonnull id<UDData>)data
 {
 	// Transport queue.	
-	UDOutputData* outdata = [[UDOutputData alloc] init];
+	UDOutputItem* outdata = [[UDOutputItem alloc] init];
 	outdata.data = data;
 	[data acquire];
 
@@ -301,13 +268,13 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 {
 	// Any queue.
 	
-	UDOutputData* outdata = [[UDOutputData alloc] init];
+	UDOutputItem* outdata = [[UDOutputItem alloc] init];
 	outdata.frame = frame;
 	
 	[self performSelector:@selector(writeData:) onThread:self.transport.ioThread withObject:outdata waitUntilDone:NO];
 }
 
-- (void) writeData:(UDOutputData*)outdata
+- (void) writeData:(UDOutputItem*)outdata
 {
 	// Stream thread.
 	

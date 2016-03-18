@@ -88,6 +88,8 @@
 		D528C5A41B448A0400E4FC8C /* UDTimeExtender.m in Headers */ = {isa = PBXBuildFile; fileRef = D528C5961B44895500E4FC8C /* UDTimeExtender.m */; settings = {ATTRIBUTES = (Public, ); }; };
 		D528C5A51B448A0400E4FC8C /* UDTransport.m in Headers */ = {isa = PBXBuildFile; fileRef = D528C5981B44895500E4FC8C /* UDTransport.m */; settings = {ATTRIBUTES = (Public, ); }; };
 		D528C5A61B448A0400E4FC8C /* UDUnderdark.m in Headers */ = {isa = PBXBuildFile; fileRef = D528C59A1B44895500E4FC8C /* UDUnderdark.m */; settings = {ATTRIBUTES = (Public, ); }; };
+		D545B3641C9C83A100657FFD /* UDOutputItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D545B3621C9C83A100657FFD /* UDOutputItem.h */; };
+		D545B3651C9C83A100657FFD /* UDOutputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D545B3631C9C83A100657FFD /* UDOutputItem.m */; };
 		D559CCCA1BA3256E0057CF17 /* UDNsdService.h in Headers */ = {isa = PBXBuildFile; fileRef = D559CCC81BA3256E0057CF17 /* UDNsdService.h */; };
 		D559CCCB1BA3256E0057CF17 /* UDNsdService.m in Sources */ = {isa = PBXBuildFile; fileRef = D559CCC91BA3256E0057CF17 /* UDNsdService.m */; };
 		D559CCCD1BA462B90057CF17 /* UDNsdUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D559CCCC1BA462B90057CF17 /* UDNsdUtil.m */; };
@@ -202,6 +204,8 @@
 		D528C59A1B44895500E4FC8C /* UDUnderdark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDUnderdark.m; sourceTree = "<group>"; };
 		D528C59B1B44895500E4FC8C /* Underdark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Underdark.h; sourceTree = "<group>"; };
 		D539EC7E1B45555A00A7D6E9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		D545B3621C9C83A100657FFD /* UDOutputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDOutputItem.h; sourceTree = "<group>"; };
+		D545B3631C9C83A100657FFD /* UDOutputItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDOutputItem.m; sourceTree = "<group>"; };
 		D559CCC81BA3256E0057CF17 /* UDNsdService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDNsdService.h; sourceTree = "<group>"; };
 		D559CCC91BA3256E0057CF17 /* UDNsdService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdService.m; sourceTree = "<group>"; };
 		D559CCCC1BA462B90057CF17 /* UDNsdUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdUtil.m; sourceTree = "<group>"; };
@@ -286,7 +290,7 @@
 			name = Nsd;
 			sourceTree = "<group>";
 		};
-		D50655581B432416002D192D /* Aggregate */ = {
+		D50655581B432416002D192D /* Transport */ = {
 			isa = PBXGroup;
 			children = (
 				D50655271B4323D7002D192D /* UDAggTransport.h */,
@@ -296,7 +300,7 @@
 				D56ADE3E1C9AC21B00945B20 /* UDAggData.h */,
 				D56ADE3F1C9AC21B00945B20 /* UDAggData.m */,
 			);
-			name = Aggregate;
+			name = Transport;
 			sourceTree = "<group>";
 		};
 		D50655591B432425002D192D /* Util */ = {
@@ -367,17 +371,18 @@
 			name = Reach;
 			sourceTree = "<group>";
 		};
-		D51565C21B44230300101C06 /* Transport */ = {
+		D51565C21B44230300101C06 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
 				D5A9B3281C9C06F10086DA93 /* UDAdapter.h */,
 				D5A9B3271C9C04D50086DA93 /* UDChannel.h */,
-				D50655581B432416002D192D /* Aggregate */,
+				D545B3621C9C83A100657FFD /* UDOutputItem.h */,
+				D545B3631C9C83A100657FFD /* UDOutputItem.m */,
 				D50A92531B485811003F9B38 /* Reach */,
 				D506555A1B43242F002D192D /* Bonjour */,
 				373C266D77B188D618829782 /* Nsd */,
 			);
-			name = Transport;
+			name = Adapters;
 			sourceTree = "<group>";
 		};
 		D51565C71B442E1000101C06 /* Protobuf */ = {
@@ -502,8 +507,9 @@
 				D539EC7E1B45555A00A7D6E9 /* Podfile */,
 				D528C5931B44895500E4FC8C /* Public */,
 				D51FA4351C9C4532006DF80D /* Buffer */,
+				D50655581B432416002D192D /* Transport */,
 				D594259E1BFC27C70069B5F8 /* Router */,
-				D51565C21B44230300101C06 /* Transport */,
+				D51565C21B44230300101C06 /* Adapters */,
 				D50655591B432425002D192D /* Util */,
 				D51565C71B442E1000101C06 /* Protobuf */,
 				D5DDCE951B430F21007B8E3E /* Supporting Files */,
@@ -584,6 +590,7 @@
 				D528C5A61B448A0400E4FC8C /* UDUnderdark.m in Headers */,
 				D528C5A31B44895500E4FC8C /* Underdark.h in Headers */,
 				D50655531B4323D8002D192D /* UDAsyncUtils.h in Headers */,
+				D545B3641C9C83A100657FFD /* UDOutputItem.h in Headers */,
 				D51565CE1B442E1D00101C06 /* Commands.pb.h in Headers */,
 				D5287AB21B485FB7002A0B5E /* UDReach.h in Headers */,
 				D59425A91BFC28EE0069B5F8 /* UDPacketKind.h in Headers */,
@@ -856,6 +863,7 @@
 				D50655341B4323D7002D192D /* UDBonjourAdapter.m in Sources */,
 				373C283730F845BF75B511A0 /* UDNsdBrowser.m in Sources */,
 				373C2A3715A6B64DAE8714B7 /* UDNsdAdvertiser.m in Sources */,
+				D545B3651C9C83A100657FFD /* UDOutputItem.m in Sources */,
 				373C2ED7897748DF23D3DF8B /* UDNsdServer.m in Sources */,
 				373C24F8F2B23BAC5F598C11 /* UDNsdAdapter.m in Sources */,
 			);
