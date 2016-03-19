@@ -16,6 +16,8 @@
 
 #import "UDData.h"
 
+#import "UDOutputItem.h"
+
 @protocol UDChannel <NSObject>
 
 @property (nonatomic, readonly) int64_t nodeId;
@@ -27,5 +29,6 @@
 - (void) disconnect;
 
 - (void) sendData:(nonnull id<UDData>)data;
+- (void) sendItem:(nonnull UDOutputItem*)item;
 
 @end
