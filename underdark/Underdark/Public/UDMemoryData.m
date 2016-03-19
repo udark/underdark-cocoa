@@ -37,7 +37,6 @@
 
 - (void) dispose
 {
-	_data = nil;
 	[super dispose];
 }
 

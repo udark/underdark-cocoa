@@ -20,8 +20,9 @@
 
 @implementation UDLazyData
 {
-	dispatch_queue_t volatile _queue;
-	UDLazyDataRetrieveBlock _Nullable volatile _block;
+	dispatch_queue_t _queue;
+	UDLazyDataRetrieveBlock _Nullable _block;
+	
 	NSData* _Nullable volatile _data;
 }
 
@@ -38,18 +39,11 @@
 
 #pragma mark - UDData
 
-- (bool) disposed
-{
-	return _block == nil;
-}
-
 - (void) dispose
 {
 	// Any thread.
 	@synchronized(self)
 	{
-		_queue = nil;
-		_block = nil;
 		_data = nil;
 	}
 }
@@ -58,50 +52,32 @@
 {
 	// I/O thread.
 	
-	if(self.disposed)
-	{
-		completion(nil);
-		return;
+	if(_data != nil) {
+		completion(_data);
 	}
 	
-	if(_data == nil) {
-		sldispatch_async(_queue, ^{
-			UDLazyDataRetrieveBlock localBlock = _block;
-			
-			if(localBlock == nil)
-			{
-				// We already disposed.
-				completion(nil);
-				return;
-			}
-			
-			NSData* localData = nil;
-			
-			@synchronized(self) {
-				if(_data != nil)
-				{
-					// Data already retrieved.
-					localData = _data;
-				}
-			}
-			
-			if(localData == nil) {
-				localData = localBlock();
-			}
-			
-			@synchronized(self) {
-				if(!self.disposed) {
-					_data = localData;
-				}
-			}
-			
-			completion(localData);
-		});
+	sldispatch_async(_queue, ^{
+		NSData* localData = nil;
 		
-		return;
-	} // if data == nil
-	
-	completion(_data);
+		@synchronized(self) {
+			if(_data != nil)
+			{
+				// Data already retrieved.
+				localData = _data;
+			}
+		}
+		
+		if(localData == nil) {
+			localData = _block();
+		}
+		
+		@synchronized(self) {
+			_data = localData;
+		}
+		
+		completion(localData);
+	});
+
 } // retrieve
 
 @end
