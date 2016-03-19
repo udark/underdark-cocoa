@@ -18,6 +18,14 @@
 
 #import "UDOutputItem.h"
 
+@protocol UDChannel;
+
+@protocol UDChannelDelegate <NSObject>
+
+- (void) channelCanSendMore:(nonnull id<UDChannel>)channel;
+
+@end
+
 @protocol UDChannel <NSObject>
 
 @property (nonatomic, readonly) int64_t nodeId;
