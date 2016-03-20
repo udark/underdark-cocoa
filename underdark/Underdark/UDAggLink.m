@@ -19,9 +19,10 @@
 #import "UDMemoryData.h"
 #import "UDAsyncUtils.h"
 
-@interface UDAggLink()
+@interface UDAggLink() <UDChannelDelegate>
 {
 	NSMutableArray<id<UDChannel>> * _links;
+	NSMutableArray<UDFrameSource*> *_outputQueue;
 }
 
 @end
@@ -41,6 +42,7 @@
 	_transport = transport;
 	_nodeId = nodeId;
 	_links = [NSMutableArray array];
+	_outputQueue = [NSMutableArray array];
 	
 	return self;
 }
@@ -55,39 +57,44 @@
 	return [_links containsObject:link];
 }
 
+- (void) addLink:(id<UDChannel>)link
+{
+	// Transport queue.
+	[_links addObject:link];
+	_links = [_links sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2)
+			  {
+				  id<UDLink> link1 = (id<UDLink>)obj1;
+				  id<UDLink> link2 = (id<UDLink>)obj2;
+				  
+				  if(link1.priority < link2.priority)
+					  return NSOrderedAscending;
+				  
+				  return NSOrderedDescending;
+			  }].mutableCopy;
+}
+
+- (void) removeLink:(id<UDChannel>)link
+{
+	// Transport queue.
+	[_links removeObject:link];
+}
+
+#pragma mark - UDLink
+
 - (void) disconnect
 {
+	// User queue.
+	
 	for(id<UDChannel> link in _links)
 	{
 		[link disconnect];
 	}
 }
 
-- (void) addLink:(id<UDChannel>)link
-{
-	// I/O queue.
-	[_links addObject:link];
-	_links = [_links sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2)
-	 {
-		 id<UDLink> link1 = (id<UDLink>)obj1;
-		 id<UDLink> link2 = (id<UDLink>)obj2;
-		 
-		 if(link1.priority < link2.priority)
-			 return NSOrderedAscending;
-		 
-		 return NSOrderedDescending;
-	 }].mutableCopy;
-}
-
-- (void) removeLink:(id<UDChannel>)link
-{
-	// I/O queue.
-	[_links removeObject:link];
-}
-
 - (void) sendFrame:(NSData*)data
 {
 	// User queue.
+	
 	UDMemoryData* memoryData = [[UDMemoryData alloc] initWithData:data];
 	[self sendData:memoryData];
 }
@@ -109,7 +116,7 @@
 
 - (void) sendDataToChildren:(nonnull UDAggData*)data
 {
-	// I/O queue.
+	// Transport queue.
 	id<UDChannel> link = [_links firstObject];
 	if(!link) {
 		return;
@@ -117,6 +124,13 @@
 	
 	[data acquire];
 	[link sendData:data];
+}
+
+#pragma mark - UDChannelDelegate
+
+- (void) channelCanSendMore:(nonnull id<UDChannel>)channel
+{
+	// Transport queue.
 }
 
 @end

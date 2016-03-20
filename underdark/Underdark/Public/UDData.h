@@ -22,16 +22,6 @@ typedef void (^UDDataRetrieveBlock)(NSData* _Nullable data);
 @protocol UDData <NSObject>
 
 /**
- * Acquires this data and increases its reference count.
- */
-- (void) acquire;
-
-/**
- * Gives up this data and decreases its reference count.
- */
-- (void) giveup;
-
-/**
  * Retrieves data from object.
  * Implementations should call the completion handler
  * with retrieved data as argument, or null if data cannot be retrieved.

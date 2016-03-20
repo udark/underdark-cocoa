@@ -17,7 +17,7 @@
 #import "UDAggTransport.h"
 
 #import "UDAggLink.h"
-#import "UDAggData.h"
+#import "UDFrameSource.h"
 #import "UDLogging.h"
 #import "UDAsyncUtils.h"
 
@@ -30,7 +30,7 @@
 	NSMutableArray< id<UDAdapter> > * _adapters;
 	NSMutableDictionary<NSNumber*, UDAggLink*> * _linksConnected; // nodeId to UDAggLink
 	
-	NSMutableArray<UDAggData*> * _dataQueue;
+	NSMutableDictionary<NSString*, UDFrameSource*> * _frames;
 }
 @end
 
@@ -51,8 +51,7 @@
 	
 	_adapters = [NSMutableArray array];
 	_linksConnected = [NSMutableDictionary dictionary];
-	
-	_dataQueue = [NSMutableArray array];
+	_frames = [NSMutableDictionary dictionary];
 	
 	return self;
 }

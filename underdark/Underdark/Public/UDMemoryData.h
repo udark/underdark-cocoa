@@ -16,9 +16,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDCountedData.h"
+#import "UDData.h"
 
-@interface UDMemoryData : UDCountedData
+@interface UDMemoryData : NSObject<UDData>
 
 - (instancetype) initWithData:(NSData*)data;
 

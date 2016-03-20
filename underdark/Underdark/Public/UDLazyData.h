@@ -16,11 +16,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDCountedData.h"
+#import "UDData.h"
 
 typedef NSData* _Nullable (^UDLazyDataRetrieveBlock)();
 
-@interface UDLazyData : UDCountedData
+@interface UDLazyData : NSObject<UDData>
 
 - (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block;
 

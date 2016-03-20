@@ -21,9 +21,7 @@
 @implementation UDLazyData
 {
 	dispatch_queue_t _queue;
-	UDLazyDataRetrieveBlock _Nullable _block;
-	
-	NSData* _Nullable volatile _data;
+	UDLazyDataRetrieveBlock _block;
 }
 
 - (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block
@@ -39,43 +37,13 @@
 
 #pragma mark - UDData
 
-- (void) dispose
-{
-	// Any thread.
-	@synchronized(self)
-	{
-		_data = nil;
-	}
-}
-
 - (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion
 {
 	// I/O thread.
 	
-	if(_data != nil) {
-		completion(_data);
-	}
-	
 	sldispatch_async(_queue, ^{
-		NSData* localData = nil;
-		
-		@synchronized(self) {
-			if(_data != nil)
-			{
-				// Data already retrieved.
-				localData = _data;
-			}
-		}
-		
-		if(localData == nil) {
-			localData = _block();
-		}
-		
-		@synchronized(self) {
-			_data = localData;
-		}
-		
-		completion(localData);
+		NSData* data = _block();
+		completion(data);
 	});
 
 } // retrieve

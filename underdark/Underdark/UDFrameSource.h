@@ -16,24 +16,29 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDCountedData.h"
-#import "UDLink.h"
+#import "UDData.h"
 
-@class UDAggData;
-@class UDAggLink;
+typedef void (^UDFrameSourceRetrieveBlock)(NSData* _Nullable data);
 
-@protocol UDAggDataDelegate <NSObject>
+@class UDFrameSource;
+
+@protocol UDFrameSourceDelegate <NSObject>
 
 // Called on any thread.
-- (void) dataDisposed:(nonnull UDAggData*)data;
+- (void) frameSourceDisposed:(nonnull UDFrameSource*)frameSource;
 
 @end
 
-@interface UDAggData : UDCountedData
+@interface UDFrameSource : NSObject
 
-@property (nonatomic, weak) id<UDAggDataDelegate> delegate;
-@property (nonatomic, weak) UDAggLink* link;
+@property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
+@property (nonatomic, readonly, weak) id<UDFrameSourceDelegate> delegate;
 
-- (nonnull instancetype) initWithData:(nonnull id<UDData>)data delegate:(nullable id<UDAggDataDelegate>)delegate;
+- (nonnull instancetype) initWithData:(nonnull id<UDData>)data queue:(nonnull dispatch_queue_t)queue delegate:(nullable id<UDFrameSourceDelegate>)delegate;
+
+- (void) acquire;
+- (void) giveup;
+
+- (void) retrieve:(UDFrameSourceRetrieveBlock _Nonnull)completion;
 
 @end

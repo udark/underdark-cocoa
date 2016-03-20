@@ -14,42 +14,54 @@
  * limitations under the License.
  */
 
-#import "UDAggData.h"
+#import "UDFrameSource.h"
 
 #import "UDAggLink.h"
 #import "UDAsyncUtils.h"
 #import "Frames.pb.h"
 
-@implementation UDAggData
+@implementation UDFrameSource
 {
+	int32_t _refCount;
+	NSObject* _refCountLock;
+	
 	id<UDData> _Nonnull _data;
 	NSData* _Nullable volatile _frameData;
 	bool volatile _disposed;
 }
 
-- (nonnull instancetype) initWithData:(nonnull id<UDData>)data delegate:(nullable id<UDAggDataDelegate>)delegate
+- (nonnull instancetype) initWithData:(nonnull id<UDData>)data queue:(nonnull dispatch_queue_t)queue delegate:(nullable id<UDFrameSourceDelegate>)delegate
 {
 	if(!(self = [super init]))
 		return self;
 	
-	_data = data;
-	[_data acquire];
-	
+	_refCount = 1;
+
+	_queue = queue;
 	_delegate = delegate;
+
+	_data = data;
 
 	return self;
 }
 
 - (void) acquire
 {
-	[super acquire];
-	[_data acquire];
+	@synchronized(_refCountLock) {
+		_refCount++;
+	}
 }
 
 - (void) giveup
 {
-	[_data giveup];
-	[super giveup];
+	@synchronized(_refCountLock) {
+		_refCount--;
+		assert(_refCount >= 0);
+		
+		if(_refCount == 0) {
+			[self dispose];
+		}
+	}
 }
 
 - (void) dispose
@@ -59,10 +71,10 @@
 		_frameData = nil;
 	}
 	
-	[_delegate dataDisposed:self];
+	[_delegate frameSourceDisposed:self];
 }
 
-- (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion
+- (void) retrieve:(UDFrameSourceRetrieveBlock _Nonnull)completion
 {
 	// Any thread.
 	if(_frameData != nil)
