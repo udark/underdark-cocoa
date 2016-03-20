@@ -21,6 +21,8 @@ typedef void (^UDDataRetrieveBlock)(NSData* _Nullable data);
  */
 @protocol UDData <NSObject>
 
+@property (nonatomic, readonly, nullable) NSString* dataId;
+
 /**
  * Retrieves data from object.
  * Implementations should call the completion handler

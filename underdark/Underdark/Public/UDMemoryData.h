@@ -20,6 +20,8 @@
 
 @interface UDMemoryData : NSObject<UDData>
 
-- (instancetype) initWithData:(NSData*)data;
+@property (nonatomic, readonly, nullable) NSString* dataId;
+
+- (nonnull instancetype) initWithDataId:(nullable NSString*)dataId data:(nonnull NSData*)data;
 
 @end

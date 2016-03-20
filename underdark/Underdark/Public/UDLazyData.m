@@ -24,13 +24,15 @@
 	UDLazyDataRetrieveBlock _block;
 }
 
-- (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block
+- (nonnull instancetype) initWithDataId:(nullable NSString*)dataId queue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block
 {
 	if(!(self = [super init]))
 		return self;
 	
 	_queue = (queue == nil) ? dispatch_get_main_queue() : queue;
 	_block = [block copy];
+	
+	_dataId = dataId;
 	
 	return self;
 }
