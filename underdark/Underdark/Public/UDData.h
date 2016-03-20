@@ -19,7 +19,7 @@ typedef void (^UDDataRetrieveBlock)(NSData* _Nullable data);
 /**
  * Protocol for raw frame data storage for sending and receiving.
  */
-@protocol UDData <NSObject>
+@protocol UDData<NSObject>
 
 @property (nonatomic, readonly, nullable) NSString* dataId;
 

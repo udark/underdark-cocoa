@@ -22,7 +22,8 @@
 @interface UDAggLink() <UDChannelDelegate>
 {
 	NSMutableArray<id<UDChannel>> * _links;
-	NSMutableArray<UDFrameSource*> *_outputQueue;
+	NSMutableArray<id<UDData>> * _outputQueue;
+	UDFrameData* _outputFrame; // Currently prepared frame.
 }
 
 @end
@@ -32,6 +33,19 @@
 - (instancetype) init
 {
 	return nil;
+}
+
+- (void) dealloc
+{
+	for(UDFrameData* frameData in _outputQueue)
+	{
+		[frameData giveup];
+	}
+	
+	[_outputQueue removeAllObjects];
+	
+	[_outputFrame giveup];
+	_outputFrame = nil;
 }
 
 - (instancetype) initWithNodeId:(int64_t)nodeId transport:(nonnull UDAggTransport*)transport
@@ -95,7 +109,7 @@
 {
 	// User queue.
 	
-	UDMemoryData* memoryData = [[UDMemoryData alloc] initWithData:data];
+	UDMemoryData* memoryData = [[UDMemoryData alloc] initWithDataId:nil data:data];
 	[self sendData:memoryData];
 }
 
@@ -103,34 +117,53 @@
 {
 	// User queue.
 	
-	UDAggData* aggData = [[UDAggData alloc] initWithData:data delegate:_transport];
-	aggData.link = self;
-	
-	[data giveup]; // By per UDLink contract.
-	
 	sldispatch_async(_transport.ioqueue, ^{
-		[_transport enqueueData:aggData];
-		[aggData giveup];
+		[_outputQueue addObject:data];
+		
+		[self sendNextFrame];
 	});	
 }
 
-- (void) sendDataToChildren:(nonnull UDAggData*)data
+- (void) sendNextFrame
 {
 	// Transport queue.
-	id<UDChannel> link = [_links firstObject];
-	if(!link) {
-		return;
-	}
 	
-	[data acquire];
-	[link sendData:data];
-}
+	// Already preparing next frame.
+	if(_outputFrame != nil)
+		return;
+	
+	// Queue is empty.
+	if(_outputQueue.firstObject == nil)
+		return;
+	
+	id<UDData> uddata = _outputQueue.firstObject;
+	[_outputQueue removeObjectAtIndex:0];
+	
+	_outputFrame = [_transport.cache frameSourceWithData:uddata];
+	
+	[_outputFrame retrieve:^(NSData * _Nullable data) {
+		// Transport queue.
+		
+		id<UDChannel> link = [_links firstObject];
+		if(!link) {
+			[_outputFrame giveup];
+			_outputFrame = nil;
+			
+			return;
+		}
+		
+		UDOutputItem* outitem = [[UDOutputItem alloc] initWithData:data frameData:_outputFrame];
+		
+		[link sendItem:outitem];
+	}];
+} // sendNextFrame
 
 #pragma mark - UDChannelDelegate
 
 - (void) channelCanSendMore:(nonnull id<UDChannel>)channel
 {
 	// Transport queue.
+	[self sendNextFrame];
 }
 
 @end

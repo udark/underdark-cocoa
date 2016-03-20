@@ -36,7 +36,6 @@
 
 - (void) disconnect;
 
-- (void) sendData:(nonnull id<UDData>)data;
 - (void) sendItem:(nonnull UDOutputItem*)item;
 
 @end

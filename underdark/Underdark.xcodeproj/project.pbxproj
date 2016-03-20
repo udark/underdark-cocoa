@@ -93,8 +93,8 @@
 		D559CCCA1BA3256E0057CF17 /* UDNsdService.h in Headers */ = {isa = PBXBuildFile; fileRef = D559CCC81BA3256E0057CF17 /* UDNsdService.h */; };
 		D559CCCB1BA3256E0057CF17 /* UDNsdService.m in Sources */ = {isa = PBXBuildFile; fileRef = D559CCC91BA3256E0057CF17 /* UDNsdService.m */; };
 		D559CCCD1BA462B90057CF17 /* UDNsdUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D559CCCC1BA462B90057CF17 /* UDNsdUtil.m */; };
-		D56ADE401C9AC21B00945B20 /* UDFrameSource.h in Headers */ = {isa = PBXBuildFile; fileRef = D56ADE3E1C9AC21B00945B20 /* UDFrameSource.h */; };
-		D56ADE411C9AC21B00945B20 /* UDFrameSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D56ADE3F1C9AC21B00945B20 /* UDFrameSource.m */; };
+		D56ADE401C9AC21B00945B20 /* UDFrameData.h in Headers */ = {isa = PBXBuildFile; fileRef = D56ADE3E1C9AC21B00945B20 /* UDFrameData.h */; };
+		D56ADE411C9AC21B00945B20 /* UDFrameData.m in Sources */ = {isa = PBXBuildFile; fileRef = D56ADE3F1C9AC21B00945B20 /* UDFrameData.m */; };
 		D583E0931C9EED2D0032E52D /* UDFrameCache.h in Headers */ = {isa = PBXBuildFile; fileRef = D583E0911C9EED2D0032E52D /* UDFrameCache.h */; };
 		D583E0941C9EED2D0032E52D /* UDFrameCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D583E0921C9EED2D0032E52D /* UDFrameCache.m */; };
 		D59425A11BFC27D30069B5F8 /* Packets.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = D594259F1BFC27D30069B5F8 /* Packets.pb.h */; };
@@ -210,8 +210,8 @@
 		D559CCC91BA3256E0057CF17 /* UDNsdService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdService.m; sourceTree = "<group>"; };
 		D559CCCC1BA462B90057CF17 /* UDNsdUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdUtil.m; sourceTree = "<group>"; };
 		D559CCCE1BA462C80057CF17 /* UDNsdUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDNsdUtil.h; sourceTree = "<group>"; };
-		D56ADE3E1C9AC21B00945B20 /* UDFrameSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDFrameSource.h; sourceTree = "<group>"; };
-		D56ADE3F1C9AC21B00945B20 /* UDFrameSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDFrameSource.m; sourceTree = "<group>"; };
+		D56ADE3E1C9AC21B00945B20 /* UDFrameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDFrameData.h; sourceTree = "<group>"; };
+		D56ADE3F1C9AC21B00945B20 /* UDFrameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDFrameData.m; sourceTree = "<group>"; };
 		D583E0911C9EED2D0032E52D /* UDFrameCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDFrameCache.h; sourceTree = "<group>"; };
 		D583E0921C9EED2D0032E52D /* UDFrameCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDFrameCache.m; sourceTree = "<group>"; };
 		D594259F1BFC27D30069B5F8 /* Packets.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Packets.pb.h; sourceTree = "<group>"; };
@@ -423,7 +423,7 @@
 		D528C5931B44895500E4FC8C /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				D5B889981C9AA92800DCAEC5 /* UDData */,
+				D5B889981C9AA92800DCAEC5 /* UDDataSource */,
 				D528C59B1B44895500E4FC8C /* Underdark.h */,
 				D528C5991B44895500E4FC8C /* UDUnderdark.h */,
 				D528C59A1B44895500E4FC8C /* UDUnderdark.m */,
@@ -442,8 +442,8 @@
 		D583E0901C9EED040032E52D /* Cache */ = {
 			isa = PBXGroup;
 			children = (
-				D56ADE3E1C9AC21B00945B20 /* UDFrameSource.h */,
-				D56ADE3F1C9AC21B00945B20 /* UDFrameSource.m */,
+				D56ADE3E1C9AC21B00945B20 /* UDFrameData.h */,
+				D56ADE3F1C9AC21B00945B20 /* UDFrameData.m */,
 				D583E0911C9EED2D0032E52D /* UDFrameCache.h */,
 				D583E0921C9EED2D0032E52D /* UDFrameCache.m */,
 			);
@@ -476,7 +476,7 @@
 			name = Logging;
 			sourceTree = "<group>";
 		};
-		D5B889981C9AA92800DCAEC5 /* UDData */ = {
+		D5B889981C9AA92800DCAEC5 /* UDDataSource */ = {
 			isa = PBXGroup;
 			children = (
 				D5B889961C9AA6C500DCAEC5 /* UDData.h */,
@@ -485,7 +485,7 @@
 				D5B8899F1C9AABB300DCAEC5 /* UDLazyData.h */,
 				D5B889A01C9AABB300DCAEC5 /* UDLazyData.m */,
 			);
-			name = UDData;
+			name = UDDataSource;
 			sourceTree = "<group>";
 		};
 		D5DDCE881B430F21007B8E3E = {
@@ -608,7 +608,7 @@
 				D50655311B4323D7002D192D /* UDBonjourChannel.h in Headers */,
 				D51565C51B44233400101C06 /* UDLogging.h in Headers */,
 				D559CCCA1BA3256E0057CF17 /* UDNsdService.h in Headers */,
-				D56ADE401C9AC21B00945B20 /* UDFrameSource.h in Headers */,
+				D56ADE401C9AC21B00945B20 /* UDFrameData.h in Headers */,
 				D50A92471B471421003F9B38 /* UDBonjourBrowser.h in Headers */,
 				D506554F1B4323D8002D192D /* UDAggLink.h in Headers */,
 				D50655331B4323D7002D192D /* UDBonjourAdapter.h in Headers */,
@@ -849,7 +849,7 @@
 				D5C7DA321BA5A525009DDD00 /* UDNsdChannel.m in Sources */,
 				D59425AA1BFC28EE0069B5F8 /* UDPacketKind.m in Sources */,
 				D528C5A21B44895500E4FC8C /* UDUnderdark.m in Sources */,
-				D56ADE411C9AC21B00945B20 /* UDFrameSource.m in Sources */,
+				D56ADE411C9AC21B00945B20 /* UDFrameData.m in Sources */,
 				D59425B21BFC2B370069B5F8 /* UDRouter.m in Sources */,
 				D5B889A21C9AABB300DCAEC5 /* UDLazyData.m in Sources */,
 				D559CCCD1BA462B90057CF17 /* UDNsdUtil.m in Sources */,

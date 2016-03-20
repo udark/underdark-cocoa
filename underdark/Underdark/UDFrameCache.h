@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDFrameSource.h"
+#import "UDFrameData.h"
 #import "UDData.h"
 
 @interface UDFrameCache : NSObject
 
 - (nonnull instancetype) initWithQueue:(nonnull dispatch_queue_t)queue;
 
-- (nonnull UDFrameSource*) frameSourceWithData:(nonnull id<UDData>)data;
+- (nonnull UDFrameData*) frameSourceWithData:(nonnull id<UDData>)data;
 
 @end

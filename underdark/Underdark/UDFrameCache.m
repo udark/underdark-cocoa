@@ -8,9 +8,10 @@
 
 #import "UDFrameCache.h"
 
-@interface UDFrameCache()
+@interface UDFrameCache() <UDFrameDataDelegate>
 {
 	dispatch_queue_t _queue;
+	NSMutableDictionary<NSString*, UDFrameData*> * _sources;
 }
 @end
 
@@ -22,20 +23,40 @@
 		return self;
 	
 	_queue = queue;
+	_sources = [NSMutableDictionary dictionary];
 	
 	return self;
 }
 
-- (nonnull UDFrameSource*) frameSourceWithData:(nonnull id<UDData>)data
+- (nonnull UDFrameData*) frameSourceWithData:(nonnull id<UDData>)data
 {
-	UDFrameSource* result;
+	UDFrameData* result;
 	
 	if(data.dataId == nil) {
-		result = [[UDFrameSource alloc] initWithData:data queue:_queue delegate:nil];
+		result = [[UDFrameData alloc] initWithData:data queue:_queue delegate:self];
 		return result;
 	}
 	
-	return nil;
+	result = _sources[data.dataId];
+	
+	if(result == nil) {
+		result = [[UDFrameData alloc] initWithData:data queue:_queue delegate:self];
+		_sources[data.dataId] = result;
+	}
+	
+	return result;
+}
+
+#pragma mark - UDFrameDataDelegate
+
+- (void) frameDataAcquire:(nonnull UDFrameData*)frameData
+{
+	
+}
+
+- (void) frameDataGiveup:(nonnull UDFrameData*)frameData
+{
+	
 }
 
 @end

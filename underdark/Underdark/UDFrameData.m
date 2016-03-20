@@ -14,28 +14,22 @@
  * limitations under the License.
  */
 
-#import "UDFrameSource.h"
+#import "UDFrameData.h"
 
 #import "UDAggLink.h"
 #import "UDAsyncUtils.h"
 #import "Frames.pb.h"
 
-@implementation UDFrameSource
+@implementation UDFrameData
 {
-	int32_t _refCount;
-	NSObject* _refCountLock;
-	
-	id<UDData> _Nonnull _data;
-	NSData* _Nullable volatile _frameData;
+	NSData* _Nullable volatile _payload;
 	bool volatile _disposed;
 }
 
-- (nonnull instancetype) initWithData:(nonnull id<UDData>)data queue:(nonnull dispatch_queue_t)queue delegate:(nullable id<UDFrameSourceDelegate>)delegate
+- (nonnull instancetype) initWithData:(nonnull id<UDData>)data queue:(nonnull dispatch_queue_t)queue delegate:(nullable id<UDFrameDataDelegate>)delegate
 {
 	if(!(self = [super init]))
 		return self;
-	
-	_refCount = 1;
 
 	_queue = queue;
 	_delegate = delegate;
@@ -47,43 +41,39 @@
 
 - (void) acquire
 {
-	@synchronized(_refCountLock) {
-		_refCount++;
-	}
+	sldispatch_async(_queue, ^{
+		[_delegate frameDataAcquire:self];
+	});
 }
 
 - (void) giveup
 {
-	@synchronized(_refCountLock) {
-		_refCount--;
-		assert(_refCount >= 0);
-		
-		if(_refCount == 0) {
-			[self dispose];
-		}
-	}
+	sldispatch_async(_queue, ^{
+		[_delegate frameDataGiveup:self];
+	});
 }
 
 - (void) dispose
 {
 	@synchronized(self) {
 		_disposed = true;
-		_frameData = nil;
+		_payload = nil;
 	}
-	
-	[_delegate frameSourceDisposed:self];
 }
 
 - (void) retrieve:(UDFrameSourceRetrieveBlock _Nonnull)completion
 {
 	// Any thread.
-	if(_frameData != nil)
-	{
-		sldispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-			completion(_frameData);
-		});
-		
-		return;
+	@synchronized(self) {
+		if(_payload != nil)
+		{
+			NSData* payload = _payload;
+			sldispatch_async(_queue, ^{
+				completion(payload);
+			});
+			
+			return;
+		}
 	}
 	
 	[_data retrieve:^(NSData * _Nullable data) {
@@ -91,7 +81,7 @@
 		
 		if(data == nil)
 		{
-			sldispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			sldispatch_async(_queue, ^{
 				completion(nil);
 			});
 
@@ -107,16 +97,16 @@
 		
 		frame.payload = [payload build];
 		
-		NSData* localData = [[frame build] data];
+		NSData* result = [[frame build] data];
 		
 		@synchronized(self) {
 			if(!_disposed) {
-				_frameData = localData;
+				_payload = result;
 			}
 		}
 		
-		sldispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-			completion(_frameData);
+		sldispatch_async(_queue, ^{
+			completion(result);
 		});
 	}];
 } // retrieve

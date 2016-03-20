@@ -8,17 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDData.h"
-#import "Frames.pb.h"
+#import "UDFrameData.h"
 
 @interface UDOutputItem : NSObject
 
 @property (nonatomic, nullable) NSData* data;
+@property (nonatomic, nullable) UDFrameData* frameData;
 
-- (nonnull instancetype) initWithData:(nonnull id<UDData>)data;
-
-- (void) prepare;
-
-- (void) finish;
+- (nonnull instancetype) initWithData:(nonnull NSData*)data frameData:(nullable UDFrameData*)frameData;
 
 @end

@@ -18,12 +18,15 @@
 
 #import "UDTransport.h"
 #import "UDAdapter.h"
-#import "UDFrameSource.h"
+#import "UDFrameData.h"
+#import "UDFrameCache.h"
 
-@interface UDAggTransport : NSObject <UDTransport, UDAdapterDelegate, UDAggDataDelegate>
+@interface UDAggTransport : NSObject <UDTransport, UDAdapterDelegate>
 
 @property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
 @property (nonatomic, readonly, nonnull) dispatch_queue_t ioqueue;
+
+@property (nonatomic, readonly, nonnull) UDFrameCache* cache;
 
 - (nonnull instancetype) initWithAppId:(int32_t)appId
 						nodeId:(int64_t)nodeId
@@ -31,9 +34,5 @@
 						 queue:(nullable dispatch_queue_t)queue;
 
 - (void) addTransport:(nonnull id<UDAdapter>)transport;
-
-- (void) enqueueData:(nonnull UDAggData*)data;
-
-
 
 @end

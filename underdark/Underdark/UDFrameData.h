@@ -20,24 +20,28 @@
 
 typedef void (^UDFrameSourceRetrieveBlock)(NSData* _Nullable data);
 
-@class UDFrameSource;
+@class UDFrameData;
 
-@protocol UDFrameSourceDelegate <NSObject>
+@protocol UDFrameDataDelegate<NSObject>
 
-// Called on any thread.
-- (void) frameSourceDisposed:(nonnull UDFrameSource*)frameSource;
+- (void) frameDataAcquire:(nonnull UDFrameData*)frameData;
+- (void) frameDataGiveup:(nonnull UDFrameData*)frameData;
 
 @end
 
-@interface UDFrameSource : NSObject
+@interface UDFrameData : NSObject
 
 @property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
-@property (nonatomic, readonly, weak) id<UDFrameSourceDelegate> delegate;
+@property (nonatomic, readonly, weak) id<UDFrameDataDelegate> delegate;
 
-- (nonnull instancetype) initWithData:(nonnull id<UDData>)data queue:(nonnull dispatch_queue_t)queue delegate:(nullable id<UDFrameSourceDelegate>)delegate;
+@property (nonatomic, readonly, nonnull) id<UDData> data;
+
+- (nonnull instancetype) initWithData:(nonnull id<UDData>)data queue:(nonnull dispatch_queue_t)queue delegate:(nullable id<UDFrameDataDelegate>)delegate;
 
 - (void) acquire;
 - (void) giveup;
+
+- (void) dispose;
 
 - (void) retrieve:(UDFrameSourceRetrieveBlock _Nonnull)completion;
 

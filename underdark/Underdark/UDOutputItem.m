@@ -12,7 +12,6 @@
 
 @implementation UDOutputItem
 {
-	id<UDData> _Nonnull _source;
 }
 
 - (nonnull instancetype) init
@@ -25,34 +24,20 @@
 
 - (void) dealloc
 {
-	[_source giveup];
+	[_frameData giveup];
 }
 
-- (nonnull instancetype) initWithData:(nonnull id<UDData>)data
+- (nonnull instancetype) initWithData:(nonnull NSData*)data frameData:(nullable UDFrameData*)frameData
 {
 	if(!(self = [super init]))
 		return self;
 	
-	_source = data;
+	_data = data;
+	_frameData = frameData;
 	
-	[_source acquire];
+	[frameData acquire];
 
 	return self;
-}
-
-- (void) prepare
-{
-	// Queue.
-	
-	[_source retrieve:^(NSData * _Nullable data) {
-		// Any thread.
-		if(data == nil)
-		{
-			return;
-		}
-		
-		_data = data;
-	}];
 }
 
 @end

@@ -40,7 +40,7 @@
 
 /**
  * Sends bytes to remote device as single atomic frame.
- * @param data bytes to send. Automatically calls giveup() on that object.
+ * @param data data with bytes to send.
  */
 - (void) sendData:(nonnull id<UDData>)data;
 

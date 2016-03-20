@@ -17,7 +17,7 @@
 #import "UDAggTransport.h"
 
 #import "UDAggLink.h"
-#import "UDFrameSource.h"
+#import "UDFrameData.h"
 #import "UDLogging.h"
 #import "UDAsyncUtils.h"
 
@@ -29,8 +29,6 @@
 	bool _running;
 	NSMutableArray< id<UDAdapter> > * _adapters;
 	NSMutableDictionary<NSNumber*, UDAggLink*> * _linksConnected; // nodeId to UDAggLink
-	
-	NSMutableDictionary<NSString*, UDFrameSource*> * _frames;
 }
 @end
 
@@ -51,7 +49,8 @@
 	
 	_adapters = [NSMutableArray array];
 	_linksConnected = [NSMutableDictionary dictionary];
-	_frames = [NSMutableDictionary dictionary];
+	
+	_cache = [[UDFrameCache alloc] initWithQueue:_ioqueue];
 	
 	return self;
 }
@@ -164,41 +163,4 @@
 	});
 }
 
-#pragma mark - UDAggDataDelegate
-
-- (void) dataDisposed:(nonnull UDAggData*)data
-{
-	// Any thread.
-	
-	sldispatch_async(_ioqueue, ^{
-		[self sendNextData];
-	});
-}
-
-- (void) enqueueData:(nonnull UDAggData*)data
-{
-	// I/O queue.
-	[data acquire];
-	[_dataQueue addObject:data];
-	
-	if(_dataQueue.count == 1)
-	{
-		[self sendNextData];
-		return;
-	}
-}
-
-- (void) sendNextData
-{
-	// I/O queue.
-	if(_dataQueue.count == 0)
-		return;
-	
-	UDAggData* data = _dataQueue.firstObject;
-	[_dataQueue removeObjectAtIndex:0];
-	
-	[data.link sendDataToChildren:data];
-	
-	[data giveup];
-}
 @end
