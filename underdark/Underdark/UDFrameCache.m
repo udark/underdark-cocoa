@@ -60,6 +60,7 @@
 - (void) frameDataGiveup:(nonnull UDFrameData*)frameData
 {
 	_counts[frameData.data.dataId] = @(_counts[frameData.data.dataId].integerValue - 1);
+	NSAssert(_counts[frameData.data.dataId].integerValue >= 0, @"UDFrameData refCount < 0");
 	
 	if(_counts[frameData.data.dataId] == 0)
 	{

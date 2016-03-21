@@ -41,7 +41,4 @@
 - (void) sendFrame:(nonnull NSData*)data;
 - (void) sendData:(nonnull id<UDData>)data;
 
-// Doesn't gives up data.
-- (void) sendDataToChildren:(nonnull UDAggData*)data;
-
 @end

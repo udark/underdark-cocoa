@@ -50,13 +50,6 @@
 
 - (void) dealloc
 {
-	for(UDFrameData* frameData in _outputQueue)
-	{
-		[frameData giveup];
-	}
-	
-	[_outputQueue removeAllObjects];
-	
 	[_preparedFrame giveup];
 	_preparedFrame = nil;
 }
@@ -120,9 +113,7 @@
 	sldispatch_async(_transport.ioqueue, ^{
 		[_outputQueue addObject:data];
 		
-		brbrr
-		if(_outputQueue.count == 1)
-			[self sendNextFrame];
+		[self sendNextFrame];
 	});	
 }
 
@@ -130,7 +121,7 @@
 {
 	// Transport queue.
 	
-	// Already sending next frame.
+	// Already preparing next frame.
 	if(_preparedFrame != nil)
 		return;
 	
@@ -138,10 +129,8 @@
 	if(_outputQueue.firstObject == nil)
 		return;
 	
-	id<UDData> uddata = _outputQueue.firstObject;
+	_preparedFrame = [_transport.cache frameDataWithData:_outputQueue.firstObject];
 	[_outputQueue removeObjectAtIndex:0];
-	
-	_preparedFrame = [_transport.cache frameDataWithData:uddata];
 	
 	[_preparedFrame retrieve:^(NSData * _Nullable data) {
 		// Transport queue.
@@ -162,8 +151,6 @@
 		}
 		
 		UDOutputItem* outitem = [[UDOutputItem alloc] initWithData:data frameData:_preparedFrame];
-		[_preparedFrame giveup];
-		
 		[link sendItem:outitem];
 	}];
 } // sendNextFrame
