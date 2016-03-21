@@ -20,6 +20,9 @@ class ViewController: UIViewController
 	
 	@IBOutlet weak var sendFramesButton: UIButton!
 	
+	@IBOutlet weak var progressView: UIProgressView!
+	@IBOutlet weak var progressHeight: NSLayoutConstraint!
+	
 	//MARK: - Initialization
 	
 	required init?(coder aDecoder: NSCoder)
@@ -41,6 +44,8 @@ class ViewController: UIViewController
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
+		
+		progressHeight.constant = 9
 	}
 
 	override func didReceiveMemoryWarning()
@@ -50,7 +55,7 @@ class ViewController: UIViewController
 
 	func updatePeersCount()
 	{
-		peersCountLabel?.text = "\(node.peersCount) connected";
+		peersCountLabel?.text = "\(node.peersCount) peers";
 	}
 	
 	func updateFramesCount()
