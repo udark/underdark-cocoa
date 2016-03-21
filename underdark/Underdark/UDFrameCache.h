@@ -15,6 +15,6 @@
 
 - (nonnull instancetype) initWithQueue:(nonnull dispatch_queue_t)queue;
 
-- (nonnull UDFrameData*) frameSourceWithData:(nonnull id<UDData>)data;
+- (nonnull UDFrameData*) frameDataWithData:(nonnull id<UDData>)data;
 
 @end

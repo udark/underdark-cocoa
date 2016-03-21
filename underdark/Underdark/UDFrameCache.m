@@ -12,6 +12,7 @@
 {
 	dispatch_queue_t _queue;
 	NSMutableDictionary<NSString*, UDFrameData*> * _sources;
+	NSMutableDictionary<NSString*, NSNumber*> * _counts;
 }
 @end
 
@@ -28,7 +29,7 @@
 	return self;
 }
 
-- (nonnull UDFrameData*) frameSourceWithData:(nonnull id<UDData>)data
+- (nonnull UDFrameData*) frameDataWithData:(nonnull id<UDData>)data
 {
 	UDFrameData* result;
 	
@@ -44,6 +45,8 @@
 		_sources[data.dataId] = result;
 	}
 	
+	_counts[data.dataId] = @(_counts[data.dataId].integerValue + 1);
+	
 	return result;
 }
 
@@ -51,12 +54,20 @@
 
 - (void) frameDataAcquire:(nonnull UDFrameData*)frameData
 {
-	
+	_counts[frameData.data.dataId] = @(_counts[frameData.data.dataId].integerValue + 1);
 }
 
 - (void) frameDataGiveup:(nonnull UDFrameData*)frameData
 {
+	_counts[frameData.data.dataId] = @(_counts[frameData.data.dataId].integerValue - 1);
 	
+	if(_counts[frameData.data.dataId] == 0)
+	{
+		[_counts removeObjectForKey:frameData.data.dataId];
+		[_sources removeObjectForKey:frameData.data.dataId];
+		
+		[frameData dispose];
+	}
 }
 
 @end

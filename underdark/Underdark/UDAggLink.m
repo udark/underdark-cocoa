@@ -23,7 +23,7 @@
 {
 	NSMutableArray<id<UDChannel>> * _links;
 	NSMutableArray<id<UDData>> * _outputQueue;
-	UDFrameData* _outputFrame; // Currently prepared frame.
+	UDFrameData* _preparedFrame; // Currently prepared frame.
 }
 
 @end
@@ -33,19 +33,6 @@
 - (instancetype) init
 {
 	return nil;
-}
-
-- (void) dealloc
-{
-	for(UDFrameData* frameData in _outputQueue)
-	{
-		[frameData giveup];
-	}
-	
-	[_outputQueue removeAllObjects];
-	
-	[_outputFrame giveup];
-	_outputFrame = nil;
 }
 
 - (instancetype) initWithNodeId:(int64_t)nodeId transport:(nonnull UDAggTransport*)transport
@@ -59,6 +46,19 @@
 	_outputQueue = [NSMutableArray array];
 	
 	return self;
+}
+
+- (void) dealloc
+{
+	for(UDFrameData* frameData in _outputQueue)
+	{
+		[frameData giveup];
+	}
+	
+	[_outputQueue removeAllObjects];
+	
+	[_preparedFrame giveup];
+	_preparedFrame = nil;
 }
 
 - (bool) isEmpty
@@ -120,7 +120,9 @@
 	sldispatch_async(_transport.ioqueue, ^{
 		[_outputQueue addObject:data];
 		
-		[self sendNextFrame];
+		brbrr
+		if(_outputQueue.count == 1)
+			[self sendNextFrame];
 	});	
 }
 
@@ -128,8 +130,8 @@
 {
 	// Transport queue.
 	
-	// Already preparing next frame.
-	if(_outputFrame != nil)
+	// Already sending next frame.
+	if(_preparedFrame != nil)
 		return;
 	
 	// Queue is empty.
@@ -139,20 +141,28 @@
 	id<UDData> uddata = _outputQueue.firstObject;
 	[_outputQueue removeObjectAtIndex:0];
 	
-	_outputFrame = [_transport.cache frameSourceWithData:uddata];
+	_preparedFrame = [_transport.cache frameDataWithData:uddata];
 	
-	[_outputFrame retrieve:^(NSData * _Nullable data) {
+	[_preparedFrame retrieve:^(NSData * _Nullable data) {
 		// Transport queue.
 		
-		id<UDChannel> link = [_links firstObject];
-		if(!link) {
-			[_outputFrame giveup];
-			_outputFrame = nil;
-			
+		if(data == nil)
+		{
+			[_preparedFrame giveup];
+			_preparedFrame = nil;
+			[self sendNextFrame];
 			return;
 		}
 		
-		UDOutputItem* outitem = [[UDOutputItem alloc] initWithData:data frameData:_outputFrame];
+		id<UDChannel> link = [_links firstObject];
+		if(!link) {
+			[_preparedFrame giveup];
+			_preparedFrame = nil;
+			return;
+		}
+		
+		UDOutputItem* outitem = [[UDOutputItem alloc] initWithData:data frameData:_preparedFrame];
+		[_preparedFrame giveup];
 		
 		[link sendItem:outitem];
 	}];
