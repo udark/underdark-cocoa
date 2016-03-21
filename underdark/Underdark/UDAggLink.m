@@ -122,12 +122,12 @@
 {
 	// Transport queue.
 	
-	// Already preparing next frame.
-	if(_preparedFrame != nil)
+	// Queue is empty.
+	if(_outputQueue.count == 0)
 		return;
 	
-	// Queue is empty.
-	if(_outputQueue.firstObject == nil)
+	// Already preparing next frame.
+	if(_preparedFrame != nil)
 		return;
 	
 	_preparedFrame = [_transport.cache frameDataWithData:_outputQueue.firstObject];
@@ -144,15 +144,17 @@
 			return;
 		}
 		
-		id<UDChannel> link = [_channels firstObject];
-		if(!link) {
+		id<UDChannel> channel = [_channels firstObject];
+		if(!channel) {
 			[_preparedFrame giveup];
 			_preparedFrame = nil;
 			return;
 		}
 		
 		UDOutputItem* outitem = [[UDOutputItem alloc] initWithData:data frameData:_preparedFrame];
-		[link sendFrame:outitem];
+		_preparedFrame = nil;
+		
+		[channel sendFrame:outitem];
 	}];
 } // sendNextFrame
 

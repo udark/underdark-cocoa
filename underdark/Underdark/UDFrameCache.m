@@ -25,6 +25,7 @@
 	
 	_queue = queue;
 	_sources = [NSMutableDictionary dictionary];
+	_counts = [NSMutableDictionary dictionary];
 	
 	return self;
 }
@@ -54,11 +55,17 @@
 
 - (void) frameDataAcquire:(nonnull UDFrameData*)frameData
 {
+	if(frameData.data.dataId == nil)
+		return;
+	
 	_counts[frameData.data.dataId] = @(_counts[frameData.data.dataId].integerValue + 1);
 }
 
 - (void) frameDataGiveup:(nonnull UDFrameData*)frameData
 {
+	if(frameData.data.dataId == nil)
+		return;
+
 	_counts[frameData.data.dataId] = @(_counts[frameData.data.dataId].integerValue - 1);
 	NSAssert(_counts[frameData.data.dataId].integerValue >= 0, @"UDFrameData refCount < 0");
 	

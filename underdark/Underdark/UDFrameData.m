@@ -19,6 +19,7 @@
 #import "UDAggLink.h"
 #import "UDAsyncUtils.h"
 #import "Frames.pb.h"
+#import "UDLogging.h"
 
 @implementation UDFrameData
 {
@@ -59,6 +60,8 @@
 		_disposed = true;
 		_payload = nil;
 	}
+	
+	LogDebug(@"UDFrameData dispose()");
 }
 
 - (void) retrieve:(UDFrameSourceRetrieveBlock _Nonnull)completion
