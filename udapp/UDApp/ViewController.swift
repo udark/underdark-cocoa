@@ -67,16 +67,21 @@ class ViewController: UIViewController
 	
 	//MARK: - Actions
 
+	let bgqueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
+	
 	func frameData(dataLength:Int) -> UDData
 	{
-		let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
-		let result = UDLazyData(queue: queue, block: { () -> NSData? in
+		let result = UDLazyData(queue: bgqueue, block: { () -> NSData? in
 			let data = NSMutableData(length: dataLength);
 			arc4random_buf(data!.mutableBytes, data!.length)
 			//SecRandomCopyBytes(kSecRandomDefault, UInt(s.length), UnsafePointer<UInt8>(s.mutableBytes))
 			
 			return data
 		})
+		
+		/*let data = NSMutableData(length: dataLength);
+		arc4random_buf(data!.mutableBytes, data!.length)
+		let result = UDMemoryData(data: data!)*/
 		
 		return result
 	}
@@ -85,7 +90,7 @@ class ViewController: UIViewController
 	{
 		node.broadcastFrame(frameData(1))
 		
-		for var i = 0; i < 100; ++i
+		for var i = 0; i < 1000; ++i
 		{
 			node.broadcastFrame(frameData(1024));
 		}
