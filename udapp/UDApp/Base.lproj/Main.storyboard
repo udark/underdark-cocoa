@@ -29,20 +29,89 @@
                                     <constraint firstAttribute="height" constant="2" id="U41-zv-Jld"/>
                                 </constraints>
                             </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 frames" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUm-4w-TXY">
+                                <rect key="frame" x="20" y="107" width="560" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="4Qx-sy-UQs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ms4-St-WqT">
+                                <rect key="frame" x="20" y="530" width="140" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="F6z-tc-w3P"/>
+                                    <constraint firstAttribute="width" constant="140" id="sl9-f9-dmw"/>
+                                </constraints>
+                                <state key="normal" title="Send 100 x 1KB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendFramesSmall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iC1-gp-eZV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Q0-MB-veC">
+                                <rect key="frame" x="440" y="530" width="140" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Oyb-EF-1Bc"/>
+                                    <constraint firstAttribute="width" constant="140" id="e7W-1s-2F2"/>
+                                </constraints>
+                                <state key="normal" title="Send 5 x 10MB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendFramesLarge:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U5M-Jy-tsW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 kb/sec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz9-Q1-LAI">
+                                <rect key="frame" x="20" y="166" width="560" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="SMC-FR-Vwg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ms4-St-WqT" secondAttribute="bottom" constant="20" id="1c7-J6-7rN"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2Q0-MB-veC" secondAttribute="bottom" constant="20" id="3OT-uG-r8D"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rUm-4w-TXY" secondAttribute="trailing" id="4Do-aB-lSA"/>
                             <constraint firstAttribute="leadingMargin" secondItem="nFL-dx-vDp" secondAttribute="leading" id="62H-en-YKQ"/>
+                            <constraint firstItem="fz9-Q1-LAI" firstAttribute="top" secondItem="rUm-4w-TXY" secondAttribute="bottom" constant="20" id="6mo-N1-tWs"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="fz9-Q1-LAI" secondAttribute="leading" id="F7z-wh-IwV"/>
                             <constraint firstAttribute="trailing" secondItem="kKp-IB-i7p" secondAttribute="trailing" id="NFv-wd-DMh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Q0-MB-veC" secondAttribute="trailing" id="QuS-VX-zUQ"/>
+                            <constraint firstItem="rUm-4w-TXY" firstAttribute="top" secondItem="nFL-dx-vDp" secondAttribute="bottom" constant="20" id="VcF-IC-T5k"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nFL-dx-vDp" secondAttribute="trailing" id="btv-GU-mFy"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Ms4-St-WqT" secondAttribute="leading" id="g2X-jT-65k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fz9-Q1-LAI" secondAttribute="trailing" id="j63-0X-C1T"/>
                             <constraint firstItem="nFL-dx-vDp" firstAttribute="top" secondItem="kKp-IB-i7p" secondAttribute="bottom" constant="21" id="jUf-yp-pmf"/>
                             <constraint firstItem="kKp-IB-i7p" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="k56-o6-crj"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="rUm-4w-TXY" secondAttribute="leading" id="pWt-Ui-xdA"/>
                             <constraint firstItem="kKp-IB-i7p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zoZ-Sd-KnJ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="framesCountLabel" destination="rUm-4w-TXY" id="1UU-Fb-a2n"/>
+                        <outlet property="navItem" destination="Kmn-eg-m4d" id="meZ-Vu-Jax"/>
                         <outlet property="progressHeight" destination="U41-zv-Jld" id="nqF-ba-o2d"/>
                         <outlet property="progressView" destination="nFL-dx-vDp" id="rHU-ie-zhm"/>
+                        <outlet property="speedLabel" destination="fz9-Q1-LAI" id="i34-QF-HPR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
