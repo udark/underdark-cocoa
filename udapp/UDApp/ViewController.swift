@@ -75,11 +75,6 @@ class ViewController: UIViewController
 			arc4random_buf(data!.mutableBytes, data!.length)
 			//SecRandomCopyBytes(kSecRandomDefault, UInt(s.length), UnsafePointer<UInt8>(s.mutableBytes))
 			
-			dispatch_async(dispatch_get_main_queue(), { () -> Void in
-				self.node.framesCount++
-				self.updateFramesCount()
-			})
-			
 			return data
 		})
 		
@@ -100,9 +95,9 @@ class ViewController: UIViewController
 	{
 		node.broadcastFrame(frameData(1))
 
-		for var i = 0; i < 5; ++i
+		for var i = 0; i < 20; ++i
 		{
-			node.broadcastFrame(frameData(10 * 1024 * 1024));
+			node.broadcastFrame(frameData(1 * 1024 * 1024));
 		}
 	}
 } // ViewController
