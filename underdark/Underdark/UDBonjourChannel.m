@@ -251,14 +251,14 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 #pragma mark - Writing
 
-- (void) sendFrame:(nonnull UDOutputItem*)item
+- (void) sendFrame:(nonnull UDOutputItem*)frameData
 {
 	// Transport queue.
 	
-	UDOutputItem* frameHeader = [self frameHeaderForFrameData:item.data];
+	UDOutputItem* frameHeader = [self frameHeaderForFrameData:frameData.data];
 	[self performSelector:@selector(enqueueItem:) onThread:self.adapter.ioThread withObject:frameHeader waitUntilDone:NO];
 
-	[self performSelector:@selector(enqueueItem:) onThread:self.adapter.ioThread withObject:item waitUntilDone:NO];
+	[self performSelector:@selector(enqueueItem:) onThread:self.adapter.ioThread withObject:frameData waitUntilDone:NO];
 }
 
 - (void) sendLinkFrame:(Frame*)frame
@@ -460,10 +460,16 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 		_outputDataOffset = 0;
 		_outputItem = 0;
 		
-		if(_outputQueue.count != 0)
+		if(_outputQueue.count == 0)
+		{
+			sldispatch_async(_adapter.queue, ^{
+				[_adapter channelCanSendMore:self];
+			});
+		}
+		else
 		{
 			_outputItem = _outputQueue.firstObject;
-			[_outputQueue removeObjectAtIndex:0];
+			[_outputQueue removeObjectAtIndex:0];			
 		}
 	}
 } // writeNextBytes

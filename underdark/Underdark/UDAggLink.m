@@ -113,8 +113,7 @@
 	// User queue.
 	
 	sldispatch_async(_transport.ioqueue, ^{
-		[_outputQueue addObject:data];
-		
+		[_outputQueue addObject:data];		
 		[self sendNextFrame];
 	});	
 }

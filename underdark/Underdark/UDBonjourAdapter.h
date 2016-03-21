@@ -55,6 +55,7 @@
 - (void) channelDisconnected:(nonnull UDBonjourChannel*)channel;
 - (void) channelTerminated:(nonnull UDBonjourChannel*)channel;
 
+- (void) channelCanSendMore:(nonnull UDBonjourChannel*)channel;
 - (void) channel:(nonnull UDBonjourChannel*)channel receivedFrame:(nonnull NSData*)frameData;
 
 @end

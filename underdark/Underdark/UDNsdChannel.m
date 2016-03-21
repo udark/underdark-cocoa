@@ -138,7 +138,7 @@ typedef NS_ENUM(NSUInteger, UDNsdState)
 
 #pragma mark - SLLink
 
-- (void) sendFrame:(nonnull UDOutputItem*)item
+- (void) sendFrame:(nonnull UDOutputItem*)frameData
 {
 	
 }

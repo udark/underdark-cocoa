@@ -28,6 +28,6 @@
 
 - (void) disconnect;
 
-- (void) sendFrame:(nonnull UDOutputItem*)item;
+- (void) sendFrame:(nonnull UDOutputItem*)frameData;
 
 @end
