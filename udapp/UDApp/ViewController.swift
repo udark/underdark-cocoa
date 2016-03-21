@@ -15,6 +15,7 @@ class ViewController: UIViewController
 	@IBOutlet weak var navItem: UINavigationItem!
 
 	@IBOutlet weak var framesCountLabel: UILabel!
+	@IBOutlet weak var timeLabel: UILabel!
 	@IBOutlet weak var speedLabel: UILabel!
 	
 	@IBOutlet weak var progressView: UIProgressView!
@@ -61,6 +62,8 @@ class ViewController: UIViewController
 	{
 		framesCountLabel.text = "\(node.framesCount) frames";
 		
+		timeLabel.text = NSString(format: "%.2f seconds", node.timeEnd - node.timeStart) as String
+		
 		let speed = Int( Double(node.bytesCount) / (node.timeEnd - node.timeStart + 0.0001) )
 		speedLabel.text = "\(speed / 1024) kb/sec"
 	}
@@ -90,7 +93,7 @@ class ViewController: UIViewController
 	{
 		node.broadcastFrame(frameData(1))
 		
-		for var i = 0; i < 1000; ++i
+		for var i = 0; i < 2000; ++i
 		{
 			node.broadcastFrame(frameData(1024));
 		}
@@ -102,7 +105,7 @@ class ViewController: UIViewController
 
 		for var i = 0; i < 20; ++i
 		{
-			node.broadcastFrame(frameData(1 * 1024 * 1024));
+			node.broadcastFrame(frameData(100 * 1024));
 		}
 	}
 } // ViewController

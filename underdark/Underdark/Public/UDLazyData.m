@@ -42,6 +42,11 @@
 	return self;
 }
 
+- (void) dealloc
+{
+	
+}
+
 - (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block
 {
 	return [self initWithQueue:queue block:block dataId:nil];

@@ -38,13 +38,22 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 kb/sec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKS-Vd-7tE" userLabel="Speed Label">
+                                <rect key="frame" x="20" y="225" width="560" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="jp6-v0-1at"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ms4-St-WqT">
                                 <rect key="frame" x="20" y="530" width="140" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="F6z-tc-w3P"/>
                                     <constraint firstAttribute="width" constant="140" id="sl9-f9-dmw"/>
                                 </constraints>
-                                <state key="normal" title="Send 1000 x 1KB"/>
+                                <state key="normal" title="Send 2000 x 1KB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                         <integer key="value" value="1"/>
@@ -63,7 +72,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Oyb-EF-1Bc"/>
                                     <constraint firstAttribute="width" constant="140" id="e7W-1s-2F2"/>
                                 </constraints>
-                                <state key="normal" title="Send 20 x 1MB"/>
+                                <state key="normal" title="Send 200 x 100KB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                         <integer key="value" value="1"/>
@@ -76,7 +85,7 @@
                                     <action selector="sendFramesLarge:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U5M-Jy-tsW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 kb/sec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz9-Q1-LAI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 seconds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz9-Q1-LAI">
                                 <rect key="frame" x="20" y="166" width="560" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="SMC-FR-Vwg"/>
@@ -90,11 +99,14 @@
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ms4-St-WqT" secondAttribute="bottom" constant="20" id="1c7-J6-7rN"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2Q0-MB-veC" secondAttribute="bottom" constant="20" id="3OT-uG-r8D"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="UKS-Vd-7tE" secondAttribute="leading" id="40A-gj-Jep"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rUm-4w-TXY" secondAttribute="trailing" id="4Do-aB-lSA"/>
                             <constraint firstAttribute="leadingMargin" secondItem="nFL-dx-vDp" secondAttribute="leading" id="62H-en-YKQ"/>
                             <constraint firstItem="fz9-Q1-LAI" firstAttribute="top" secondItem="rUm-4w-TXY" secondAttribute="bottom" constant="20" id="6mo-N1-tWs"/>
                             <constraint firstAttribute="leadingMargin" secondItem="fz9-Q1-LAI" secondAttribute="leading" id="F7z-wh-IwV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UKS-Vd-7tE" secondAttribute="trailing" id="HQq-Yc-dhY"/>
                             <constraint firstAttribute="trailing" secondItem="kKp-IB-i7p" secondAttribute="trailing" id="NFv-wd-DMh"/>
+                            <constraint firstItem="UKS-Vd-7tE" firstAttribute="top" secondItem="fz9-Q1-LAI" secondAttribute="bottom" constant="20" id="OWG-oz-4gz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2Q0-MB-veC" secondAttribute="trailing" id="QuS-VX-zUQ"/>
                             <constraint firstItem="rUm-4w-TXY" firstAttribute="top" secondItem="nFL-dx-vDp" secondAttribute="bottom" constant="20" id="VcF-IC-T5k"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nFL-dx-vDp" secondAttribute="trailing" id="btv-GU-mFy"/>
@@ -111,7 +123,8 @@
                         <outlet property="navItem" destination="Kmn-eg-m4d" id="meZ-Vu-Jax"/>
                         <outlet property="progressHeight" destination="U41-zv-Jld" id="nqF-ba-o2d"/>
                         <outlet property="progressView" destination="nFL-dx-vDp" id="rHU-ie-zhm"/>
-                        <outlet property="speedLabel" destination="fz9-Q1-LAI" id="i34-QF-HPR"/>
+                        <outlet property="speedLabel" destination="UKS-Vd-7tE" id="sxc-TL-zuF"/>
+                        <outlet property="timeLabel" destination="fz9-Q1-LAI" id="UJe-uj-EM5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

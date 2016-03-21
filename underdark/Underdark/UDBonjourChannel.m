@@ -265,8 +265,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 {
 	// Any queue.
 
-	UDOutputItem* frameBody = [[UDOutputItem alloc] init];
-	frameBody.data = [frame data];
+	UDOutputItem* frameBody = [[UDOutputItem alloc] initWithData:[frame data] frameData:nil];
 
 	sldispatch_async(_adapter.queue, ^{
 		[self sendFrame:frameBody];
@@ -306,8 +305,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	uint32_t frameBodySize = CFSwapInt32HostToBig((uint32_t)frameData.length);
 	[headerData appendBytes:&frameBodySize length:sizeof(frameBodySize)];
 	
-	UDOutputItem* outitem = [[UDOutputItem alloc] init];
-	outitem.data = headerData;
+	UDOutputItem* outitem = [[UDOutputItem alloc] initWithData:headerData frameData:nil];
 	
 	return outitem;
 }
