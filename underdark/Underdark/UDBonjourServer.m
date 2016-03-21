@@ -119,7 +119,7 @@
 	
 	//LogDebug(@"bnj didAcceptConnection");
 	
-	UDBonjourChannel* link = [[UDBonjourChannel alloc] initWithTransport:_transport input:inputStream output:outputStream];
+	UDBonjourChannel* link = [[UDBonjourChannel alloc] initWithAdapter:_transport input:inputStream output:outputStream];
 	[_transport channelConnecting:link];
 	
 	[link connect];

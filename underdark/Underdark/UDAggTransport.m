@@ -110,8 +110,8 @@
 		aggregate = [[UDAggLink alloc] initWithNodeId:link.nodeId transport:self];
 		_linksConnected[@(link.nodeId)] = aggregate;
 	}
-	
-	[aggregate addLink:link];
+
+	[aggregate addChannel:link];
 	
 	if(!linksExisted)
 	{
@@ -127,10 +127,10 @@
 	if(!aggregate)
 		return;
 	
-	if([aggregate containsLink:channel])
+	if([aggregate containsChannel:channel])
 	{
 		// Link was connected.
-		[aggregate removeLink:channel];
+		[aggregate removeChannel:channel];
 	}
 	
 	if(aggregate.isEmpty)
@@ -143,6 +143,25 @@
 	}
 }
 
+- (void) adapter:(id<UDAdapter>)adapter channelCanSendMore:(id<UDChannel>)channel
+{
+	UDAggLink* link = _linksConnected[@(channel.nodeId)];
+	if(!link)
+	{
+		LogError(@"Link doesn't exist for channel %@", channel);
+		return;
+	}
+	
+	if(![link containsChannel:channel])
+	{
+		LogError(@"Link doesn't contain channel %@", channel);
+		return;
+	}
+	
+	[link sendNextFrame];
+}
+
+
 - (void) adapter:(id<UDAdapter>)adapter channel:(id<UDChannel>)channel didReceiveFrame:(NSData*)data
 {
 	UDAggLink* aggregate = _linksConnected[@(channel.nodeId)];
@@ -152,7 +171,7 @@
 		return;
 	}
 	
-	if(![aggregate containsLink:channel])
+	if(![aggregate containsChannel:channel])
 	{
 		LogError(@"Aggregate doesn't contain %@", channel);
 		return;

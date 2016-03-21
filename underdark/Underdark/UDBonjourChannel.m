@@ -54,7 +54,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	bool _heartbeatReceived;
 }
 
-@property (nonatomic, weak) UDBonjourAdapter* transport;
+@property (nonatomic, weak) UDBonjourAdapter* adapter;
 
 @property (nonatomic) NSInputStream* inputStream;
 @property (nonatomic) NSOutputStream* outputStream;
@@ -70,16 +70,16 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	return nil;
 }
 
-- (instancetype) initWithTransport:(UDBonjourAdapter*)transport input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream
+- (instancetype) initWithAdapter:(UDBonjourAdapter*)adapter input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream
 {
 	if(!(self = [super init]))
 		return self;
 	
-	_transport = transport;
+	_adapter = adapter;
 	_isClient = false;
 	_state = SLBnjStateConnecting;
 	
-	_transport = transport;
+	_adapter = adapter;
 	_inputData = [[NSMutableData alloc] init];
 	_outputQueue = [NSMutableArray array];
 
@@ -92,9 +92,9 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	return self;
 }
 
-- (instancetype) initWithNodeId:(int64_t)nodeId transport:(UDBonjourAdapter*)transport input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream
+- (instancetype) initWithNodeId:(int64_t)nodeId adapter:(UDBonjourAdapter*)adapter input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream
 {
-	if(!(self = [self initWithTransport:transport input:inputStream output:outputStream]))
+	if(!(self = [self initWithAdapter:adapter input:inputStream output:outputStream]))
 		return self;
 	
 	_isClient = true;
@@ -117,7 +117,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 - (int16_t) priority
 {
-	return self.transport.linkPriority;
+	return self.adapter.linkPriority;
 }
 
 #pragma mark - Heartbeat
@@ -138,7 +138,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 - (void) checkHeartbeat
 {
 	// Transport queue.
-	[self performSelector:@selector(checkHeartbeatImpl) onThread:self.transport.ioThread withObject:nil waitUntilDone:NO];
+	[self performSelector:@selector(checkHeartbeatImpl) onThread:self.adapter.ioThread withObject:nil waitUntilDone:NO];
 }
 
 - (void) checkHeartbeatImpl
@@ -160,8 +160,8 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 - (void) connect
 {
 	// Transport queue.
-	[_inputStream scheduleInRunLoop:self.transport.ioThread.runLoop forMode:NSDefaultRunLoopMode];
-	[_outputStream scheduleInRunLoop:self.transport.ioThread.runLoop forMode:NSDefaultRunLoopMode];
+	[_inputStream scheduleInRunLoop:self.adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
+	[_outputStream scheduleInRunLoop:self.adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
 	
 	[_inputStream open];
 	[_outputStream open];
@@ -169,11 +169,11 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 - (void) disconnect
 {
-	// Listener queue.
+	// Transport queue.
 	if(_state == SLBnjStateDisconnected)
 		return;
 	
-	[self performSelector:@selector(writeData:) onThread:self.transport.ioThread withObject:[[UDOutputItem alloc] init] waitUntilDone:NO];
+	[self performSelector:@selector(writeData:) onThread:self.adapter.ioThread withObject:[[UDOutputItem alloc] init] waitUntilDone:NO];
 }
 
 - (void) closeStreams
@@ -216,9 +216,9 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	{
 		_state = SLBnjStateDisconnected;
 		
-		sldispatch_async(_transport.queue, ^{
-			[self.transport channelDisconnected:self];
-			[self performSelector:@selector(onTerminated) onThread:self.transport.ioThread withObject:nil waitUntilDone:NO];
+		sldispatch_async(_adapter.queue, ^{
+			[self.adapter channelDisconnected:self];
+			[self performSelector:@selector(onTerminated) onThread:self.adapter.ioThread withObject:nil waitUntilDone:NO];
 		});
 		
 		return;
@@ -240,13 +240,13 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	//if(_shouldLog)
 	//	LogDebug(@"link transport linkTerminated");
 	
-	UDBonjourAdapter* transport = _transport;
+	UDBonjourAdapter* transport = _adapter;
 	
 	sldispatch_async(transport.queue, ^{
 		[transport channelTerminated:self];
 	});
 	
-	_transport = nil;
+	_adapter = nil;
 }
 
 #pragma mark - Writing
@@ -256,9 +256,9 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	// Transport queue.
 	
 	UDOutputItem* frameHeader = [self frameHeaderForFrameData:item.data];
-	[self performSelector:@selector(enqueueItem:) onThread:self.transport.ioThread withObject:frameHeader waitUntilDone:NO];
+	[self performSelector:@selector(enqueueItem:) onThread:self.adapter.ioThread withObject:frameHeader waitUntilDone:NO];
 
-	[self performSelector:@selector(enqueueItem:) onThread:self.transport.ioThread withObject:item waitUntilDone:NO];
+	[self performSelector:@selector(enqueueItem:) onThread:self.adapter.ioThread withObject:item waitUntilDone:NO];
 }
 
 - (void) sendLinkFrame:(Frame*)frame
@@ -267,8 +267,10 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 	UDOutputItem* frameBody = [[UDOutputItem alloc] init];
 	frameBody.data = [frame data];
-	
-	[self sendFrame:frameBody];	
+
+	sldispatch_async(_adapter.queue, ^{
+		[self sendFrame:frameBody];
+	});
 }
 
 - (void) enqueueItem:(UDOutputItem*)item
@@ -347,7 +349,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 			frame.kind = FrameKindHello;
 			
 			HelloFrameBuilder* payload = [HelloFrameBuilder new];
-			payload.nodeId = self.transport.nodeId;
+			payload.nodeId = self.adapter.nodeId;
 			
 			PeerBuilder* peer = [PeerBuilder new];
 			peer.address = [NSData data];
@@ -359,7 +361,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 			
 			[self sendLinkFrame:[frame build]];
 			
-			_heartbeatTimer = [MSWeakTimer scheduledTimerWithTimeInterval:configBonjourHeartbeatInterval target:self selector:@selector(sendHeartbeat) userInfo:nil repeats:YES dispatchQueue:self.transport.queue];
+			_heartbeatTimer = [MSWeakTimer scheduledTimerWithTimeInterval:configBonjourHeartbeatInterval target:self selector:@selector(sendHeartbeat) userInfo:nil repeats:YES dispatchQueue:self.adapter.queue];
 			[_heartbeatTimer fire];
 
 			break;
@@ -616,10 +618,10 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 			
 			_state = SLBnjStateConnected;
 			
-			_timeoutTimer = [MSWeakTimer scheduledTimerWithTimeInterval:configBonjourTimeoutInterval target:self selector:@selector(checkHeartbeat) userInfo:nil repeats:YES dispatchQueue:self.transport.queue];
+			_timeoutTimer = [MSWeakTimer scheduledTimerWithTimeInterval:configBonjourTimeoutInterval target:self selector:@selector(checkHeartbeat) userInfo:nil repeats:YES dispatchQueue:self.adapter.queue];
 
-			sldispatch_async(self.transport.queue, ^{
-				[self.transport channelConnected:self];
+			sldispatch_async(self.adapter.queue, ^{
+				[self.adapter channelConnected:self];
 			});
 			
 			continue;
@@ -638,8 +640,8 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 			if(!frame.hasPayload || frame.payload.payload == nil)
 				continue;
 		
-			sldispatch_async(self.transport.queue, ^{
-				[self.transport channel:self receivedFrame:frame.payload.payload];
+			sldispatch_async(self.adapter.queue, ^{
+				[self.adapter channel:self receivedFrame:frame.payload.payload];
 			});
 		}
 	} // while
