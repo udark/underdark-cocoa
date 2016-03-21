@@ -356,10 +356,22 @@
 	[_channelsTerminating removeObject:channel];
 }
 
+- (void) channelCanSendMore:(nonnull UDBonjourChannel*)channel
+{
+	// Transport queue.
+	
+	sldispatch_async(self.queue, ^{
+		[_delegate adapter:self channelCanSendMore:channel];
+	});
+}
+
 - (void) channel:(nonnull UDBonjourChannel*)channel receivedFrame:(nonnull NSData*)frameData
 {
 	// Transport queue.
-	[self->_delegate adapter:self channel:channel didReceiveFrame:frameData];
+	
+	sldispatch_async(self.queue, ^{
+		[self->_delegate adapter:self channel:channel didReceiveFrame:frameData];
+	});
 }
 
 @end

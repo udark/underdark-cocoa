@@ -23,6 +23,7 @@
 #import "UDLogging.h"
 #import "UDAsyncUtils.h"
 #import "UDMemoryData.h"
+#import "UDOutputItem.h"
 
 #import "UDConfig.h"
 
@@ -33,40 +34,6 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	SLBnjStateDisconnected
 };
 
-@interface UDOutputData : NSObject
-
-@property (nonatomic) id<UDData> data;
-@property (nonatomic) Frame* frame;
-
-@end
-@implementation UDOutputData
-{
-	bool _processed;
-}
-
-- (instancetype) init
-{
-	if(!(self = [super init]))
-		return self;
-	
-	return self;
-}
-
-- (void) dealloc
-{
-	if(!_processed) {
-		[self.data giveup];
-	}
-}
-
-- (void) markAsProcessed
-{
-	_processed = true;
-	[self.data giveup];
-}
-
-@end
-
 @interface UDBonjourChannel () <NSStreamDelegate>
 {
 	bool _isClient;
@@ -75,10 +42,9 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	NSMutableData* _inputData;		// Input frame data buffer.
 	uint8_t _inputBuffer[1024];		// Input stream buffer.
 	
-	NSMutableArray<UDOutputData*>* _outputQueue;	// Output queue with data objects.
-	UDOutputData* _outputData;		// Currently written UDBonjourData. If nil, then we should call write: on stream directly.
+	NSMutableArray<UDOutputItem*>* _outputQueue;	// Output queue with data objects.
+	UDOutputItem* _outputItem;		// Currently written UDOutputItem. If nil, then we should call write: on stream directly.
 	
-	NSData* _outputBytes;			// If nil, then bytes is not yet acquired from _outputData.
 	NSUInteger _outputDataOffset;	// Count of outputData's written bytes;
 	
 	NSTimeInterval _transferStartTime;
@@ -88,7 +54,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	bool _heartbeatReceived;
 }
 
-@property (nonatomic, weak) UDBonjourAdapter* transport;
+@property (nonatomic, weak) UDBonjourAdapter* adapter;
 
 @property (nonatomic) NSInputStream* inputStream;
 @property (nonatomic) NSOutputStream* outputStream;
@@ -104,16 +70,16 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	return nil;
 }
 
-- (instancetype) initWithTransport:(UDBonjourAdapter*)transport input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream
+- (instancetype) initWithAdapter:(UDBonjourAdapter*)adapter input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream
 {
 	if(!(self = [super init]))
 		return self;
 	
-	_transport = transport;
+	_adapter = adapter;
 	_isClient = false;
 	_state = SLBnjStateConnecting;
 	
-	_transport = transport;
+	_adapter = adapter;
 	_inputData = [[NSMutableData alloc] init];
 	_outputQueue = [NSMutableArray array];
 
@@ -126,9 +92,9 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	return self;
 }
 
-- (instancetype) initWithNodeId:(int64_t)nodeId transport:(UDBonjourAdapter*)transport input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream
+- (instancetype) initWithNodeId:(int64_t)nodeId adapter:(UDBonjourAdapter*)adapter input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream
 {
-	if(!(self = [self initWithTransport:transport input:inputStream output:outputStream]))
+	if(!(self = [self initWithAdapter:adapter input:inputStream output:outputStream]))
 		return self;
 	
 	_isClient = true;
@@ -151,7 +117,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 - (int16_t) priority
 {
-	return self.transport.linkPriority;
+	return self.adapter.linkPriority;
 }
 
 #pragma mark - Heartbeat
@@ -172,7 +138,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 - (void) checkHeartbeat
 {
 	// Transport queue.
-	[self performSelector:@selector(checkHeartbeatImpl) onThread:self.transport.ioThread withObject:nil waitUntilDone:NO];
+	[self performSelector:@selector(checkHeartbeatImpl) onThread:self.adapter.ioThread withObject:nil waitUntilDone:NO];
 }
 
 - (void) checkHeartbeatImpl
@@ -194,8 +160,8 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 - (void) connect
 {
 	// Transport queue.
-	[_inputStream scheduleInRunLoop:self.transport.ioThread.runLoop forMode:NSDefaultRunLoopMode];
-	[_outputStream scheduleInRunLoop:self.transport.ioThread.runLoop forMode:NSDefaultRunLoopMode];
+	[_inputStream scheduleInRunLoop:self.adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
+	[_outputStream scheduleInRunLoop:self.adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
 	
 	[_inputStream open];
 	[_outputStream open];
@@ -203,11 +169,11 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 - (void) disconnect
 {
-	// Listener queue.
+	// Transport queue.
 	if(_state == SLBnjStateDisconnected)
 		return;
 	
-	[self performSelector:@selector(writeData:) onThread:self.transport.ioThread withObject:[[UDOutputData alloc] init] waitUntilDone:NO];
+	[self performSelector:@selector(writeData:) onThread:self.adapter.ioThread withObject:[[UDOutputItem alloc] init] waitUntilDone:NO];
 }
 
 - (void) closeStreams
@@ -232,7 +198,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	
 	[_outputQueue removeAllObjects];
 	
-	_outputData = nil;
+	_outputItem = nil;
 	_outputDataOffset = 0;
 	
 	if(_outputStream)
@@ -250,9 +216,9 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	{
 		_state = SLBnjStateDisconnected;
 		
-		sldispatch_async(_transport.queue, ^{
-			[self.transport channelDisconnected:self];
-			[self performSelector:@selector(onTerminated) onThread:self.transport.ioThread withObject:nil waitUntilDone:NO];
+		sldispatch_async(_adapter.queue, ^{
+			[self.adapter channelDisconnected:self];
+			[self performSelector:@selector(onTerminated) onThread:self.adapter.ioThread withObject:nil waitUntilDone:NO];
 		});
 		
 		return;
@@ -268,46 +234,46 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	
 	[_outputQueue removeAllObjects];
 	
-	_outputData = nil;
+	_outputItem = nil;
 	_outputDataOffset = 0;
 	
 	//if(_shouldLog)
 	//	LogDebug(@"link transport linkTerminated");
 	
-	UDBonjourAdapter* transport = _transport;
+	UDBonjourAdapter* transport = _adapter;
 	
 	sldispatch_async(transport.queue, ^{
 		[transport channelTerminated:self];
 	});
 	
-	_transport = nil;
+	_adapter = nil;
 }
 
 #pragma mark - Writing
 
-- (void) sendData:(nonnull id<UDData>)data
+- (void) sendFrame:(nonnull UDOutputItem*)frameData
 {
-	// Transport queue.	
-	UDOutputData* outdata = [[UDOutputData alloc] init];
-	outdata.data = data;
-	[data acquire];
+	// Transport queue.
+	
+	UDOutputItem* frameHeader = [self frameHeaderForFrameData:frameData.data];
+	[self performSelector:@selector(enqueueItem:) onThread:self.adapter.ioThread withObject:frameHeader waitUntilDone:NO];
 
-	[data giveup]; // By per UDChannel sendData: contract.
-
-	[self performSelector:@selector(writeData:) onThread:self.transport.ioThread withObject:outdata waitUntilDone:NO];
+	[self performSelector:@selector(enqueueItem:) onThread:self.adapter.ioThread withObject:frameData waitUntilDone:NO];
 }
 
 - (void) sendLinkFrame:(Frame*)frame
 {
 	// Any queue.
-	
-	UDOutputData* outdata = [[UDOutputData alloc] init];
-	outdata.frame = frame;
-	
-	[self performSelector:@selector(writeData:) onThread:self.transport.ioThread withObject:outdata waitUntilDone:NO];
+
+	UDOutputItem* frameBody = [[UDOutputItem alloc] init];
+	frameBody.data = [frame data];
+
+	sldispatch_async(_adapter.queue, ^{
+		[self sendFrame:frameBody];
+	});
 }
 
-- (void) writeData:(UDOutputData*)outdata
+- (void) enqueueItem:(UDOutputItem*)item
 {
 	// Stream thread.
 	
@@ -316,96 +282,34 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	if(_state == SLBnjStateDisconnected)
 		return;
 	
-	// Add data to output queue.
-	[_outputQueue addObject:outdata];
-	
-	// If we're not currently writing any data, start writing.
-	if(_outputData == nil) {
-		[self writeNextData];
-	}
-}
-
-- (void) writeNextData
-{
-	// Stream thread.
-	
-	if(_state == SLBnjStateDisconnected)
-		return;
-	
-	_transferStartTime = [NSDate timeIntervalSinceReferenceDate];
-	
-	_outputData = nil;
-	
-	_outputBytes = nil;
-	_outputDataOffset = 0;
-	_outputData = [_outputQueue firstObject];
-	if(_outputData == nil)
-		return;
-	
-	[_outputQueue removeObjectAtIndex:0];
-	
-	if(_outputData.frame != nil)
+	// If we're not currently writing any item, start writing next.
+	if(_outputItem == nil)
 	{
-		_outputBytes = [self dataForFrame:_outputData.frame];
+		_transferStartTime = [NSDate timeIntervalSinceReferenceDate];
+		_outputItem = item;
+		_outputDataOffset = 0;
+
 		[self writeNextBytes];
-		
 		return;
 	}
 	
-	if(_outputData.data != nil)
-	{
-		[_outputData.data retrieve:^(NSData * _Nullable data) {
-			// Any thread.
-			[self performSelector:@selector(outputDataBytesRetrieved:) onThread:self.transport.ioThread withObject:data waitUntilDone:NO];
-		}];
-		
-		return;
-	}
-	
-	// Empty UDOutputData object encountered — disconnecting.
-	_outputData = nil;
-	[self closeStreams];
-	
-} // writeNextData
-
-- (void) outputDataBytesRetrieved:(nullable NSData*)dataBytes
-{
-	// Stream thread.
-	
-	if(_state == SLBnjStateDisconnected)
-		return;
-	
-	if(dataBytes == nil) {
-		// Data no more actural - get next from queue.
-		[self writeNextData];
-		return;
-	}
-	
-	[_outputData markAsProcessed];
-	
-	// Building frame.
-	FrameBuilder* frame = [FrameBuilder new];
-	frame.kind = FrameKindPayload;
-	
-	PayloadFrameBuilder* payload = [PayloadFrameBuilder new];
-	payload.payload = dataBytes;
-	
-	frame.payload = [payload build];
-	
-	_outputBytes = [self dataForFrame:[frame build]];
-	[self writeNextBytes];
+	// Otherwise add item to output queue.
+	[_outputQueue addObject:item];
 }
 
-- (NSData*) dataForFrame:(Frame*)frame
+#pragma mark - Boxing
+
+- (UDOutputItem*) frameHeaderForFrameData:(NSData*)frameData
 {
 	// Any thread.
-	NSMutableData* frameData = [NSMutableData data];
-	NSData* frameBody = frame.data;
-	uint32_t frameBodySize = CFSwapInt32HostToBig((uint32_t)frameBody.length);
-	[frameData appendBytes:&frameBodySize length:sizeof(frameBodySize)];
-	[frameData appendData:frameBody];
+	NSMutableData* headerData = [NSMutableData data];
+	uint32_t frameBodySize = CFSwapInt32HostToBig((uint32_t)frameData.length);
+	[headerData appendBytes:&frameBodySize length:sizeof(frameBodySize)];
 	
-	return frameData;
+	UDOutputItem* outitem = [[UDOutputItem alloc] init];
+	outitem.data = headerData;
+	
+	return outitem;
 }
 
 #pragma mark - NSStreamDelegate
@@ -445,7 +349,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 			frame.kind = FrameKindHello;
 			
 			HelloFrameBuilder* payload = [HelloFrameBuilder new];
-			payload.nodeId = self.transport.nodeId;
+			payload.nodeId = self.adapter.nodeId;
 			
 			PeerBuilder* peer = [PeerBuilder new];
 			peer.address = [NSData data];
@@ -457,7 +361,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 			
 			[self sendLinkFrame:[frame build]];
 			
-			_heartbeatTimer = [MSWeakTimer scheduledTimerWithTimeInterval:configBonjourHeartbeatInterval target:self selector:@selector(sendHeartbeat) userInfo:nil repeats:YES dispatchQueue:self.transport.queue];
+			_heartbeatTimer = [MSWeakTimer scheduledTimerWithTimeInterval:configBonjourHeartbeatInterval target:self selector:@selector(sendHeartbeat) userInfo:nil repeats:YES dispatchQueue:self.adapter.queue];
 			[_heartbeatTimer fire];
 
 			break;
@@ -505,12 +409,21 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	if(_state == SLBnjStateDisconnected)
 		return;
 	
-	if(!_outputBytes)
+	// Output queue is empty - nothing to write.
+	if(_outputItem == nil)
 		return;
 	
-	uint8_t* bytes = (uint8_t *)_outputBytes.bytes;
+	if(_outputItem.isEnding)
+	{
+		_outputItem = nil;
+		_outputDataOffset = 0;
+		[self closeStreams];
+		return;
+	}
+	
+	uint8_t* bytes = (uint8_t *)_outputItem.data.bytes;
 	bytes += _outputDataOffset;
-	NSInteger len = (NSInteger) MIN(sizeof(_inputBuffer), _outputBytes.length - _outputDataOffset);
+	NSInteger len = (NSInteger) MIN(sizeof(_inputBuffer), _outputItem.data.length - _outputDataOffset);
 	
 	// Writing to NSOutputStream:
 	// http://stackoverflow.com/a/23001691/1449965
@@ -540,10 +453,24 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	//LogDebug(@"Write speed %d bytes/sec", (int32_t)(_transferBytes / _transferTime));
 	
 	_outputDataOffset += result;
-	if(_outputDataOffset == _outputBytes.length)
+	if(_outputDataOffset == _outputItem.data.length)
 	{
-		// Frame is fully written - getting next from output queue.
-		[self writeNextData];
+		// Item is fully written - getting next from output queue.
+		_transferStartTime = 0;
+		_outputDataOffset = 0;
+		_outputItem = 0;
+		
+		if(_outputQueue.count == 0)
+		{
+			sldispatch_async(_adapter.queue, ^{
+				[_adapter channelCanSendMore:self];
+			});
+		}
+		else
+		{
+			_outputItem = _outputQueue.firstObject;
+			[_outputQueue removeObjectAtIndex:0];			
+		}
 	}
 } // writeNextBytes
 
@@ -697,10 +624,10 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 			
 			_state = SLBnjStateConnected;
 			
-			_timeoutTimer = [MSWeakTimer scheduledTimerWithTimeInterval:configBonjourTimeoutInterval target:self selector:@selector(checkHeartbeat) userInfo:nil repeats:YES dispatchQueue:self.transport.queue];
+			_timeoutTimer = [MSWeakTimer scheduledTimerWithTimeInterval:configBonjourTimeoutInterval target:self selector:@selector(checkHeartbeat) userInfo:nil repeats:YES dispatchQueue:self.adapter.queue];
 
-			sldispatch_async(self.transport.queue, ^{
-				[self.transport channelConnected:self];
+			sldispatch_async(self.adapter.queue, ^{
+				[self.adapter channelConnected:self];
 			});
 			
 			continue;
@@ -719,8 +646,8 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 			if(!frame.hasPayload || frame.payload.payload == nil)
 				continue;
 		
-			sldispatch_async(self.transport.queue, ^{
-				[self.transport channel:self receivedFrame:frame.payload.payload];
+			sldispatch_async(self.adapter.queue, ^{
+				[self.adapter channel:self receivedFrame:frame.payload.payload];
 			});
 		}
 	} // while

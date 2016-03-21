@@ -18,7 +18,7 @@
 
 #import "UDTransport.h"
 #import "UDAggTransport.h"
-#import "UDAggData.h"
+#import "UDFrameData.h"
 
 @interface UDAggLink : NSObject <UDLink>
 
@@ -32,16 +32,15 @@
 - (nonnull instancetype) initWithNodeId:(int64_t)nodeId transport:(nonnull UDAggTransport*)transport NS_DESIGNATED_INITIALIZER;
 
 - (bool) isEmpty;
-- (bool) containsLink:(nonnull id<UDChannel>)link;
-- (void) addLink:(nonnull id<UDChannel>)link;
-- (void) removeLink:(nonnull id<UDChannel>)link;
+- (bool) containsChannel:(nonnull id<UDChannel>)channel;
+- (void) addChannel:(nonnull id<UDChannel>)channel;
+- (void) removeChannel:(nonnull id<UDChannel>)channel;
 
 - (void) disconnect;
 
 - (void) sendFrame:(nonnull NSData*)data;
 - (void) sendData:(nonnull id<UDData>)data;
 
-// Doesn't gives up data.
-- (void) sendDataToChildren:(nonnull UDAggData*)data;
+- (void) sendNextFrame;
 
 @end

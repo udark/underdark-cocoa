@@ -16,23 +16,33 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDTransport.h"
-#import "UDAdapter.h"
-#import "UDFrameData.h"
-#import "UDFrameCache.h"
+#import "UDData.h"
 
-@interface UDAggTransport : NSObject <UDTransport, UDAdapterDelegate>
+typedef void (^UDFrameSourceRetrieveBlock)(NSData* _Nullable data);
+
+@class UDFrameData;
+
+@protocol UDFrameDataDelegate<NSObject>
+
+- (void) frameDataAcquire:(nonnull UDFrameData*)frameData;
+- (void) frameDataGiveup:(nonnull UDFrameData*)frameData;
+
+@end
+
+@interface UDFrameData : NSObject
 
 @property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
-@property (nonatomic, readonly, nonnull) dispatch_queue_t ioqueue;
+@property (nonatomic, readonly, weak) id<UDFrameDataDelegate> delegate;
 
-@property (nonatomic, readonly, nonnull) UDFrameCache* cache;
+@property (nonatomic, readonly, nonnull) id<UDData> data;
 
-- (nonnull instancetype) initWithAppId:(int32_t)appId
-						nodeId:(int64_t)nodeId
-					  delegate:(nullable id<UDTransportDelegate>)delegate
-						 queue:(nullable dispatch_queue_t)queue;
+- (nonnull instancetype) initWithData:(nonnull id<UDData>)data queue:(nonnull dispatch_queue_t)queue delegate:(nullable id<UDFrameDataDelegate>)delegate;
 
-- (void) addTransport:(nonnull id<UDAdapter>)transport;
+- (void) acquire;
+- (void) giveup;
+
+- (void) dispose;
+
+- (void) retrieve:(UDFrameSourceRetrieveBlock _Nonnull)completion;
 
 @end

@@ -165,7 +165,7 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 		return;
 	}
 	
-	UDBonjourChannel* link = [[UDBonjourChannel alloc] initWithNodeId:nodeId transport:_transport input:inputStream output:outputStream];
+	UDBonjourChannel* link = [[UDBonjourChannel alloc] initWithNodeId:nodeId adapter:_transport input:inputStream output:outputStream];
 	[_transport channelConnecting:link];
 	
 	[link connect];

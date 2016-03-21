@@ -17,7 +17,7 @@
 #import "UDAggTransport.h"
 
 #import "UDAggLink.h"
-#import "UDAggData.h"
+#import "UDFrameData.h"
 #import "UDLogging.h"
 #import "UDAsyncUtils.h"
 
@@ -29,8 +29,6 @@
 	bool _running;
 	NSMutableArray< id<UDAdapter> > * _adapters;
 	NSMutableDictionary<NSNumber*, UDAggLink*> * _linksConnected; // nodeId to UDAggLink
-	
-	NSMutableArray<UDAggData*> * _dataQueue;
 }
 @end
 
@@ -52,7 +50,7 @@
 	_adapters = [NSMutableArray array];
 	_linksConnected = [NSMutableDictionary dictionary];
 	
-	_dataQueue = [NSMutableArray array];
+	_cache = [[UDFrameCache alloc] initWithQueue:_ioqueue];
 	
 	return self;
 }
@@ -112,8 +110,8 @@
 		aggregate = [[UDAggLink alloc] initWithNodeId:link.nodeId transport:self];
 		_linksConnected[@(link.nodeId)] = aggregate;
 	}
-	
-	[aggregate addLink:link];
+
+	[aggregate addChannel:link];
 	
 	if(!linksExisted)
 	{
@@ -129,10 +127,10 @@
 	if(!aggregate)
 		return;
 	
-	if([aggregate containsLink:channel])
+	if([aggregate containsChannel:channel])
 	{
 		// Link was connected.
-		[aggregate removeLink:channel];
+		[aggregate removeChannel:channel];
 	}
 	
 	if(aggregate.isEmpty)
@@ -145,6 +143,25 @@
 	}
 }
 
+- (void) adapter:(id<UDAdapter>)adapter channelCanSendMore:(id<UDChannel>)channel
+{
+	UDAggLink* link = _linksConnected[@(channel.nodeId)];
+	if(!link)
+	{
+		LogError(@"Link doesn't exist for channel %@", channel);
+		return;
+	}
+	
+	if(![link containsChannel:channel])
+	{
+		LogError(@"Link doesn't contain channel %@", channel);
+		return;
+	}
+	
+	[link sendNextFrame];
+}
+
+
 - (void) adapter:(id<UDAdapter>)adapter channel:(id<UDChannel>)channel didReceiveFrame:(NSData*)data
 {
 	UDAggLink* aggregate = _linksConnected[@(channel.nodeId)];
@@ -154,7 +171,7 @@
 		return;
 	}
 	
-	if(![aggregate containsLink:channel])
+	if(![aggregate containsChannel:channel])
 	{
 		LogError(@"Aggregate doesn't contain %@", channel);
 		return;
@@ -165,41 +182,4 @@
 	});
 }
 
-#pragma mark - UDAggDataDelegate
-
-- (void) dataDisposed:(nonnull UDAggData*)data
-{
-	// Any thread.
-	
-	sldispatch_async(_ioqueue, ^{
-		[self sendNextData];
-	});
-}
-
-- (void) enqueueData:(nonnull UDAggData*)data
-{
-	// I/O queue.
-	[data acquire];
-	[_dataQueue addObject:data];
-	
-	if(_dataQueue.count == 1)
-	{
-		[self sendNextData];
-		return;
-	}
-}
-
-- (void) sendNextData
-{
-	// I/O queue.
-	if(_dataQueue.count == 0)
-		return;
-	
-	UDAggData* data = _dataQueue.firstObject;
-	[_dataQueue removeObjectAtIndex:0];
-	
-	[data.link sendDataToChildren:data];
-	
-	[data giveup];
-}
 @end

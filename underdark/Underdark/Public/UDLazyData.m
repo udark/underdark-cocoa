@@ -20,12 +20,16 @@
 
 @implementation UDLazyData
 {
-	dispatch_queue_t volatile _queue;
-	UDLazyDataRetrieveBlock _Nullable volatile _block;
-	NSData* _Nullable volatile _data;
+	dispatch_queue_t _queue;
+	UDLazyDataRetrieveBlock _block;
 }
 
-- (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block
+- (nonnull instancetype) init NS_UNAVAILABLE
+{
+	return nil;
+}
+
+- (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block dataId:(nullable NSString*)dataId
 {
 	if(!(self = [super init]))
 		return self;
@@ -33,75 +37,27 @@
 	_queue = (queue == nil) ? dispatch_get_main_queue() : queue;
 	_block = [block copy];
 	
+	_dataId = dataId;
+	
 	return self;
 }
 
+- (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block
+{
+	return [self initWithQueue:queue block:block dataId:nil];
+}
+
 #pragma mark - UDData
-
-- (bool) disposed
-{
-	return _block == nil;
-}
-
-- (void) dispose
-{
-	// Any thread.
-	@synchronized(self)
-	{
-		_queue = nil;
-		_block = nil;
-		_data = nil;
-	}
-}
 
 - (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion
 {
 	// I/O thread.
 	
-	if(self.disposed)
-	{
-		completion(nil);
-		return;
-	}
-	
-	if(_data == nil) {
-		sldispatch_async(_queue, ^{
-			UDLazyDataRetrieveBlock localBlock = _block;
-			
-			if(localBlock == nil)
-			{
-				// We already disposed.
-				completion(nil);
-				return;
-			}
-			
-			NSData* localData = nil;
-			
-			@synchronized(self) {
-				if(_data != nil)
-				{
-					// Data already retrieved.
-					localData = _data;
-				}
-			}
-			
-			if(localData == nil) {
-				localData = localBlock();
-			}
-			
-			@synchronized(self) {
-				if(!self.disposed) {
-					_data = localData;
-				}
-			}
-			
-			completion(localData);
-		});
-		
-		return;
-	} // if data == nil
-	
-	completion(_data);
+	sldispatch_async(_queue, ^{
+		NSData* data = _block();
+		completion(data);
+	});
+
 } // retrieve
 
 @end

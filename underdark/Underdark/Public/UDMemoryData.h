@@ -16,10 +16,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDCountedData.h"
+#import "UDData.h"
 
-@interface UDMemoryData : UDCountedData
+@interface UDMemoryData : NSObject<UDData>
 
-- (instancetype) initWithData:(NSData*)data;
+@property (nonatomic, readonly, nullable) NSString* dataId;
+
+- (nonnull instancetype) init NS_UNAVAILABLE;
+- (nonnull instancetype) initWithData:(nonnull NSData*)data dataId:(nullable NSString*)dataId NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype) initWithData:(nonnull NSData*)data;
 
 @end

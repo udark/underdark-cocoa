@@ -21,7 +21,9 @@
 
 @interface UDAggLink()
 {
-	NSMutableArray<id<UDChannel>> * _links;
+	NSMutableArray<id<UDChannel>> * _channels;
+	NSMutableArray<id<UDData>> * _outputQueue;
+	UDFrameData* _preparedFrame; // Currently prepared frame.
 }
 
 @end
@@ -40,54 +42,68 @@
 	
 	_transport = transport;
 	_nodeId = nodeId;
-	_links = [NSMutableArray array];
+	_channels = [NSMutableArray array];
+	_outputQueue = [NSMutableArray array];
 	
 	return self;
 }
 
-- (bool) isEmpty
+- (void) dealloc
 {
-	return _links.count == 0;
+	[_preparedFrame giveup];
+	_preparedFrame = nil;
 }
 
-- (bool) containsLink:(id<UDChannel>)link
+- (bool) isEmpty
 {
-	return [_links containsObject:link];
+	return _channels.count == 0;
 }
+
+- (bool) containsChannel:(nonnull id<UDChannel>)channel
+{
+	return [_channels containsObject:channel];
+}
+
+- (void) addChannel:(nonnull id<UDChannel>)channel
+{
+	// Transport queue.
+	[_channels addObject:channel];
+	_channels = [_channels sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2)
+	{
+		id<UDChannel> link1 = (id<UDChannel>) obj1;
+		id<UDChannel> link2 = (id<UDChannel>) obj2;
+
+		if (link1.priority < link2.priority)
+			return NSOrderedAscending;
+
+		return NSOrderedDescending;
+	}].mutableCopy;
+}
+
+- (void) removeChannel:(nonnull id<UDChannel>)channel
+{
+	// Transport queue.
+	[_channels removeObject:channel];
+}
+
+#pragma mark - UDLink
 
 - (void) disconnect
 {
-	for(id<UDChannel> link in _links)
-	{
-		[link disconnect];
-	}
-}
+	// User queue.
 
-- (void) addLink:(id<UDChannel>)link
-{
-	// I/O queue.
-	[_links addObject:link];
-	_links = [_links sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2)
-	 {
-		 id<UDLink> link1 = (id<UDLink>)obj1;
-		 id<UDLink> link2 = (id<UDLink>)obj2;
-		 
-		 if(link1.priority < link2.priority)
-			 return NSOrderedAscending;
-		 
-		 return NSOrderedDescending;
-	 }].mutableCopy;
-}
-
-- (void) removeLink:(id<UDChannel>)link
-{
-	// I/O queue.
-	[_links removeObject:link];
+	sldispatch_async(_transport.ioqueue, ^{
+		for(id<UDChannel> channel in _channels)
+		{
+			[channel disconnect];
+		}
+	});
 }
 
 - (void) sendFrame:(NSData*)data
 {
 	// User queue.
+	
 	UDMemoryData* memoryData = [[UDMemoryData alloc] initWithData:data];
 	[self sendData:memoryData];
 }
@@ -95,27 +111,51 @@
 - (void) sendData:(nonnull id<UDData>)data
 {
 	// User queue.
-	UDAggData* aggData = [[UDAggData alloc] initWithData:data delegate:_transport];
-	aggData.link = self;
-	
-	[data giveup]; // By per UDLink contract.
 	
 	sldispatch_async(_transport.ioqueue, ^{
-		[_transport enqueueData:aggData];
-		[aggData giveup];
+		[_outputQueue addObject:data];		
+		[self sendNextFrame];
 	});	
 }
 
-- (void) sendDataToChildren:(nonnull UDAggData*)data
+- (void) sendNextFrame
 {
-	// I/O queue.
-	id<UDChannel> link = [_links firstObject];
-	if(!link) {
-		return;
-	}
+	// Transport queue.
 	
-	[data acquire];
-	[link sendData:data];
-}
+	// Queue is empty.
+	if(_outputQueue.count == 0)
+		return;
+	
+	// Already preparing next frame.
+	if(_preparedFrame != nil)
+		return;
+	
+	_preparedFrame = [_transport.cache frameDataWithData:_outputQueue.firstObject];
+	[_outputQueue removeObjectAtIndex:0];
+	
+	[_preparedFrame retrieve:^(NSData * _Nullable data) {
+		// Transport queue.
+		
+		if(data == nil)
+		{
+			[_preparedFrame giveup];
+			_preparedFrame = nil;
+			[self sendNextFrame];
+			return;
+		}
+		
+		id<UDChannel> channel = [_channels firstObject];
+		if(!channel) {
+			[_preparedFrame giveup];
+			_preparedFrame = nil;
+			return;
+		}
+		
+		UDOutputItem* outitem = [[UDOutputItem alloc] initWithData:data frameData:_preparedFrame];
+		_preparedFrame = nil;
+		
+		[channel sendFrame:outitem];
+	}];
+} // sendNextFrame
 
 @end

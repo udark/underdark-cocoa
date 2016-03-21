@@ -23,23 +23,28 @@
 
 #pragma mark - Initialization
 
-- (instancetype) initWithData:(NSData*)data
+- (nonnull instancetype) init NS_UNAVAILABLE
+{
+	return nil;
+}
+
+- (nonnull instancetype) initWithData:(nonnull NSData*)data dataId:(nullable NSString*)dataId
 {
 	if(!(self = [super init]))
 		return self;
 	
+	_dataId = dataId;
 	_data = data;
 	
 	return self;
 }
 
-#pragma mark - UDData
-
-- (void) dispose
+- (nonnull instancetype) initWithData:(nonnull NSData*)data
 {
-	_data = nil;
-	[super dispose];
+	return [self initWithData:data dataId:nil];
 }
+
+#pragma mark - UDData
 
 - (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion
 {
