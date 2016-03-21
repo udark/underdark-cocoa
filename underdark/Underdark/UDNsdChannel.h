@@ -32,13 +32,13 @@
 
 @property (nonatomic) uint32_t interfaceIndex;
 
-- (instancetype) init NS_UNAVAILABLE;
+- (nonnull instancetype) init NS_UNAVAILABLE;
 
-- (instancetype) initWithServer:(UDNsdServer*)server input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype) initWithServer:(nonnull UDNsdServer*)server input:(nonnull NSInputStream*)inputStream output:(nonnull NSOutputStream*)outputStream NS_DESIGNATED_INITIALIZER;
 
 - (void) connect;
 
-- (void) sendFrame:(NSData*)data;
+- (void) sendFrame:(nonnull UDOutputItem*)item;
 - (void) disconnect;
 
 @end

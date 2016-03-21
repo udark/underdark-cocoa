@@ -24,6 +24,11 @@ typedef NSData* _Nullable (^UDLazyDataRetrieveBlock)();
 
 @property (nonatomic, readonly, nullable) NSString* dataId;
 
-- (nonnull instancetype) initWithDataId:(nullable NSString*)dataId queue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block;
+- (nonnull instancetype) init NS_UNAVAILABLE;
+
+- (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block dataId:(nullable NSString*)dataId NS_DESIGNATED_INITIALIZER;
+
+- (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block;
+
 
 @end

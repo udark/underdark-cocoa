@@ -23,7 +23,12 @@
 
 #pragma mark - Initialization
 
-- (nonnull instancetype) initWithDataId:(nullable NSString*)dataId data:(nonnull NSData*)data
+- (nonnull instancetype) init NS_UNAVAILABLE
+{
+	return nil;
+}
+
+- (nonnull instancetype) initWithData:(nonnull NSData*)data dataId:(nullable NSString*)dataId
 {
 	if(!(self = [super init]))
 		return self;
@@ -32,6 +37,11 @@
 	_data = data;
 	
 	return self;
+}
+
+- (nonnull instancetype) initWithData:(nonnull NSData*)data
+{
+	return [self initWithData:data dataId:nil];
 }
 
 #pragma mark - UDData

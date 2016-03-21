@@ -102,7 +102,7 @@
 {
 	// User queue.
 	
-	UDMemoryData* memoryData = [[UDMemoryData alloc] initWithDataId:nil data:data];
+	UDMemoryData* memoryData = [[UDMemoryData alloc] initWithData:data];
 	[self sendData:memoryData];
 }
 

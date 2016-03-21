@@ -24,7 +24,12 @@
 	UDLazyDataRetrieveBlock _block;
 }
 
-- (nonnull instancetype) initWithDataId:(nullable NSString*)dataId queue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block
+- (nonnull instancetype) init NS_UNAVAILABLE
+{
+	return nil;
+}
+
+- (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block dataId:(nullable NSString*)dataId
 {
 	if(!(self = [super init]))
 		return self;
@@ -35,6 +40,11 @@
 	_dataId = dataId;
 	
 	return self;
+}
+
+- (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block
+{
+	return [self initWithQueue:queue block:block dataId:nil];
 }
 
 #pragma mark - UDData

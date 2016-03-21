@@ -138,12 +138,12 @@ typedef NS_ENUM(NSUInteger, UDNsdState)
 
 #pragma mark - SLLink
 
-- (void) sendData:(nonnull id<UDData>)data
+- (void) sendFrame:(nonnull UDOutputItem*)item
 {
 	
 }
 
-- (void) sendFrame:(NSData*)data
+- (void) sendFrameOld:(NSData*)data
 {
 	// Transport queue.
 	FrameBuilder* frame = [FrameBuilder new];

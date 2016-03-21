@@ -22,6 +22,8 @@
 
 @property (nonatomic, readonly, nullable) NSString* dataId;
 
-- (nonnull instancetype) initWithDataId:(nullable NSString*)dataId data:(nonnull NSData*)data;
+- (nonnull instancetype) init NS_UNAVAILABLE;
+- (nonnull instancetype) initWithData:(nonnull NSData*)data dataId:(nullable NSString*)dataId NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype) initWithData:(nonnull NSData*)data;
 
 @end
