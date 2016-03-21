@@ -36,6 +36,6 @@
 
 - (void) disconnect;
 
-- (void) sendItem:(nonnull UDOutputItem*)item;
+- (void) sendFrame:(nonnull UDOutputItem*)item;
 
 @end

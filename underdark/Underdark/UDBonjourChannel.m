@@ -251,33 +251,27 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 #pragma mark - Writing
 
-- (void) sendData:(nonnull id<UDData>)data
+- (void) sendFrame:(nonnull UDOutputItem*)item
 {
-	// Transport queue.	
-	UDOutputItem* outdata = [[UDOutputItem alloc] init];
-	outdata.task = data;
-	[data acquire];
+	// Transport queue.
+	
+	UDOutputItem* frameHeader = [self frameHeaderForFrameData:item.data];
+	[self performSelector:@selector(enqueueItem:) onThread:self.transport.ioThread withObject:frameHeader waitUntilDone:NO];
 
-	[data giveup]; // By per UDChannel sendData: contract.
-
-	[self performSelector:@selector(enqueueItem:) onThread:self.transport.ioThread withObject:outdata waitUntilDone:NO];
+	[self performSelector:@selector(enqueueItem:) onThread:self.transport.ioThread withObject:item waitUntilDone:NO];
 }
 
 - (void) sendLinkFrame:(Frame*)frame
 {
 	// Any queue.
 
-	NSData* frameData = [frame data];
-	
-	UDOutputItem* frameHeader = [self itemForFrameHeader:frameData];
-	[self performSelector:@selector(enqueueItem:) onThread:self.transport.ioThread withObject:frameHeader waitUntilDone:NO];
-	
 	UDOutputItem* frameBody = [[UDOutputItem alloc] init];
-	frameBody.data = frameData;
-	[self performSelector:@selector(enqueueItem:) onThread:self.transport.ioThread withObject:frameBody waitUntilDone:NO];
+	frameBody.data = [frame data];
+	
+	[self sendFrame:frameBody];	
 }
 
-- (void) enqueueItem:(UDOutputItem*)outitem
+- (void) enqueueItem:(UDOutputItem*)item
 {
 	// Stream thread.
 	
@@ -286,78 +280,24 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	if(_state == SLBnjStateDisconnected)
 		return;
 	
-	// Add data to output queue.
-	[_outputQueue addObject:outitem];
-	
 	// If we're not currently writing any item, start writing next.
-	if(_outputItem == nil) {
-		[self writeNextItem];
-	}
-}
-
-- (void) writeNextItem
-{
-	// Stream thread.
-	
-	if(_state == SLBnjStateDisconnected)
-		return;
-	
-	_transferStartTime = [NSDate timeIntervalSinceReferenceDate];
-	
-	_outputItem = nil;
-	
-	_outputDataOffset = 0;
-	_outputItem = [_outputQueue firstObject];
 	if(_outputItem == nil)
-		return;
-	
-	[_outputQueue removeObjectAtIndex:0];
-	
-	if(_outputItem.data != nil)
 	{
-		[self writeNextBytes];
-		
-		return;
-	}
-	
-	if(_outputItem.task != nil)
-	{
-		[_outputItem.task retrieve:^(NSData* _Nullable data)
-		{
-			// Any thread.
-			[self performSelector:@selector(outputDataBytesRetrieved:) onThread:self.transport.ioThread withObject:data waitUntilDone:NO];
-		}];
-		
-		return;
-	}
-	
-	// Empty UDOutputData object encountered — disconnecting.
-	_outputItem = nil;
-	[self closeStreams];
-	
-} // writeNextData
+		_transferStartTime = [NSDate timeIntervalSinceReferenceDate];
+		_outputItem = item;
+		_outputDataOffset = 0;
 
-- (void) outputDataBytesRetrieved:(nullable NSData*)dataBytes
-{
-	// Stream thread.
-	
-	if(_state == SLBnjStateDisconnected)
-		return;
-	
-	if(dataBytes == nil) {
-		// Data no more actural - get next from queue.
-		[self writeNextItem];
+		[self writeNextBytes];
 		return;
 	}
 	
-	_outputItem.data = dataBytes;
-	
-	[self writeNextBytes];
+	// Otherwise add item to output queue.
+	[_outputQueue addObject:item];
 }
 
 #pragma mark - Boxing
 
-- (UDOutputItem*) itemForFrameHeader:(NSData*)frameData
+- (UDOutputItem*) frameHeaderForFrameData:(NSData*)frameData
 {
 	// Any thread.
 	NSMutableData* headerData = [NSMutableData data];
@@ -467,9 +407,17 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	if(_state == SLBnjStateDisconnected)
 		return;
 	
-	// Output queue is empty - nothing to write..
+	// Output queue is empty - nothing to write.
 	if(_outputItem == nil)
 		return;
+	
+	if(_outputItem.isEnding)
+	{
+		_outputItem = nil;
+		_outputDataOffset = 0;
+		[self closeStreams];
+		return;
+	}
 	
 	uint8_t* bytes = (uint8_t *)_outputItem.data.bytes;
 	bytes += _outputDataOffset;
@@ -506,7 +454,15 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	if(_outputDataOffset == _outputItem.data.length)
 	{
 		// Item is fully written - getting next from output queue.
-		[self writeNextItem];
+		_transferStartTime = 0;
+		_outputDataOffset = 0;
+		_outputItem = 0;
+		
+		if(_outputQueue.count != 0)
+		{
+			_outputItem = _outputQueue.firstObject;
+			[_outputQueue removeObjectAtIndex:0];
+		}
 	}
 } // writeNextBytes
 

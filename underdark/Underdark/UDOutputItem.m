@@ -14,6 +14,11 @@
 {
 }
 
++ (nonnull UDOutputItem*) ending
+{
+	return [[UDOutputItem alloc] init];
+}
+
 - (nonnull instancetype) init
 {
 	if(!(self = [super init]))
@@ -22,12 +27,7 @@
 	return self;
 }
 
-- (void) dealloc
-{
-	[_frameData giveup];
-}
-
-- (nonnull instancetype) initWithData:(nonnull NSData*)data frameData:(nullable UDFrameData*)frameData
+- (nonnull instancetype) initWithData:(nullable NSData*)data frameData:(nullable UDFrameData*)frameData
 {
 	if(!(self = [super init]))
 		return self;
@@ -38,6 +38,16 @@
 	[frameData acquire];
 
 	return self;
+}
+
+- (void) dealloc
+{
+	[_frameData giveup];
+}
+
+- (bool) isEnding
+{
+	return _data == nil && _frameData == nil;
 }
 
 @end

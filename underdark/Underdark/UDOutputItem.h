@@ -15,6 +15,10 @@
 @property (nonatomic, nullable) NSData* data;
 @property (nonatomic, nullable) UDFrameData* frameData;
 
-- (nonnull instancetype) initWithData:(nonnull NSData*)data frameData:(nullable UDFrameData*)frameData;
+@property (nonatomic, readonly, getter=isEnding) bool isEnding;
+
++ (nonnull UDOutputItem*) ending;
+
+- (nonnull instancetype) initWithData:(nullable NSData*)data frameData:(nullable UDFrameData*)frameData;
 
 @end
