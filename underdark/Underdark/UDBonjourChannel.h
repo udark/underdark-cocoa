@@ -33,9 +33,14 @@
 
 - (instancetype) init NS_UNAVAILABLE;
 
-- (instancetype) initWithAdapter:(UDBonjourAdapter*)adapter input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithAdapter:(UDBonjourAdapter*)adapter
+						   input:(NSInputStream*)inputStream
+						  output:(NSOutputStream*)outputStream NS_DESIGNATED_INITIALIZER;
 
-- (instancetype) initWithNodeId:(int64_t)nodeId adapter:(UDBonjourAdapter*)adapter input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream;
+- (instancetype) initWithNodeId:(int64_t)nodeId
+						adapter:(UDBonjourAdapter*)adapter
+						  input:(NSInputStream*)inputStream
+						 output:(NSOutputStream*)outputStream;
 
 - (void) connect;
 
