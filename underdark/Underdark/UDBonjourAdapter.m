@@ -46,6 +46,7 @@
 	UDBtBeacon* _beacon;
 	UDBtReach* _btReach;
 	UDWifiReach* _wifiReach;
+	
 	UDBonjourBrowser* _browser;
 	UDBonjourServer* _server;
 }
@@ -296,7 +297,7 @@
 	[_server start];
 }
 
-#pragma mark - Links
+#pragma mark - Channels
 
 - (int16_t) linkPriority
 {
