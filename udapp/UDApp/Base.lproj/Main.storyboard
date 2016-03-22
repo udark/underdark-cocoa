@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,44 +17,114 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 frames" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9P2-Dw-Zdq">
-                                <rect key="frame" x="256" y="289" width="88" height="21"/>
-                                <animations/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kKp-IB-i7p">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="0 peers" id="Kmn-eg-m4d"/>
+                                </items>
+                            </navigationBar>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nFL-dx-vDp">
+                                <rect key="frame" x="20" y="85" width="560" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="U41-zv-Jld"/>
+                                </constraints>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 frames" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUm-4w-TXY">
+                                <rect key="frame" x="20" y="107" width="560" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="4Qx-sy-UQs"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dzh-fP-oZM">
-                                <rect key="frame" x="252" y="350" width="96" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Send frames"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 kb/sec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKS-Vd-7tE" userLabel="Speed Label">
+                                <rect key="frame" x="20" y="225" width="560" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="jp6-v0-1at"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ms4-St-WqT">
+                                <rect key="frame" x="20" y="530" width="140" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="F6z-tc-w3P"/>
+                                    <constraint firstAttribute="width" constant="140" id="sl9-f9-dmw"/>
+                                </constraints>
+                                <state key="normal" title="Send 2000 x 1KB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="sendFrames:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mYR-Eg-LTm"/>
+                                    <action selector="sendFramesSmall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iC1-gp-eZV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 connected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQc-1C-FOh">
-                                <rect key="frame" x="250" y="228" width="101" height="21"/>
-                                <animations/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Q0-MB-veC">
+                                <rect key="frame" x="440" y="530" width="140" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Oyb-EF-1Bc"/>
+                                    <constraint firstAttribute="width" constant="140" id="e7W-1s-2F2"/>
+                                </constraints>
+                                <state key="normal" title="Send 200 x 100KB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendFramesLarge:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U5M-Jy-tsW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 seconds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz9-Q1-LAI">
+                                <rect key="frame" x="20" y="166" width="560" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="SMC-FR-Vwg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Dzh-fP-oZM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5uP-EQ-anf"/>
-                            <constraint firstItem="9P2-Dw-Zdq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DhD-sQ-hhc"/>
-                            <constraint firstItem="9P2-Dw-Zdq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LCH-cO-P6y"/>
-                            <constraint firstItem="Dzh-fP-oZM" firstAttribute="top" secondItem="9P2-Dw-Zdq" secondAttribute="bottom" constant="40" id="kFN-aW-kUI"/>
-                            <constraint firstItem="sQc-1C-FOh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lib-GB-KhG"/>
-                            <constraint firstItem="9P2-Dw-Zdq" firstAttribute="top" secondItem="sQc-1C-FOh" secondAttribute="bottom" constant="40" id="xkF-Pn-IPQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ms4-St-WqT" secondAttribute="bottom" constant="20" id="1c7-J6-7rN"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2Q0-MB-veC" secondAttribute="bottom" constant="20" id="3OT-uG-r8D"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="UKS-Vd-7tE" secondAttribute="leading" id="40A-gj-Jep"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rUm-4w-TXY" secondAttribute="trailing" id="4Do-aB-lSA"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="nFL-dx-vDp" secondAttribute="leading" id="62H-en-YKQ"/>
+                            <constraint firstItem="fz9-Q1-LAI" firstAttribute="top" secondItem="rUm-4w-TXY" secondAttribute="bottom" constant="20" id="6mo-N1-tWs"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="fz9-Q1-LAI" secondAttribute="leading" id="F7z-wh-IwV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UKS-Vd-7tE" secondAttribute="trailing" id="HQq-Yc-dhY"/>
+                            <constraint firstAttribute="trailing" secondItem="kKp-IB-i7p" secondAttribute="trailing" id="NFv-wd-DMh"/>
+                            <constraint firstItem="UKS-Vd-7tE" firstAttribute="top" secondItem="fz9-Q1-LAI" secondAttribute="bottom" constant="20" id="OWG-oz-4gz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Q0-MB-veC" secondAttribute="trailing" id="QuS-VX-zUQ"/>
+                            <constraint firstItem="rUm-4w-TXY" firstAttribute="top" secondItem="nFL-dx-vDp" secondAttribute="bottom" constant="20" id="VcF-IC-T5k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nFL-dx-vDp" secondAttribute="trailing" id="btv-GU-mFy"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Ms4-St-WqT" secondAttribute="leading" id="g2X-jT-65k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fz9-Q1-LAI" secondAttribute="trailing" id="j63-0X-C1T"/>
+                            <constraint firstItem="nFL-dx-vDp" firstAttribute="top" secondItem="kKp-IB-i7p" secondAttribute="bottom" constant="21" id="jUf-yp-pmf"/>
+                            <constraint firstItem="kKp-IB-i7p" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="k56-o6-crj"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="rUm-4w-TXY" secondAttribute="leading" id="pWt-Ui-xdA"/>
+                            <constraint firstItem="kKp-IB-i7p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zoZ-Sd-KnJ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="framesCountLabel" destination="9P2-Dw-Zdq" id="2ET-Pa-6mZ"/>
-                        <outlet property="peersCountLabel" destination="sQc-1C-FOh" id="1Tn-15-5L4"/>
-                        <outlet property="sendFramesButton" destination="Dzh-fP-oZM" id="xQt-uP-YLN"/>
+                        <outlet property="framesCountLabel" destination="rUm-4w-TXY" id="1UU-Fb-a2n"/>
+                        <outlet property="navItem" destination="Kmn-eg-m4d" id="meZ-Vu-Jax"/>
+                        <outlet property="progressHeight" destination="U41-zv-Jld" id="nqF-ba-o2d"/>
+                        <outlet property="progressView" destination="nFL-dx-vDp" id="rHU-ie-zhm"/>
+                        <outlet property="speedLabel" destination="UKS-Vd-7tE" id="sxc-TL-zuF"/>
+                        <outlet property="timeLabel" destination="fz9-Q1-LAI" id="UJe-uj-EM5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -23,7 +23,7 @@
 @interface UDRouterImpl : NSObject <UDRouter, UDTransportDelegate>
 
 @property (nonatomic, readonly, nonnull) id<UDTransport> transport;
-@property (nonatomic, readonly, weak) id<UDRouterDelegate> delegate;
+@property (nonatomic, readonly, weak, nullable) id<UDRouterDelegate> delegate;
 
 @property (nonatomic, readonly, nonnull, getter=peers) NSArray<NSNumber*> *peers;
 

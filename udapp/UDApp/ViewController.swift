@@ -12,13 +12,16 @@ import Underdark;
 
 class ViewController: UIViewController
 {
-	let node: Node;
-	
-	@IBOutlet weak var peersCountLabel: UILabel!
+	@IBOutlet weak var navItem: UINavigationItem!
 
 	@IBOutlet weak var framesCountLabel: UILabel!
+	@IBOutlet weak var timeLabel: UILabel!
+	@IBOutlet weak var speedLabel: UILabel!
 	
-	@IBOutlet weak var sendFramesButton: UIButton!
+	@IBOutlet weak var progressView: UIProgressView!
+	@IBOutlet weak var progressHeight: NSLayoutConstraint!
+	
+	let node: Node
 	
 	//MARK: - Initialization
 	
@@ -29,8 +32,6 @@ class ViewController: UIViewController
 		super.init(coder: aDecoder)
 		
 		node.controller = self;
-		
-		node.start();
 	}
 	
 	deinit
@@ -41,6 +42,10 @@ class ViewController: UIViewController
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
+		
+		progressHeight.constant = 9
+		
+		node.start();
 	}
 
 	override func didReceiveMemoryWarning()
@@ -50,43 +55,58 @@ class ViewController: UIViewController
 
 	func updatePeersCount()
 	{
-		peersCountLabel?.text = "\(node.peersCount) connected";
+		navItem.title = "\(node.peersCount)" + ((node.peersCount == 1) ? " peer" : " peers");
 	}
 	
 	func updateFramesCount()
 	{
-		framesCountLabel?.text = "\(node.framesCount) frames";
+		framesCountLabel.text = "\(node.framesCount) frames";
 		
+		timeLabel.text = NSString(format: "%.2f seconds", node.timeEnd - node.timeStart) as String
+		
+		let speed = Int( Double(node.bytesCount) / (node.timeEnd - node.timeStart + 0.0001) )
+		speedLabel.text = "\(speed / 1024) kb/sec"
 	}
 	
 	//MARK: - Actions
 
-	@IBAction func sendFrames(sender: AnyObject)
+	let bgqueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
+	
+	func frameData(dataLength:Int) -> UDData
 	{
-		let dataLength = 1024;
-		
-		for var i = 0; i < 100; ++i
-		{
-			let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
-			let frameData = UDLazyData(queue: queue, block: { () -> NSData? in
-				let data = NSMutableData(length: dataLength);
-				arc4random_buf(data!.mutableBytes, data!.length)
-				//SecRandomCopyBytes(kSecRandomDefault, UInt(s.length), UnsafePointer<UInt8>(s.mutableBytes))
-				
-				dispatch_async(dispatch_get_main_queue(), { () -> Void in
-					self.node.framesCount++
-					self.updateFramesCount()
-				})
-				
-				return data
-			})
-			
-			/*let data = NSMutableData(length: dataLength);
+		let result = UDLazyData(queue: bgqueue, block: { () -> NSData? in
+			let data = NSMutableData(length: dataLength);
 			arc4random_buf(data!.mutableBytes, data!.length)
-			let frameData = UDMemoryData(data: data)*/
+			//SecRandomCopyBytes(kSecRandomDefault, UInt(s.length), UnsafePointer<UInt8>(s.mutableBytes))
 			
-			node.broadcastFrame(frameData);
+			return data
+		})
+		
+		/*let data = NSMutableData(length: dataLength);
+		arc4random_buf(data!.mutableBytes, data!.length)
+		let result = UDMemoryData(data: data!)*/
+		
+		return result
+	}
+	
+	@IBAction func sendFramesSmall(sender: AnyObject)
+	{
+		node.broadcastFrame(frameData(1))
+		
+		for _ in 0 ..< 2000
+		{
+			node.broadcastFrame(frameData(1024));
 		}
 	}
-}
+	
+	@IBAction func sendFramesLarge(sender: AnyObject)
+	{
+		node.broadcastFrame(frameData(1))
+
+		for _ in 0 ..< 200
+		{
+			node.broadcastFrame(frameData(100 * 1024));
+		}
+	}
+} // ViewController
 

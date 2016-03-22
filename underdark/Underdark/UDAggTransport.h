@@ -33,6 +33,6 @@
 					  delegate:(nullable id<UDTransportDelegate>)delegate
 						 queue:(nullable dispatch_queue_t)queue;
 
-- (void) addTransport:(nonnull id<UDAdapter>)transport;
+- (void) addAdapter:(nonnull id<UDAdapter>)adapter;
 
 @end

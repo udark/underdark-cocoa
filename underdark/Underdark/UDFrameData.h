@@ -32,7 +32,7 @@ typedef void (^UDFrameSourceRetrieveBlock)(NSData* _Nullable data);
 @interface UDFrameData : NSObject
 
 @property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
-@property (nonatomic, readonly, weak) id<UDFrameDataDelegate> delegate;
+@property (nonatomic, readonly, weak, nullable) id<UDFrameDataDelegate> delegate;
 
 @property (nonatomic, readonly, nonnull) id<UDData> data;
 

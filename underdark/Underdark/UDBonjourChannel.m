@@ -70,7 +70,9 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	return nil;
 }
 
-- (instancetype) initWithAdapter:(UDBonjourAdapter*)adapter input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream
+- (instancetype) initWithAdapter:(UDBonjourAdapter*)adapter
+						   input:(NSInputStream*)inputStream
+						  output:(NSOutputStream*)outputStream
 {
 	if(!(self = [super init]))
 		return self;
@@ -92,7 +94,10 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	return self;
 }
 
-- (instancetype) initWithNodeId:(int64_t)nodeId adapter:(UDBonjourAdapter*)adapter input:(NSInputStream*)inputStream output:(NSOutputStream*)outputStream
+- (instancetype) initWithNodeId:(int64_t)nodeId
+						adapter:(UDBonjourAdapter*)adapter
+						  input:(NSInputStream*)inputStream
+						 output:(NSOutputStream*)outputStream
 {
 	if(!(self = [self initWithAdapter:adapter input:inputStream output:outputStream]))
 		return self;
@@ -105,7 +110,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 - (void) dealloc
 {
-	LogDebug(@"dealloc %@", self);
+	//LogDebug(@"dealloc %@", self);
 	[_heartbeatTimer invalidate];
 	[_timeoutTimer invalidate];
 }
@@ -265,8 +270,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 {
 	// Any queue.
 
-	UDOutputItem* frameBody = [[UDOutputItem alloc] init];
-	frameBody.data = [frame data];
+	UDOutputItem* frameBody = [[UDOutputItem alloc] initWithData:[frame data] frameData:nil];
 
 	sldispatch_async(_adapter.queue, ^{
 		[self sendFrame:frameBody];
@@ -306,8 +310,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	uint32_t frameBodySize = CFSwapInt32HostToBig((uint32_t)frameData.length);
 	[headerData appendBytes:&frameBodySize length:sizeof(frameBodySize)];
 	
-	UDOutputItem* outitem = [[UDOutputItem alloc] init];
-	outitem.data = headerData;
+	UDOutputItem* outitem = [[UDOutputItem alloc] initWithData:headerData frameData:nil];
 	
 	return outitem;
 }

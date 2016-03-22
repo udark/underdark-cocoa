@@ -309,7 +309,7 @@
 - (void) channelConnecting:(nonnull UDBonjourChannel*)channel
 {
 	// Transport queue.
-
+	
 	[_channelsConnecting addObject:channel];
 }
 

@@ -23,6 +23,10 @@ class Node: NSObject, UDTransportDelegate
 	var peersCount = 0;
 	var framesCount = 0;
 	
+	var bytesCount = 0;
+	var timeStart : NSTimeInterval = 0
+	var timeEnd : NSTimeInterval = 0
+	
 	override init()
 	{
 		var buf : Int64 = 0;
@@ -40,6 +44,7 @@ class Node: NSObject, UDTransportDelegate
 		super.init()
 
 		let transportKinds = [UDTransportKind.Wifi.rawValue, UDTransportKind.Bluetooth.rawValue];
+		//let transportKinds = [UDTransportKind.Wifi.rawValue];
 
 		transport = UDUnderdark.configureTransportWithAppId(appId, nodeId: nodeId, delegate: self, queue: queue, kinds: transportKinds);
 	}
@@ -64,7 +69,6 @@ class Node: NSObject, UDTransportDelegate
 	{
 		if(links.isEmpty) { return; }
 		
-		//++framesCount;
 		controller?.updateFramesCount();
 		
 		for link in links
@@ -78,20 +82,31 @@ class Node: NSObject, UDTransportDelegate
 	func transport(transport: UDTransport!, linkConnected link: UDLink!)
 	{
 		links.append(link);
-		++peersCount;
+		peersCount += 1
 		controller?.updatePeersCount();
 	}
 	
 	func transport(transport: UDTransport!, linkDisconnected link: UDLink!)
 	{
 		links = links.filter() { $0 !== link };
-		--peersCount;
+		peersCount -= 1
 		controller?.updatePeersCount();
 	}
 	
 	func transport(transport: UDTransport!, link: UDLink!, didReceiveFrame data: NSData!)
 	{
-		++framesCount;
+		if(data.length == 1) {
+			framesCount = 0
+			bytesCount = 0
+			timeStart = NSDate.timeIntervalSinceReferenceDate()
+			timeEnd = NSDate.timeIntervalSinceReferenceDate()
+		}
+		else {
+			framesCount += 1
+			bytesCount += data.length
+			timeEnd = NSDate.timeIntervalSinceReferenceDate()
+		}
+		
 		controller?.updateFramesCount();
 	}
 }

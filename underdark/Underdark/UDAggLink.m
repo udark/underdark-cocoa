@@ -152,6 +152,7 @@
 		}
 		
 		UDOutputItem* outitem = [[UDOutputItem alloc] initWithData:data frameData:_preparedFrame];
+		[_preparedFrame giveup];
 		_preparedFrame = nil;
 		
 		[channel sendFrame:outitem];
