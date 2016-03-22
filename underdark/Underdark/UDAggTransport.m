@@ -55,12 +55,12 @@
 	return self;
 }
 
-- (void) addTransport:(id<UDAdapter>)transport
+- (void) addAdapter:(nonnull id<UDAdapter>)adapter
 {
-	if(!transport)
+	if(!adapter)
 		return;
-	
-	[_adapters addObject:transport];
+
+	[_adapters addObject:adapter];
 }
 
 #pragma mark - UDTransport

@@ -44,6 +44,7 @@ class Node: NSObject, UDTransportDelegate
 		super.init()
 
 		let transportKinds = [UDTransportKind.Wifi.rawValue, UDTransportKind.Bluetooth.rawValue];
+		//let transportKinds = [UDTransportKind.Wifi.rawValue];
 
 		transport = UDUnderdark.configureTransportWithAppId(appId, nodeId: nodeId, delegate: self, queue: queue, kinds: transportKinds);
 	}

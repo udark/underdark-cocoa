@@ -52,24 +52,24 @@ static id<UDLogger> underdarkLogger = nil;
 		queue = dispatch_get_main_queue();
 	}
 		
-	UDAggTransport* aggTransport =
+	UDAggTransport* transport =
 		[[UDAggTransport alloc] initWithAppId:appId nodeId:nodeId delegate:delegate queue:queue];
 	
-	/*id<UDAdapter> childTransport = [[UDNsdAdapter alloc] initWithDelegate:aggTransport appId:appId nodeId:nodeId peerToPeer:false queue:aggTransport.queue];
-	[aggTransport addTransport:childTransport];
-	return aggTransport;*/
+	/*id<UDAdapter> adapter = [[UDNsdAdapter alloc] initWithDelegate:aggTransport appId:appId nodeId:nodeId peerToPeer:false queue:aggTransport.queue];
+	[transport addAdapter:adapter];
+	return transport;*/
 	
 	if([kinds containsObject:@(UDTransportKindWifi)]
 	   || [kinds containsObject:@(UDTransportKindBluetooth)])
 	{
 		bool peerToPeer = [kinds containsObject:@(UDTransportKindBluetooth)];
 		
-		id<UDAdapter> childTransport = [[UDBonjourAdapter alloc] initWithAppId:appId nodeId:nodeId delegate:aggTransport queue:aggTransport.ioqueue peerToPeer:peerToPeer];
-		
-		[aggTransport addTransport:childTransport];
+		id<UDAdapter> adapter = [[UDBonjourAdapter alloc] initWithAppId:appId nodeId:nodeId delegate:transport queue:transport.ioqueue peerToPeer:peerToPeer];
+
+		[transport addAdapter:adapter];
 	}
 	
-	return aggTransport;
+	return transport;
 }
 
 @end
