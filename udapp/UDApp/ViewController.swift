@@ -93,7 +93,7 @@ class ViewController: UIViewController
 	{
 		node.broadcastFrame(frameData(1))
 		
-		for var i = 0; i < 2000; ++i
+		for _ in 0 ..< 2000
 		{
 			node.broadcastFrame(frameData(1024));
 		}
@@ -103,7 +103,7 @@ class ViewController: UIViewController
 	{
 		node.broadcastFrame(frameData(1))
 
-		for var i = 0; i < 200; ++i
+		for _ in 0 ..< 200
 		{
 			node.broadcastFrame(frameData(100 * 1024));
 		}

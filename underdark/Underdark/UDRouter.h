@@ -42,7 +42,7 @@
 @protocol UDRouter
 
 @property (nonatomic, readonly, nonnull) id<UDTransport> transport;
-@property (nonatomic, readonly, weak) id<UDRouterDelegate> delegate;
+@property (nonatomic, readonly, weak, nullable) id<UDRouterDelegate> delegate;
 
 /// Array of peers' nodeIds. Must be accessed only on the same queue as other methods.
 @property (nonatomic, readonly, nonnull, getter=peers) NSArray<NSNumber*> *peers;

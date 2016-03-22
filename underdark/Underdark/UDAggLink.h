@@ -22,7 +22,7 @@
 
 @interface UDAggLink : NSObject <UDLink>
 
-@property (nonatomic, weak, readonly) UDAggTransport* transport;
+@property (nonatomic, readonly, weak, nullable) UDAggTransport* transport;
 
 @property (nonatomic, readonly) int64_t nodeId;
 @property (nonatomic, readonly) bool slowLink;
