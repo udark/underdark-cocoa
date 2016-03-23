@@ -29,6 +29,9 @@ class UDJackLogger: NSObject, UDLogger {
 		DDLog.log(asynchronous, message: message, level:  DDLogLevel(rawValue: level.rawValue)!, flag: DDLogFlag(rawValue: flag.rawValue), context: context, file: file, function: function, line: line, tag: tag)
 		
 		let nmessage = message
-		self.delegate?.logMessage(nmessage)
+		
+		dispatch_async(dispatch_get_main_queue()) { 
+			self.delegate?.logMessage(nmessage)			
+		}
 	}
 }

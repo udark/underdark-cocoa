@@ -27,11 +27,9 @@ class AppModel
 	
 	deinit
 	{
-		node.stop()
 	}
 	
 	func configure()
 	{
-		node.start()
 	}
 } // AppModel

@@ -32,6 +32,7 @@ class ViewController: UIViewController
 	
 	deinit
 	{
+		AppModel.shared.node.stop()
 	}
 	
 	override func viewDidLoad()
@@ -40,7 +41,7 @@ class ViewController: UIViewController
 		
 		progressHeight.constant = 9
 		
-		AppModel.shared.configure()
+		AppModel.shared.node.start()
 	}
 
 	override func didReceiveMemoryWarning()
