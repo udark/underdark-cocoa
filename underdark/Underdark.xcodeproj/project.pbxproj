@@ -1043,10 +1043,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DB5439547293491E288D9B18 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1062,10 +1058,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E0A05D00306112B07A1AAEA /* Pods.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = UnderdarkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.underdark.$(PRODUCT_NAME:rfc1034identifier)";
