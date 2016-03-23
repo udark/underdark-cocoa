@@ -27,9 +27,9 @@
 @property (nonatomic, readonly, weak) UDMockNode* fromNode;
 @property (nonatomic) UDMockLink* link;
 
+- (instancetype) init NS_DESIGNATED_INITIALIZER;
 - (instancetype) initWithNode:(UDMockNode*)node toNodeId:(int64_t)nodeId NS_DESIGNATED_INITIALIZER;
 
-- (void) sendFrame:(NSData*)data;
 - (void) disconnect;
 
 @end

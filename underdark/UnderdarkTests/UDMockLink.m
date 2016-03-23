@@ -20,6 +20,14 @@
 
 @implementation UDMockLink
 
+- (instancetype) init
+{
+	if(!(self = [super init]))
+		return self;
+	
+	return self;
+}
+
 - (instancetype) initWithNode:(UDMockNode*)node toNodeId:(int64_t)nodeId
 {
 	if(!(self = [super init]))
@@ -38,6 +46,11 @@
 	sldispatch_async(self.link.fromNode.queue, ^{
 		[self.link.fromNode mlink:self.link didReceiveFrame:data];
 	});
+}
+
+- (void) sendData:(nonnull id<UDData>)data
+{
+	// Any thread.
 }
 
 - (void)disconnect
