@@ -245,6 +245,12 @@ typedef NS_ENUM(NSUInteger, UDBnjBrowserState)
 	// I/O thread.
 	
 	LogDebug(@"netServiceBrowserDidStopSearch");
+	
+	_browser.delegate = nil;
+	_browser = nil;
+	_state = UDBnjBrowserStateStopped;
+	
+	[self checkDesiredState];
 }
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)browser didNotSearch:(NSDictionary *)errorDict
@@ -252,6 +258,12 @@ typedef NS_ENUM(NSUInteger, UDBnjBrowserState)
 	// I/O thread.
 	
 	LogDebug(@"netServiceBrowserDidNotSearch: errorCode %@", errorDict[NSNetServicesErrorCode]);
+	
+	_browser.delegate = nil;
+	_browser = nil;
+	_state = UDBnjBrowserStateStopped;
+	_desiredState = UDBnjBrowserStateStopped;
+	
 	dispatch_async(_adapter.queue, ^{
 		[_adapter browserDidFail];
 	});

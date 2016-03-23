@@ -180,23 +180,6 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState)
 	//[_service publishWithOptions:NSNetServiceListenForConnections];
 }
 
-- (void)netService:(NSNetService *)sender didAcceptConnectionWithInputStream:(NSInputStream *)inputStream outputStream:(NSOutputStream *)outputStream
-{
-	// I/O thread.
-	
-	if(sender != _service)
-		return;
-	
-	//LogDebug(@"bnj didAcceptConnection");
-	
-	sldispatch_async(_adapter.queue, ^{
-		UDBonjourChannel* channel = [[UDBonjourChannel alloc] initWithAdapter:_adapter input:inputStream output:outputStream];
-		[_adapter channelConnecting:channel];
-		
-		[channel connect];
-	});
-}
-
 - (void)netServiceWillPublish:(NSNetService *)sender
 {
 	// I/O thread.
@@ -235,6 +218,23 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState)
 	
 	sldispatch_async(_adapter.queue, ^{
 		[_adapter serverDidFail];
+	});
+}
+
+- (void)netService:(NSNetService *)sender didAcceptConnectionWithInputStream:(NSInputStream *)inputStream outputStream:(NSOutputStream *)outputStream
+{
+	// I/O thread.
+	
+	if(sender != _service)
+		return;
+	
+	//LogDebug(@"bnj didAcceptConnection");
+	
+	sldispatch_async(_adapter.queue, ^{
+		UDBonjourChannel* channel = [[UDBonjourChannel alloc] initWithAdapter:_adapter input:inputStream output:outputStream];
+		[_adapter channelConnecting:channel];
+		
+		[channel connect];
 	});
 }
 
