@@ -465,9 +465,12 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 		
 		if(_outputQueue.count == 0)
 		{
-			sldispatch_async(_adapter.queue, ^{
-				[_adapter channelCanSendMore:self];
-			});
+			if(_state == SLBnjStateConnected)
+			{
+				sldispatch_async(_adapter.queue, ^{
+					[_adapter channelCanSendMore:self];
+				});
+			}
 		}
 		else
 		{
@@ -631,8 +634,9 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 			sldispatch_async(self.adapter.queue, ^{
 				[self.adapter channelConnected:self];
+				[_adapter channelCanSendMore:self];
 			});
-			
+						
 			continue;
 		}
 		
