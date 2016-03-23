@@ -313,6 +313,10 @@
 	// Transport queue.
 	
 	[_channelsConnecting addObject:channel];
+
+	// Debug:
+	//[_browser stop];
+	//[_server stop];
 }
 
 - (void) channelConnected:(nonnull UDBonjourChannel*)channel
