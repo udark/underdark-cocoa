@@ -63,8 +63,8 @@
 
 - (instancetype) initWithAppId:(int32_t)appId
 						nodeId:(int64_t)nodeId
-					   delegate:(id<UDAdapterDelegate>)delegate
-						  queue:(dispatch_queue_t)queue
+					   delegate:(nonnull id<UDAdapterDelegate>)delegate
+						  queue:(nonnull dispatch_queue_t)queue
 					 peerToPeer:(bool)peerToPeer
 {
 	if(!(self = [super init]))
@@ -180,6 +180,7 @@
 
 - (void) browserDidFail
 {
+	// Transport queue.
 	if([_reach isReachable])
 	{
 		[_browser restart];
@@ -191,6 +192,7 @@
 
 - (void) serverDidFail
 {
+	// Transport queue.
 	if([_reach isReachable])
 	{
 		[_server restart];

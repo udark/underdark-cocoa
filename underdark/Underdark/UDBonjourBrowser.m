@@ -190,7 +190,9 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 	// I/O thread.
 	
 	LogDebug(@"netServiceBrowserDidNotSearch: errorCode %@", errorDict[NSNetServicesErrorCode]);
-	[_transport browserDidFail];
+	dispatch_async(_transport.queue, ^{
+		[_transport browserDidFail];
+	});
 }
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)browser didFindDomain:(NSString *)domainString moreComing:(BOOL)moreComing

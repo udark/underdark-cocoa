@@ -18,6 +18,7 @@
 
 #import "UDLogging.h"
 #import "UDBonjourChannel.h"
+#import "UDAsyncUtils.h"
 
 @interface UDBonjourServer() <NSNetServiceDelegate>
 {
@@ -58,7 +59,7 @@
 	_service.includesPeerToPeer = _transport.peerToPeer;
 	_service.delegate = self;
 	[_service scheduleInRunLoop:_transport.ioThread.runLoop forMode:NSDefaultRunLoopMode];
-	[_service startMonitoring];
+	//[_service startMonitoring];
 	
 	[_service publishWithOptions:NSNetServiceListenForConnections];
 }
@@ -70,7 +71,7 @@
 	
 	_running = false;
 	
-	[_service stopMonitoring];
+	//[_service stopMonitoring];
 	[_service stop];
 	[_service removeFromRunLoop:_transport.ioThread.runLoop forMode:NSDefaultRunLoopMode];
 	_service.delegate = nil;
@@ -153,7 +154,10 @@
 		return;
 	
 	LogDebug(@"bnj netServiceDidNotPublish %@", errorDict[NSNetServicesErrorCode]);
-	[_transport serverDidFail];
+	
+	dispatch_async(_transport.queue, ^{
+		[_transport serverDidFail];
+	});
 }
 
 @end
