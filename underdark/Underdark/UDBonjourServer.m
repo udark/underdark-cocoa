@@ -20,12 +20,24 @@
 #import "UDBonjourChannel.h"
 #import "UDAsyncUtils.h"
 
+typedef NS_ENUM(NSUInteger, UDBnjServerState) {
+	UDBnjServerStateStopped,
+	UDBnjServerStateStarting,
+	UDBnjServerStateRunning,
+	UDBnjServerStateStopping
+};
+
 @interface UDBonjourServer() <NSNetServiceDelegate>
 {
-	bool _running;
-	__weak UDBonjourAdapter* _adapter;
+	UDBnjServerState _state;
+	UDBnjServerState _desiredState;
+
 	NSNetService* _service;
+	
 }
+
+@property (nonatomic, readonly, weak, nullable) UDBonjourAdapter* adapter;
+
 @end
 
 @implementation UDBonjourServer
@@ -41,24 +53,59 @@
 		return self;
 	
 	_adapter = adapter;
+	_state = UDBnjServerStateStopped;
+	_desiredState = UDBnjServerStateStopped;
 	
 	return self;
 }
 
+- (void) checkDesiredState
+{
+	// Adapter queue.
+	if(_desiredState == UDBnjServerStateRunning && _state == UDBnjServerStateStopped)
+	{
+		[self start];
+	}
+	else if(_desiredState == UDBnjServerStateStopped && _state == UDBnjServerStateRunning)
+	{
+		[self stop];
+	}
+}
+
 - (void) start
 {
-	if(_running)
+	// Adapter queue.
+	
+	_desiredState = UDBnjServerStateRunning;
+	
+	if(_state != UDBnjServerStateStopped)
 		return;
+	
+	_state = UDBnjServerStateStarting;
+	
+	[self performSelector:@selector(startImpl) onThread:_adapter.ioThread withObject:nil waitUntilDone:YES];
+}
+
+- (void) startImpl
+{
+	// Service thread.
 	
 	_service = [[NSNetService alloc] initWithDomain:@"" type:_adapter.serviceType name:@(_adapter.nodeId).description port:0];
 	if(!_service)
+	{
+		LogError(@"NSNetService init() == nil");
+		
+		sldispatch_async(_adapter.queue, ^{
+			_state = UDBnjServerStateStopped;
+			_desiredState = UDBnjServerStateStopped;
+			[_adapter serverDidFail];
+		});
 		return;
-	
-	_running = true;
+	}
 	
 	_service.includesPeerToPeer = _adapter.peerToPeer;
 	_service.delegate = self;
-	[_service scheduleInRunLoop:_adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
+	//[_service scheduleInRunLoop:_adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
 	//[_service startMonitoring];
 	
 	[_service publishWithOptions:NSNetServiceListenForConnections];
@@ -66,16 +113,29 @@
 
 - (void) stop
 {
-	if(!_running)
+	// Adapter queue.
+
+	_desiredState = UDBnjServerStateStopped;
+	
+	if(_state != UDBnjServerStateRunning)
 		return;
 	
-	_running = false;
+	_state = UDBnjServerStateStopping;
+	
+	[self performSelector:@selector(stopImpl) onThread:_adapter.ioThread withObject:nil waitUntilDone:YES];
+}
+
+- (void) stopImpl
+{
+	// Service thread.
 	
 	//[_service stopMonitoring];
+	
 	[_service stop];
-	[_service removeFromRunLoop:_adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
-	_service.delegate = nil;
-	_service = nil;
+	
+	//[_service removeFromRunLoop:_adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
+	//_service.delegate = nil;
+	//_service = nil;
 }
 
 - (void) restart
@@ -94,6 +154,13 @@
 		return;
 	
 	LogDebug(@"bnj netServiceDidStop");
+	
+	_service = nil;
+
+	sldispatch_async(_adapter.queue, ^{
+		_state = UDBnjServerStateStopped;
+		[self checkDesiredState];
+	});
 }
 
 - (void)netService:(NSNetService *)sender didUpdateTXTRecordData:(NSData *)data
@@ -104,9 +171,6 @@
 		return;
 	
 	LogDebug(@"bnj didUpdateTXTRecordData");
-	
-	if(!_running)
-		return;
 	
 	//[_service publishWithOptions:NSNetServiceListenForConnections];
 }
@@ -120,10 +184,12 @@
 	
 	//LogDebug(@"bnj didAcceptConnection");
 	
-	UDBonjourChannel* link = [[UDBonjourChannel alloc] initWithAdapter:_adapter input:inputStream output:outputStream];
-	[_adapter channelConnecting:link];
-	
-	[link connect];
+	sldispatch_async(_adapter.queue, ^{
+		UDBonjourChannel* channel = [[UDBonjourChannel alloc] initWithAdapter:_adapter input:inputStream output:outputStream];
+		[_adapter channelConnecting:channel];
+		
+		[channel connect];
+	});
 }
 
 - (void)netServiceWillPublish:(NSNetService *)sender
@@ -133,7 +199,7 @@
 	if(sender != _service)
 		return;
 	
-	LogDebug(@"bnj netServiceWillPublish");
+	//LogDebug(@"bnj netServiceWillPublish");
 }
 
 - (void)netServiceDidPublish:(NSNetService *)sender
@@ -144,6 +210,11 @@
 		return;
 	
 	LogDebug(@"bnj netServiceDidPublish");
+	
+	sldispatch_async(_adapter.queue, ^{
+		_state = UDBnjServerStateRunning;
+		[self checkDesiredState];
+	});
 }
 
 - (void)netService:(NSNetService *)sender didNotPublish:(NSDictionary *)errorDict
@@ -155,7 +226,11 @@
 	
 	LogDebug(@"bnj netServiceDidNotPublish %@", errorDict[NSNetServicesErrorCode]);
 	
-	dispatch_async(_adapter.queue, ^{
+	_service = nil;
+	
+	sldispatch_async(_adapter.queue, ^{
+		_state = UDBnjServerStateStopped;
+		_desiredState = UDBnjServerStateStopped;
 		[_adapter serverDidFail];
 	});
 }
