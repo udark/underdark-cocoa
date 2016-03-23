@@ -61,7 +61,7 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState) {
 
 - (void) checkDesiredState
 {
-	// Adapter queue.
+	// Service thread.
 	if(_desiredState == UDBnjServerStateRunning && _state == UDBnjServerStateStopped)
 	{
 		[self start];
@@ -76,19 +76,19 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState) {
 {
 	// Adapter queue.
 	
-	_desiredState = UDBnjServerStateRunning;
-	
-	if(_state != UDBnjServerStateStopped)
-		return;
-	
-	_state = UDBnjServerStateStarting;
-	
 	[self performSelector:@selector(startImpl) onThread:_adapter.ioThread withObject:nil waitUntilDone:YES];
 }
 
 - (void) startImpl
 {
 	// Service thread.
+	
+	_desiredState = UDBnjServerStateRunning;
+	
+	if(_state != UDBnjServerStateStopped)
+		return;
+	
+	_state = UDBnjServerStateStarting;
 	
 	_service = [[NSNetService alloc] initWithDomain:@"" type:_adapter.serviceType name:@(_adapter.nodeId).description port:0];
 	if(!_service)
@@ -109,18 +109,11 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState) {
 	//[_service startMonitoring];
 	
 	[_service publishWithOptions:NSNetServiceListenForConnections];
-}
+} // startImpl
 
 - (void) stop
 {
 	// Adapter queue.
-
-	_desiredState = UDBnjServerStateStopped;
-	
-	if(_state != UDBnjServerStateRunning)
-		return;
-	
-	_state = UDBnjServerStateStopping;
 	
 	[self performSelector:@selector(stopImpl) onThread:_adapter.ioThread withObject:nil waitUntilDone:YES];
 }
@@ -129,6 +122,13 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState) {
 {
 	// Service thread.
 	
+	_desiredState = UDBnjServerStateStopped;
+	
+	if(_state != UDBnjServerStateRunning)
+		return;
+	
+	_state = UDBnjServerStateStopping;
+	
 	//[_service stopMonitoring];
 	
 	[_service stop];
@@ -136,10 +136,11 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState) {
 	//[_service removeFromRunLoop:_adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
 	//_service.delegate = nil;
 	//_service = nil;
-}
+} // stopImpl
 
 - (void) restart
-{	
+{
+	// Adapter queue.
 	[self stop];
 	[self start];
 }
@@ -156,11 +157,8 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState) {
 	LogDebug(@"bnj netServiceDidStop");
 	
 	_service = nil;
-
-	sldispatch_async(_adapter.queue, ^{
-		_state = UDBnjServerStateStopped;
-		[self checkDesiredState];
-	});
+	_state = UDBnjServerStateStopped;
+	[self checkDesiredState];
 }
 
 - (void)netService:(NSNetService *)sender didUpdateTXTRecordData:(NSData *)data
@@ -210,11 +208,9 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState) {
 		return;
 	
 	LogDebug(@"bnj netServiceDidPublish");
-	
-	sldispatch_async(_adapter.queue, ^{
-		_state = UDBnjServerStateRunning;
-		[self checkDesiredState];
-	});
+
+	_state = UDBnjServerStateRunning;
+	[self checkDesiredState];
 }
 
 - (void)netService:(NSNetService *)sender didNotPublish:(NSDictionary *)errorDict
@@ -227,10 +223,10 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState) {
 	LogDebug(@"bnj netServiceDidNotPublish %@", errorDict[NSNetServicesErrorCode]);
 	
 	_service = nil;
+	_state = UDBnjServerStateStopped;
+	_desiredState = UDBnjServerStateStopped;
 	
 	sldispatch_async(_adapter.queue, ^{
-		_state = UDBnjServerStateStopped;
-		_desiredState = UDBnjServerStateStopped;
 		[_adapter serverDidFail];
 	});
 }
