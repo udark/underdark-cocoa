@@ -38,6 +38,7 @@ static PBExtensionRegistry* extensionRegistry = nil;
 @interface ObjectiveCFileOptions ()
 @property (strong) NSString* package;
 @property (strong) NSString* classPrefix;
+@property BOOL relaxCamelCase;
 @end
 
 @implementation ObjectiveCFileOptions
@@ -56,10 +57,23 @@ static PBExtensionRegistry* extensionRegistry = nil;
   hasClassPrefix_ = !!_value_;
 }
 @synthesize classPrefix;
+- (BOOL) hasRelaxCamelCase {
+  return !!hasRelaxCamelCase_;
+}
+- (void) setHasRelaxCamelCase:(BOOL) _value_ {
+  hasRelaxCamelCase_ = !!_value_;
+}
+- (BOOL) relaxCamelCase {
+  return !!relaxCamelCase_;
+}
+- (void) setRelaxCamelCase:(BOOL) _value_ {
+  relaxCamelCase_ = !!_value_;
+}
 - (instancetype) init {
   if ((self = [super init])) {
     self.package = @"";
     self.classPrefix = @"";
+    self.relaxCamelCase = NO;
   }
   return self;
 }
@@ -85,6 +99,9 @@ static ObjectiveCFileOptions* defaultObjectiveCFileOptionsInstance = nil;
   if (self.hasClassPrefix) {
     [output writeString:2 value:self.classPrefix];
   }
+  if (self.hasRelaxCamelCase) {
+    [output writeBool:3 value:self.relaxCamelCase];
+  }
   [self.unknownFields writeToCodedOutputStream:output];
 }
 - (SInt32) serializedSize {
@@ -99,6 +116,9 @@ static ObjectiveCFileOptions* defaultObjectiveCFileOptionsInstance = nil;
   }
   if (self.hasClassPrefix) {
     size_ += computeStringSize(2, self.classPrefix);
+  }
+  if (self.hasRelaxCamelCase) {
+    size_ += computeBoolSize(3, self.relaxCamelCase);
   }
   size_ += self.unknownFields.serializedSize;
   memoizedSerializedSize = size_;
@@ -141,6 +161,9 @@ static ObjectiveCFileOptions* defaultObjectiveCFileOptionsInstance = nil;
   if (self.hasClassPrefix) {
     [output appendFormat:@"%@%@: %@\n", indent, @"classPrefix", self.classPrefix];
   }
+  if (self.hasRelaxCamelCase) {
+    [output appendFormat:@"%@%@: %@\n", indent, @"relaxCamelCase", [NSNumber numberWithBool:self.relaxCamelCase]];
+  }
   [self.unknownFields writeDescriptionTo:output withIndent:indent];
 }
 - (void) storeInDictionary:(NSMutableDictionary *)dictionary {
@@ -149,6 +172,9 @@ static ObjectiveCFileOptions* defaultObjectiveCFileOptionsInstance = nil;
   }
   if (self.hasClassPrefix) {
     [dictionary setObject: self.classPrefix forKey: @"classPrefix"];
+  }
+  if (self.hasRelaxCamelCase) {
+    [dictionary setObject: [NSNumber numberWithBool:self.relaxCamelCase] forKey: @"relaxCamelCase"];
   }
   [self.unknownFields storeInDictionary:dictionary];
 }
@@ -165,6 +191,8 @@ static ObjectiveCFileOptions* defaultObjectiveCFileOptionsInstance = nil;
       (!self.hasPackage || [self.package isEqual:otherMessage.package]) &&
       self.hasClassPrefix == otherMessage.hasClassPrefix &&
       (!self.hasClassPrefix || [self.classPrefix isEqual:otherMessage.classPrefix]) &&
+      self.hasRelaxCamelCase == otherMessage.hasRelaxCamelCase &&
+      (!self.hasRelaxCamelCase || self.relaxCamelCase == otherMessage.relaxCamelCase) &&
       (self.unknownFields == otherMessage.unknownFields || (self.unknownFields != nil && [self.unknownFields isEqual:otherMessage.unknownFields]));
 }
 - (NSUInteger) hash {
@@ -174,6 +202,9 @@ static ObjectiveCFileOptions* defaultObjectiveCFileOptionsInstance = nil;
   }
   if (self.hasClassPrefix) {
     hashCode = hashCode * 31 + [self.classPrefix hash];
+  }
+  if (self.hasRelaxCamelCase) {
+    hashCode = hashCode * 31 + [[NSNumber numberWithBool:self.relaxCamelCase] hash];
   }
   hashCode = hashCode * 31 + [self.unknownFields hash];
   return hashCode;
@@ -224,6 +255,9 @@ static ObjectiveCFileOptions* defaultObjectiveCFileOptionsInstance = nil;
   if (other.hasClassPrefix) {
     [self setClassPrefix:other.classPrefix];
   }
+  if (other.hasRelaxCamelCase) {
+    [self setRelaxCamelCase:other.relaxCamelCase];
+  }
   [self mergeUnknownFields:other.unknownFields];
   return self;
 }
@@ -251,6 +285,10 @@ static ObjectiveCFileOptions* defaultObjectiveCFileOptionsInstance = nil;
       }
       case 18: {
         [self setClassPrefix:[input readString]];
+        break;
+      }
+      case 24: {
+        [self setRelaxCamelCase:[input readBool]];
         break;
       }
     }
@@ -286,6 +324,22 @@ static ObjectiveCFileOptions* defaultObjectiveCFileOptionsInstance = nil;
 - (ObjectiveCFileOptionsBuilder*) clearClassPrefix {
   resultObjectiveCfileOptions.hasClassPrefix = NO;
   resultObjectiveCfileOptions.classPrefix = @"";
+  return self;
+}
+- (BOOL) hasRelaxCamelCase {
+  return resultObjectiveCfileOptions.hasRelaxCamelCase;
+}
+- (BOOL) relaxCamelCase {
+  return resultObjectiveCfileOptions.relaxCamelCase;
+}
+- (ObjectiveCFileOptionsBuilder*) setRelaxCamelCase:(BOOL) value {
+  resultObjectiveCfileOptions.hasRelaxCamelCase = YES;
+  resultObjectiveCfileOptions.relaxCamelCase = value;
+  return self;
+}
+- (ObjectiveCFileOptionsBuilder*) clearRelaxCamelCase {
+  resultObjectiveCfileOptions.hasRelaxCamelCase = NO;
+  resultObjectiveCfileOptions.relaxCamelCase = NO;
   return self;
 }
 @end

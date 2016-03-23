@@ -27,7 +27,7 @@ How To Install Protobuf
 5. Clone this repository.
 `git clone https://github.com/alexeyxo/protobuf-objc.git`
 6. Build it!
-`./build.sh`
+`./scripts/build.sh`
 
 ### Adding to your project as a sub project
 
@@ -50,8 +50,103 @@ Compile ".proto" files.
 
 `protoc --plugin=/usr/local/bin/protoc-gen-objc person.proto --objc_out="./"`
 
-Example
--------
+
+Compilation Options
+-------------------
+
+The protobuf-objc compiler recognizes several obj-c specific compilation options.  These
+are added to the beginning of your .proto file:
+
+        package dataexchange;
+
+        import "objectivec-descriptor.proto";
+        option (google.protobuf.objectivec_file_options).package = "DataExchange";
+        option (google.protobuf.objectivec_file_options).class_prefix = "DE";
+        option (google.protobuf.objectivec_file_options).relax_camel_case = true;
+        .
+        .
+        .
+
+### Options
+
+### `package`
+
+Sets the Objective-C package where classes generated from this .proto
+will be placed.  This is typically used since Objective-C libraries output
+all their headers into a single directory.  i.e.  Foundation/*
+AddressBook/*   UIKit/*   etc. etc.
+
+
+### `class_prefix`
+
+The string to be prefixed in front of all classes in order to make them
+'cocoa-y'.  i.e. 'NS/AB/CF/PB' for the
+NextStep/AddressBook/CoreFoundation/ProtocolBuffer libraries respectively.
+This will commonly be the capitalized letters from the above defined
+package directory.
+
+
+### `relax_camel_case`
+
+Values: true/false.
+
+Relaxes the strict camel case that is the default.
+
+When this option is set, only the first letter after an underscore is
+forced to uppercase.  I added this feature so that the generated obj-c code
+could more closely match our own in-house camel casing style.
+
+Example:
+
+        enum Gender {
+          GUnknown  = 0;
+          GFemale   = 1;
+          GMale     = 2;
+          GOther    = 3;
+        }
+
+        enum PlatformType {
+          PTUnknown   = 0;
+          PTiOS       = 1;
+          PTAndroid   = 2;
+          PTWeb       = 3;
+        }
+
+Normal output:
+
+        typedef NS_ENUM(SInt32, HMGender) {
+          HMGenderGunknown = 0,
+          HMGenderGfemale = 1,
+          HMGenderGmale = 2,
+          HMGenderGother = 3,
+        };
+
+        typedef NS_ENUM(SInt32, HMPlatformType) {
+          HMPlatformTypePtunknown = 0,
+          HMPlatformTypePtiOs = 1,
+          HMPlatformTypePtandroid = 2,
+          HMPlatformTypePtweb = 3,
+        };
+
+Relaxed camel case:
+
+        typedef NS_ENUM(SInt32, HMGender) {
+          HMGenderGUnknown = 0,
+          HMGenderGFemale = 1,
+          HMGenderGMale = 2,
+          HMGenderGOther = 3,
+        };
+
+        typedef NS_ENUM(SInt32, HMPlatformType) {
+          HMPlatformTypePTUnknown = 0,
+          HMPlatformTypePTiOS = 1,
+          HMPlatformTypePTAndroid = 2,
+          HMPlatformTypePTWeb = 3,
+        };
+
+
+Protobuf Examples
+-----------------
 
 ### Web
 

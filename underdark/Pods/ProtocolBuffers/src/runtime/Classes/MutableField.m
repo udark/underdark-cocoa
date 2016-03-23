@@ -65,7 +65,7 @@
 
 	if (other.lengthDelimitedArray.count > 0) {
 		if (_lengthDelimitedArray == nil) {
-			_lengthDelimitedArray = [other.lengthDelimitedArray copy];
+			_lengthDelimitedArray = [other.lengthDelimitedArray mutableCopy];
 		} else {
 			[_lengthDelimitedArray addObjectsFromArray:other.lengthDelimitedArray];
 		}
@@ -73,7 +73,7 @@
 
 	if (other.groupArray.count > 0) {
 		if (_groupArray == nil) {
-			_groupArray = [other.groupArray copy];
+			_groupArray = [other.groupArray mutableCopy];
 		} else {
 			[_groupArray addObjectsFromArray:other.groupArray];
 		}

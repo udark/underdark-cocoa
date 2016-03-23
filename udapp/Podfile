@@ -2,7 +2,11 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.1'
 
 link_with 'UDApp'
+use_frameworks!
 inhibit_all_warnings!
 
-pod 'ProtocolBuffers', '~> 1.9'
-pod 'MSWeakTimer', '~> 1.1'
+# Underdark requirements:
+pod 'ProtocolBuffers', '1.9.9.2' # From https://github.com/alexeyxo/protobuf-objc
+pod 'MSWeakTimer', '1.1.0'
+
+pod 'CocoaLumberjack/Swift'
