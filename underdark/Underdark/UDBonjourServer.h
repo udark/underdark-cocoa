@@ -20,9 +20,9 @@
 
 @interface UDBonjourServer : NSObject
 
-- (instancetype) init NS_UNAVAILABLE;
+- (nullable instancetype) init NS_UNAVAILABLE;
 
-- (instancetype) initWithTransport:(UDBonjourAdapter*)transport NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype) initWithAdapter:(nonnull UDBonjourAdapter*)adapter NS_DESIGNATED_INITIALIZER;
 
 - (void) start;
 - (void) stop;

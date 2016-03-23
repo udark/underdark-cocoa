@@ -26,7 +26,7 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 @interface UDBonjourBrowser() <NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 {
 	bool _running;
-	__weak UDBonjourAdapter* _transport;
+	__weak UDBonjourAdapter* _adapter;
 	
 	NSNetServiceBrowser* _browser;
 	NSMutableArray* _servicesDiscovered;
@@ -42,12 +42,12 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 	return nil;
 }
 
-- (instancetype) initWithTransport:(UDBonjourAdapter*)transport
+- (instancetype) initWithAdapter:(UDBonjourAdapter*)adapter
 {
 	if(!(self = [super init]))
 		return self;
 	
-	_transport = transport;
+	_adapter = adapter;
 	_servicesDiscovered = [NSMutableArray array];
 	_times = [NSMutableDictionary dictionary];
 	
@@ -62,11 +62,11 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 	_running = true;
 	
 	_browser = [[NSNetServiceBrowser alloc] init];
-	_browser.includesPeerToPeer = _transport.peerToPeer;
+	_browser.includesPeerToPeer = _adapter.peerToPeer;
 	_browser.delegate = self;
-	[_browser scheduleInRunLoop:_transport.ioThread.runLoop forMode:NSDefaultRunLoopMode];
+	[_browser scheduleInRunLoop:_adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
 	
-	[_browser searchForServicesOfType:_transport.serviceType inDomain:@""];
+	[_browser searchForServicesOfType:_adapter.serviceType inDomain:@""];
 }
 
 - (void) stop
@@ -77,7 +77,7 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 	_running = false;
 	
 	[_browser stop];
-	[_browser removeFromRunLoop:_transport.ioThread.runLoop forMode:NSDefaultRunLoopMode];
+	[_browser removeFromRunLoop:_adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
 	_browser.delegate = nil;
 	_browser = nil;
 }
@@ -151,7 +151,7 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 	if(nodeId == 0)
 		return;
 	
-	if(![_transport shouldConnectToNodeId:nodeId])
+	if(![_adapter shouldConnectToNodeId:nodeId])
 		return;
 	
 	LogDebug(@"bnj discovered nodeId %lld", nodeId);
@@ -165,8 +165,8 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 		return;
 	}
 	
-	UDBonjourChannel* link = [[UDBonjourChannel alloc] initWithNodeId:nodeId adapter:_transport input:inputStream output:outputStream];
-	[_transport channelConnecting:link];
+	UDBonjourChannel* link = [[UDBonjourChannel alloc] initWithNodeId:nodeId adapter:_adapter input:inputStream output:outputStream];
+	[_adapter channelConnecting:link];
 	
 	[link connect];
 }
@@ -190,8 +190,8 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 	// I/O thread.
 	
 	LogDebug(@"netServiceBrowserDidNotSearch: errorCode %@", errorDict[NSNetServicesErrorCode]);
-	dispatch_async(_transport.queue, ^{
-		[_transport browserDidFail];
+	dispatch_async(_adapter.queue, ^{
+		[_adapter browserDidFail];
 	});
 }
 
@@ -200,7 +200,7 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 	// I/O thread.
 	
 	LogDebug(@"netServiceBrowserDidFindDomain '%@'", domainString);
-	[_browser searchForServicesOfType:_transport.serviceType inDomain:domainString];
+	[_browser searchForServicesOfType:_adapter.serviceType inDomain:domainString];
 }
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)browser didRemoveDomain:(NSString *)domainString moreComing:(BOOL)moreComing

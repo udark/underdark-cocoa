@@ -102,8 +102,8 @@
 	
 	[_ioThread start];
 	
-	_browser = [[UDBonjourBrowser alloc] initWithTransport:self];
-	_server = [[UDBonjourServer alloc] initWithTransport:self];
+	_browser = [[UDBonjourBrowser alloc] initWithAdapter:self];
+	_server = [[UDBonjourServer alloc] initWithAdapter:self];
 	
 	return self;
 }
