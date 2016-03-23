@@ -20,8 +20,8 @@
 	UDNsdServer* _server1;
 	UDNsdServer* _server2;
 
-	id<UDLink> _link1;
-	id<UDLink> _link2;
+	id<UDChannel> _link1;
+	id<UDChannel> _link2;
 	
 	NSMutableArray* _framesSent;
 	NSMutableArray* _framesReceived;
@@ -101,7 +101,9 @@
 	_expectFrames = [self expectationWithDescription:@"Frames Received"];
 
 	for(NSData* frameData in _framesSent)
-		[_link1 sendFrame:frameData];
+	{
+		[_link1 sendFrame:[[UDOutputItem alloc] initWithData:frameData frameData:nil]];
+	}
 	
 	[self waitForExpectationsWithTimeout:5.0 handler:nil];
 	_expectFrames = nil;
