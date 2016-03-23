@@ -16,8 +16,12 @@ class AppModel
 	static let shared = AppModel()
 	
 	let node: Node
+	var udlogger = UDJackLogger()
 	
 	init() {
+		UDUnderdark.setLogger(udlogger)
+		DDLog.addLogger(DDTTYLogger.sharedInstance())
+		
 		node = Node();
 	}
 	
@@ -28,9 +32,6 @@ class AppModel
 	
 	func configure()
 	{
-		DDLog.addLogger(DDTTYLogger.sharedInstance())
-		UDUnderdark.setLogger(UDJackLogger())
-		
 		node.start()
 	}
 } // AppModel
