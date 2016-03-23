@@ -59,13 +59,17 @@ static id<UDLogger> underdarkLogger = nil;
 	[transport addAdapter:adapter];
 	return transport;*/
 	
-	if([kinds containsObject:@(UDTransportKindWifi)]
-	   || [kinds containsObject:@(UDTransportKindBluetooth)])
+	if([kinds containsObject:@(UDTransportKindWifi)])
 	{
-		bool peerToPeer = [kinds containsObject:@(UDTransportKindBluetooth)];
+		id<UDAdapter> adapter = [[UDBonjourAdapter alloc] initWithAppId:appId nodeId:nodeId delegate:transport queue:transport.ioqueue peerToPeer:false];
 		
-		id<UDAdapter> adapter = [[UDBonjourAdapter alloc] initWithAppId:appId nodeId:nodeId delegate:transport queue:transport.ioqueue peerToPeer:peerToPeer];
-
+		[transport addAdapter:adapter];
+	}
+	
+	if([kinds containsObject:@(UDTransportKindBluetooth)])
+	{
+		id<UDAdapter> adapter = [[UDBonjourAdapter alloc] initWithAppId:appId nodeId:nodeId delegate:transport queue:transport.ioqueue peerToPeer:true];
+		
 		[transport addAdapter:adapter];
 	}
 	

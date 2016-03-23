@@ -22,7 +22,7 @@
 
 - (instancetype) init NS_UNAVAILABLE;
 
-- (instancetype) initWithTransport:(UDBonjourAdapter*)transport NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithAdapter:(UDBonjourAdapter*)adapter NS_DESIGNATED_INITIALIZER;
 
 - (void) start;
 - (void) stop;

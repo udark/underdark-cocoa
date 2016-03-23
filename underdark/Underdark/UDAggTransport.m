@@ -164,21 +164,21 @@
 
 - (void) adapter:(id<UDAdapter>)adapter channel:(id<UDChannel>)channel didReceiveFrame:(NSData*)data
 {
-	UDAggLink* aggregate = _linksConnected[@(channel.nodeId)];
-	if(!aggregate)
+	UDAggLink* link = _linksConnected[@(channel.nodeId)];
+	if(!link)
 	{
-		LogError(@"Aggregate doesn't exist for %@", channel);
+		LogError(@"Link doesn't exist for channel %@", channel);
 		return;
 	}
 	
-	if(![aggregate containsChannel:channel])
+	if(![link containsChannel:channel])
 	{
-		LogError(@"Aggregate doesn't contain %@", channel);
+		LogError(@"Link doesn't contain channel %@", channel);
 		return;
 	}
 	
 	sldispatch_async(_queue, ^{
-		[_delegate transport:self link:aggregate didReceiveFrame:data];
+		[_delegate transport:self link:link didReceiveFrame:data];
 	});
 }
 

@@ -19,6 +19,8 @@
 - (void) start;
 - (void) stop;
 
+- (bool) isReachable;
+
 @end
 
 @protocol UDReachDelegate <NSObject>

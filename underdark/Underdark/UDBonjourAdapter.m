@@ -44,8 +44,8 @@
 	NSMutableArray<UDBonjourChannel*> * _channelsTerminating;
 	
 	UDBtBeacon* _beacon;
-	UDBtReach* _btReach;
-	UDWifiReach* _wifiReach;
+	id<UDReach> _reach;
+	
 	UDBonjourBrowser* _browser;
 	UDBonjourServer* _server;
 }
@@ -63,8 +63,8 @@
 
 - (instancetype) initWithAppId:(int32_t)appId
 						nodeId:(int64_t)nodeId
-					   delegate:(id<UDAdapterDelegate>)delegate
-						  queue:(dispatch_queue_t)queue
+					   delegate:(nonnull id<UDAdapterDelegate>)delegate
+						  queue:(nonnull dispatch_queue_t)queue
 					 peerToPeer:(bool)peerToPeer
 {
 	if(!(self = [super init]))
@@ -81,18 +81,29 @@
 	_channels = [NSMutableArray array];
 	_channelsTerminating = [NSMutableArray array];
 	
-	_serviceType = [NSString stringWithFormat:@"_underdark1-app%d._tcp.", appId];
-	_timeExtender = [[UDTimeExtender alloc] initWithName:@"UDBonjourAdapter"];
-	
 	_ioThread = [[UDRunLoopThread alloc] init];
-	_ioThread.name = @"Underdark I/O";
+	
+	if(peerToPeer)
+	{
+		_ioThread.name = @"Underdark P2P I/O";
+		_serviceType = [NSString stringWithFormat:@"_udark1-p2p-app%d._tcp.", appId];
+		_linkPriority = 15;
+		_reach = [[UDBtReach alloc] initWithDelegate:self queue:queue];
+	}
+	else
+	{
+		_ioThread.name = @"Underdark I/O";
+		_serviceType = [NSString stringWithFormat:@"_underdark1-app%d._tcp.", appId];
+		_linkPriority = 10;
+		_reach= [[UDWifiReach alloc] initWithDelegate:self queue:queue];
+	}
+	
+	_timeExtender = [[UDTimeExtender alloc] initWithName:@"UDBonjourAdapter"];
 	
 	[_ioThread start];
 	
-	_browser = [[UDBonjourBrowser alloc] initWithTransport:self];
-	_server = [[UDBonjourServer alloc] initWithTransport:self];
-	_btReach = [[UDBtReach alloc] initWithDelegate:self queue:queue];
-	_wifiReach= [[UDWifiReach alloc] initWithDelegate:self queue:queue];
+	_browser = [[UDBonjourBrowser alloc] initWithAdapter:self];
+	_server = [[UDBonjourServer alloc] initWithAdapter:self];
 	
 	return self;
 }
@@ -104,6 +115,8 @@
 	[_ioThread cancel];
 	_ioThread = nil;
 }
+
+#pragma mark - UDAdapter
 
 - (void) start
 {
@@ -122,12 +135,11 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beaconDetected:) name:UDBeaconDetectedNotification object:nil];
 	
 	sldispatch_async(dispatch_get_main_queue(), ^{
-		_beacon = [[UDBtBeacon alloc] initWithAppId:_appId];
+		//_beacon = [[UDBtBeacon alloc] initWithAppId:_appId];
 		[_beacon requestPermissions];
 	});
 	
-	[_btReach start];
-	[_wifiReach start];
+	[_reach start];
 } //start
 
 - (void) stop
@@ -139,8 +151,7 @@
 	_running = false;
 	_suspended = false;
 	
-	[_btReach stop];
-	[_wifiReach stop];
+	[_reach stop];
 
 	sldispatch_async(dispatch_get_main_queue(), ^{
 		[_beacon stopAdvertising];
@@ -158,11 +169,8 @@
 	if(!_running || _suspended)
 		return;
 	
-	if(reach == _wifiReach || (_peerToPeer && reach == _btReach))
-	{
-		[_browser restart];
-		[_server restart];
-	}
+	[_browser restart];
+	[_server restart];
 }
 
 - (void) ifaceBecomeUnreachable:(id<UDReach>)reach
@@ -174,7 +182,8 @@
 
 - (void) browserDidFail
 {
-	if([_wifiReach isReachable] || (_peerToPeer && _btReach.isReachable))
+	// Transport queue.
+	if([_reach isReachable])
 	{
 		[_browser restart];
 		return;
@@ -185,7 +194,8 @@
 
 - (void) serverDidFail
 {
-	if([_wifiReach isReachable] || (_peerToPeer && _btReach.isReachable))
+	// Transport queue.
+	if([_reach isReachable])
 	{
 		[_server restart];
 		return;
@@ -198,6 +208,7 @@
 
 - (bool) shouldConnectToNodeId:(int64_t)nodeId
 {
+	// Transport queue.
 	if(nodeId == _nodeId)
 		return false;
 	
@@ -229,7 +240,7 @@
 	// Main thread.
 	dispatch_sync(self.queue, ^{
 		_suspended = true;
-		[_btReach stop];
+		[_reach stop];
 		[_server stop];
 		[_browser stop];
 	});
@@ -244,11 +255,10 @@
 		
 		if(_suspended)
 		{
+			// App process was resumed by OS.
 			_suspended = false;
-			[_btReach start];
-			
-			[_wifiReach stop];
-			[_wifiReach start];
+			[_reach stop];
+			[_reach start];
 		}
 
 		sldispatch_async(dispatch_get_main_queue(), ^{
@@ -272,11 +282,11 @@
 
 		if(_suspended)
 		{
+			// App process was resumed by OS.
 			_suspended = false;
-			[_btReach start];
 			
-			[_wifiReach stop];
-			[_wifiReach start];
+			[_reach stop];
+			[_reach start];
 		}
 
 		sldispatch_async(dispatch_get_main_queue(), ^{
@@ -296,15 +306,7 @@
 	[_server start];
 }
 
-#pragma mark - Links
-
-- (int16_t) linkPriority
-{
-	if(self.peerToPeer)
-		return 15;
-	
-	return 10;
-}
+#pragma mark - Channels
 
 - (void) channelConnecting:(nonnull UDBonjourChannel*)channel
 {

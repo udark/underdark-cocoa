@@ -18,69 +18,138 @@
 
 #import "UDLogging.h"
 #import "UDBonjourChannel.h"
+#import "UDAsyncUtils.h"
+
+typedef NS_ENUM(NSUInteger, UDBnjServerState)
+{
+	UDBnjServerStateStopped,
+	UDBnjServerStateStarting,
+	UDBnjServerStateRunning,
+	UDBnjServerStateStopping
+};
 
 @interface UDBonjourServer() <NSNetServiceDelegate>
 {
-	bool _running;
-	__weak UDBonjourAdapter* _transport;
+	UDBnjServerState _state;
+	UDBnjServerState _desiredState;
+
 	NSNetService* _service;
+	
 }
+
+@property (nonatomic, readonly, weak, nullable) UDBonjourAdapter* adapter;
+
 @end
 
 @implementation UDBonjourServer
 
-- (instancetype) init
+#pragma mark - Initialization
+
+- (nullable instancetype) init
 {
-	@throw nil;
+	return nil;
 }
 
-- (instancetype) initWithTransport:(UDBonjourAdapter*)transport
+- (nonnull instancetype) initWithAdapter:(nonnull UDBonjourAdapter*)adapter
 {
 	if(!(self = [super init]))
 		return self;
 	
-	_transport = transport;
+	_adapter = adapter;
+	_state = UDBnjServerStateStopped;
+	_desiredState = UDBnjServerStateStopped;
 	
 	return self;
 }
 
+#pragma mark - Public API
+
 - (void) start
 {
-	if(_running)
-		return;
+	// Adapter queue.
 	
-	_service = [[NSNetService alloc] initWithDomain:@"" type:_transport.serviceType name:@(_transport.nodeId).description port:0];
-	if(!_service)
-		return;
-	
-	_running = true;
-	
-	_service.includesPeerToPeer = _transport.peerToPeer;
-	_service.delegate = self;
-	[_service scheduleInRunLoop:_transport.ioThread.runLoop forMode:NSDefaultRunLoopMode];
-	[_service startMonitoring];
-	
-	[_service publishWithOptions:NSNetServiceListenForConnections];
+	[self performSelector:@selector(startImpl) onThread:_adapter.ioThread withObject:nil waitUntilDone:YES];
 }
 
 - (void) stop
 {
-	if(!_running)
-		return;
+	// Adapter queue.
 	
-	_running = false;
-	
-	[_service stopMonitoring];
-	[_service stop];
-	[_service removeFromRunLoop:_transport.ioThread.runLoop forMode:NSDefaultRunLoopMode];
-	_service.delegate = nil;
-	_service = nil;
+	[self performSelector:@selector(stopImpl) onThread:_adapter.ioThread withObject:nil waitUntilDone:YES];
 }
 
 - (void) restart
-{	
+{
+	// Adapter queue.
 	[self stop];
 	[self start];
+}
+
+#pragma mark - NSNetService
+
+- (void) startImpl
+{
+	// Service thread.
+	
+	_desiredState = UDBnjServerStateRunning;
+	
+	if(_state != UDBnjServerStateStopped)
+		return;
+	
+	_state = UDBnjServerStateStarting;
+	
+	_service = [[NSNetService alloc] initWithDomain:@"" type:_adapter.serviceType name:@(_adapter.nodeId).description port:0];
+	if(!_service)
+	{
+		LogError(@"NSNetService init() == nil");
+		
+		sldispatch_async(_adapter.queue, ^{
+			_state = UDBnjServerStateStopped;
+			_desiredState = UDBnjServerStateStopped;
+			[_adapter serverDidFail];
+		});
+		return;
+	}
+	
+	_service.includesPeerToPeer = _adapter.peerToPeer;
+	_service.delegate = self;
+	//[_service scheduleInRunLoop:_adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
+	//[_service startMonitoring];
+	
+	[_service publishWithOptions:NSNetServiceListenForConnections];
+} // startImpl
+
+- (void) stopImpl
+{
+	// Service thread.
+	
+	_desiredState = UDBnjServerStateStopped;
+	
+	if(_state != UDBnjServerStateRunning)
+		return;
+	
+	_state = UDBnjServerStateStopping;
+	
+	//[_service stopMonitoring];
+	
+	[_service stop];
+	
+	//[_service removeFromRunLoop:_adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
+	//_service.delegate = nil;
+	//_service = nil;
+} // stopImpl
+
+- (void) checkDesiredState
+{
+	// Service thread.
+	if(_desiredState == UDBnjServerStateRunning && _state == UDBnjServerStateStopped)
+	{
+		[self startImpl];
+	}
+	else if(_desiredState == UDBnjServerStateStopped && _state == UDBnjServerStateRunning)
+	{
+		[self stopImpl];
+	}
 }
 
 #pragma mark - NSNetServiceDelegate
@@ -93,6 +162,10 @@
 		return;
 	
 	LogDebug(@"bnj netServiceDidStop");
+	
+	_service = nil;
+	_state = UDBnjServerStateStopped;
+	[self checkDesiredState];
 }
 
 - (void)netService:(NSNetService *)sender didUpdateTXTRecordData:(NSData *)data
@@ -104,10 +177,48 @@
 	
 	LogDebug(@"bnj didUpdateTXTRecordData");
 	
-	if(!_running)
+	//[_service publishWithOptions:NSNetServiceListenForConnections];
+}
+
+- (void)netServiceWillPublish:(NSNetService *)sender
+{
+	// I/O thread.
+	
+	if(sender != _service)
 		return;
 	
-	//[_service publishWithOptions:NSNetServiceListenForConnections];
+	//LogDebug(@"bnj netServiceWillPublish");
+}
+
+- (void)netServiceDidPublish:(NSNetService *)sender
+{
+	// I/O thread.
+	
+	if(sender != _service)
+		return;
+	
+	LogDebug(@"bnj netServiceDidPublish");
+
+	_state = UDBnjServerStateRunning;
+	[self checkDesiredState];
+}
+
+- (void)netService:(NSNetService *)sender didNotPublish:(NSDictionary *)errorDict
+{
+	// I/O thread.
+	
+	if(sender != _service)
+		return;
+	
+	LogDebug(@"bnj netServiceDidNotPublish %@", errorDict[NSNetServicesErrorCode]);
+	
+	_service = nil;
+	_state = UDBnjServerStateStopped;
+	_desiredState = UDBnjServerStateStopped;
+	
+	sldispatch_async(_adapter.queue, ^{
+		[_adapter serverDidFail];
+	});
 }
 
 - (void)netService:(NSNetService *)sender didAcceptConnectionWithInputStream:(NSInputStream *)inputStream outputStream:(NSOutputStream *)outputStream
@@ -119,41 +230,12 @@
 	
 	//LogDebug(@"bnj didAcceptConnection");
 	
-	UDBonjourChannel* link = [[UDBonjourChannel alloc] initWithAdapter:_transport input:inputStream output:outputStream];
-	[_transport channelConnecting:link];
-	
-	[link connect];
-}
-
-- (void)netServiceWillPublish:(NSNetService *)sender
-{
-	// I/O thread.
-	
-	if(sender != _service)
-		return;
-	
-	LogDebug(@"bnj netServiceWillPublish");
-}
-
-- (void)netServiceDidPublish:(NSNetService *)sender
-{
-	// I/O thread.
-	
-	if(sender != _service)
-		return;
-	
-	LogDebug(@"bnj netServiceDidPublish");
-}
-
-- (void)netService:(NSNetService *)sender didNotPublish:(NSDictionary *)errorDict
-{
-	// I/O thread.
-	
-	if(sender != _service)
-		return;
-	
-	LogDebug(@"bnj netServiceDidNotPublish %@", errorDict[NSNetServicesErrorCode]);
-	[_transport serverDidFail];
+	sldispatch_async(_adapter.queue, ^{
+		UDBonjourChannel* channel = [[UDBonjourChannel alloc] initWithAdapter:_adapter input:inputStream output:outputStream];
+		[_adapter channelConnecting:channel];
+		
+		[channel connect];
+	});
 }
 
 @end

@@ -28,16 +28,18 @@
 @property (nonatomic, readonly, nonnull) NSString* serviceType;
 @property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
 
-@property (nonatomic) bool peerToPeer;
+@property (nonatomic, readonly) bool peerToPeer;
 
 @property (nonatomic, readonly, nullable) UDRunLoopThread * ioThread;
+
+@property (nonatomic, readonly) int16_t linkPriority;
 
 - (nonnull instancetype) init NS_UNAVAILABLE;
 
 - (nonnull instancetype) initWithAppId:(int32_t)appId
 								 nodeId:(int64_t)nodeId
-					   delegate:(id<UDAdapterDelegate> __nonnull)delegate
-						  queue:(dispatch_queue_t __nonnull)queue
+					   delegate:(nonnull id<UDAdapterDelegate>)delegate
+						  queue:(nonnull dispatch_queue_t)queue
 					 peerToPeer:(bool)peerToPeer NS_DESIGNATED_INITIALIZER;
 
 - (void) start;
@@ -45,8 +47,6 @@
 
 - (void) browserDidFail;
 - (void) serverDidFail;
-
-- (int16_t) linkPriority;
 
 - (bool) shouldConnectToNodeId:(int64_t)nodeId;
 
