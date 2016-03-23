@@ -117,7 +117,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 
 - (NSString*) description
 {
-	return SFMT(@"link %p | nodeId %lld", self, _nodeId);
+	return SFMT(@"channel %p | nodeId %lld", self, _nodeId);
 }
 
 - (int16_t) priority

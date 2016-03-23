@@ -148,13 +148,13 @@
 	UDAggLink* link = _linksConnected[@(channel.nodeId)];
 	if(!link)
 	{
-		LogError(@"Link doesn't exist for channel %@", channel);
+		LogError(@"Link doesn't exist for %@", channel);
 		return;
 	}
 	
 	if(![link containsChannel:channel])
 	{
-		LogError(@"Link doesn't contain channel %@", channel);
+		LogError(@"Link doesn't contain %@", channel);
 		return;
 	}
 	
