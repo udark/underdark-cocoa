@@ -5,5 +5,5 @@ inhibit_all_warnings!
 
 link_with 'Underdark', 'UnderdarkTests'
 
-pod 'ProtocolBuffers', '1.9.9.2' # From https://github.com/alexeyxo/protobuf-objc
+pod 'ProtocolBuffers', '1.9.9' # From https://github.com/alexeyxo/protobuf-objc
 pod 'MSWeakTimer', '1.1.0'
