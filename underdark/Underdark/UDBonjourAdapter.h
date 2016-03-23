@@ -32,6 +32,8 @@
 
 @property (nonatomic, readonly, nullable) UDRunLoopThread * ioThread;
 
+@property (nonatomic, readonly) int16_t linkPriority;
+
 - (nonnull instancetype) init NS_UNAVAILABLE;
 
 - (nonnull instancetype) initWithAppId:(int32_t)appId
@@ -45,8 +47,6 @@
 
 - (void) browserDidFail;
 - (void) serverDidFail;
-
-- (int16_t) linkPriority;
 
 - (bool) shouldConnectToNodeId:(int64_t)nodeId;
 
