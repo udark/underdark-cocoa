@@ -206,6 +206,7 @@
 
 - (bool) shouldConnectToNodeId:(int64_t)nodeId
 {
+	// Transport queue.
 	if(nodeId == _nodeId)
 		return false;
 	

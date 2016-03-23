@@ -20,22 +20,36 @@
 
 #import "UDLogging.h"
 #import "UDBonjourChannel.h"
+#import "UDAsyncUtils.h"
 
 const NSTimeInterval UDBonjourBrowserTimeout = 10;
 
+typedef NS_ENUM(NSUInteger, UDBnjBrowserState)
+{
+	UDBnjBrowserStateStopped,
+	UDBnjBrowserStateStarting,
+	UDBnjBrowserStateRunning,
+	UDBnjBrowserStateStopping
+};
+
 @interface UDBonjourBrowser() <NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 {
-	bool _running;
-	__weak UDBonjourAdapter* _adapter;
+	UDBnjBrowserState _state;
+	UDBnjBrowserState _desiredState;
 	
 	NSNetServiceBrowser* _browser;
 	NSMutableArray* _servicesDiscovered;
 	
 	NSMutableDictionary* _times; // name NSString to detection NSTimeInterval since reference date.
 }
+
+@property (nonatomic, readonly, weak, nullable) UDBonjourAdapter* adapter;
+
 @end
 
 @implementation UDBonjourBrowser
+
+#pragma mark - Initialization
 
 - (instancetype) init
 {
@@ -48,44 +62,84 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 		return self;
 	
 	_adapter = adapter;
+	
+	_state = UDBnjBrowserStateStopped;
+	_desiredState = UDBnjBrowserStateStopped;
+	
 	_servicesDiscovered = [NSMutableArray array];
 	_times = [NSMutableDictionary dictionary];
 	
 	return self;
 }
 
+#pragma mark - Public API
+
 - (void) start
 {
-	if(_running)
-		return;
-	
-	_running = true;
-	
-	_browser = [[NSNetServiceBrowser alloc] init];
-	_browser.includesPeerToPeer = _adapter.peerToPeer;
-	_browser.delegate = self;
-	[_browser scheduleInRunLoop:_adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
-	
-	[_browser searchForServicesOfType:_adapter.serviceType inDomain:@""];
+	[self performSelector:@selector(startImpl) onThread:_adapter.ioThread withObject:nil waitUntilDone:YES];
 }
 
 - (void) stop
 {
-	if(!_running)
-		return;
-	
-	_running = false;
-	
-	[_browser stop];
-	[_browser removeFromRunLoop:_adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
-	_browser.delegate = nil;
-	_browser = nil;
+	[self performSelector:@selector(stopImpl) onThread:_adapter.ioThread withObject:nil waitUntilDone:YES];
 }
 
 - (void) restart
 {
 	[self stop];
 	[self start];
+}
+
+#pragma mark - Browser
+
+- (void) startImpl
+{
+	//  Browser thread.
+	
+	_desiredState = UDBnjBrowserStateRunning;
+	
+	if(_state != UDBnjBrowserStateStopped)
+		return;
+	
+	_state = UDBnjBrowserStateStarting;
+	
+	_browser = [[NSNetServiceBrowser alloc] init];
+	_browser.includesPeerToPeer = _adapter.peerToPeer;
+	_browser.delegate = self;
+	
+	//[_browser scheduleInRunLoop:_adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
+	
+	[_browser searchForServicesOfType:_adapter.serviceType inDomain:@""];
+} // startImpl
+
+- (void) stopImpl
+{
+	//  Browser thread.
+
+	_desiredState = UDBnjBrowserStateStopped;
+	
+	if(_state != UDBnjBrowserStateRunning)
+		return;
+	
+	_state = UDBnjBrowserStateStopping;
+	
+	[_browser stop];
+	//[_browser removeFromRunLoop:_adapter.ioThread.runLoop forMode:NSDefaultRunLoopMode];
+	//_browser.delegate = nil;
+	//_browser = nil;
+}
+
+- (void) checkDesiredState
+{
+	// Service thread.
+	if(_desiredState == UDBnjBrowserStateRunning && _state == UDBnjBrowserStateStopped)
+	{
+		[self startImpl];
+	}
+	else if(_desiredState == UDBnjBrowserStateStopped && _state == UDBnjBrowserStateRunning)
+	{
+		[self stopImpl];
+	}
 }
 
 #pragma mark - NSNetServiceBrowserDelegate
@@ -150,12 +204,7 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 	int64_t nodeId = [netService.name longLongValue];
 	if(nodeId == 0)
 		return;
-	
-	if(![_adapter shouldConnectToNodeId:nodeId])
-		return;
-	
-	LogDebug(@"bnj discovered nodeId %lld", nodeId);
-	
+
 	NSInputStream* inputStream;
 	NSOutputStream* outputStream;
 	
@@ -165,11 +214,24 @@ const NSTimeInterval UDBonjourBrowserTimeout = 10;
 		return;
 	}
 	
-	UDBonjourChannel* link = [[UDBonjourChannel alloc] initWithNodeId:nodeId adapter:_adapter input:inputStream output:outputStream];
-	[_adapter channelConnecting:link];
-	
-	[link connect];
-}
+	sldispatch_async(_adapter.queue, ^{
+		if(![_adapter shouldConnectToNodeId:nodeId])
+		{
+			[inputStream open];
+			[inputStream close];
+			[outputStream open];
+			[outputStream close];
+			return;
+		}
+
+		LogDebug(@"bnj discovered nodeId %lld", nodeId);
+		
+		UDBonjourChannel* link = [[UDBonjourChannel alloc] initWithNodeId:nodeId adapter:_adapter input:inputStream output:outputStream];
+		[_adapter channelConnecting:link];
+		
+		[link connect];
+	});
+} // didFindService
 
 - (void)netServiceBrowserWillSearch:(NSNetServiceBrowser *)browser
 {

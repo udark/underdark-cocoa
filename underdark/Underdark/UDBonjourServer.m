@@ -43,6 +43,8 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState)
 
 @implementation UDBonjourServer
 
+#pragma mark - Initialization
+
 - (nullable instancetype) init
 {
 	return nil;
@@ -59,6 +61,8 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState)
 	
 	return self;
 }
+
+#pragma mark - Public API
 
 - (void) start
 {
@@ -80,6 +84,8 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState)
 	[self stop];
 	[self start];
 }
+
+#pragma mark - NSNetService
 
 - (void) startImpl
 {
