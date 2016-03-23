@@ -8,6 +8,9 @@
 
 import Foundation
 
+import CocoaLumberjack
+import Underdark
+
 class AppModel
 {
 	static let shared = AppModel()
@@ -25,6 +28,9 @@ class AppModel
 	
 	func configure()
 	{
+		DDLog.addLogger(DDTTYLogger.sharedInstance())
+		UDUnderdark.setLogger(UDJackLogger())
+		
 		node.start()
 	}
-}
+} // AppModel

@@ -45,8 +45,8 @@
  * This is the single macro that all other macros below compile into.
  * This big multiline macro makes all the other macros easier to read.
  **/
-#define LOG_MACRO(isAsynchronous, lvl, flg, ctx, atag, fnct, frmt, ...) \
-[[UDUnderdark logger] log : isAsynchronous                                     \
+#define LOG_MACRO(asynchronous, lvl, flg, ctx, atag, fnct, frmt, ...) \
+[[UDUnderdark logger] log : asynchronous                                       \
 					level : lvl                                                \
 					 flag : flg                                                \
 				  context : ctx                                                \
@@ -54,7 +54,7 @@
 				 function : fnct                                               \
 					 line : __LINE__                                           \
 					  tag : atag                                               \
-				   format : (frmt), ## __VA_ARGS__]
+				  message : SFMT((frmt), ## __VA_ARGS__)]
 
 /**
  * Define version of the macro that only execute if the log level is above the threshold.
