@@ -21,22 +21,17 @@ class ViewController: UIViewController
 	@IBOutlet weak var progressView: UIProgressView!
 	@IBOutlet weak var progressHeight: NSLayoutConstraint!
 	
-	let node: Node
-	
 	//MARK: - Initialization
 	
 	required init?(coder aDecoder: NSCoder)
 	{
-		node = Node();
-
 		super.init(coder: aDecoder)
 		
-		node.controller = self;
+		AppModel.shared.node.controller = self;
 	}
 	
 	deinit
 	{
-		node.stop();
 	}
 	
 	override func viewDidLoad()
@@ -45,7 +40,7 @@ class ViewController: UIViewController
 		
 		progressHeight.constant = 9
 		
-		node.start();
+		AppModel.shared.configure()
 	}
 
 	override func didReceiveMemoryWarning()
@@ -55,16 +50,17 @@ class ViewController: UIViewController
 
 	func updatePeersCount()
 	{
-		navItem.title = "\(node.peersCount)" + ((node.peersCount == 1) ? " peer" : " peers");
+		navItem.title = "\(AppModel.shared.node.peersCount)" + ((AppModel.shared.node.peersCount == 1) ? " peer" : " peers");
 	}
 	
 	func updateFramesCount()
 	{
-		framesCountLabel.text = "\(node.framesCount) frames";
+		framesCountLabel.text = "\(AppModel.shared.node.framesCount) frames";
 		
-		timeLabel.text = NSString(format: "%.2f seconds", node.timeEnd - node.timeStart) as String
+		let timeval = AppModel.shared.node.timeEnd - AppModel.shared.node.timeStart
+		timeLabel.text = NSString(format: "%.2f seconds", timeval) as String
 		
-		let speed = Int( Double(node.bytesCount) / (node.timeEnd - node.timeStart + 0.0001) )
+		let speed = Int( Double(AppModel.shared.node.bytesCount) / (AppModel.shared.node.timeEnd - AppModel.shared.node.timeStart + 0.0001) )
 		speedLabel.text = "\(speed / 1024) kb/sec"
 	}
 	
@@ -91,21 +87,21 @@ class ViewController: UIViewController
 	
 	@IBAction func sendFramesSmall(sender: AnyObject)
 	{
-		node.broadcastFrame(frameData(1))
+		AppModel.shared.node.broadcastFrame(frameData(1))
 		
 		for _ in 0 ..< 2000
 		{
-			node.broadcastFrame(frameData(1024));
+			AppModel.shared.node.broadcastFrame(frameData(1024));
 		}
 	}
 	
 	@IBAction func sendFramesLarge(sender: AnyObject)
 	{
-		node.broadcastFrame(frameData(1))
+		AppModel.shared.node.broadcastFrame(frameData(1))
 
 		for _ in 0 ..< 200
 		{
-			node.broadcastFrame(frameData(100 * 1024));
+			AppModel.shared.node.broadcastFrame(frameData(100 * 1024));
 		}
 	}
 } // ViewController
