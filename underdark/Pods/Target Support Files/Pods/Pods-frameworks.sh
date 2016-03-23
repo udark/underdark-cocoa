@@ -82,3 +82,12 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods/MSWeakTimer.framework"
+  install_framework "Pods/ProtocolBuffers.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods/MSWeakTimer.framework"
+  install_framework "Pods/ProtocolBuffers.framework"
+fi

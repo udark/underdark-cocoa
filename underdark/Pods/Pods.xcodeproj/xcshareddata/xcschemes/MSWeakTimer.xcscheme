@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5DCC3292781EDBC99751A84A6348547E"
-               BuildableName = "libMSWeakTimer.a"
+               BlueprintIdentifier = "5C67015EA0FC7CCE35A09B4A1517E78E"
+               BuildableName = "MSWeakTimer.framework"
                BlueprintName = "MSWeakTimer"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -45,8 +45,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5DCC3292781EDBC99751A84A6348547E"
-            BuildableName = "libMSWeakTimer.a"
+            BlueprintIdentifier = "5C67015EA0FC7CCE35A09B4A1517E78E"
+            BuildableName = "MSWeakTimer.framework"
             BlueprintName = "MSWeakTimer"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
