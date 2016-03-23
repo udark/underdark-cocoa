@@ -29,12 +29,12 @@ typedef NS_ENUM(NSUInteger, UDLogLevel) {
 	UDLogLevelInfo      = (UDLogLevelWarning | UDLogFlagInfo),    // 0...00111
 	UDLogLevelDebug     = (UDLogLevelInfo    | UDLogFlagDebug),   // 0...01111
 	UDLogLevelVerbose   = (UDLogLevelDebug   | UDLogFlagVerbose), // 0...11111
-	DDLogLevelAll       = NSUIntegerMax                           // 1111....11111 (DDLogLevelVerbose plus any other flags)
+	UDLogLevelAll       = NSUIntegerMax                           // 1111....11111 (DDLogLevelVerbose plus any other flags)
 };
 
 @protocol UDLogger <NSObject>
 
-- (void)log:(BOOL)synchronous
+- (void)log:(BOOL)asynchronous
 	  level:(UDLogLevel)level
 	   flag:(UDLogFlag)flag
 	context:(NSInteger)context
@@ -42,6 +42,6 @@ typedef NS_ENUM(NSUInteger, UDLogLevel) {
    function:(const char *)function
 	   line:(NSUInteger)line
 		tag:(id)tag
-	 format:(NSString *)format, ... NS_FORMAT_FUNCTION(9,10);
+	message:(NSString *)message;
 
 @end

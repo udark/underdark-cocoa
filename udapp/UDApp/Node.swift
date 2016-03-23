@@ -20,6 +20,7 @@ class Node: NSObject, UDTransportDelegate
 	var links: [UDLink] = [];
 	
 	weak var controller: ViewController?;
+	
 	var peersCount = 0;
 	var framesCount = 0;
 	

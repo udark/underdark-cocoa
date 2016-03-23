@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZRN-lh-kPv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Transfer-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UDApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,7 +48,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ms4-St-WqT">
-                                <rect key="frame" x="20" y="530" width="140" height="50"/>
+                                <rect key="frame" x="20" y="481" width="140" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="F6z-tc-w3P"/>
                                     <constraint firstAttribute="width" constant="140" id="sl9-f9-dmw"/>
@@ -67,7 +67,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Q0-MB-veC">
-                                <rect key="frame" x="440" y="530" width="140" height="50"/>
+                                <rect key="frame" x="440" y="481" width="140" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Oyb-EF-1Bc"/>
                                     <constraint firstAttribute="width" constant="140" id="e7W-1s-2F2"/>
@@ -118,6 +118,7 @@
                             <constraint firstItem="kKp-IB-i7p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zoZ-Sd-KnJ"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Transfer" id="ljA-Ra-oBh"/>
                     <connections>
                         <outlet property="framesCountLabel" destination="rUm-4w-TXY" id="1UU-Fb-a2n"/>
                         <outlet property="navItem" destination="Kmn-eg-m4d" id="meZ-Vu-Jax"/>
@@ -129,7 +130,76 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="319" y="339"/>
+            <point key="canvasLocation" x="195" y="195"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="biI-R8-m83">
+            <objects>
+                <tabBarController id="ZRN-lh-kPv" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="5co-Dl-PIQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="7GI-ng-85k"/>
+                        <segue destination="3oh-lI-vwZ" kind="relationship" relationship="viewControllers" id="6c8-9f-BBx"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZSX-pg-wTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-619" y="527"/>
+        </scene>
+        <!--Log-->
+        <scene sceneID="PTd-aj-SEC">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="3oh-lI-vwZ" customClass="LogViewController" customModule="UDApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fo4-h1-PPF"/>
+                        <viewControllerLayoutGuide type="bottom" id="8WG-BK-Yrc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kWp-kl-jQL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Sc-lb-vx1">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Log" id="Z1i-oK-8R9">
+                                        <barButtonItem key="leftBarButtonItem" title="Clear" id="gEI-t5-GvV">
+                                            <connections>
+                                                <action selector="clearLog:" destination="3oh-lI-vwZ" id="9JN-tb-Xvg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mki-px-wql">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7Sc-lb-vx1" firstAttribute="top" secondItem="fo4-h1-PPF" secondAttribute="bottom" id="BgV-fC-3LN"/>
+                            <constraint firstAttribute="trailing" secondItem="mki-px-wql" secondAttribute="trailing" id="G3v-kO-aJU"/>
+                            <constraint firstItem="mki-px-wql" firstAttribute="top" secondItem="7Sc-lb-vx1" secondAttribute="bottom" id="Ro6-Yc-L0C"/>
+                            <constraint firstItem="7Sc-lb-vx1" firstAttribute="leading" secondItem="kWp-kl-jQL" secondAttribute="leading" id="Z6w-Io-Oq7"/>
+                            <constraint firstItem="mki-px-wql" firstAttribute="leading" secondItem="kWp-kl-jQL" secondAttribute="leading" id="fCv-u9-NYe"/>
+                            <constraint firstItem="8WG-BK-Yrc" firstAttribute="top" secondItem="mki-px-wql" secondAttribute="bottom" id="fOQ-my-T7o"/>
+                            <constraint firstAttribute="trailing" secondItem="7Sc-lb-vx1" secondAttribute="trailing" id="hUM-nO-2vS"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Log" id="uZY-Ie-p9J"/>
+                    <connections>
+                        <outlet property="textView" destination="mki-px-wql" id="9JQ-sn-zIe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cEF-ce-ael" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="195" y="1092"/>
         </scene>
     </scenes>
 </document>
