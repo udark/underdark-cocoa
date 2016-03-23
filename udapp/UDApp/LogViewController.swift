@@ -36,10 +36,17 @@ class LogViewController: UIViewController, UDJackLoggerDelegate {
 		textView.text = ""
 	}
 
+	func scrollToBottom() {
+		let range = NSMakeRange(textView.text.characters.count - 1, 1);
+		textView.scrollRangeToVisible(range);
+	}
+	
 	// MARK: - UDJackLoggerDelegate
 	
 	func logMessage(message: String)
 	{
 		textView.text = textView.text + message + "\n"
+		
+		
 	}
 }

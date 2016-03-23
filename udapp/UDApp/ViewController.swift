@@ -41,6 +41,11 @@ class ViewController: UIViewController
 		
 		progressHeight.constant = 9
 		
+		for vc in self.tabBarController!.viewControllers!
+		{
+			let _ = vc.view
+		}
+		
 		AppModel.shared.node.start()
 	}
 
