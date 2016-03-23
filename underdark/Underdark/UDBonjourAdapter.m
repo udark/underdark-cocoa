@@ -82,11 +82,20 @@
 	_channels = [NSMutableArray array];
 	_channelsTerminating = [NSMutableArray array];
 	
-	_serviceType = [NSString stringWithFormat:@"_underdark1-app%d._tcp.", appId];
+	if(peerToPeer)
+	{
+		_serviceType = [NSString stringWithFormat:@"_udark1-p2p-app%d._tcp.", appId];
+	}
+	else
+	{
+		_serviceType = [NSString stringWithFormat:@"_underdark1-app%d._tcp.", appId];
+	}
+	
+	
 	_timeExtender = [[UDTimeExtender alloc] initWithName:@"UDBonjourAdapter"];
 	
 	_ioThread = [[UDRunLoopThread alloc] init];
-	_ioThread.name = @"Underdark I/O";
+	_ioThread.name = peerToPeer ? @"Underdark I/O" : @"Underdark P2P I/O";
 	
 	[_ioThread start];
 	
@@ -301,7 +310,7 @@
 
 - (int16_t) linkPriority
 {
-	if(self.peerToPeer)
+	if(_peerToPeer)
 		return 15;
 	
 	return 10;
