@@ -72,7 +72,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Oyb-EF-1Bc"/>
                                     <constraint firstAttribute="width" constant="140" id="e7W-1s-2F2"/>
                                 </constraints>
-                                <state key="normal" title="Send 200 x 100KB"/>
+                                <state key="normal" title="Send 100 x 100KB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                         <integer key="value" value="1"/>

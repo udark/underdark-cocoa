@@ -238,6 +238,9 @@ typedef NS_ENUM(NSUInteger, UDBnjBrowserState)
 	// I/O thread.
 	
 	//LogDebug(@"netServiceBrowserWillSearch");
+	
+	_state = UDBnjBrowserStateRunning;
+	[self checkDesiredState];
 }
 
 - (void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser *)browser
