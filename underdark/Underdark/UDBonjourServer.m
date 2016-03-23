@@ -20,7 +20,8 @@
 #import "UDBonjourChannel.h"
 #import "UDAsyncUtils.h"
 
-typedef NS_ENUM(NSUInteger, UDBnjServerState) {
+typedef NS_ENUM(NSUInteger, UDBnjServerState)
+{
 	UDBnjServerStateStopped,
 	UDBnjServerStateStarting,
 	UDBnjServerStateRunning,
@@ -59,24 +60,25 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState) {
 	return self;
 }
 
-- (void) checkDesiredState
-{
-	// Service thread.
-	if(_desiredState == UDBnjServerStateRunning && _state == UDBnjServerStateStopped)
-	{
-		[self start];
-	}
-	else if(_desiredState == UDBnjServerStateStopped && _state == UDBnjServerStateRunning)
-	{
-		[self stop];
-	}
-}
-
 - (void) start
 {
 	// Adapter queue.
 	
 	[self performSelector:@selector(startImpl) onThread:_adapter.ioThread withObject:nil waitUntilDone:YES];
+}
+
+- (void) stop
+{
+	// Adapter queue.
+	
+	[self performSelector:@selector(stopImpl) onThread:_adapter.ioThread withObject:nil waitUntilDone:YES];
+}
+
+- (void) restart
+{
+	// Adapter queue.
+	[self stop];
+	[self start];
 }
 
 - (void) startImpl
@@ -111,13 +113,6 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState) {
 	[_service publishWithOptions:NSNetServiceListenForConnections];
 } // startImpl
 
-- (void) stop
-{
-	// Adapter queue.
-	
-	[self performSelector:@selector(stopImpl) onThread:_adapter.ioThread withObject:nil waitUntilDone:YES];
-}
-
 - (void) stopImpl
 {
 	// Service thread.
@@ -138,11 +133,17 @@ typedef NS_ENUM(NSUInteger, UDBnjServerState) {
 	//_service = nil;
 } // stopImpl
 
-- (void) restart
+- (void) checkDesiredState
 {
-	// Adapter queue.
-	[self stop];
-	[self start];
+	// Service thread.
+	if(_desiredState == UDBnjServerStateRunning && _state == UDBnjServerStateStopped)
+	{
+		[self startImpl];
+	}
+	else if(_desiredState == UDBnjServerStateStopped && _state == UDBnjServerStateRunning)
+	{
+		[self stopImpl];
+	}
 }
 
 #pragma mark - NSNetServiceDelegate
