@@ -105,7 +105,7 @@ class ViewController: UIViewController
 	{
 		AppModel.shared.node.broadcastFrame(frameData(1))
 
-		for _ in 0 ..< 100
+		for _ in 0 ..< 20
 		{
 			AppModel.shared.node.broadcastFrame(frameData(100 * 1024));
 		}
