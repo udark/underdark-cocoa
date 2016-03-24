@@ -18,14 +18,14 @@
 
 #import <MSWeakTimer/MSWeakTimer.h>
 
-#import "UDBonjourAdapter.h"
 #import "Frames.pb.h"
+#import "UDBonjourAdapter.h"
+#import "UDConfig.h"
 #import "UDLogging.h"
 #import "UDAsyncUtils.h"
 #import "UDMemoryData.h"
 #import "UDOutputItem.h"
-
-#import "UDConfig.h"
+#import "UDByteBuf.h"
 
 typedef NS_ENUM(NSUInteger, SLBnjState)
 {
@@ -39,7 +39,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	bool _isClient;
 	SLBnjState _state;
 	
-	NSMutableData* _inputData;		// Input frame data buffer.
+	UDByteBuf* _inputByteBuf;		// Input frame data buffer.
 	uint8_t _inputBuffer[1024];		// Input stream buffer.
 	
 	NSMutableArray<UDOutputItem*>* _outputQueue;	// Output queue with data objects.
@@ -85,7 +85,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	_state = SLBnjStateConnecting;
 	
 	_adapter = adapter;
-	_inputData = [[NSMutableData alloc] init];
+	_inputByteBuf = [[UDByteBuf alloc] init];
 	_outputQueue = [NSMutableArray array];
 	_outputCanWriteToStream = false;
 
@@ -400,6 +400,112 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	return outitem;
 }
 
+- (void)formFrames
+{
+	// Stream thread.
+	
+	while(true)
+	{
+		_heartbeatReceived = true;
+		
+		// Calculating how much data still must be appended to receive message body size.
+		const size_t frameHeaderSize = sizeof(uint32_t);
+		
+		// If current buffer length is not enough to create frame header - so continue reading.
+		if(_inputByteBuf.readableBytes < frameHeaderSize)
+		{
+			[_inputByteBuf trimWritable:sizeof(_inputBuffer)];
+			break;
+		}
+		
+		// Calculating frame body size.
+		uint32_t frameBodySize =  *( ((const uint32_t*)(_inputByteBuf.data.bytes + _inputByteBuf.readerIndex)) + 0) ;
+		frameBodySize = CFSwapInt32BigToHost(frameBodySize);
+		
+		size_t frameSize = frameHeaderSize + frameBodySize;
+		
+		// We don't have full frame in input buffer - so continue reading.
+		if(frameSize > _inputByteBuf.readableBytes)
+		{
+			[_inputByteBuf ensureWritable:frameSize - _inputByteBuf.readableBytes];
+			[_inputByteBuf trimWritable:frameSize - _inputByteBuf.readableBytes];
+			break;
+		}
+		
+		[_inputByteBuf skipBytes:frameHeaderSize];
+		NSData* frameBody = [_inputByteBuf readBytes:frameBodySize];
+		
+		[_inputByteBuf discardReadBytes];
+		
+		if(frameBody.length == 0)
+			continue;
+		
+		Frame* frame;
+		
+		@try
+		{
+			frame = [Frame parseFromData:frameBody];
+		}
+		@catch (NSException *exception)
+		{
+			continue;
+		}
+		@finally
+		{
+		}
+		
+		[self processInputFrame:frame];
+		
+	} // while
+} // formFrames
+
+- (void) processInputFrame:(Frame*)frame
+{
+	// Stream thread.
+	
+	if(_state == SLBnjStateConnecting)
+	{
+		if(frame.kind != FrameKindHello || !frame.hasHello)
+			return;
+		
+		_nodeId = frame.hello.nodeId;
+		
+		//LogDebug(@"bnj link hello received nodeId %lld", _nodeId);
+		
+		_state = SLBnjStateConnected;
+		
+		_timeoutTimer = [MSWeakTimer scheduledTimerWithTimeInterval:configBonjourTimeoutInterval target:self selector:@selector(checkHeartbeat) userInfo:nil repeats:YES dispatchQueue:self.adapter.queue];
+		
+		sldispatch_async(self.adapter.queue, ^{
+			[self.adapter channelConnected:self];
+			[_adapter channelCanSendMore:self];
+		});
+		
+		return;
+	}
+	
+	if(frame.kind == FrameKindHeartbeat)
+	{
+		if(!frame.hasHeartbeat)
+			return;
+		
+		//LogDebug(@"link heartbeat");
+		return;
+	}
+	
+	if(frame.kind == FrameKindPayload)
+	{
+		if(!frame.hasPayload || frame.payload.payload == nil)
+			return;
+		
+		sldispatch_async(self.adapter.queue, ^{
+			[self.adapter channel:self receivedFrame:frame.payload.payload];
+		});
+		
+		return;
+	}
+} // processInputFrame
+
 #pragma mark - NSStreamDelegate
 
 - (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode
@@ -534,7 +640,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 			
 			if(len > 0)
 			{
-				[_inputData appendBytes:_inputBuffer length:(NSUInteger)len];
+				[_inputByteBuf writeBytes:_inputBuffer length:(NSUInteger)len];
 			}
 			else if(len < 0)
 			{
@@ -570,106 +676,5 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 		[self closeStreams];
 	}
 } // inputStream
-
-- (void)formFrames
-{
-	// Stream thread.
-	
-	while(true)
-	{
-		_heartbeatReceived = true;
-
-		// Calculating how much data still must be appended to receive message body size.
-		const size_t frameHeaderSize = sizeof(uint32_t);
-		
-		// If current buffer length is not enough to create frame header - so continue reading.
-		if(_inputData.length < frameHeaderSize)
-			break;
-		
-		// Calculating frame body size.
-		uint32_t frameBodySize =  *( ((const uint32_t*)[_inputData bytes]) + 0) ;
-		frameBodySize = CFSwapInt32BigToHost(frameBodySize);
-		
-		size_t frameSize = frameHeaderSize + frameBodySize;
-		
-		// We don't have full frame in input buffer - so continue reading.
-		if(frameSize > _inputData.length)
-			break;
-		
-		// We have our frame at the start of inputData.
-		NSData* frameBody = [_inputData subdataWithRange:NSMakeRange(frameHeaderSize, frameBodySize)];
-		
-		// Moving remaining bytes to the start.
-		if(_inputData.length != frameSize)
-			memmove(_inputData.mutableBytes, (int8_t*)_inputData.mutableBytes + frameSize, _inputData.length - frameSize);
-		
-		// Shrinking inputData.
-		_inputData.length = _inputData.length - frameSize;
-		
-		//NSData *remainingData = [_inputData subdataWithRange:NSMakeRange(frameSize, _inputData.length - frameSize)];
-		//_inputData = [NSMutableData dataWithData:remainingData];
-		
-		/*static int foo = 0;
-		 ++foo;
-		 if(foo % 500 == 0)
-			NSLog(@"in %d", foo);*/
-		
-		if(frameBody.length == 0)
-			continue;
-		
-		Frame* frame;
-		
-		@try
-		{
-			frame = [Frame parseFromData:frameBody];
-		}
-		@catch (NSException *exception)
-		{
-			continue;
-		}
-		@finally
-		{
-		}
-		
-		if(_state == SLBnjStateConnecting)
-		{
-			if(frame.kind != FrameKindHello || !frame.hasHello)
-				continue;
-			
-			_nodeId = frame.hello.nodeId;
-			
-			//LogDebug(@"bnj link hello received nodeId %lld", _nodeId);
-			
-			_state = SLBnjStateConnected;
-			
-			_timeoutTimer = [MSWeakTimer scheduledTimerWithTimeInterval:configBonjourTimeoutInterval target:self selector:@selector(checkHeartbeat) userInfo:nil repeats:YES dispatchQueue:self.adapter.queue];
-
-			sldispatch_async(self.adapter.queue, ^{
-				[self.adapter channelConnected:self];
-				[_adapter channelCanSendMore:self];
-			});
-						
-			continue;
-		}
-		
-		if(frame.kind == FrameKindHeartbeat)
-		{
-			if(!frame.hasHeartbeat)
-				continue;
-			
-			//LogDebug(@"link heartbeat");
-		}
-		
-		if(frame.kind == FrameKindPayload)
-		{
-			if(!frame.hasPayload || frame.payload.payload == nil)
-				continue;
-		
-			sldispatch_async(self.adapter.queue, ^{
-				[self.adapter channel:self receivedFrame:frame.payload.payload];
-			});
-		}
-	} // while
-} // formFrames
 
 @end
