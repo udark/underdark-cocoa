@@ -30,6 +30,7 @@
 - (void) skipBytes:(NSUInteger)length;
 
 - (void) writeData:(nonnull NSData*)data;
+- (void) writeBytes:(nonnull uint8_t*)src length:(NSUInteger)length;
 - (void) advanceWriterIndex:(NSUInteger)length;
 
 @end

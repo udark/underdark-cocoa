@@ -117,6 +117,13 @@
 	_writerIndex += data.length;
 }
 
+- (void) writeBytes:(nonnull uint8_t*)src length:(NSUInteger)length
+{
+	[self ensureWritable:length];
+	[_data replaceBytesInRange:NSMakeRange(_writerIndex, length) withBytes:src length:length];
+	_writerIndex += length;
+}
+
 - (void) advanceWriterIndex:(NSUInteger)length
 {
 	NSAssert(_writerIndex + length <= _data.length, @"_writerIndex + length > capacity");
