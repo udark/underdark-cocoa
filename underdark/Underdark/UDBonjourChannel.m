@@ -285,8 +285,6 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 {
 	// Stream thread.
 	
-	// frameData already acquired.
-	
 	if(_state == SLBnjStateDisconnected)
 		return;
 	
@@ -303,6 +301,90 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	// Otherwise add item to output queue.
 	[_outputQueue addObject:item];
 }
+
+- (void) writeNextBytes
+{
+	// Stream thread.
+	
+	if(_state == SLBnjStateDisconnected)
+		return;
+	
+	while(_outputItem != nil)
+	{
+		if(_outputItem.isEnding)
+		{
+			_outputItem = nil;
+			_outputDataOffset = 0;
+			[self closeStreams];
+			return;
+		}
+		
+		// We already written something to NSOutputStream
+		// after receiving NSStreamEventHasSpaceAvailable.
+		// So we must wait for next event, otherwise we will block.
+		if(!_outputCanWriteToStream)
+		{
+			//LogDebug(@"writeNextBytes fail");
+			return;
+		}
+		
+		//LogDebug(@"writeNextBytes pass");
+		
+		uint8_t* bytes = (uint8_t *)_outputItem.data.bytes;
+		bytes += _outputDataOffset;
+		
+		NSInteger len = (NSInteger) MIN(512, _outputItem.data.length - _outputDataOffset);
+		
+		// Writing to NSOutputStream:
+		// http://stackoverflow.com/a/23001691/1449965
+		// https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Streams/Articles/WritingOutputStreams.html
+		
+		NSInteger result;
+	 
+		if(len != 0)
+		{
+			_outputCanWriteToStream = false;
+			result = [_outputStream write:bytes maxLength:(NSUInteger)len];
+		}
+		else
+		{
+			result = 0;
+		}
+		
+		if(result < 0)
+		{
+			LogError(@"Output stream error %@", _outputStream.streamError);
+			
+			[self closeStreams];
+			return;
+		}
+		
+		_outputDataOffset += result;
+		if(_outputDataOffset == _outputItem.data.length)
+		{
+			// Item is fully written - getting next from output queue.
+			_outputDataOffset = 0;
+			_outputItem = nil;
+			
+			if(_outputQueue.count == 0)
+			{
+				if(_state == SLBnjStateConnected)
+				{
+					sldispatch_async(_adapter.queue, ^{
+						[_adapter channelCanSendMore:self];
+					});
+				}
+				
+				return;
+			}
+			else
+			{
+				_outputItem = _outputQueue.firstObject;
+				[_outputQueue removeObjectAtIndex:0];
+			}
+		}
+	} // while
+} // writeNextBytes
 
 #pragma mark - Boxing
 
@@ -409,95 +491,6 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 		[self closeStreams];
 	}
 } // outputStream
-
-- (void) writeNextBytes
-{
-	// Stream thread.
-	
-	if(_state == SLBnjStateDisconnected)
-		return;
-	
-	// Output queue is empty - nothing to write.
-	if(_outputItem == nil)
-		return;
-	
-	if(_outputItem.isEnding)
-	{
-		_outputItem = nil;
-		_outputDataOffset = 0;
-		[self closeStreams];
-		return;
-	}
-	
-	// We already written something to NSOutputStream
-	// after receiving NSStreamEventHasSpaceAvailable.
-	// So we must wait for next event, otherwise we will block.
-	if(!_outputCanWriteToStream)
-	{
-		//LogDebug(@"writeNextBytes fail");
-		return;
-	}
-
-	//LogDebug(@"writeNextBytes pass");
-
-	uint8_t* bytes = (uint8_t *)_outputItem.data.bytes;
-	bytes += _outputDataOffset;
-	NSInteger len = (NSInteger) MIN(sizeof(_inputBuffer), _outputItem.data.length - _outputDataOffset);
-	
-	// Writing to NSOutputStream:
-	// http://stackoverflow.com/a/23001691/1449965
-	// https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Streams/Articles/WritingOutputStreams.html
-	
-	NSInteger result;
- 
-	if(len != 0)
-	{
-		_outputCanWriteToStream = false;
-		result = [_outputStream write:bytes maxLength:(NSUInteger)len];
-	}
-	else
-	{
-		result = 0;
-	}
-	
-	if(result < 0)
-	{
-		LogError(@"Output stream error %@", _outputStream.streamError);
-		
-		[self closeStreams];
-		return;
-	}
-	
-	//LogDebug(@"output wrote bytes %d", result);
-	
-	//LogDebug(@"Write speed %d bytes/sec", (int32_t)(_transferBytes / _transferTime));
-	
-	_outputDataOffset += result;
-	if(_outputDataOffset == _outputItem.data.length)
-	{
-		// Item is fully written - getting next from output queue.
-		_outputDataOffset = 0;
-		_outputItem = nil;
-		
-		if(_outputQueue.count == 0)
-		{
-			if(_state == SLBnjStateConnected)
-			{
-				sldispatch_async(_adapter.queue, ^{
-					[_adapter channelCanSendMore:self];
-				});
-			}
-		}
-		else
-		{
-			_outputItem = _outputQueue.firstObject;
-			[_outputQueue removeObjectAtIndex:0];
-			
-			// Try to write next item - it will fail anyway if _outputCanWriteToStream is false.
-			[self performSelector:@selector(writeNextBytes) onThread:_adapter.ioThread withObject:nil waitUntilDone:NO];
-		}
-	}
-} // writeNextBytes
 
 - (void)inputStream:(NSInputStream *)stream handleEvent:(NSStreamEvent)eventCode
 {
