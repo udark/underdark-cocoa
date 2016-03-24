@@ -94,9 +94,19 @@
 	[_data getBytes:dest range:NSMakeRange(offset, length)];
 }
 
+- (nonnull NSData*) readBytes:(NSUInteger)length
+{
+	NSAssert(length <= self.readableBytes, @"length > readableBytes");
+	
+	NSData* result = [_data subdataWithRange:NSMakeRange(_readerIndex, length)];
+	_readerIndex += length;
+	
+	return result;
+}
+
 - (void) skipBytes:(NSUInteger)length
 {
-	NSAssert(length > self.readableBytes, @"length >= readableBytes");
+	NSAssert(length > self.readableBytes, @"length > readableBytes");
 	_readerIndex += length;
 }
 

@@ -26,6 +26,7 @@
 - (nonnull NSData*) bytes:(NSUInteger)offset length:(NSUInteger)length;
 - (void) bytes:(NSUInteger)offset dest:(nonnull uint8_t*)dest length:(NSUInteger)length;
 
+- (nonnull NSData*) readBytes:(NSUInteger)length;
 - (void) skipBytes:(NSUInteger)length;
 - (void) advanceWriterIndex:(NSUInteger)length;
 
