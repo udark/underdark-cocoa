@@ -28,6 +28,8 @@
 
 - (nonnull NSData*) readBytes:(NSUInteger)length;
 - (void) skipBytes:(NSUInteger)length;
+
+- (void) writeData:(nonnull NSData*)data;
 - (void) advanceWriterIndex:(NSUInteger)length;
 
 @end

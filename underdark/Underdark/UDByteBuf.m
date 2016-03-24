@@ -106,8 +106,15 @@
 
 - (void) skipBytes:(NSUInteger)length
 {
-	NSAssert(length > self.readableBytes, @"length > readableBytes");
+	NSAssert(length <= self.readableBytes, @"length > readableBytes");
 	_readerIndex += length;
+}
+
+- (void) writeData:(nonnull NSData*)data
+{
+	[self ensureWritable:data.length];
+	[_data replaceBytesInRange:NSMakeRange(_writerIndex, data.length) withBytes:data.bytes length:data.length];
+	_writerIndex += data.length;
 }
 
 - (void) advanceWriterIndex:(NSUInteger)length
