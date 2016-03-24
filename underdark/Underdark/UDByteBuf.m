@@ -62,6 +62,14 @@
 	self.capacity = _writerIndex + minWritableBytes;
 }
 
+- (void) trimWritable:(NSUInteger)maxWritableBytes
+{
+	if(self.capacity - _writerIndex <= maxWritableBytes)
+		return;
+	
+	self.capacity = _writerIndex + maxWritableBytes;
+}
+
 - (void) discardReadBytes
 {
 	[_data replaceBytesInRange:NSMakeRange(0, _readerIndex) withBytes:NULL length:0];
@@ -69,5 +77,33 @@
 	_readerIndex = 0;
 }
 
+- (nonnull NSData*) bytes:(NSUInteger)offset length:(NSUInteger)length
+{
+	NSAssert(offset < _data.length - _writerIndex, @"offset >= capacity");
+	NSAssert(offset + length <= _data.length, @"offset + length > capacity");
+	
+	return [_data subdataWithRange:NSMakeRange(offset, length)];
+}
+
+- (void) bytes:(NSUInteger)offset dest:(nonnull uint8_t*)dest length:(NSUInteger)length
+{
+	NSAssert(dest != nil, @"dest == nil");
+	NSAssert(offset < _data.length, @"offset >= capacity");
+	NSAssert(offset + length <= _data.length, @"offset + length > capacity");
+
+	[_data getBytes:dest range:NSMakeRange(offset, length)];
+}
+
+- (void) skipBytes:(NSUInteger)length
+{
+	NSAssert(length > self.readableBytes, @"length >= readableBytes");
+	_readerIndex += length;
+}
+
+- (void) advanceWriterIndex:(NSUInteger)length
+{
+	NSAssert(_writerIndex + length <= _data.length, @"_writerIndex + length > capacity");
+	_writerIndex += length;
+}
 
 @end
