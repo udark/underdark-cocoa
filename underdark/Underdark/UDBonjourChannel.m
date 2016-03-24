@@ -642,9 +642,15 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 			{
 				[_inputByteBuf writeBytes:_inputBuffer length:(NSUInteger)len];
 			}
+			else if(len == 0)
+			{
+				LogError(@"Input stream EOF.");
+				shouldClose = true;
+				break;
+			}
 			else if(len < 0)
 			{
-				LogError(@"Input stream error %@", stream.streamError);
+				LogError(@"Input stream error: %@", stream.streamError);
 				shouldClose = true;
 				break;
 			}
