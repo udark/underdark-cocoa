@@ -26,10 +26,6 @@
 @property (nonatomic, readonly) bool slowLink;
 @property (nonatomic, readonly) int16_t priority;
 
-@property (nonatomic, readonly) NSInteger transferBytes;
-@property (nonatomic, readonly) NSTimeInterval transferTime;
-@property (nonatomic, readonly) NSInteger transferSpeed;
-
 
 - (instancetype) init NS_UNAVAILABLE;
 
