@@ -135,8 +135,11 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beaconDetected:) name:UDBeaconDetectedNotification object:nil];
 	
 	sldispatch_async(dispatch_get_main_queue(), ^{
-		//_beacon = [[UDBtBeacon alloc] initWithAppId:_appId];
-		[_beacon requestPermissions];
+		if(_peerToPeer)
+		{
+			_beacon = [[UDBtBeacon alloc] initWithAppId:_appId];
+			[_beacon requestPermissions];
+		}
 	});
 	
 	[_reach start];
