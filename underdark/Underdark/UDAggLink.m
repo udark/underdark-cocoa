@@ -16,13 +16,13 @@
 
 #import "UDAggLink.h"
 
-#import "UDMemoryData.h"
+#import "UDMemorySource.h"
 #import "UDAsyncUtils.h"
 
 @interface UDAggLink()
 {
 	NSMutableArray<id<UDChannel>> * _channels;
-	NSMutableArray<id<UDData>> * _outputQueue;
+	NSMutableArray<id<UDSource>> * _outputQueue;
 	UDFrameData* _preparedFrame; // Currently prepared frame.
 }
 
@@ -104,11 +104,11 @@
 {
 	// User queue.
 	
-	UDMemoryData* memoryData = [[UDMemoryData alloc] initWithData:data];
+	UDMemorySource* memoryData = [[UDMemorySource alloc] initWithData:data];
 	[self sendData:memoryData];
 }
 
-- (void) sendData:(nonnull id<UDData>)data
+- (void) sendData:(nonnull id<UDSource>)data
 {
 	// User queue.
 	

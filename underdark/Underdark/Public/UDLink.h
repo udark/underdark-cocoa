@@ -9,7 +9,7 @@
 #ifndef Underdark_UDLink_h
 #define Underdark_UDLink_h
 
-#import "UDData.h"
+#import "UDSource.h"
 
 /**
  * Class for the connection objects with discovered remote devices.
@@ -42,7 +42,7 @@
  * Sends bytes to remote device as single atomic frame.
  * @param data data with bytes to send.
  */
-- (void) sendData:(nonnull id<UDData>)data;
+- (void) sendData:(nonnull id<UDSource>)data;
 
 @end
 

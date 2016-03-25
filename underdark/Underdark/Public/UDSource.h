@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-typedef void (^UDDataRetrieveBlock)(NSData* _Nullable data);
+typedef void (^UDSourceRetrieveBlock)(NSData* _Nullable data);
 
 /**
  * Protocol for raw frame data storage for sending and receiving.
  */
-@protocol UDData<NSObject>
+@protocol UDSource<NSObject>
 
 @property (nonatomic, readonly, nullable) NSString* dataId;
 
@@ -28,6 +28,6 @@ typedef void (^UDDataRetrieveBlock)(NSData* _Nullable data);
  * Implementations should call the completion handler
  * with retrieved data as argument, or null if data cannot be retrieved.
  */
-- (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion;
+- (void) retrieve:(UDSourceRetrieveBlock _Nonnull)completion;
 
 @end

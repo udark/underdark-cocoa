@@ -39,7 +39,7 @@
 - (void) disconnect;
 
 - (void) sendFrame:(nonnull NSData*)data;
-- (void) sendData:(nonnull id<UDData>)data;
+- (void) sendData:(nonnull id<UDSource>)data;
 
 - (void) sendNextFrame;
 

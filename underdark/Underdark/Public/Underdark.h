@@ -30,6 +30,6 @@ FOUNDATION_EXPORT const unsigned char UnderdarkVersionString[];
 #import <Underdark/UDTimeExtender.h>
 #import <Underdark/UDUtil.h>
 
-#import <Underdark/UDData.h>
-#import <Underdark/UDMemoryData.h>
-#import <Underdark/UDLazyData.h>
+#import "UDSource.h"
+#import "UDMemorySource.h"
+#import "UDLazySource.h"

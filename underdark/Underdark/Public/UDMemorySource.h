@@ -16,9 +16,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDData.h"
+#import "UDSource.h"
 
-@interface UDMemoryData : NSObject<UDData>
+@interface UDMemorySource : NSObject<UDSource>
 
 @property (nonatomic, readonly, nullable) NSString* dataId;
 

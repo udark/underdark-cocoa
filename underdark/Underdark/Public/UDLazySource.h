@@ -14,41 +14,21 @@
  * limitations under the License.
  */
 
-#import "UDMemoryData.h"
+#import <Foundation/Foundation.h>
 
-@implementation UDMemoryData
-{
-	 NSData* _Nullable _data;
-}
+#import "UDSource.h"
 
-#pragma mark - Initialization
+typedef NSData* _Nullable (^UDLazyDataRetrieveBlock)();
 
-- (nonnull instancetype) init NS_UNAVAILABLE
-{
-	return nil;
-}
+@interface UDLazySource : NSObject<UDSource>
 
-- (nonnull instancetype) initWithData:(nonnull NSData*)data dataId:(nullable NSString*)dataId
-{
-	if(!(self = [super init]))
-		return self;
-	
-	_dataId = dataId;
-	_data = data;
-	
-	return self;
-}
+@property (nonatomic, readonly, nullable) NSString* dataId;
 
-- (nonnull instancetype) initWithData:(nonnull NSData*)data
-{
-	return [self initWithData:data dataId:nil];
-}
+- (nonnull instancetype) init NS_UNAVAILABLE;
 
-#pragma mark - UDData
+- (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block dataId:(nullable NSString*)dataId NS_DESIGNATED_INITIALIZER;
 
-- (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion
-{
-	completion(_data);
-}
+- (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block;
+
 
 @end

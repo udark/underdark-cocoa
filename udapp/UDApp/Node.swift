@@ -66,7 +66,7 @@ class Node: NSObject, UDTransportDelegate
 		controller?.updateFramesCount();
 	}
 	
-	func broadcastFrame(frameData: UDData)
+	func broadcastFrame(frameData: UDSource)
 	{
 		if(links.isEmpty) { return; }
 		

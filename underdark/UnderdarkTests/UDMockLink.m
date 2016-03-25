@@ -48,7 +48,7 @@
 	});
 }
 
-- (void) sendData:(nonnull id<UDData>)data
+- (void) sendData:(nonnull id<UDSource>)data
 {
 	// Any thread.
 }

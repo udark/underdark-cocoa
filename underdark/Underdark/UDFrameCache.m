@@ -30,7 +30,7 @@
 	return self;
 }
 
-- (nonnull UDFrameData*) frameDataWithData:(nonnull id<UDData>)data
+- (nonnull UDFrameData*) frameDataWithData:(nonnull id<UDSource>)data
 {
 	UDFrameData* result;
 	

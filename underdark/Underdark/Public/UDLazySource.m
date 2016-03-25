@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-#import "UDLazyData.h"
+#import "UDLazySource.h"
 
 #import "UDAsyncUtils.h"
 
-@implementation UDLazyData
+@implementation UDLazySource
 {
 	dispatch_queue_t _queue;
 	UDLazyDataRetrieveBlock _block;
@@ -54,7 +54,7 @@
 
 #pragma mark - UDData
 
-- (void) retrieve:(UDDataRetrieveBlock _Nonnull)completion
+- (void) retrieve:(UDSourceRetrieveBlock _Nonnull)completion
 {
 	// I/O thread.
 	

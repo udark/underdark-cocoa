@@ -27,7 +27,7 @@
 	bool volatile _disposed;
 }
 
-- (nonnull instancetype) initWithData:(nonnull id<UDData>)data queue:(nonnull dispatch_queue_t)queue delegate:(nullable id<UDFrameDataDelegate>)delegate
+- (nonnull instancetype) initWithData:(nonnull id<UDSource>)data queue:(nonnull dispatch_queue_t)queue delegate:(nullable id<UDFrameDataDelegate>)delegate
 {
 	if(!(self = [super init]))
 		return self;

@@ -16,7 +16,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UDData.h"
+#import "UDSource.h"
 
 typedef void (^UDFrameSourceRetrieveBlock)(NSData* _Nullable data);
 
@@ -34,9 +34,9 @@ typedef void (^UDFrameSourceRetrieveBlock)(NSData* _Nullable data);
 @property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
 @property (nonatomic, readonly, weak, nullable) id<UDFrameDataDelegate> delegate;
 
-@property (nonatomic, readonly, nonnull) id<UDData> data;
+@property (nonatomic, readonly, nonnull) id<UDSource> data;
 
-- (nonnull instancetype) initWithData:(nonnull id<UDData>)data queue:(nonnull dispatch_queue_t)queue delegate:(nullable id<UDFrameDataDelegate>)delegate;
+- (nonnull instancetype) initWithData:(nonnull id<UDSource>)data queue:(nonnull dispatch_queue_t)queue delegate:(nullable id<UDFrameDataDelegate>)delegate;
 
 - (void) acquire;
 - (void) giveup;
