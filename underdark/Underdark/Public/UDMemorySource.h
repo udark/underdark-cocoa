@@ -20,6 +20,7 @@
 
 @interface UDMemorySource : NSObject<UDSource>
 
+@property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
 @property (nonatomic, readonly, nullable) NSString* dataId;
 
 - (nonnull instancetype) init NS_UNAVAILABLE;

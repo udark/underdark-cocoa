@@ -35,6 +35,7 @@
 	
 	_dataId = dataId;
 	_data = data;
+	_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
 	
 	return self;
 }

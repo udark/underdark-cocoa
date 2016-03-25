@@ -21,6 +21,15 @@ typedef void (^UDSourceRetrieveBlock)(NSData* _Nullable data);
  */
 @protocol UDSource<NSObject>
 
+/**
+ * Queue on which retrieve: method will be called.
+ */
+@property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
+
+/**
+ * Unique ID for the data being sent (can be nil).
+ * Using for automatic data sharing between
+ */
 @property (nonatomic, readonly, nullable) NSString* dataId;
 
 /**

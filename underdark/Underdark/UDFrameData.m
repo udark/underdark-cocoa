@@ -79,39 +79,41 @@
 		}
 	}
 	
-	[_data retrieve:^(NSData * _Nullable data) {
-		// Any thread.
-		
-		if(data == nil)
-		{
-			sldispatch_async(_queue, ^{
-				completion(nil);
-			});
-
-			return;
-		}
-		
-		// Building frame.
-		FrameBuilder* frame = [FrameBuilder new];
-		frame.kind = FrameKindPayload;
-		
-		PayloadFrameBuilder* payload = [PayloadFrameBuilder new];
-		payload.payload = data;
-		
-		frame.payload = [payload build];
-		
-		NSData* result = [[frame build] data];
-		
-		@synchronized(self) {
-			if(!_disposed) {
-				_payload = result;
+	sldispatch_async(_data.queue, ^{
+		[_data retrieve:^(NSData * _Nullable data) {
+			// Any thread.
+			
+			if(data == nil)
+			{
+				sldispatch_async(_queue, ^{
+					completion(nil);
+				});
+				
+				return;
 			}
-		}
-		
-		sldispatch_async(_queue, ^{
-			completion(result);
-		});
-	}];
+			
+			sldispatch_async(_queue, ^{
+				// Building frame.
+				FrameBuilder* frame = [FrameBuilder new];
+				frame.kind = FrameKindPayload;
+				
+				PayloadFrameBuilder* payload = [PayloadFrameBuilder new];
+				payload.payload = data;
+				
+				frame.payload = [payload build];
+				
+				NSData* result = [[frame build] data];
+				
+				@synchronized(self) {
+					if(!_disposed) {
+						_payload = result;
+					}
+				}
+				
+				completion(result);
+			});
+		}]; // retrieve
+	}); // dispatch
 } // retrieve
 
 @end

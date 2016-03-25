@@ -20,7 +20,6 @@
 
 @implementation UDLazySource
 {
-	dispatch_queue_t _queue;
 	UDLazyDataRetrieveBlock _block;
 }
 
@@ -42,27 +41,22 @@
 	return self;
 }
 
-- (void) dealloc
-{
-	
-}
-
 - (nonnull instancetype) initWithQueue:(nullable dispatch_queue_t)queue block:(nonnull UDLazyDataRetrieveBlock)block
 {
 	return [self initWithQueue:queue block:block dataId:nil];
+}
+
+- (void) dealloc
+{
+	
 }
 
 #pragma mark - UDData
 
 - (void) retrieve:(UDSourceRetrieveBlock _Nonnull)completion
 {
-	// I/O thread.
-	
-	sldispatch_async(_queue, ^{
-		NSData* data = _block();
-		completion(data);
-	});
-
+	NSData* data = _block();
+	completion(data);
 } // retrieve
 
 @end
