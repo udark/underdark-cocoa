@@ -29,8 +29,7 @@
 		373C2A3715A6B64DAE8714B7 /* UDNsdAdvertiser.m in Sources */ = {isa = PBXBuildFile; fileRef = 373C206B6A43A73E593C5CD8 /* UDNsdAdvertiser.m */; };
 		373C2ED7897748DF23D3DF8B /* UDNsdServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 373C2967D01997B3D20222FB /* UDNsdServer.m */; };
 		373C2F3ECEDA842FDC866B59 /* UDNsdAdvertiser.h in Headers */ = {isa = PBXBuildFile; fileRef = 373C28A8E8DB3E86AD2FDC6C /* UDNsdAdvertiser.h */; };
-		7723EE64FC0F9C8F3FF4CC38 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D28A8456AAC4A69166A95F /* Pods.framework */; };
-		BAEB0E4F3125CCDE4FA88D68 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D28A8456AAC4A69166A95F /* Pods.framework */; };
+		C36055F4F9E9CBD23EFF9754 /* Pods_UnderdarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBB6A467EBE02A960D1D621 /* Pods_UnderdarkTests.framework */; };
 		D50655311B4323D7002D192D /* UDBonjourChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655071B4323D7002D192D /* UDBonjourChannel.h */; };
 		D50655321B4323D7002D192D /* UDBonjourChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = D50655081B4323D7002D192D /* UDBonjourChannel.m */; };
 		D50655331B4323D7002D192D /* UDBonjourAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = D50655091B4323D7002D192D /* UDBonjourAdapter.h */; };
@@ -121,6 +120,7 @@
 		D5C942701C0C56D400949913 /* UDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C9426E1C0C56D400949913 /* UDUtil.m */; };
 		D5DDCE9E1B430F21007B8E3E /* Underdark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5DDCE921B430F21007B8E3E /* Underdark.framework */; };
 		D5DDCEA51B430F21007B8E3E /* UDNsdBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DDCEA41B430F21007B8E3E /* UDNsdBrowserTests.m */; };
+		DEBB0AD1F937FE28A011F78E /* Pods_Underdark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D577768F99D227B58DFA4C9 /* Pods_Underdark.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,7 +134,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E0A05D00306112B07A1AAEA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		0D577768F99D227B58DFA4C9 /* Pods_Underdark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Underdark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DBB6A467EBE02A960D1D621 /* Pods_UnderdarkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnderdarkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		373C206B6A43A73E593C5CD8 /* UDNsdAdvertiser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdAdvertiser.m; sourceTree = "<group>"; };
 		373C222D5E588991176D437D /* UDNsdBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdBrowser.m; sourceTree = "<group>"; };
 		373C24894221C1C5A90F07F6 /* UDNsdAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDNsdAdapter.h; sourceTree = "<group>"; };
@@ -143,7 +144,11 @@
 		373C2967D01997B3D20222FB /* UDNsdServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdServer.m; sourceTree = "<group>"; };
 		373C2B9DBAEAB335CFFFAEC6 /* UDNsdAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDNsdAdapter.m; sourceTree = "<group>"; };
 		373C2F98CBCA65F3234B3A3C /* UDNsdServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDNsdServer.h; sourceTree = "<group>"; };
+		5C93CB054A33B6F8C6403D8D /* Pods-UnderdarkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnderdarkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnderdarkTests/Pods-UnderdarkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6A7C6B88A7078AEA138CB8AF /* Pods-Underdark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Underdark.release.xcconfig"; path = "Pods/Target Support Files/Pods-Underdark/Pods-Underdark.release.xcconfig"; sourceTree = "<group>"; };
 		97D28A8456AAC4A69166A95F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BA12910871BBCA06BB41465 /* Pods-UnderdarkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnderdarkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnderdarkTests/Pods-UnderdarkTests.release.xcconfig"; sourceTree = "<group>"; };
+		C3D5370ECE4F9A861B731F28 /* Pods-Underdark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Underdark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Underdark/Pods-Underdark.debug.xcconfig"; sourceTree = "<group>"; };
 		D50655071B4323D7002D192D /* UDBonjourChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDBonjourChannel.h; sourceTree = "<group>"; };
 		D50655081B4323D7002D192D /* UDBonjourChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDBonjourChannel.m; sourceTree = "<group>"; };
 		D50655091B4323D7002D192D /* UDBonjourAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDBonjourAdapter.h; sourceTree = "<group>"; };
@@ -243,7 +248,6 @@
 		D5DDCE9D1B430F21007B8E3E /* UnderdarkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnderdarkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5DDCEA31B430F21007B8E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5DDCEA41B430F21007B8E3E /* UDNsdBrowserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UDNsdBrowserTests.m; sourceTree = "<group>"; };
-		DB5439547293491E288D9B18 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,7 +255,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7723EE64FC0F9C8F3FF4CC38 /* Pods.framework in Frameworks */,
+				DEBB0AD1F937FE28A011F78E /* Pods_Underdark.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5DDCE9E1B430F21007B8E3E /* Underdark.framework in Frameworks */,
-				BAEB0E4F3125CCDE4FA88D68 /* Pods.framework in Frameworks */,
+				C36055F4F9E9CBD23EFF9754 /* Pods_UnderdarkTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +290,17 @@
 				373C2967D01997B3D20222FB /* UDNsdServer.m */,
 			);
 			name = Nsd;
+			sourceTree = "<group>";
+		};
+		B9985C33F2281CC42B106263 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3D5370ECE4F9A861B731F28 /* Pods-Underdark.debug.xcconfig */,
+				6A7C6B88A7078AEA138CB8AF /* Pods-Underdark.release.xcconfig */,
+				5C93CB054A33B6F8C6403D8D /* Pods-UnderdarkTests.debug.xcconfig */,
+				9BA12910871BBCA06BB41465 /* Pods-UnderdarkTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D50655581B432416002D192D /* Transport */ = {
@@ -492,8 +507,8 @@
 				D5DDCEA11B430F21007B8E3E /* UnderdarkTests */,
 				D5DDCEBB1B431257007B8E3E /* Libraries */,
 				D5DDCE931B430F21007B8E3E /* Products */,
-				EA3E80C195227F465C8A9E1C /* Pods */,
 				F1FCBAC4CA5D41198528A219 /* Frameworks */,
+				B9985C33F2281CC42B106263 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -558,19 +573,12 @@
 			path = Libraries;
 			sourceTree = "<group>";
 		};
-		EA3E80C195227F465C8A9E1C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DB5439547293491E288D9B18 /* Pods.debug.xcconfig */,
-				1E0A05D00306112B07A1AAEA /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		F1FCBAC4CA5D41198528A219 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				97D28A8456AAC4A69166A95F /* Pods.framework */,
+				0D577768F99D227B58DFA4C9 /* Pods_Underdark.framework */,
+				1DBB6A467EBE02A960D1D621 /* Pods_UnderdarkTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -639,13 +647,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5DDCEA81B430F21007B8E3E /* Build configuration list for PBXNativeTarget "Underdark" */;
 			buildPhases = (
-				7441B5CE9FAC6F7230A21FE0 /* Check Pods Manifest.lock */,
+				63D9FD9CC8DC803AED8D7FD6 /* 📦 Check Pods Manifest.lock */,
 				D50655011B4322F8002D192D /* Protocol Buffers */,
 				D5DDCE8D1B430F21007B8E3E /* Sources */,
 				D5DDCE8E1B430F21007B8E3E /* Frameworks */,
 				D5DDCE8F1B430F21007B8E3E /* Headers */,
 				D5DDCE901B430F21007B8E3E /* Resources */,
-				92BC5D7F78874E250A3A6AE5 /* Copy Pods Resources */,
+				E3B87A08FF7D675A1A0C8D3E /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -660,12 +668,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5DDCEAB1B430F21007B8E3E /* Build configuration list for PBXNativeTarget "UnderdarkTests" */;
 			buildPhases = (
-				254EB093935DAF364917F069 /* Check Pods Manifest.lock */,
+				03C9CA40ECE9F0886A347106 /* 📦 Check Pods Manifest.lock */,
 				D5DDCE991B430F21007B8E3E /* Sources */,
 				D5DDCE9A1B430F21007B8E3E /* Frameworks */,
 				D5DDCE9B1B430F21007B8E3E /* Resources */,
-				B85BC8EA896FB69DADF526E0 /* Copy Pods Resources */,
-				A9644A1AC8A714142489E67F /* Embed Pods Frameworks */,
+				4180F17A7A018F5AE7835909 /* 📦 Embed Pods Frameworks */,
+				CEC8CDAFB9BAE10B3CB92B22 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -735,14 +743,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		254EB093935DAF364917F069 /* Check Pods Manifest.lock */ = {
+		03C9CA40ECE9F0886A347106 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -750,14 +758,29 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		7441B5CE9FAC6F7230A21FE0 /* Check Pods Manifest.lock */ = {
+		4180F17A7A018F5AE7835909 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnderdarkTests/Pods-UnderdarkTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63D9FD9CC8DC803AED8D7FD6 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -765,49 +788,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		92BC5D7F78874E250A3A6AE5 /* Copy Pods Resources */ = {
+		CEC8CDAFB9BAE10B3CB92B22 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A9644A1AC8A714142489E67F /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B85BC8EA896FB69DADF526E0 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnderdarkTests/Pods-UnderdarkTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D50655011B4322F8002D192D /* Protocol Buffers */ = {
@@ -837,6 +830,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# https://medium.com/@syshen/create-an-ios-universal-framework-148eb130a46c\n\n######################\n# Options\n######################\n\nREVEAL_ARCHIVE_IN_FINDER=true\n\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\n\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_NAME}.framework\"\n\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_NAME}.framework\"\n\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\n\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_NAME}.framework\"\n\n\n######################\n# Build Frameworks\n######################\n\nxcodebuild -workspace ${PROJECT_NAME}.xcworkspace -scheme ${PROJECT_NAME} -sdk iphonesimulator -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphonesimulator 2>&1\n\nxcodebuild -workspace ${PROJECT_NAME}.xcworkspace -scheme ${PROJECT_NAME} -sdk iphoneos -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos 2>&1\n\n######################\n# Create directory for universal\n######################\n\nrm -rf \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${FRAMEWORK}\"\n\n\n######################\n# Copy files Framework\n######################\n\ncp -r \"${DEVICE_LIBRARY_PATH}/.\" \"${FRAMEWORK}\"\n\n\n######################\n# Make an universal binary\n######################\n\nlipo \"${SIMULATOR_LIBRARY_PATH}/${FRAMEWORK_NAME}\" \"${DEVICE_LIBRARY_PATH}/${FRAMEWORK_NAME}\" -create -output \"${FRAMEWORK}/${FRAMEWORK_NAME}\" | echo\n\n# For Swift framework, Swiftmodule needs to be copied in the universal framework\nif [ -d \"${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\ncp -f \"${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/*\" \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\nfi\n\nif [ -d \"${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\ncp -f \"${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/*\" \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\nfi\n\n######################\n# On Release, copy the result to release directory\n######################\nOUTPUT_DIR=\"${PROJECT_DIR}/Output/${FRAMEWORK_NAME}-${CONFIGURATION}-iphoneuniversal/\"\n\nrm -rf \"$OUTPUT_DIR\"\nmkdir -p \"$OUTPUT_DIR\"\n\ncp -r \"${FRAMEWORK}\" \"$OUTPUT_DIR\"\n\nrm -f \"$OUTPUT_DIR/${FRAMEWORK_NAME}.zip\"\ncd \"${OUTPUT_DIR}\"\nzip -r \"${FRAMEWORK_NAME}.zip\" \"${FRAMEWORK_NAME}.framework\"\n\nif [ ${REVEAL_ARCHIVE_IN_FINDER} = true ]; then\nopen \"${OUTPUT_DIR}/\"\nfi\n";
+		};
+		E3B87A08FF7D675A1A0C8D3E /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Underdark/Pods-Underdark-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1023,7 +1031,7 @@
 		};
 		D5DDCEA91B430F21007B8E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB5439547293491E288D9B18 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = C3D5370ECE4F9A861B731F28 /* Pods-Underdark.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1038,7 +1046,7 @@
 		};
 		D5DDCEAA1B430F21007B8E3E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E0A05D00306112B07A1AAEA /* Pods.release.xcconfig */;
+			baseConfigurationReference = 6A7C6B88A7078AEA138CB8AF /* Pods-Underdark.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1053,7 +1061,7 @@
 		};
 		D5DDCEAC1B430F21007B8E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB5439547293491E288D9B18 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 5C93CB054A33B6F8C6403D8D /* Pods-UnderdarkTests.debug.xcconfig */;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1068,7 +1076,7 @@
 		};
 		D5DDCEAD1B430F21007B8E3E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E0A05D00306112B07A1AAEA /* Pods.release.xcconfig */;
+			baseConfigurationReference = 9BA12910871BBCA06BB41465 /* Pods-UnderdarkTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = UnderdarkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
