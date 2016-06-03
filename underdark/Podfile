@@ -3,7 +3,15 @@ platform :ios, '8.0'
 use_frameworks!
 inhibit_all_warnings!
 
-link_with 'Underdark', 'UnderdarkTests'
-
+def udpods
 pod 'ProtocolBuffers', '1.9.9' # From https://github.com/alexeyxo/protobuf-objc
 pod 'MSWeakTimer', '1.1.0'
+end
+
+target 'Underdark' do
+udpods
+end
+
+target 'UnderdarkTests' do
+udpods
+end
