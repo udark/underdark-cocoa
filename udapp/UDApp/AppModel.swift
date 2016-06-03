@@ -8,7 +8,7 @@
 
 import Foundation
 
-import CocoaLumberjack
+//import CocoaLumberjack
 import Underdark
 
 class AppModel
@@ -20,7 +20,7 @@ class AppModel
 	
 	init() {
 		UDUnderdark.setLogger(udlogger)
-		DDLog.addLogger(DDTTYLogger.sharedInstance())
+		//DDLog.addLogger(DDTTYLogger.sharedInstance())
 		
 		node = Node();
 	}

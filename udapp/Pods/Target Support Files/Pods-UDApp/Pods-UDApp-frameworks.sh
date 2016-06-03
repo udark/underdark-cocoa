@@ -82,14 +82,3 @@ strip_invalid_archs() {
   fi
 }
 
-
-if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/CocoaLumberjack/CocoaLumberjack.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/MSWeakTimer/MSWeakTimer.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/ProtocolBuffers/ProtocolBuffers.framework"
-fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/CocoaLumberjack/CocoaLumberjack.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/MSWeakTimer/MSWeakTimer.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/ProtocolBuffers/ProtocolBuffers.framework"
-fi
