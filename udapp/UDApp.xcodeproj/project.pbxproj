@@ -13,6 +13,8 @@
 		D5077F701CA2FC6200AA3B24 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5077F6F1CA2FC6200AA3B24 /* LogViewController.swift */; };
 		D538880E1D01D1240074AA75 /* Underdark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D537D9381C440D2800C76FE6 /* Underdark.framework */; };
 		D538880F1D01D1240074AA75 /* Underdark.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D537D9381C440D2800C76FE6 /* Underdark.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D564454D1D01D44B00DCD1A7 /* Pods_Underdark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D53888091D01D1080074AA75 /* Pods_Underdark.framework */; };
+		D564454E1D01D44B00DCD1A7 /* Pods_Underdark.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D53888091D01D1080074AA75 /* Pods_Underdark.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5D0712E1BAEF02500AF0161 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D0712D1BAEF02500AF0161 /* AppDelegate.swift */; };
 		D5D071301BAEF02500AF0161 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D0712F1BAEF02500AF0161 /* ViewController.swift */; };
 		D5D071331BAEF02500AF0161 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5D071311BAEF02500AF0161 /* Main.storyboard */; };
@@ -72,6 +74,13 @@
 			remoteGlobalIDString = D5DDCE911B430F21007B8E3E;
 			remoteInfo = Underdark;
 		};
+		D564454F1D01D44B00DCD1A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D53887FF1D01D1080074AA75 /* Pods.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 84BF4D5962038EFA3A9D0CCDD67B3DDB;
+			remoteInfo = "Pods-Underdark";
+		};
 		D5D0713F1BAEF02500AF0161 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D5D071221BAEF02500AF0161 /* Project object */;
@@ -89,6 +98,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D538880F1D01D1240074AA75 /* Underdark.framework in Embed Frameworks */,
+				D564454E1D01D44B00DCD1A7 /* Pods_Underdark.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75F1FF6D93D7B63190D2472A /* Pods_UDApp.framework in Frameworks */,
+				D564454D1D01D44B00DCD1A7 /* Pods_Underdark.framework in Frameworks */,
 				D538880E1D01D1240074AA75 /* Underdark.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +278,7 @@
 			);
 			dependencies = (
 				D53888111D01D1240074AA75 /* PBXTargetDependency */,
+				D56445501D01D44B00DCD1A7 /* PBXTargetDependency */,
 			);
 			name = UDApp;
 			productName = UDApp;
@@ -481,6 +493,11 @@
 			isa = PBXTargetDependency;
 			name = Underdark;
 			targetProxy = D53888101D01D1240074AA75 /* PBXContainerItemProxy */;
+		};
+		D56445501D01D44B00DCD1A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Underdark";
+			targetProxy = D564454F1D01D44B00DCD1A7 /* PBXContainerItemProxy */;
 		};
 		D5D071401BAEF02500AF0161 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
