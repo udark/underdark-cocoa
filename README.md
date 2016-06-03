@@ -22,10 +22,14 @@ You can contact me via Telegram at http://telegram.me/virlof or by email at virl
 ## Installation
 [ ![Download](https://api.bintray.com/packages/underdark/ios/underdark/images/download.svg) ](https://bintray.com/underdark/ios/underdark/_latestVersion)
 
-### Manual linking
-To manually link with Underdark library:
+### Linking pre-built version
+1. Download recent version of Underdark.framework to your project subdirectory (or into “Libraries” in examples): https://bintray.com/underdark/ios/underdark/
+2. Add Underdark.framework to “Embedded binaries” and “Linked Frameworks and Libraries” in your project target’s settings in Xcode.
+3. Runpath Search Paths for your app must contain @executable_path/Frameworks
+4. When using framework’s classes, import them with ```@import Underdark;``` in Objective-C or ```import Underdark``` in Swift.
 
-1. Download recent version of Underdark.framework to your project directory (or into “Libraries” in examples): https://bintray.com/underdark/ios/underdark/
+### Linking with sources
+1. Download Underdark sources to your project subdirectory.
 2. Your project must include Pods (from Underdark) and Underdark projects
 3. Add Underdark.framework AND Pods_Underdark.framework to “Embedded binaries” and “Linked Frameworks and Libraries” in your project target’s settings in Xcode.
 4. Runpath Search Paths for your app must contain @executable_path/Frameworks
