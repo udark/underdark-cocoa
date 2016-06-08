@@ -182,7 +182,7 @@ typedef NS_ENUM(NSUInteger, SLBnjState)
 	if(_state == SLBnjStateDisconnected)
 		return;
 	
-	[self performSelector:@selector(writeData:) onThread:self.adapter.ioThread withObject:[[UDOutputItem alloc] init] waitUntilDone:NO];
+	[self performSelector:@selector(enqueueItem:) onThread:self.adapter.ioThread withObject:[[UDOutputItem alloc] init] waitUntilDone:NO];
 }
 
 - (void) closeStreams
