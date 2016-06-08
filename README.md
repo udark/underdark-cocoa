@@ -30,7 +30,7 @@ You can contact me via Telegram at http://telegram.me/virlof or by email at virl
 
 ### Linking with sources
 1. Download Underdark sources to your project subdirectory.
-2. Your project must include Pods (from Underdark) and Underdark projects
+2. Your project must include Underdark project
 3. Add to “Embedded binaries” in your project target’s settings in Xcode the following frameworks: 
   * Underdark.framework
   * ProtocolBuffers.framework
