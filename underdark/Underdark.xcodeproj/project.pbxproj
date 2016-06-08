@@ -204,7 +204,7 @@
 		D528C5991B44895500E4FC8C /* UDUnderdark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDUnderdark.h; sourceTree = "<group>"; };
 		D528C59A1B44895500E4FC8C /* UDUnderdark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDUnderdark.m; sourceTree = "<group>"; };
 		D528C59B1B44895500E4FC8C /* Underdark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Underdark.h; sourceTree = "<group>"; };
-		D539EC7E1B45555A00A7D6E9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		D539EC7E1B45555A00A7D6E9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D545B3621C9C83A100657FFD /* UDOutputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDOutputItem.h; sourceTree = "<group>"; };
 		D545B3631C9C83A100657FFD /* UDOutputItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDOutputItem.m; sourceTree = "<group>"; };
 		D559CCC81BA3256E0057CF17 /* UDNsdService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDNsdService.h; sourceTree = "<group>"; };
