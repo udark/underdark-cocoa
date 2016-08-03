@@ -6,6 +6,6 @@ inhibit_all_warnings!
 
 target 'UDApp' do
 
-#pod 'CocoaLumberjack/Swift'
+pod 'CocoaLumberjack/Swift'
 
 end

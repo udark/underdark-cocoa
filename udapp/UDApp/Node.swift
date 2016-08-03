@@ -74,27 +74,27 @@ class Node: NSObject, UDTransportDelegate
 		
 		for link in links
 		{
-			link.sendData(frameData);
+			link.sendFrameWithSource(frameData)
 		}
 	}
 	
 	// MARK: - UDTransportDelegate
 	
-	func transport(transport: UDTransport!, linkConnected link: UDLink!)
+	func transport(transport: UDTransport, linkConnected link: UDLink)
 	{
 		links.append(link);
 		peersCount += 1
 		controller?.updatePeersCount();
 	}
 	
-	func transport(transport: UDTransport!, linkDisconnected link: UDLink!)
+	func transport(transport: UDTransport, linkDisconnected link: UDLink)
 	{
 		links = links.filter() { $0 !== link };
 		peersCount -= 1
 		controller?.updatePeersCount();
 	}
 	
-	func transport(transport: UDTransport!, link: UDLink!, didReceiveFrame data: NSData!)
+	func transport(transport: UDTransport, link: UDLink, didReceiveFrame data: NSData)
 	{
 		if(data.length == 1) {
 			framesCount = 0
