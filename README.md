@@ -20,7 +20,7 @@ Video demo: http://www.youtube.com/watch?v=ox4dh0s1XTw
 You can contact me via Telegram at http://telegram.me/virlof or by email at virlof@gmail.com
 
 ## Installation
-1. Download latest version: [ ![Download](https://api.bintray.com/packages/underdark/ios/underdark/images/download.svg) ](https://bintray.com/underdark/ios/underdark/_latestVersion) or previous version: https://bintray.com/underdark/ios/underdark/
+1. Download latest version: [ ![Download](https://api.bintray.com/packages/underdark/ios/underdark/images/download.svg) ](https://bintray.com/underdark/ios/underdark/_latestVersion#files) or previous version: https://bintray.com/underdark/ios/underdark/
 2. Unarchive downloaded .zip file into your project subdirectoy.
 3. Add all *.framework files/dirs from unarchive directory to “Embedded binaries” and “Linked Frameworks and Libraries” in your project target’s settings in Xcode.
 4. Add unarchived directory to "Framework Search Paths" in your Xcode Target's Build Settings.
