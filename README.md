@@ -3,7 +3,7 @@ http://underdark.io
 
 Peer-to-peer networking library for iOS and Android, with Wi-Fi and Bluetooth support.
 
-This repository contains library’s sources, examples and also short “Getting Started” guide below.
+This repository contains library binaries, example app with sources and also short “Getting Started” guide below.
 
 ## License
 http://underdark.io/LICENSE.txt
@@ -20,25 +20,11 @@ Video demo: http://www.youtube.com/watch?v=ox4dh0s1XTw
 You can contact me via Telegram at http://telegram.me/virlof or by email at virlof@gmail.com
 
 ## Installation
-[ ![Download](https://api.bintray.com/packages/underdark/ios/underdark/images/download.svg) ](https://bintray.com/underdark/ios/underdark/_latestVersion)
-
-### Linking pre-built version
-1. Download recent version of Underdark.framework to your project subdirectory (or into “Libraries” in examples): https://bintray.com/underdark/ios/underdark/
-2. Add Underdark.framework to “Embedded binaries” and “Linked Frameworks and Libraries” in your project target’s settings in Xcode.
-3. Runpath Search Paths for your app must contain @executable_path/Frameworks
+1. Download latest version: [ ![Download](https://api.bintray.com/packages/underdark/ios/underdark/images/download.svg) ](https://bintray.com/underdark/ios/underdark/_latestVersion) or previous version: https://bintray.com/underdark/ios/underdark/
+2. Unarchive downloaded .zip file into your project subdirectoy.
+3. Add all *.framework files/dirs from unarchive directory to “Embedded binaries” and “Linked Frameworks and Libraries” in your project target’s settings in Xcode.
+4. Add unarchived directory to "Framework Search Paths" in your Xcode Target's Build Settings.
 4. When using framework’s classes, import them with ```@import Underdark;``` in Objective-C or ```import Underdark``` in Swift.
-
-### Linking with sources
-1. Download Underdark sources to your project subdirectory.
-2. Your project must include Underdark project
-3. Add to “Embedded binaries” in your project target’s settings in Xcode the following frameworks: 
-  * Underdark.framework
-  * ProtocolBuffers.framework
-  * MSWeakTimer.framework
-4. Add to “Linked Frameworks and Libraries” in your project target’s settings in Xcode the following frameworks:
-  * Underdark.framework
-5. Runpath Search Paths for your app must contain @executable_path/Frameworks
-6. When using framework’s classes, import them with ```@import Underdark;``` in Objective-C or ```import Underdark``` in Swift.
 
 ## Getting started
 Underdark API is very simple — it consists of entry class `UDUnderdark` with method `configureTransport*` — it allows you to create `UDTransport` instance with desired parameters (like network interface type) and specify UDTransportDelegate implementation for callbacks.
