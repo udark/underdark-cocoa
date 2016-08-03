@@ -26,6 +26,16 @@ You can contact me via Telegram at http://telegram.me/virlof or by email at virl
 4. Add unarchived directory to "Framework Search Paths" in your Xcode Target's Build Settings.
 4. When using framework’s classes, import them with ```@import Underdark;``` in Objective-C or ```import Underdark``` in Swift.
 
+## Publishing your app to App Store
+1. Install Carthage https://github.com/Carthage/Carthage
+2. Add "Run Script" build phase to your app target's build phases with ```/usr/local/bin/carthage copy-frameworks``` code.
+3. As its input files list paths to all *.framework files in previously unarchived directory like that:
+```
+$(SRCROOT)/../underdark/Underdark.framework
+$(SRCROOT)/../underdark/ProtocolBuffers.framework
+```
+4. See more here: https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos
+
 ## Getting started
 Underdark API is very simple — it consists of entry class `UDUnderdark` with method `configureTransport*` — it allows you to create `UDTransport` instance with desired parameters (like network interface type) and specify UDTransportDelegate implementation for callbacks.
 
