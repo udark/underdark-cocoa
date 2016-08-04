@@ -34,7 +34,8 @@ You can contact me via Telegram at http://telegram.me/virlof or by email at virl
 $(SRCROOT)/../underdark/Underdark.framework
 $(SRCROOT)/../underdark/ProtocolBuffers.framework
 ```
-4. See more here: https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos
+4. Place that Run Script build phase AFTER "Embed Frameworks" build phase.
+5. See more here: https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos
 
 ## Getting started
 Underdark API is very simple — it consists of entry class `UDUnderdark` with method `configureTransport*` — it allows you to create `UDTransport` instance with desired parameters (like network interface type) and specify UDTransportDelegate implementation for callbacks.
