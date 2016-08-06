@@ -1,0 +1,5225 @@
+BCSymbolMap Version: 1.0
+-[UDFuture listen:block:]
+OBJC_CLASS_NAME_
+l_OBJC_METACLASS_RO_$_UDFuture
+OBJC_METH_VAR_NAME_
+OBJC_METH_VAR_TYPE_
+l_OBJC_$_INSTANCE_METHODS_UDFuture
+l_OBJC_CLASS_RO_$_UDFuture
+OBJC_LABEL_CLASS_$
+Apple LLVM version 7.3.0 (clang-703.0.31)
+-[UDFuture listen:block:]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/Public/UDFuture.m
+/Users/virl/Projects/underdark/underdark-cocoa
+-[UDByteBuf init]
+-[UDByteBuf capacity]
+-[UDByteBuf setCapacity:]
+-[UDByteBuf readableBytes]
+-[UDByteBuf writableBytes]
+-[UDByteBuf ensureWritable:]
+-[UDByteBuf trimWritable:]
+-[UDByteBuf discardReadBytes]
+-[UDByteBuf bytes:length:]
+-[UDByteBuf bytes:dest:length:]
+-[UDByteBuf readBytes:]
+-[UDByteBuf skipBytes:]
+-[UDByteBuf writeData:]
+-[UDByteBuf writeBytes:length:]
+-[UDByteBuf advanceWriterIndex:]
+-[UDByteBuf data]
+-[UDByteBuf readerIndex]
+-[UDByteBuf setReaderIndex:]
+-[UDByteBuf writerIndex]
+-[UDByteBuf setWriterIndex:]
+-[UDByteBuf .cxx_destruct]
+OBJC_CLASSLIST_SUP_REFS_$_
+OBJC_SELECTOR_REFERENCES_
+OBJC_CLASSLIST_REFERENCES_$_
+OBJC_METH_VAR_NAME_.1
+OBJC_SELECTOR_REFERENCES_.2
+OBJC_IVAR_$_UDByteBuf._data
+OBJC_METH_VAR_NAME_.3
+OBJC_SELECTOR_REFERENCES_.4
+OBJC_IVAR_$_UDByteBuf._writerIndex
+OBJC_METH_VAR_NAME_.5
+OBJC_SELECTOR_REFERENCES_.6
+OBJC_IVAR_$_UDByteBuf._readerIndex
+OBJC_METH_VAR_NAME_.7
+OBJC_SELECTOR_REFERENCES_.8
+OBJC_METH_VAR_NAME_.9
+OBJC_SELECTOR_REFERENCES_.10
+OBJC_METH_VAR_NAME_.11
+OBJC_SELECTOR_REFERENCES_.12
+OBJC_METH_VAR_NAME_.13
+OBJC_SELECTOR_REFERENCES_.14
+OBJC_METH_VAR_NAME_.15
+OBJC_SELECTOR_REFERENCES_.16
+OBJC_METH_VAR_NAME_.17
+OBJC_SELECTOR_REFERENCES_.18
+OBJC_METH_VAR_NAME_.19
+OBJC_SELECTOR_REFERENCES_.20
+l_OBJC_METACLASS_RO_$_UDByteBuf
+OBJC_CLASS_NAME_.21
+OBJC_METH_VAR_TYPE_.22
+OBJC_METH_VAR_TYPE_.23
+OBJC_METH_VAR_NAME_.24
+OBJC_METH_VAR_NAME_.25
+OBJC_METH_VAR_NAME_.26
+OBJC_METH_VAR_NAME_.27
+OBJC_METH_VAR_TYPE_.28
+OBJC_METH_VAR_NAME_.29
+OBJC_METH_VAR_TYPE_.30
+OBJC_METH_VAR_NAME_.31
+OBJC_METH_VAR_TYPE_.32
+OBJC_METH_VAR_NAME_.33
+OBJC_METH_VAR_TYPE_.34
+OBJC_METH_VAR_NAME_.35
+OBJC_METH_VAR_NAME_.36
+OBJC_METH_VAR_TYPE_.37
+OBJC_METH_VAR_NAME_.38
+OBJC_METH_VAR_TYPE_.39
+OBJC_METH_VAR_NAME_.40
+OBJC_METH_VAR_NAME_.41
+OBJC_METH_VAR_NAME_.42
+OBJC_METH_VAR_NAME_.43
+OBJC_METH_VAR_NAME_.44
+OBJC_METH_VAR_NAME_.45
+OBJC_METH_VAR_NAME_.46
+l_OBJC_$_INSTANCE_METHODS_UDByteBuf
+OBJC_METH_VAR_NAME_.47
+OBJC_METH_VAR_TYPE_.48
+OBJC_METH_VAR_NAME_.49
+OBJC_METH_VAR_TYPE_.50
+OBJC_METH_VAR_NAME_.51
+l_OBJC_$_INSTANCE_VARIABLES_UDByteBuf
+OBJC_PROP_NAME_ATTR_
+OBJC_PROP_NAME_ATTR_.52
+OBJC_PROP_NAME_ATTR_.53
+OBJC_PROP_NAME_ATTR_.54
+OBJC_PROP_NAME_ATTR_.55
+OBJC_PROP_NAME_ATTR_.56
+OBJC_PROP_NAME_ATTR_.57
+OBJC_PROP_NAME_ATTR_.58
+OBJC_PROP_NAME_ATTR_.59
+OBJC_PROP_NAME_ATTR_.60
+OBJC_PROP_NAME_ATTR_.61
+OBJC_PROP_NAME_ATTR_.62
+l_OBJC_$_PROP_LIST_UDByteBuf
+l_OBJC_CLASS_RO_$_UDByteBuf
+NSMakeRange
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
+-[UDByteBuf .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDByteBuf.m
+-[UDByteBuf setWriterIndex:]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDByteBuf.h
+-[UDByteBuf writerIndex]
+-[UDByteBuf setReaderIndex:]
+-[UDByteBuf readerIndex]
+-[UDByteBuf data]
+-[UDByteBuf advanceWriterIndex:]
+-[UDByteBuf writeBytes:length:]
+-[UDByteBuf writeData:]
+-[UDByteBuf skipBytes:]
+-[UDByteBuf readBytes:]
+-[UDByteBuf bytes:dest:length:]
+-[UDByteBuf bytes:length:]
+-[UDByteBuf discardReadBytes]
+-[UDByteBuf trimWritable:]
+-[UDByteBuf ensureWritable:]
+-[UDByteBuf writableBytes]
+-[UDByteBuf readableBytes]
+-[UDByteBuf setCapacity:]
+-[UDByteBuf capacity]
+-[UDByteBuf init]
+-[UDBuffer length]
+-[UDBuffer readBytesWithOffset:length:]
+-[UDBuffer readBytesWithOffset:]
+l_OBJC_METACLASS_RO_$_UDBuffer
+OBJC_METH_VAR_TYPE_.7
+OBJC_METH_VAR_NAME_.8
+OBJC_METH_VAR_TYPE_.9
+l_OBJC_$_INSTANCE_METHODS_UDBuffer
+OBJC_PROP_NAME_ATTR_.10
+l_OBJC_$_PROP_LIST_UDBuffer
+l_OBJC_CLASS_RO_$_UDBuffer
+-[UDBuffer readBytesWithOffset:]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDBuffer.m
+-[UDBuffer readBytesWithOffset:length:]
+-[UDBuffer length]
+-[UDAggLink init]
+-[UDAggLink initWithTransport:adapter:channel:]
+-[UDAggLink dealloc]
+-[UDAggLink onChannelDisconnected]
+-[UDAggLink sendNextFrame]
+__26-[UDAggLink sendNextFrame]_block_invoke
+__copy_helper_block_
+__destroy_helper_block_
+__26-[UDAggLink sendNextFrame]_block_invoke.35
+__copy_helper_block_.36
+__destroy_helper_block_.37
+__26-[UDAggLink sendNextFrame]_block_invoke.47
+__26-[UDAggLink sendNextFrame]_block_invoke_2
+__copy_helper_block_.61
+__destroy_helper_block_.62
+__copy_helper_block_.64
+__destroy_helper_block_.65
+-[UDAggLink priority]
+-[UDAggLink disconnect]
+__23-[UDAggLink disconnect]_block_invoke
+__copy_helper_block_.75
+__destroy_helper_block_.76
+-[UDAggLink longTransferBegin]
+__30-[UDAggLink longTransferBegin]_block_invoke
+__copy_helper_block_.81
+__destroy_helper_block_.82
+-[UDAggLink longTransferEnd]
+__28-[UDAggLink longTransferEnd]_block_invoke
+__copy_helper_block_.86
+__destroy_helper_block_.87
+-[UDAggLink sendFrame:]
+-[UDAggLink sendFrameWithSource:]
+__33-[UDAggLink sendFrameWithSource:]_block_invoke
+__copy_helper_block_.94
+__destroy_helper_block_.95
+-[UDAggLink transport]
+-[UDAggLink nodeId]
+-[UDAggLink slowLink]
+-[UDAggLink .cxx_destruct]
+OBJC_IVAR_$_UDAggLink._transport
+OBJC_IVAR_$_UDAggLink._adapter
+OBJC_IVAR_$_UDAggLink._channel
+OBJC_IVAR_$_UDAggLink._nodeId
+OBJC_IVAR_$_UDAggLink._outputQueue
+OBJC_IVAR_$_UDAggLink._preparedFrame
+OBJC_IVAR_$_UDAggLink._disconnected
+OBJC_METH_VAR_NAME_.21
+OBJC_SELECTOR_REFERENCES_.22
+OBJC_METH_VAR_NAME_.23
+OBJC_SELECTOR_REFERENCES_.24
+OBJC_SELECTOR_REFERENCES_.26
+OBJC_SELECTOR_REFERENCES_.28
+OBJC_SELECTOR_REFERENCES_.30
+.str
+__block_descriptor_tmp
+OBJC_SELECTOR_REFERENCES_.32
+OBJC_SELECTOR_REFERENCES_.34
+__block_descriptor_tmp.38
+OBJC_METH_VAR_NAME_.39
+OBJC_SELECTOR_REFERENCES_.40
+OBJC_SELECTOR_REFERENCES_.42
+OBJC_SELECTOR_REFERENCES_.44
+OBJC_SELECTOR_REFERENCES_.46
+OBJC_METH_VAR_NAME_.48
+OBJC_SELECTOR_REFERENCES_.49
+OBJC_METH_VAR_NAME_.50
+OBJC_SELECTOR_REFERENCES_.51
+OBJC_CLASSLIST_REFERENCES_$_.52
+OBJC_METH_VAR_NAME_.53
+OBJC_SELECTOR_REFERENCES_.54
+OBJC_METH_VAR_NAME_.55
+OBJC_SELECTOR_REFERENCES_.56
+OBJC_METH_VAR_NAME_.57
+OBJC_SELECTOR_REFERENCES_.58
+OBJC_METH_VAR_NAME_.59
+OBJC_SELECTOR_REFERENCES_.60
+__block_descriptor_tmp.63
+.str.66
+__block_descriptor_tmp.67
+OBJC_METH_VAR_NAME_.68
+OBJC_SELECTOR_REFERENCES_.69
+OBJC_CLASSLIST_REFERENCES_$_.70
+OBJC_METH_VAR_NAME_.71
+OBJC_SELECTOR_REFERENCES_.72
+OBJC_METH_VAR_NAME_.73
+OBJC_SELECTOR_REFERENCES_.74
+.str.77
+__block_descriptor_tmp.78
+OBJC_METH_VAR_NAME_.79
+OBJC_SELECTOR_REFERENCES_.80
+__block_descriptor_tmp.83
+OBJC_METH_VAR_NAME_.84
+OBJC_SELECTOR_REFERENCES_.85
+__block_descriptor_tmp.88
+OBJC_CLASSLIST_REFERENCES_$_.89
+OBJC_METH_VAR_NAME_.90
+OBJC_SELECTOR_REFERENCES_.91
+OBJC_METH_VAR_NAME_.92
+OBJC_SELECTOR_REFERENCES_.93
+__block_descriptor_tmp.96
+OBJC_IVAR_$_UDAggLink._slowLink
+OBJC_METH_VAR_NAME_.97
+OBJC_METH_VAR_NAME_.98
+OBJC_METH_VAR_TYPE_.99
+OBJC_METH_VAR_TYPE_.100
+OBJC_METH_VAR_TYPE_.101
+OBJC_METH_VAR_NAME_.102
+OBJC_METH_VAR_TYPE_.103
+OBJC_METH_VAR_TYPE_.104
+OBJC_METH_VAR_NAME_.105
+OBJC_METH_VAR_TYPE_.106
+OBJC_CLASS_NAME_.107
+OBJC_METH_VAR_NAME_.108
+OBJC_METH_VAR_TYPE_.109
+OBJC_METH_VAR_NAME_.110
+OBJC_METH_VAR_TYPE_.111
+OBJC_METH_VAR_NAME_.112
+OBJC_METH_VAR_TYPE_.113
+OBJC_METH_VAR_NAME_.114
+OBJC_METH_VAR_TYPE_.115
+OBJC_METH_VAR_NAME_.116
+OBJC_METH_VAR_TYPE_.117
+OBJC_METH_VAR_NAME_.118
+OBJC_METH_VAR_TYPE_.119
+OBJC_METH_VAR_NAME_.120
+OBJC_METH_VAR_TYPE_.121
+OBJC_METH_VAR_NAME_.122
+OBJC_METH_VAR_TYPE_.123
+OBJC_METH_VAR_NAME_.124
+OBJC_METH_VAR_NAME_.125
+OBJC_METH_VAR_TYPE_.126
+OBJC_METH_VAR_NAME_.127
+OBJC_METH_VAR_TYPE_.128
+OBJC_METH_VAR_NAME_.129
+OBJC_METH_VAR_NAME_.130
+OBJC_METH_VAR_TYPE_.131
+OBJC_METH_VAR_NAME_.132
+OBJC_METH_VAR_NAME_.133
+OBJC_METH_VAR_TYPE_.134
+OBJC_METH_VAR_NAME_.135
+OBJC_METH_VAR_TYPE_.136
+OBJC_METH_VAR_NAME_.137
+OBJC_METH_VAR_NAME_.138
+OBJC_METH_VAR_NAME_.139
+OBJC_METH_VAR_TYPE_.140
+OBJC_METH_VAR_NAME_.141
+OBJC_CLASS_NAME_.142
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_NSObject
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSObject
+OBJC_PROP_NAME_ATTR_.143
+OBJC_PROP_NAME_ATTR_.144
+OBJC_PROP_NAME_ATTR_.145
+OBJC_PROP_NAME_ATTR_.146
+OBJC_PROP_NAME_ATTR_.147
+OBJC_PROP_NAME_ATTR_.148
+l_OBJC_$_PROP_LIST_NSObject
+l_OBJC_$_PROTOCOL_METHOD_TYPES_NSObject
+l_OBJC_PROTOCOL_$_NSObject
+l_OBJC_LABEL_PROTOCOL_$_NSObject
+l_OBJC_$_PROTOCOL_REFS_UDLink
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDLink
+OBJC_PROP_NAME_ATTR_.149
+OBJC_PROP_NAME_ATTR_.150
+OBJC_PROP_NAME_ATTR_.151
+OBJC_PROP_NAME_ATTR_.152
+OBJC_PROP_NAME_ATTR_.153
+OBJC_PROP_NAME_ATTR_.154
+l_OBJC_$_PROP_LIST_UDLink
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDLink
+l_OBJC_PROTOCOL_$_UDLink
+l_OBJC_LABEL_PROTOCOL_$_UDLink
+l_OBJC_CLASS_PROTOCOLS_$_UDAggLink
+l_OBJC_METACLASS_RO_$_UDAggLink
+OBJC_CLASS_NAME_.155
+OBJC_METH_VAR_NAME_.156
+OBJC_METH_VAR_TYPE_.157
+OBJC_METH_VAR_NAME_.158
+OBJC_METH_VAR_NAME_.159
+OBJC_METH_VAR_NAME_.160
+l_OBJC_$_INSTANCE_METHODS_UDAggLink
+OBJC_METH_VAR_NAME_.161
+OBJC_METH_VAR_TYPE_.162
+OBJC_METH_VAR_NAME_.163
+OBJC_METH_VAR_TYPE_.164
+OBJC_METH_VAR_NAME_.165
+OBJC_METH_VAR_TYPE_.166
+OBJC_METH_VAR_NAME_.167
+OBJC_METH_VAR_TYPE_.168
+OBJC_METH_VAR_NAME_.169
+OBJC_METH_VAR_TYPE_.170
+OBJC_METH_VAR_NAME_.171
+OBJC_METH_VAR_NAME_.172
+OBJC_METH_VAR_TYPE_.173
+OBJC_METH_VAR_NAME_.174
+OBJC_METH_VAR_TYPE_.175
+l_OBJC_$_INSTANCE_VARIABLES_UDAggLink
+OBJC_CLASS_NAME_.176
+OBJC_PROP_NAME_ATTR_.177
+OBJC_PROP_NAME_ATTR_.178
+OBJC_PROP_NAME_ATTR_.179
+OBJC_PROP_NAME_ATTR_.180
+OBJC_PROP_NAME_ATTR_.181
+l_OBJC_$_PROP_LIST_UDAggLink
+l_OBJC_CLASS_RO_$_UDAggLink
+-[UDAggLink .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDAggLink.m
+-[UDAggLink slowLink]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDAggLink.h
+-[UDAggLink nodeId]
+-[UDAggLink transport]
+-[UDAggLink sendFrameWithSource:]
+-[UDAggLink sendFrame:]
+-[UDAggLink longTransferEnd]
+-[UDAggLink longTransferBegin]
+-[UDAggLink disconnect]
+-[UDAggLink priority]
+-[UDAggLink sendNextFrame]
+-[UDAggLink onChannelDisconnected]
+-[UDAggLink dealloc]
+-[UDAggLink initWithTransport:adapter:channel:]
+-[UDAggLink init]
+-[UDFutureListener initWithQueue:block:]
+-[UDFutureListener call:result:]
+__32-[UDFutureListener call:result:]_block_invoke
+-[UDFutureListener .cxx_destruct]
+OBJC_IVAR_$_UDFutureListener._queue
+OBJC_IVAR_$_UDFutureListener._block
+l_OBJC_METACLASS_RO_$_UDFutureListener
+OBJC_CLASS_NAME_.3
+OBJC_METH_VAR_NAME_.4
+OBJC_METH_VAR_TYPE_.6
+OBJC_METH_VAR_TYPE_.8
+l_OBJC_$_INSTANCE_METHODS_UDFutureListener
+OBJC_METH_VAR_TYPE_.10
+OBJC_METH_VAR_TYPE_.12
+l_OBJC_$_INSTANCE_VARIABLES_UDFutureListener
+l_OBJC_CLASS_RO_$_UDFutureListener
+-[UDFutureListener .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDFutureListener.m
+-[UDFutureListener call:result:]
+-[UDFutureListener initWithQueue:block:]
+-[UDCompositeBuffer init]
+-[UDCompositeBuffer append:]
+-[UDCompositeBuffer length]
+-[UDCompositeBuffer readBytesWithOffset:length:]
+-[UDCompositeBuffer buffers]
+-[UDCompositeBuffer .cxx_destruct]
+OBJC_IVAR_$_UDCompositeBuffer._buffers
+OBJC_CLASSLIST_REFERENCES_$_.9
+OBJC_METH_VAR_NAME_.10
+OBJC_SELECTOR_REFERENCES_.11
+OBJC_METH_VAR_NAME_.12
+OBJC_SELECTOR_REFERENCES_.13
+OBJC_METH_VAR_NAME_.14
+OBJC_SELECTOR_REFERENCES_.15
+OBJC_METH_VAR_NAME_.16
+OBJC_SELECTOR_REFERENCES_.17
+OBJC_METH_VAR_NAME_.18
+OBJC_SELECTOR_REFERENCES_.19
+OBJC_METH_VAR_NAME_.20
+OBJC_SELECTOR_REFERENCES_.21
+l_OBJC_METACLASS_RO_$_UDCompositeBuffer
+OBJC_CLASS_NAME_.22
+OBJC_METH_VAR_TYPE_.24
+OBJC_METH_VAR_TYPE_.25
+OBJC_METH_VAR_TYPE_.26
+l_OBJC_$_INSTANCE_METHODS_UDCompositeBuffer
+OBJC_METH_VAR_NAME_.30
+OBJC_METH_VAR_TYPE_.31
+l_OBJC_$_INSTANCE_VARIABLES_UDCompositeBuffer
+OBJC_PROP_NAME_ATTR_.32
+l_OBJC_$_PROP_LIST_UDCompositeBuffer
+l_OBJC_CLASS_RO_$_UDCompositeBuffer
+-[UDCompositeBuffer .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDCompositeBuffer.m
+-[UDCompositeBuffer buffers]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDCompositeBuffer.h
+-[UDCompositeBuffer readBytesWithOffset:length:]
+-[UDCompositeBuffer length]
+-[UDCompositeBuffer append:]
+-[UDCompositeBuffer init]
++[UDUtil generateId]
+l_OBJC_$_CLASS_METHODS_UDUtil
+l_OBJC_METACLASS_RO_$_UDUtil
+l_OBJC_CLASS_RO_$_UDUtil
++[UDUtil generateId]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/Public/UDUtil.m
+-[UDMemorySource init]
+-[UDMemorySource initWithData:dataId:]
+-[UDMemorySource initWithData:]
+-[UDMemorySource dealloc]
+-[UDMemorySource listen:block:]
+__31-[UDMemorySource listen:block:]_block_invoke
+-[UDMemorySource future]
+-[UDMemorySource dataId]
+-[UDMemorySource .cxx_destruct]
+OBJC_IVAR_$_UDMemorySource._dataId
+OBJC_IVAR_$_UDMemorySource._data
+OBJC_IVAR_$_UDMemorySource._future
+OBJC_CLASS_NAME_.11
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDFutureStubDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDFutureStubDelegate
+l_OBJC_PROTOCOL_$_UDFutureStubDelegate
+l_OBJC_LABEL_PROTOCOL_$_UDFutureStubDelegate
+OBJC_METH_VAR_TYPE_.13
+OBJC_METH_VAR_TYPE_.14
+OBJC_METH_VAR_TYPE_.16
+OBJC_CLASS_NAME_.17
+OBJC_METH_VAR_TYPE_.19
+OBJC_METH_VAR_TYPE_.21
+OBJC_METH_VAR_NAME_.22
+OBJC_METH_VAR_NAME_.34
+OBJC_METH_VAR_TYPE_.35
+OBJC_METH_VAR_TYPE_.40
+OBJC_METH_VAR_TYPE_.43
+OBJC_METH_VAR_TYPE_.45
+OBJC_CLASS_NAME_.50
+OBJC_PROP_NAME_ATTR_.51
+l_OBJC_$_PROTOCOL_REFS_UDSource
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDSource
+l_OBJC_$_PROP_LIST_UDSource
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDSource
+l_OBJC_PROTOCOL_$_UDSource
+l_OBJC_LABEL_PROTOCOL_$_UDSource
+l_OBJC_CLASS_PROTOCOLS_$_UDMemorySource
+l_OBJC_METACLASS_RO_$_UDMemorySource
+OBJC_CLASS_NAME_.61
+OBJC_METH_VAR_TYPE_.62
+OBJC_METH_VAR_NAME_.63
+OBJC_METH_VAR_TYPE_.64
+OBJC_METH_VAR_TYPE_.65
+OBJC_METH_VAR_NAME_.66
+l_OBJC_$_INSTANCE_METHODS_UDMemorySource
+OBJC_METH_VAR_NAME_.67
+OBJC_METH_VAR_TYPE_.68
+OBJC_METH_VAR_NAME_.69
+OBJC_METH_VAR_TYPE_.70
+OBJC_METH_VAR_TYPE_.72
+l_OBJC_$_INSTANCE_VARIABLES_UDMemorySource
+OBJC_PROP_NAME_ATTR_.73
+OBJC_PROP_NAME_ATTR_.74
+l_OBJC_$_PROP_LIST_UDMemorySource
+l_OBJC_CLASS_RO_$_UDMemorySource
+-[UDMemorySource .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/Public/UDMemorySource.m
+-[UDMemorySource dataId]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/Public/UDMemorySource.h
+-[UDMemorySource future]
+-[UDMemorySource listen:block:]
+-[UDMemorySource dealloc]
+-[UDMemorySource initWithData:]
+-[UDMemorySource initWithData:dataId:]
+-[UDMemorySource init]
+-[UDBtBeacon init]
+-[UDBtBeacon initWithAppId:]
+-[UDBtBeacon dealloc]
+-[UDBtBeacon requestPermissions]
+-[UDBtBeacon monitorIfNecessary]
+-[UDBtBeacon startMonitoring]
+-[UDBtBeacon stopMonitoring]
+-[UDBtBeacon advertiseIfNecessary]
+-[UDBtBeacon startAdvertising]
+-[UDBtBeacon stopAdvertising]
+-[UDBtBeacon notifyBluetoothRequired]
+__37-[UDBtBeacon notifyBluetoothRequired]_block_invoke
+-[UDBtBeacon locationManager:didChangeAuthorizationStatus:]
+-[UDBtBeacon locationManager:didDetermineState:forRegion:]
+-[UDBtBeacon locationManager:didEnterRegion:]
+-[UDBtBeacon locationManager:didExitRegion:]
+-[UDBtBeacon locationManager:didFailWithError:]
+-[UDBtBeacon locationManager:monitoringDidFailForRegion:withError:]
+-[UDBtBeacon locationManager:didStartMonitoringForRegion:]
+-[UDBtBeacon peripheralManagerDidUpdateState:]
+-[UDBtBeacon peripheralManagerDidStartAdvertising:error:]
+-[UDBtBeacon beaconData]
+-[UDBtBeacon state]
+-[UDBtBeacon setState:]
+-[UDBtBeacon .cxx_destruct]
+_unnamed_cfstring_
+.str.1
+_unnamed_cfstring_.2
+.str.5
+_unnamed_cfstring_.6
+OBJC_IVAR_$_UDBtBeacon._beaconUuid
+OBJC_CLASSLIST_REFERENCES_$_.14
+.str.15
+_unnamed_cfstring_.16
+OBJC_IVAR_$_UDBtBeacon._region
+OBJC_IVAR_$_UDBtBeacon._beaconData
+OBJC_CLASSLIST_REFERENCES_$_.23
+OBJC_IVAR_$_UDBtBeacon._locationManager
+OBJC_SELECTOR_REFERENCES_.25
+OBJC_SELECTOR_REFERENCES_.27
+OBJC_METH_VAR_NAME_.28
+OBJC_SELECTOR_REFERENCES_.29
+OBJC_SELECTOR_REFERENCES_.31
+OBJC_METH_VAR_NAME_.32
+OBJC_SELECTOR_REFERENCES_.33
+OBJC_CLASSLIST_REFERENCES_$_.34
+OBJC_SELECTOR_REFERENCES_.36
+.str.37
+__PRETTY_FUNCTION__.-[UDBtBeacon monitorIfNecessary]
+.str.38
+_unnamed_cfstring_.39
+OBJC_SELECTOR_REFERENCES_.41
+OBJC_SELECTOR_REFERENCES_.43
+OBJC_SELECTOR_REFERENCES_.45
+.str.46
+_unnamed_cfstring_.47
+.str.52
+_unnamed_cfstring_.53
+OBJC_METH_VAR_NAME_.54
+OBJC_SELECTOR_REFERENCES_.55
+OBJC_METH_VAR_NAME_.56
+OBJC_SELECTOR_REFERENCES_.57
+__PRETTY_FUNCTION__.-[UDBtBeacon stopMonitoring]
+.str.58
+_unnamed_cfstring_.59
+OBJC_METH_VAR_NAME_.60
+OBJC_SELECTOR_REFERENCES_.61
+OBJC_IVAR_$_UDBtBeacon._peripheralManager
+OBJC_METH_VAR_NAME_.62
+OBJC_SELECTOR_REFERENCES_.63
+OBJC_METH_VAR_NAME_.64
+OBJC_SELECTOR_REFERENCES_.65
+OBJC_SELECTOR_REFERENCES_.67
+OBJC_CLASSLIST_REFERENCES_$_.68
+OBJC_SELECTOR_REFERENCES_.70
+OBJC_CLASSLIST_REFERENCES_$_.71
+OBJC_METH_VAR_NAME_.72
+OBJC_SELECTOR_REFERENCES_.73
+OBJC_CLASSLIST_REFERENCES_$_.74
+OBJC_METH_VAR_NAME_.75
+OBJC_SELECTOR_REFERENCES_.76
+OBJC_METH_VAR_NAME_.77
+OBJC_SELECTOR_REFERENCES_.78
+OBJC_CLASSLIST_REFERENCES_$_.81
+OBJC_METH_VAR_NAME_.82
+OBJC_SELECTOR_REFERENCES_.83
+.str.86
+OBJC_METH_VAR_NAME_.87
+OBJC_SELECTOR_REFERENCES_.88
+__PRETTY_FUNCTION__.-[UDBtBeacon locationManager:didFailWithError:]
+.str.89
+_unnamed_cfstring_.90
+.str.91
+_unnamed_cfstring_.92
+OBJC_METH_VAR_NAME_.93
+OBJC_SELECTOR_REFERENCES_.94
+.str.95
+_unnamed_cfstring_.96
+.str.97
+_unnamed_cfstring_.98
+.str.99
+_unnamed_cfstring_.100
+.str.101
+_unnamed_cfstring_.102
+.str.103
+_unnamed_cfstring_.104
+.str.105
+_unnamed_cfstring_.106
+.str.107
+_unnamed_cfstring_.108
+.str.109
+_unnamed_cfstring_.110
+.str.111
+_unnamed_cfstring_.112
+.str.113
+_unnamed_cfstring_.114
+.str.115
+_unnamed_cfstring_.116
+.str.117
+_unnamed_cfstring_.118
+.str.119
+_unnamed_cfstring_.120
+.str.121
+_unnamed_cfstring_.122
+.str.123
+_unnamed_cfstring_.124
+.str.125
+_unnamed_cfstring_.126
+.str.127
+_unnamed_cfstring_.128
+.str.129
+_unnamed_cfstring_.130
+__PRETTY_FUNCTION__.-[UDBtBeacon locationManager:monitoringDidFailForRegion:withError:]
+.str.131
+_unnamed_cfstring_.132
+OBJC_SELECTOR_REFERENCES_.134
+__PRETTY_FUNCTION__.-[UDBtBeacon peripheralManagerDidStartAdvertising:error:]
+.str.135
+_unnamed_cfstring_.136
+OBJC_IVAR_$_UDBtBeacon._state
+OBJC_METH_VAR_TYPE_.138
+OBJC_METH_VAR_TYPE_.141
+OBJC_METH_VAR_NAME_.142
+OBJC_METH_VAR_TYPE_.143
+OBJC_METH_VAR_NAME_.144
+OBJC_METH_VAR_TYPE_.145
+OBJC_METH_VAR_TYPE_.146
+OBJC_METH_VAR_NAME_.147
+OBJC_METH_VAR_TYPE_.148
+OBJC_METH_VAR_TYPE_.149
+OBJC_METH_VAR_NAME_.150
+OBJC_METH_VAR_TYPE_.151
+OBJC_METH_VAR_NAME_.152
+OBJC_METH_VAR_TYPE_.153
+OBJC_METH_VAR_NAME_.154
+OBJC_METH_VAR_TYPE_.155
+OBJC_METH_VAR_NAME_.157
+OBJC_METH_VAR_TYPE_.158
+OBJC_METH_VAR_TYPE_.160
+OBJC_METH_VAR_TYPE_.163
+OBJC_METH_VAR_NAME_.164
+OBJC_METH_VAR_TYPE_.167
+OBJC_METH_VAR_NAME_.168
+OBJC_METH_VAR_NAME_.170
+OBJC_METH_VAR_TYPE_.171
+OBJC_CLASS_NAME_.172
+OBJC_METH_VAR_NAME_.173
+OBJC_METH_VAR_TYPE_.174
+OBJC_METH_VAR_NAME_.175
+OBJC_METH_VAR_TYPE_.176
+OBJC_METH_VAR_NAME_.177
+OBJC_METH_VAR_TYPE_.178
+OBJC_METH_VAR_NAME_.179
+OBJC_METH_VAR_TYPE_.180
+OBJC_METH_VAR_NAME_.181
+OBJC_METH_VAR_TYPE_.182
+OBJC_METH_VAR_NAME_.183
+OBJC_METH_VAR_TYPE_.184
+OBJC_METH_VAR_NAME_.185
+OBJC_METH_VAR_TYPE_.186
+OBJC_METH_VAR_NAME_.187
+OBJC_METH_VAR_NAME_.188
+OBJC_METH_VAR_TYPE_.189
+OBJC_METH_VAR_NAME_.190
+OBJC_METH_VAR_TYPE_.191
+OBJC_METH_VAR_NAME_.192
+OBJC_METH_VAR_NAME_.193
+OBJC_METH_VAR_TYPE_.194
+OBJC_METH_VAR_NAME_.195
+OBJC_METH_VAR_NAME_.196
+OBJC_METH_VAR_TYPE_.197
+OBJC_METH_VAR_NAME_.198
+OBJC_METH_VAR_TYPE_.199
+OBJC_METH_VAR_NAME_.200
+OBJC_METH_VAR_NAME_.201
+OBJC_METH_VAR_NAME_.202
+OBJC_METH_VAR_TYPE_.203
+OBJC_METH_VAR_NAME_.204
+OBJC_CLASS_NAME_.205
+OBJC_PROP_NAME_ATTR_.206
+OBJC_PROP_NAME_ATTR_.207
+OBJC_PROP_NAME_ATTR_.208
+OBJC_PROP_NAME_ATTR_.209
+OBJC_PROP_NAME_ATTR_.210
+OBJC_PROP_NAME_ATTR_.211
+l_OBJC_$_PROTOCOL_REFS_CLLocationManagerDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_CLLocationManagerDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_CLLocationManagerDelegate
+l_OBJC_PROTOCOL_$_CLLocationManagerDelegate
+l_OBJC_LABEL_PROTOCOL_$_CLLocationManagerDelegate
+OBJC_METH_VAR_NAME_.212
+OBJC_METH_VAR_TYPE_.213
+OBJC_METH_VAR_NAME_.214
+OBJC_METH_VAR_TYPE_.215
+OBJC_METH_VAR_NAME_.216
+OBJC_METH_VAR_TYPE_.217
+OBJC_METH_VAR_NAME_.218
+OBJC_METH_VAR_TYPE_.219
+OBJC_METH_VAR_NAME_.220
+OBJC_METH_VAR_TYPE_.221
+OBJC_METH_VAR_NAME_.222
+OBJC_METH_VAR_NAME_.223
+OBJC_METH_VAR_TYPE_.224
+OBJC_METH_VAR_NAME_.225
+OBJC_METH_VAR_TYPE_.226
+OBJC_METH_VAR_NAME_.227
+OBJC_CLASS_NAME_.228
+l_OBJC_$_PROTOCOL_REFS_CBPeripheralManagerDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_CBPeripheralManagerDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_CBPeripheralManagerDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_CBPeripheralManagerDelegate
+l_OBJC_PROTOCOL_$_CBPeripheralManagerDelegate
+l_OBJC_LABEL_PROTOCOL_$_CBPeripheralManagerDelegate
+l_OBJC_CLASS_PROTOCOLS_$_UDBtBeacon
+l_OBJC_METACLASS_RO_$_UDBtBeacon
+OBJC_CLASS_NAME_.229
+OBJC_METH_VAR_NAME_.230
+OBJC_METH_VAR_TYPE_.231
+OBJC_METH_VAR_TYPE_.232
+OBJC_METH_VAR_NAME_.233
+OBJC_METH_VAR_NAME_.234
+OBJC_METH_VAR_NAME_.235
+OBJC_METH_VAR_NAME_.236
+OBJC_METH_VAR_TYPE_.237
+l_OBJC_$_INSTANCE_METHODS_UDBtBeacon
+OBJC_METH_VAR_NAME_.238
+OBJC_METH_VAR_TYPE_.239
+OBJC_METH_VAR_NAME_.240
+OBJC_METH_VAR_TYPE_.241
+OBJC_METH_VAR_NAME_.242
+OBJC_METH_VAR_TYPE_.243
+OBJC_METH_VAR_NAME_.244
+OBJC_METH_VAR_TYPE_.245
+OBJC_METH_VAR_NAME_.246
+OBJC_METH_VAR_TYPE_.247
+OBJC_METH_VAR_NAME_.248
+OBJC_METH_VAR_TYPE_.249
+l_OBJC_$_INSTANCE_VARIABLES_UDBtBeacon
+OBJC_PROP_NAME_ATTR_.250
+OBJC_PROP_NAME_ATTR_.251
+OBJC_PROP_NAME_ATTR_.252
+OBJC_PROP_NAME_ATTR_.253
+l_OBJC_$_PROP_LIST_UDBtBeacon
+l_OBJC_CLASS_RO_$_UDBtBeacon
+dispatch_get_main_queue
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/usr/include/dispatch/queue.h
+-[UDBtBeacon .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDBtBeacon.m
+-[UDBtBeacon setState:]
+-[UDBtBeacon state]
+-[UDBtBeacon beaconData]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDBtBeacon.h
+-[UDBtBeacon peripheralManagerDidStartAdvertising:error:]
+-[UDBtBeacon peripheralManagerDidUpdateState:]
+-[UDBtBeacon locationManager:didStartMonitoringForRegion:]
+-[UDBtBeacon locationManager:monitoringDidFailForRegion:withError:]
+-[UDBtBeacon locationManager:didFailWithError:]
+-[UDBtBeacon locationManager:didExitRegion:]
+-[UDBtBeacon locationManager:didEnterRegion:]
+-[UDBtBeacon locationManager:didDetermineState:forRegion:]
+-[UDBtBeacon locationManager:didChangeAuthorizationStatus:]
+-[UDBtBeacon notifyBluetoothRequired]
+-[UDBtBeacon stopAdvertising]
+-[UDBtBeacon startAdvertising]
+-[UDBtBeacon advertiseIfNecessary]
+-[UDBtBeacon stopMonitoring]
+-[UDBtBeacon startMonitoring]
+-[UDBtBeacon monitorIfNecessary]
+-[UDBtBeacon requestPermissions]
+-[UDBtBeacon dealloc]
+-[UDBtBeacon initWithAppId:]
+-[UDBtBeacon init]
+-[UDDataBuffer initWithData:]
+-[UDDataBuffer length]
+-[UDDataBuffer readBytesWithOffset:length:]
+-[UDDataBuffer data]
+-[UDDataBuffer .cxx_destruct]
+OBJC_IVAR_$_UDDataBuffer._data
+l_OBJC_METACLASS_RO_$_UDDataBuffer
+OBJC_CLASS_NAME_.5
+OBJC_METH_VAR_NAME_.6
+OBJC_METH_VAR_TYPE_.11
+l_OBJC_$_INSTANCE_METHODS_UDDataBuffer
+OBJC_METH_VAR_TYPE_.15
+l_OBJC_$_INSTANCE_VARIABLES_UDDataBuffer
+OBJC_PROP_NAME_ATTR_.16
+l_OBJC_$_PROP_LIST_UDDataBuffer
+l_OBJC_CLASS_RO_$_UDDataBuffer
+-[UDDataBuffer .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDDataBuffer.m
+-[UDDataBuffer data]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDDataBuffer.h
+-[UDDataBuffer readBytesWithOffset:length:]
+-[UDDataBuffer length]
+-[UDDataBuffer initWithData:]
+-[UDFrameCache initWithQueue:]
+-[UDFrameCache giveupDataId:]
+-[UDFrameCache cachedDataWithSource:]
+-[UDFrameCache dataForSource:]
+__30-[UDFrameCache dataForSource:]_block_invoke
+-[UDFrameCache .cxx_destruct]
+OBJC_IVAR_$_UDFrameCache._queue
+OBJC_IVAR_$_UDFrameCache._cache
+OBJC_IVAR_$_UDFrameCache._counts
+OBJC_CLASSLIST_REFERENCES_$_.3
+OBJC_SELECTOR_REFERENCES_.5
+OBJC_SELECTOR_REFERENCES_.7
+OBJC_SELECTOR_REFERENCES_.9
+OBJC_CLASSLIST_REFERENCES_$_.18
+OBJC_CLASSLIST_REFERENCES_$_.25
+OBJC_CLASSLIST_REFERENCES_$_.30
+OBJC_METH_VAR_NAME_.37
+OBJC_SELECTOR_REFERENCES_.38
+l_OBJC_METACLASS_RO_$_UDFrameCache
+OBJC_CLASS_NAME_.41
+OBJC_METH_VAR_TYPE_.44
+OBJC_METH_VAR_TYPE_.47
+l_OBJC_$_INSTANCE_METHODS_UDFrameCache
+OBJC_METH_VAR_TYPE_.49
+OBJC_METH_VAR_TYPE_.51
+OBJC_METH_VAR_NAME_.52
+l_OBJC_$_INSTANCE_VARIABLES_UDFrameCache
+l_OBJC_CLASS_RO_$_UDFrameCache
+-[UDFrameCache .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDFrameCache.m
+-[UDFrameCache dataForSource:]
+-[UDFrameCache cachedDataWithSource:]
+-[UDFrameCache giveupDataId:]
+-[UDFrameCache initWithQueue:]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/Public/UDTransport.m
+-[UDNsdChannel init]
+-[UDNsdChannel initWithServer:input:output:]
+-[UDNsdChannel dealloc]
+-[UDNsdChannel randomChannelId]
+-[UDNsdChannel description]
+-[UDNsdChannel priority]
+-[UDNsdChannel sendHeartbeat]
+-[UDNsdChannel checkHeartbeat]
+-[UDNsdChannel checkHeartbeatImpl]
+-[UDNsdChannel sendLongTransferLock:]
+-[UDNsdChannel sendFrame:]
+-[UDNsdChannel sendFrameOld:]
+-[UDNsdChannel sendLinkFrame:]
+-[UDNsdChannel connect]
+-[UDNsdChannel disconnect]
+-[UDNsdChannel closeStreams]
+__28-[UDNsdChannel closeStreams]_block_invoke
+-[UDNsdChannel onTerminated]
+__28-[UDNsdChannel onTerminated]_block_invoke
+__copy_helper_block_.101
+__destroy_helper_block_.102
+-[UDNsdChannel stream:handleEvent:]
+-[UDNsdChannel outputStream:handleEvent:]
+-[UDNsdChannel writeFrame:]
+-[UDNsdChannel writeNextBytes]
+-[UDNsdChannel inputStream:handleEvent:]
+-[UDNsdChannel formFrames]
+__26-[UDNsdChannel formFrames]_block_invoke
+__copy_helper_block_.190
+__destroy_helper_block_.191
+__26-[UDNsdChannel formFrames]_block_invoke.199
+__copy_helper_block_.202
+__destroy_helper_block_.203
+-[UDNsdChannel remoteNodeId]
+-[UDNsdChannel channelId]
+-[UDNsdChannel transferBytes]
+-[UDNsdChannel transferTime]
+-[UDNsdChannel transferSpeed]
+-[UDNsdChannel interfaceIndex]
+-[UDNsdChannel setInterfaceIndex:]
+-[UDNsdChannel server]
+-[UDNsdChannel inputStream]
+-[UDNsdChannel setInputStream:]
+-[UDNsdChannel outputStream]
+-[UDNsdChannel setOutputStream:]
+-[UDNsdChannel .cxx_destruct]
+OBJC_IVAR_$_UDNsdChannel._channelId
+OBJC_IVAR_$_UDNsdChannel._server
+OBJC_IVAR_$_UDNsdChannel._state
+OBJC_IVAR_$_UDNsdChannel._inputData
+OBJC_CLASSLIST_REFERENCES_$_.5
+OBJC_IVAR_$_UDNsdChannel._outputQueue
+OBJC_IVAR_$_UDNsdChannel._inputStream
+OBJC_IVAR_$_UDNsdChannel._outputStream
+OBJC_CLASSLIST_REFERENCES_$_.10
+__PRETTY_FUNCTION__.-[UDNsdChannel dealloc]
+OBJC_CLASSLIST_REFERENCES_$_.13
+.str.14
+OBJC_IVAR_$_UDNsdChannel._heartbeatTimer
+OBJC_IVAR_$_UDNsdChannel._timeoutTimer
+.str.23
+_unnamed_cfstring_.24
+.str.32
+_unnamed_cfstring_.33
+OBJC_SELECTOR_REFERENCES_.35
+.str.36
+_unnamed_cfstring_.37
+OBJC_IVAR_$_UDNsdChannel._remoteNodeId
+OBJC_SELECTOR_REFERENCES_.39
+OBJC_CLASSLIST_REFERENCES_$_.42
+OBJC_CLASSLIST_REFERENCES_$_.47
+OBJC_SELECTOR_REFERENCES_.53
+OBJC_METH_VAR_NAME_.58
+OBJC_SELECTOR_REFERENCES_.59
+OBJC_IVAR_$_UDNsdChannel._heartbeatReceived
+__PRETTY_FUNCTION__.-[UDNsdChannel checkHeartbeatImpl]
+.str.60
+_unnamed_cfstring_.61
+OBJC_CLASSLIST_REFERENCES_$_.64
+OBJC_METH_VAR_NAME_.65
+OBJC_SELECTOR_REFERENCES_.66
+OBJC_SELECTOR_REFERENCES_.68
+__PRETTY_FUNCTION__.-[UDNsdChannel closeStreams]
+.str.84
+_unnamed_cfstring_.85
+OBJC_METH_VAR_NAME_.86
+OBJC_SELECTOR_REFERENCES_.87
+OBJC_METH_VAR_NAME_.88
+OBJC_SELECTOR_REFERENCES_.89
+OBJC_IVAR_$_UDNsdChannel._outputData
+OBJC_IVAR_$_UDNsdChannel._outputDataOffset
+.str.90
+_unnamed_cfstring_.91
+OBJC_METH_VAR_NAME_.94
+OBJC_SELECTOR_REFERENCES_.95
+OBJC_METH_VAR_NAME_.96
+OBJC_SELECTOR_REFERENCES_.97
+.str.98
+OBJC_METH_VAR_NAME_.99
+OBJC_SELECTOR_REFERENCES_.100
+__block_descriptor_tmp.103
+OBJC_METH_VAR_NAME_.104
+OBJC_SELECTOR_REFERENCES_.105
+OBJC_METH_VAR_NAME_.106
+OBJC_SELECTOR_REFERENCES_.107
+__PRETTY_FUNCTION__.-[UDNsdChannel outputStream:handleEvent:]
+.str.108
+_unnamed_cfstring_.109
+OBJC_SELECTOR_REFERENCES_.111
+OBJC_CLASSLIST_REFERENCES_$_.112
+OBJC_METH_VAR_NAME_.113
+OBJC_SELECTOR_REFERENCES_.114
+OBJC_METH_VAR_NAME_.115
+OBJC_SELECTOR_REFERENCES_.116
+OBJC_CLASSLIST_REFERENCES_$_.117
+OBJC_CLASSLIST_REFERENCES_$_.118
+OBJC_METH_VAR_NAME_.119
+OBJC_SELECTOR_REFERENCES_.120
+OBJC_METH_VAR_NAME_.121
+OBJC_SELECTOR_REFERENCES_.122
+OBJC_METH_VAR_NAME_.123
+OBJC_SELECTOR_REFERENCES_.124
+OBJC_SELECTOR_REFERENCES_.126
+OBJC_CLASSLIST_REFERENCES_$_.127
+OBJC_METH_VAR_NAME_.128
+OBJC_SELECTOR_REFERENCES_.129
+OBJC_SELECTOR_REFERENCES_.131
+OBJC_SELECTOR_REFERENCES_.133
+OBJC_METH_VAR_NAME_.134
+OBJC_SELECTOR_REFERENCES_.135
+.str.136
+_unnamed_cfstring_.137
+.str.138
+_unnamed_cfstring_.139
+OBJC_CLASSLIST_REFERENCES_$_.140
+OBJC_SELECTOR_REFERENCES_.142
+OBJC_IVAR_$_UDNsdChannel._transferStartTime
+OBJC_METH_VAR_NAME_.143
+OBJC_SELECTOR_REFERENCES_.144
+OBJC_METH_VAR_NAME_.145
+OBJC_SELECTOR_REFERENCES_.146
+OBJC_SELECTOR_REFERENCES_.148
+__PRETTY_FUNCTION__.-[UDNsdChannel writeNextBytes]
+.str.149
+_unnamed_cfstring_.150
+OBJC_IVAR_$_UDNsdChannel._transferBytes
+OBJC_IVAR_$_UDNsdChannel._transferTime
+OBJC_IVAR_$_UDNsdChannel._transferSpeed
+OBJC_METH_VAR_NAME_.151
+OBJC_SELECTOR_REFERENCES_.152
+OBJC_METH_VAR_NAME_.153
+OBJC_SELECTOR_REFERENCES_.154
+OBJC_METH_VAR_NAME_.155
+OBJC_SELECTOR_REFERENCES_.156
+__PRETTY_FUNCTION__.-[UDNsdChannel inputStream:handleEvent:]
+.str.157
+_unnamed_cfstring_.158
+.str.159
+_unnamed_cfstring_.160
+OBJC_SELECTOR_REFERENCES_.162
+OBJC_IVAR_$_UDNsdChannel._inputBuffer
+OBJC_SELECTOR_REFERENCES_.164
+.str.165
+_unnamed_cfstring_.166
+OBJC_SELECTOR_REFERENCES_.168
+.str.169
+_unnamed_cfstring_.170
+OBJC_SELECTOR_REFERENCES_.172
+OBJC_SELECTOR_REFERENCES_.174
+OBJC_SELECTOR_REFERENCES_.176
+OBJC_CLASSLIST_REFERENCES_$_.177
+OBJC_METH_VAR_NAME_.178
+OBJC_SELECTOR_REFERENCES_.179
+OBJC_METH_VAR_NAME_.180
+OBJC_SELECTOR_REFERENCES_.181
+OBJC_METH_VAR_NAME_.182
+OBJC_SELECTOR_REFERENCES_.183
+OBJC_METH_VAR_NAME_.184
+OBJC_SELECTOR_REFERENCES_.185
+OBJC_METH_VAR_NAME_.186
+OBJC_SELECTOR_REFERENCES_.187
+OBJC_SELECTOR_REFERENCES_.189
+__block_descriptor_tmp.192
+OBJC_SELECTOR_REFERENCES_.194
+OBJC_SELECTOR_REFERENCES_.196
+OBJC_METH_VAR_NAME_.197
+OBJC_SELECTOR_REFERENCES_.198
+OBJC_SELECTOR_REFERENCES_.201
+__block_descriptor_tmp.204
+OBJC_IVAR_$_UDNsdChannel._interfaceIndex
+OBJC_METH_VAR_NAME_.205
+OBJC_METH_VAR_TYPE_.206
+OBJC_CLASS_NAME_.207
+OBJC_METH_VAR_NAME_.208
+OBJC_METH_VAR_TYPE_.209
+OBJC_METH_VAR_NAME_.210
+OBJC_METH_VAR_TYPE_.211
+OBJC_METH_VAR_TYPE_.223
+OBJC_METH_VAR_NAME_.224
+OBJC_METH_VAR_TYPE_.228
+OBJC_METH_VAR_NAME_.229
+OBJC_METH_VAR_NAME_.232
+OBJC_METH_VAR_TYPE_.234
+OBJC_METH_VAR_TYPE_.236
+OBJC_METH_VAR_NAME_.237
+OBJC_METH_VAR_NAME_.239
+OBJC_METH_VAR_TYPE_.240
+OBJC_METH_VAR_NAME_.241
+OBJC_CLASS_NAME_.242
+OBJC_PROP_NAME_ATTR_.243
+OBJC_PROP_NAME_ATTR_.244
+OBJC_PROP_NAME_ATTR_.245
+OBJC_PROP_NAME_ATTR_.246
+OBJC_PROP_NAME_ATTR_.247
+OBJC_PROP_NAME_ATTR_.248
+l_OBJC_$_PROTOCOL_REFS_NSStreamDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSStreamDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_NSStreamDelegate
+l_OBJC_PROTOCOL_$_NSStreamDelegate
+l_OBJC_LABEL_PROTOCOL_$_NSStreamDelegate
+OBJC_METH_VAR_NAME_.249
+OBJC_METH_VAR_TYPE_.250
+OBJC_METH_VAR_NAME_.251
+OBJC_METH_VAR_TYPE_.252
+OBJC_METH_VAR_TYPE_.253
+OBJC_METH_VAR_NAME_.254
+OBJC_METH_VAR_TYPE_.255
+OBJC_METH_VAR_TYPE_.256
+OBJC_METH_VAR_NAME_.257
+OBJC_METH_VAR_TYPE_.258
+OBJC_METH_VAR_TYPE_.259
+OBJC_METH_VAR_NAME_.260
+OBJC_CLASS_NAME_.261
+l_OBJC_$_PROTOCOL_REFS_UDChannel
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDChannel
+OBJC_PROP_NAME_ATTR_.262
+OBJC_PROP_NAME_ATTR_.263
+OBJC_PROP_NAME_ATTR_.264
+OBJC_PROP_NAME_ATTR_.265
+OBJC_PROP_NAME_ATTR_.266
+OBJC_PROP_NAME_ATTR_.267
+l_OBJC_$_PROP_LIST_UDChannel
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDChannel
+l_OBJC_PROTOCOL_$_UDChannel
+l_OBJC_LABEL_PROTOCOL_$_UDChannel
+l_OBJC_CLASS_PROTOCOLS_$_UDNsdChannel
+l_OBJC_METACLASS_RO_$_UDNsdChannel
+OBJC_CLASS_NAME_.268
+OBJC_METH_VAR_NAME_.269
+OBJC_METH_VAR_TYPE_.270
+OBJC_METH_VAR_NAME_.271
+OBJC_METH_VAR_TYPE_.272
+OBJC_METH_VAR_NAME_.273
+OBJC_METH_VAR_NAME_.274
+OBJC_METH_VAR_NAME_.275
+OBJC_METH_VAR_TYPE_.276
+OBJC_METH_VAR_NAME_.277
+OBJC_METH_VAR_TYPE_.278
+OBJC_METH_VAR_NAME_.279
+OBJC_METH_VAR_NAME_.280
+OBJC_METH_VAR_NAME_.281
+OBJC_METH_VAR_TYPE_.282
+OBJC_METH_VAR_NAME_.283
+OBJC_METH_VAR_NAME_.284
+OBJC_METH_VAR_NAME_.285
+OBJC_METH_VAR_NAME_.286
+l_OBJC_$_INSTANCE_METHODS_UDNsdChannel
+OBJC_METH_VAR_NAME_.287
+OBJC_METH_VAR_TYPE_.288
+OBJC_METH_VAR_NAME_.289
+OBJC_METH_VAR_TYPE_.290
+OBJC_METH_VAR_NAME_.291
+OBJC_METH_VAR_TYPE_.292
+OBJC_METH_VAR_NAME_.293
+OBJC_METH_VAR_TYPE_.294
+OBJC_METH_VAR_NAME_.295
+OBJC_METH_VAR_TYPE_.296
+OBJC_METH_VAR_NAME_.297
+OBJC_METH_VAR_NAME_.298
+OBJC_METH_VAR_TYPE_.299
+OBJC_METH_VAR_NAME_.300
+OBJC_METH_VAR_TYPE_.301
+OBJC_METH_VAR_NAME_.302
+OBJC_METH_VAR_NAME_.303
+OBJC_METH_VAR_TYPE_.304
+OBJC_METH_VAR_NAME_.305
+OBJC_METH_VAR_TYPE_.306
+OBJC_METH_VAR_NAME_.307
+OBJC_METH_VAR_TYPE_.308
+OBJC_METH_VAR_NAME_.309
+OBJC_METH_VAR_NAME_.310
+OBJC_METH_VAR_NAME_.311
+OBJC_METH_VAR_TYPE_.312
+OBJC_METH_VAR_NAME_.313
+OBJC_METH_VAR_TYPE_.314
+OBJC_METH_VAR_NAME_.315
+OBJC_METH_VAR_TYPE_.316
+OBJC_METH_VAR_NAME_.317
+OBJC_METH_VAR_TYPE_.318
+OBJC_METH_VAR_NAME_.319
+l_OBJC_$_INSTANCE_VARIABLES_UDNsdChannel
+OBJC_CLASS_NAME_.320
+OBJC_PROP_NAME_ATTR_.321
+OBJC_PROP_NAME_ATTR_.322
+OBJC_PROP_NAME_ATTR_.323
+OBJC_PROP_NAME_ATTR_.324
+OBJC_PROP_NAME_ATTR_.325
+OBJC_PROP_NAME_ATTR_.326
+OBJC_PROP_NAME_ATTR_.327
+OBJC_PROP_NAME_ATTR_.328
+OBJC_PROP_NAME_ATTR_.329
+OBJC_PROP_NAME_ATTR_.330
+OBJC_PROP_NAME_ATTR_.331
+OBJC_PROP_NAME_ATTR_.332
+OBJC_PROP_NAME_ATTR_.333
+OBJC_PROP_NAME_ATTR_.334
+OBJC_PROP_NAME_ATTR_.335
+OBJC_PROP_NAME_ATTR_.336
+l_OBJC_$_PROP_LIST_UDNsdChannel
+l_OBJC_CLASS_RO_$_UDNsdChannel
+CFSwapInt32BigToHost
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h
+_OSSwapInt32
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/usr/include/libkern/arm/OSByteOrder.h
+CFSwapInt32HostToBig
+-[UDNsdChannel .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDNsdChannel.m
+-[UDNsdChannel setOutputStream:]
+-[UDNsdChannel outputStream]
+-[UDNsdChannel setInputStream:]
+-[UDNsdChannel inputStream]
+-[UDNsdChannel server]
+-[UDNsdChannel setInterfaceIndex:]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDNsdChannel.h
+-[UDNsdChannel interfaceIndex]
+-[UDNsdChannel transferSpeed]
+-[UDNsdChannel transferTime]
+-[UDNsdChannel transferBytes]
+-[UDNsdChannel channelId]
+-[UDNsdChannel remoteNodeId]
+-[UDNsdChannel formFrames]
+-[UDNsdChannel inputStream:handleEvent:]
+-[UDNsdChannel writeNextBytes]
+-[UDNsdChannel writeFrame:]
+-[UDNsdChannel outputStream:handleEvent:]
+-[UDNsdChannel stream:handleEvent:]
+-[UDNsdChannel onTerminated]
+-[UDNsdChannel closeStreams]
+-[UDNsdChannel disconnect]
+-[UDNsdChannel connect]
+-[UDNsdChannel sendLinkFrame:]
+-[UDNsdChannel sendFrameOld:]
+-[UDNsdChannel sendFrame:]
+-[UDNsdChannel sendLongTransferLock:]
+-[UDNsdChannel checkHeartbeatImpl]
+-[UDNsdChannel checkHeartbeat]
+-[UDNsdChannel sendHeartbeat]
+-[UDNsdChannel priority]
+-[UDNsdChannel description]
+-[UDNsdChannel randomChannelId]
+-[UDNsdChannel dealloc]
+-[UDNsdChannel initWithServer:input:output:]
+-[UDNsdChannel init]
++[UDUnderdark logger]
++[UDUnderdark setLogger:]
++[UDUnderdark configureTransportWithAppId:nodeId:delegate:queue:kinds:]
+underdarkLogger
+OBJC_CLASSLIST_REFERENCES_$_.8
+OBJC_METH_VAR_TYPE_.17
+l_OBJC_$_CLASS_METHODS_UDUnderdark
+l_OBJC_METACLASS_RO_$_UDUnderdark
+l_OBJC_CLASS_RO_$_UDUnderdark
++[UDUnderdark configureTransportWithAppId:nodeId:delegate:queue:kinds:]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/Public/UDUnderdark.m
++[UDUnderdark setLogger:]
++[UDUnderdark logger]
+-[UDLazySource init]
+-[UDLazySource initWithQueue:dataId:block:]
+-[UDLazySource initWithQueue:block:]
+-[UDLazySource dealloc]
+-[UDLazySource listen:block:]
+__29-[UDLazySource listen:block:]_block_invoke
+__29-[UDLazySource listen:block:]_block_invoke_2
+__copy_helper_block_.11
+__destroy_helper_block_.12
+-[UDLazySource future]
+-[UDLazySource dataId]
+-[UDLazySource .cxx_destruct]
+OBJC_IVAR_$_UDLazySource._queue
+OBJC_IVAR_$_UDLazySource._retriever
+OBJC_IVAR_$_UDLazySource._dataId
+OBJC_IVAR_$_UDLazySource._future
+__block_descriptor_tmp.13
+OBJC_CLASS_NAME_.16
+OBJC_METH_VAR_TYPE_.18
+OBJC_METH_VAR_TYPE_.29
+OBJC_METH_VAR_TYPE_.33
+OBJC_METH_VAR_TYPE_.42
+OBJC_CLASS_NAME_.55
+OBJC_PROP_NAME_ATTR_.63
+OBJC_PROP_NAME_ATTR_.64
+OBJC_PROP_NAME_ATTR_.65
+l_OBJC_CLASS_PROTOCOLS_$_UDLazySource
+l_OBJC_METACLASS_RO_$_UDLazySource
+OBJC_CLASS_NAME_.66
+OBJC_METH_VAR_TYPE_.67
+OBJC_METH_VAR_TYPE_.69
+l_OBJC_$_INSTANCE_METHODS_UDLazySource
+OBJC_METH_VAR_TYPE_.73
+OBJC_METH_VAR_NAME_.74
+OBJC_METH_VAR_TYPE_.75
+OBJC_METH_VAR_NAME_.76
+OBJC_METH_VAR_TYPE_.77
+OBJC_METH_VAR_NAME_.78
+OBJC_METH_VAR_TYPE_.79
+l_OBJC_$_INSTANCE_VARIABLES_UDLazySource
+OBJC_PROP_NAME_ATTR_.80
+OBJC_PROP_NAME_ATTR_.81
+l_OBJC_$_PROP_LIST_UDLazySource
+l_OBJC_CLASS_RO_$_UDLazySource
+-[UDLazySource .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/Public/UDLazySource.m
+-[UDLazySource dataId]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/Public/UDLazySource.h
+-[UDLazySource future]
+-[UDLazySource listen:block:]
+-[UDLazySource dealloc]
+-[UDLazySource initWithQueue:block:]
+-[UDLazySource initWithQueue:dataId:block:]
+-[UDLazySource init]
+.str.3
+_unnamed_cfstring_.4
+.str.7
+_unnamed_cfstring_.8
+.str.9
+_unnamed_cfstring_.10
+.str.11
+_unnamed_cfstring_.12
+.str.13
+_unnamed_cfstring_.14
+.str.17
+_unnamed_cfstring_.18
+.str.19
+_unnamed_cfstring_.20
+.str.21
+_unnamed_cfstring_.22
+.str.25
+_unnamed_cfstring_.26
+.str.27
+_unnamed_cfstring_.28
+.str.29
+_unnamed_cfstring_.30
+.str.31
+_unnamed_cfstring_.32
+.str.33
+_unnamed_cfstring_.34
+.str.35
+_unnamed_cfstring_.36
+_unnamed_cfstring_.38
+.str.39
+_unnamed_cfstring_.40
+.str.41
+_unnamed_cfstring_.42
+.str.43
+_unnamed_cfstring_.44
+.str.45
+_unnamed_cfstring_.46
+.str.47
+_unnamed_cfstring_.48
+.str.49
+_unnamed_cfstring_.50
+.str.51
+_unnamed_cfstring_.52
+.str.53
+_unnamed_cfstring_.54
+.str.55
+_unnamed_cfstring_.56
+.str.57
+_unnamed_cfstring_.58
+.str.59
+_unnamed_cfstring_.60
+.str.61
+_unnamed_cfstring_.62
+.str.63
+_unnamed_cfstring_.64
+UDInterfaceIndexToName
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDNsdUtil.m
+UDDnsErrorToString
+UDCallbackDescription
+UDCallbackInfoRelease
+UDCallbackInfoRetain
+-[UDBonjourChannel init]
+-[UDBonjourChannel initServerWithDelegate:nodeId:input:output:]
+-[UDBonjourChannel initClientWithDelegate:nodeId:remoteNodeId:input:output:]
+-[UDBonjourChannel dealloc]
+-[UDBonjourChannel randomChannelId]
+-[UDBonjourChannel description]
+-[UDBonjourChannel sendHeartbeat]
+-[UDBonjourChannel checkHeartbeat]
+-[UDBonjourChannel checkHeartbeatImpl]
+-[UDBonjourChannel connect]
+-[UDBonjourChannel disconnect]
+-[UDBonjourChannel closeStreams]
+__32-[UDBonjourChannel closeStreams]_block_invoke
+-[UDBonjourChannel onTerminated]
+__32-[UDBonjourChannel onTerminated]_block_invoke
+__copy_helper_block_.98
+__destroy_helper_block_.99
+-[UDBonjourChannel sendLongTransferLock:]
+__41-[UDBonjourChannel sendLongTransferLock:]_block_invoke
+__copy_helper_block_.108
+__destroy_helper_block_.109
+-[UDBonjourChannel sendFrame:]
+-[UDBonjourChannel sendInternalFrame:]
+-[UDBonjourChannel enqueueFrame:]
+-[UDBonjourChannel enqueueItem:]
+-[UDBonjourChannel writeNextBytes]
+__34-[UDBonjourChannel writeNextBytes]_block_invoke
+__copy_helper_block_.143
+__destroy_helper_block_.144
+-[UDBonjourChannel frameHeaderForFrameData:]
+-[UDBonjourChannel formFrames]
+-[UDBonjourChannel processInputFrame:]
+__38-[UDBonjourChannel processInputFrame:]_block_invoke
+__copy_helper_block_.191
+__destroy_helper_block_.192
+__38-[UDBonjourChannel processInputFrame:]_block_invoke.194
+__copy_helper_block_.195
+__destroy_helper_block_.196
+__38-[UDBonjourChannel processInputFrame:]_block_invoke.206
+__copy_helper_block_.209
+__destroy_helper_block_.210
+__38-[UDBonjourChannel processInputFrame:]_block_invoke.216
+__copy_helper_block_.219
+__destroy_helper_block_.220
+-[UDBonjourChannel stream:handleEvent:]
+-[UDBonjourChannel outputStream:handleEvent:]
+-[UDBonjourChannel inputStream:handleEvent:]
+-[UDBonjourChannel nodeId]
+-[UDBonjourChannel remoteNodeId]
+-[UDBonjourChannel priority]
+-[UDBonjourChannel channelId]
+-[UDBonjourChannel setChannelId:]
+-[UDBonjourChannel longTransferCount]
+-[UDBonjourChannel setLongTransferCount:]
+-[UDBonjourChannel delegate]
+-[UDBonjourChannel setDelegate:]
+-[UDBonjourChannel queue]
+-[UDBonjourChannel ioThread]
+-[UDBonjourChannel inputStream]
+-[UDBonjourChannel setInputStream:]
+-[UDBonjourChannel outputStream]
+-[UDBonjourChannel setOutputStream:]
+-[UDBonjourChannel .cxx_destruct]
+OBJC_IVAR_$_UDBonjourChannel._delegate
+OBJC_IVAR_$_UDBonjourChannel._ioThread
+OBJC_IVAR_$_UDBonjourChannel._queue
+OBJC_IVAR_$_UDBonjourChannel._isClient
+OBJC_IVAR_$_UDBonjourChannel._nodeId
+OBJC_IVAR_$_UDBonjourChannel._state
+OBJC_IVAR_$_UDBonjourChannel._inputByteBuf
+OBJC_CLASSLIST_REFERENCES_$_.7
+OBJC_IVAR_$_UDBonjourChannel._outputQueue
+OBJC_IVAR_$_UDBonjourChannel._outputCanWriteToStream
+OBJC_IVAR_$_UDBonjourChannel._inputStream
+OBJC_IVAR_$_UDBonjourChannel._outputStream
+OBJC_IVAR_$_UDBonjourChannel._reportCanSendMore
+OBJC_IVAR_$_UDBonjourChannel._remoteNodeId
+OBJC_IVAR_$_UDBonjourChannel._channelId
+OBJC_IVAR_$_UDBonjourChannel._heartbeatTimer
+OBJC_IVAR_$_UDBonjourChannel._timeoutTimer
+OBJC_CLASSLIST_REFERENCES_$_.20
+OBJC_CLASSLIST_REFERENCES_$_.31
+OBJC_CLASSLIST_REFERENCES_$_.36
+OBJC_CLASSLIST_REFERENCES_$_.41
+OBJC_SELECTOR_REFERENCES_.47
+OBJC_IVAR_$_UDBonjourChannel._heartbeatReceived
+__PRETTY_FUNCTION__.-[UDBonjourChannel checkHeartbeatImpl]
+.str.56
+_unnamed_cfstring_.57
+OBJC_IVAR_$_UDBonjourChannel._priority
+OBJC_METH_VAR_NAME_.70
+OBJC_SELECTOR_REFERENCES_.71
+OBJC_METH_VAR_NAME_.81
+OBJC_SELECTOR_REFERENCES_.82
+OBJC_METH_VAR_NAME_.83
+OBJC_SELECTOR_REFERENCES_.84
+OBJC_IVAR_$_UDBonjourChannel._outputItem
+OBJC_METH_VAR_NAME_.85
+OBJC_SELECTOR_REFERENCES_.86
+OBJC_IVAR_$_UDBonjourChannel._outputDataOffset
+OBJC_METH_VAR_NAME_.89
+OBJC_SELECTOR_REFERENCES_.90
+OBJC_METH_VAR_NAME_.91
+OBJC_SELECTOR_REFERENCES_.92
+__block_descriptor_tmp.100
+OBJC_CLASSLIST_REFERENCES_$_.101
+OBJC_SELECTOR_REFERENCES_.103
+__block_descriptor_tmp.110
+OBJC_METH_VAR_NAME_.111
+OBJC_SELECTOR_REFERENCES_.112
+OBJC_METH_VAR_NAME_.117
+OBJC_SELECTOR_REFERENCES_.118
+OBJC_SELECTOR_REFERENCES_.128
+OBJC_SELECTOR_REFERENCES_.130
+OBJC_METH_VAR_NAME_.131
+OBJC_SELECTOR_REFERENCES_.132
+__PRETTY_FUNCTION__.-[UDBonjourChannel writeNextBytes]
+OBJC_SELECTOR_REFERENCES_.138
+OBJC_SELECTOR_REFERENCES_.140
+__block_descriptor_tmp.145
+OBJC_METH_VAR_NAME_.146
+OBJC_SELECTOR_REFERENCES_.147
+OBJC_METH_VAR_NAME_.148
+OBJC_SELECTOR_REFERENCES_.149
+OBJC_CLASSLIST_REFERENCES_$_.150
+OBJC_SELECTOR_REFERENCES_.158
+OBJC_SELECTOR_REFERENCES_.160
+OBJC_SELECTOR_REFERENCES_.166
+OBJC_CLASSLIST_REFERENCES_$_.167
+OBJC_SELECTOR_REFERENCES_.169
+__PRETTY_FUNCTION__.-[UDBonjourChannel formFrames]
+.str.170
+_unnamed_cfstring_.171
+OBJC_SELECTOR_REFERENCES_.173
+OBJC_SELECTOR_REFERENCES_.175
+OBJC_METH_VAR_NAME_.176
+OBJC_SELECTOR_REFERENCES_.177
+OBJC_CLASSLIST_REFERENCES_$_.184
+OBJC_SELECTOR_REFERENCES_.186
+OBJC_SELECTOR_REFERENCES_.188
+OBJC_METH_VAR_NAME_.189
+OBJC_SELECTOR_REFERENCES_.190
+__block_descriptor_tmp.193
+__block_descriptor_tmp.197
+OBJC_SELECTOR_REFERENCES_.199
+OBJC_SELECTOR_REFERENCES_.203
+OBJC_SELECTOR_REFERENCES_.205
+OBJC_METH_VAR_NAME_.207
+OBJC_SELECTOR_REFERENCES_.208
+__block_descriptor_tmp.211
+OBJC_SELECTOR_REFERENCES_.213
+OBJC_SELECTOR_REFERENCES_.215
+OBJC_METH_VAR_NAME_.217
+OBJC_SELECTOR_REFERENCES_.218
+__block_descriptor_tmp.221
+OBJC_SELECTOR_REFERENCES_.223
+OBJC_SELECTOR_REFERENCES_.225
+__PRETTY_FUNCTION__.-[UDBonjourChannel outputStream:handleEvent:]
+.str.226
+_unnamed_cfstring_.227
+OBJC_CLASSLIST_REFERENCES_$_.228
+OBJC_SELECTOR_REFERENCES_.230
+OBJC_CLASSLIST_REFERENCES_$_.231
+OBJC_CLASSLIST_REFERENCES_$_.232
+OBJC_SELECTOR_REFERENCES_.234
+OBJC_SELECTOR_REFERENCES_.236
+OBJC_SELECTOR_REFERENCES_.238
+OBJC_SELECTOR_REFERENCES_.240
+OBJC_SELECTOR_REFERENCES_.242
+OBJC_METH_VAR_NAME_.243
+OBJC_SELECTOR_REFERENCES_.244
+.str.245
+_unnamed_cfstring_.246
+.str.247
+_unnamed_cfstring_.248
+__PRETTY_FUNCTION__.-[UDBonjourChannel inputStream:handleEvent:]
+.str.249
+_unnamed_cfstring_.250
+.str.251
+_unnamed_cfstring_.252
+OBJC_METH_VAR_NAME_.253
+OBJC_SELECTOR_REFERENCES_.254
+OBJC_IVAR_$_UDBonjourChannel._inputBuffer
+OBJC_METH_VAR_NAME_.255
+OBJC_SELECTOR_REFERENCES_.256
+OBJC_SELECTOR_REFERENCES_.258
+.str.259
+_unnamed_cfstring_.260
+.str.261
+_unnamed_cfstring_.262
+OBJC_METH_VAR_NAME_.263
+OBJC_SELECTOR_REFERENCES_.264
+.str.265
+_unnamed_cfstring_.266
+OBJC_IVAR_$_UDBonjourChannel._longTransferCount
+OBJC_METH_VAR_NAME_.267
+OBJC_METH_VAR_TYPE_.268
+OBJC_CLASS_NAME_.269
+OBJC_METH_VAR_NAME_.270
+OBJC_METH_VAR_TYPE_.271
+OBJC_METH_VAR_NAME_.272
+OBJC_METH_VAR_TYPE_.273
+OBJC_METH_VAR_TYPE_.275
+OBJC_METH_VAR_NAME_.276
+OBJC_METH_VAR_TYPE_.277
+OBJC_METH_VAR_NAME_.278
+OBJC_METH_VAR_TYPE_.279
+OBJC_METH_VAR_TYPE_.281
+OBJC_METH_VAR_NAME_.282
+OBJC_METH_VAR_TYPE_.283
+OBJC_METH_VAR_TYPE_.285
+OBJC_METH_VAR_NAME_.292
+OBJC_METH_VAR_TYPE_.293
+OBJC_METH_VAR_NAME_.294
+OBJC_METH_VAR_TYPE_.298
+OBJC_METH_VAR_NAME_.299
+OBJC_CLASS_NAME_.303
+OBJC_PROP_NAME_ATTR_.304
+OBJC_PROP_NAME_ATTR_.305
+OBJC_PROP_NAME_ATTR_.306
+OBJC_PROP_NAME_ATTR_.307
+OBJC_PROP_NAME_ATTR_.308
+OBJC_PROP_NAME_ATTR_.309
+OBJC_METH_VAR_TYPE_.311
+OBJC_METH_VAR_NAME_.312
+OBJC_METH_VAR_TYPE_.313
+OBJC_METH_VAR_TYPE_.317
+OBJC_METH_VAR_NAME_.318
+OBJC_METH_VAR_TYPE_.319
+OBJC_METH_VAR_NAME_.320
+OBJC_METH_VAR_TYPE_.321
+OBJC_METH_VAR_NAME_.322
+OBJC_CLASS_NAME_.323
+l_OBJC_CLASS_PROTOCOLS_$_UDBonjourChannel
+l_OBJC_METACLASS_RO_$_UDBonjourChannel
+OBJC_CLASS_NAME_.330
+OBJC_METH_VAR_TYPE_.331
+OBJC_METH_VAR_NAME_.332
+OBJC_METH_VAR_TYPE_.333
+OBJC_METH_VAR_NAME_.334
+OBJC_METH_VAR_TYPE_.335
+OBJC_METH_VAR_NAME_.336
+OBJC_METH_VAR_NAME_.337
+OBJC_METH_VAR_NAME_.338
+OBJC_METH_VAR_NAME_.339
+OBJC_METH_VAR_TYPE_.340
+OBJC_METH_VAR_NAME_.341
+OBJC_METH_VAR_NAME_.342
+OBJC_METH_VAR_NAME_.343
+OBJC_METH_VAR_NAME_.344
+l_OBJC_$_INSTANCE_METHODS_UDBonjourChannel
+OBJC_METH_VAR_NAME_.345
+OBJC_METH_VAR_TYPE_.346
+OBJC_METH_VAR_NAME_.347
+OBJC_METH_VAR_TYPE_.348
+OBJC_METH_VAR_NAME_.349
+OBJC_METH_VAR_TYPE_.350
+OBJC_METH_VAR_NAME_.351
+OBJC_METH_VAR_TYPE_.352
+OBJC_METH_VAR_NAME_.353
+OBJC_METH_VAR_TYPE_.354
+OBJC_METH_VAR_NAME_.355
+OBJC_METH_VAR_TYPE_.356
+OBJC_METH_VAR_NAME_.357
+OBJC_METH_VAR_NAME_.358
+OBJC_METH_VAR_NAME_.359
+OBJC_METH_VAR_TYPE_.360
+OBJC_METH_VAR_NAME_.361
+OBJC_METH_VAR_NAME_.362
+OBJC_METH_VAR_NAME_.363
+OBJC_METH_VAR_NAME_.364
+OBJC_METH_VAR_TYPE_.365
+OBJC_METH_VAR_NAME_.366
+OBJC_METH_VAR_TYPE_.367
+OBJC_METH_VAR_NAME_.368
+OBJC_METH_VAR_TYPE_.369
+OBJC_METH_VAR_NAME_.370
+OBJC_METH_VAR_TYPE_.371
+OBJC_METH_VAR_NAME_.372
+OBJC_METH_VAR_TYPE_.373
+OBJC_METH_VAR_NAME_.374
+OBJC_METH_VAR_TYPE_.375
+OBJC_METH_VAR_NAME_.376
+OBJC_METH_VAR_TYPE_.377
+OBJC_METH_VAR_NAME_.378
+OBJC_METH_VAR_TYPE_.379
+OBJC_METH_VAR_NAME_.380
+OBJC_METH_VAR_NAME_.381
+l_OBJC_$_INSTANCE_VARIABLES_UDBonjourChannel
+OBJC_CLASS_NAME_.382
+OBJC_PROP_NAME_ATTR_.383
+OBJC_PROP_NAME_ATTR_.384
+OBJC_PROP_NAME_ATTR_.385
+OBJC_PROP_NAME_ATTR_.386
+OBJC_PROP_NAME_ATTR_.387
+OBJC_PROP_NAME_ATTR_.388
+OBJC_PROP_NAME_ATTR_.389
+OBJC_PROP_NAME_ATTR_.390
+OBJC_PROP_NAME_ATTR_.391
+OBJC_PROP_NAME_ATTR_.392
+OBJC_PROP_NAME_ATTR_.393
+OBJC_PROP_NAME_ATTR_.394
+OBJC_PROP_NAME_ATTR_.395
+OBJC_PROP_NAME_ATTR_.396
+OBJC_PROP_NAME_ATTR_.397
+OBJC_PROP_NAME_ATTR_.398
+OBJC_PROP_NAME_ATTR_.399
+l_OBJC_$_PROP_LIST_UDBonjourChannel
+l_OBJC_CLASS_RO_$_UDBonjourChannel
+-[UDBonjourChannel .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDBonjourChannel.m
+-[UDBonjourChannel setOutputStream:]
+-[UDBonjourChannel outputStream]
+-[UDBonjourChannel setInputStream:]
+-[UDBonjourChannel inputStream]
+-[UDBonjourChannel ioThread]
+-[UDBonjourChannel queue]
+-[UDBonjourChannel setDelegate:]
+-[UDBonjourChannel delegate]
+-[UDBonjourChannel setLongTransferCount:]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDBonjourChannel.h
+-[UDBonjourChannel longTransferCount]
+-[UDBonjourChannel setChannelId:]
+-[UDBonjourChannel channelId]
+-[UDBonjourChannel priority]
+-[UDBonjourChannel remoteNodeId]
+-[UDBonjourChannel nodeId]
+-[UDBonjourChannel inputStream:handleEvent:]
+-[UDBonjourChannel outputStream:handleEvent:]
+-[UDBonjourChannel stream:handleEvent:]
+-[UDBonjourChannel processInputFrame:]
+-[UDBonjourChannel formFrames]
+-[UDBonjourChannel frameHeaderForFrameData:]
+-[UDBonjourChannel writeNextBytes]
+-[UDBonjourChannel enqueueItem:]
+-[UDBonjourChannel enqueueFrame:]
+-[UDBonjourChannel sendInternalFrame:]
+-[UDBonjourChannel sendFrame:]
+-[UDBonjourChannel sendLongTransferLock:]
+-[UDBonjourChannel onTerminated]
+-[UDBonjourChannel closeStreams]
+-[UDBonjourChannel disconnect]
+-[UDBonjourChannel connect]
+-[UDBonjourChannel checkHeartbeatImpl]
+-[UDBonjourChannel checkHeartbeat]
+-[UDBonjourChannel sendHeartbeat]
+-[UDBonjourChannel description]
+-[UDBonjourChannel randomChannelId]
+-[UDBonjourChannel dealloc]
+-[UDBonjourChannel initClientWithDelegate:nodeId:remoteNodeId:input:output:]
+-[UDBonjourChannel initServerWithDelegate:nodeId:input:output:]
+-[UDBonjourChannel init]
+-[UDRunLoopThread init]
+-[UDRunLoopThread initWithName:]
+-[UDRunLoopThread dealloc]
+-[UDRunLoopThread cancel]
+-[UDRunLoopThread noop]
+-[UDRunLoopThread runLoop]
+-[UDRunLoopThread cfRunLoop]
+-[UDRunLoopThread main]
+-[UDRunLoopThread mainCoreFoundation]
+-[UDRunLoopThread mainCocoa]
+-[UDRunLoopThread coreFoundation]
+-[UDRunLoopThread setCoreFoundation:]
+-[UDRunLoopThread .cxx_destruct]
+OBJC_IVAR_$_UDRunLoopThread._waitGroup
+OBJC_IVAR_$_UDRunLoopThread._cfRunLoop
+OBJC_IVAR_$_UDRunLoopThread._coreFoundation
+OBJC_IVAR_$_UDRunLoopThread._runLoop
+OBJC_CLASSLIST_REFERENCES_$_.19
+OBJC_SELECTOR_REFERENCES_.23
+OBJC_CLASSLIST_REFERENCES_$_.26
+OBJC_CLASSLIST_REFERENCES_$_.29
+OBJC_CLASSLIST_REFERENCES_$_.32
+l_OBJC_METACLASS_RO_$_UDRunLoopThread
+OBJC_CLASS_NAME_.43
+OBJC_METH_VAR_TYPE_.46
+OBJC_METH_VAR_TYPE_.53
+OBJC_METH_VAR_TYPE_.55
+l_OBJC_$_INSTANCE_METHODS_UDRunLoopThread
+OBJC_METH_VAR_TYPE_.57
+OBJC_METH_VAR_TYPE_.59
+OBJC_METH_VAR_TYPE_.61
+OBJC_METH_VAR_TYPE_.63
+l_OBJC_$_INSTANCE_VARIABLES_UDRunLoopThread
+l_OBJC_$_PROP_LIST_UDRunLoopThread
+l_OBJC_CLASS_RO_$_UDRunLoopThread
+-[UDRunLoopThread .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDRunLoopThread.m
+-[UDRunLoopThread setCoreFoundation:]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDRunLoopThread.h
+-[UDRunLoopThread coreFoundation]
+-[UDRunLoopThread mainCocoa]
+-[UDRunLoopThread mainCoreFoundation]
+-[UDRunLoopThread main]
+-[UDRunLoopThread cfRunLoop]
+-[UDRunLoopThread runLoop]
+-[UDRunLoopThread noop]
+-[UDRunLoopThread cancel]
+-[UDRunLoopThread dealloc]
+-[UDRunLoopThread initWithName:]
+-[UDRunLoopThread init]
++[FramesRoot extensionRegistry]
++[FramesRoot initialize]
++[FramesRoot registerAllExtensions:]
+-[Frame hasKind]
+-[Frame setHasKind:]
+-[Frame hasHello]
+-[Frame setHasHello:]
+-[Frame hasHeartbeat]
+-[Frame setHasHeartbeat:]
+-[Frame hasPayload]
+-[Frame setHasPayload:]
+-[Frame hasPorts]
+-[Frame setHasPorts:]
+-[Frame hasConnected]
+-[Frame setHasConnected:]
+-[Frame hasDisconnected]
+-[Frame setHasDisconnected:]
+-[Frame hasLongTransfer]
+-[Frame setHasLongTransfer:]
+-[Frame init]
++[Frame initialize]
++[Frame defaultInstance]
+-[Frame defaultInstance]
+-[Frame isInitialized]
+-[Frame writeToCodedOutputStream:]
+-[Frame serializedSize]
++[Frame parseFromData:]
++[Frame parseFromData:extensionRegistry:]
++[Frame parseFromInputStream:]
++[Frame parseFromInputStream:extensionRegistry:]
++[Frame parseFromCodedInputStream:]
++[Frame parseFromCodedInputStream:extensionRegistry:]
++[Frame builder]
++[Frame builderWithPrototype:]
+-[Frame builder]
+-[Frame toBuilder]
+-[Frame writeDescriptionTo:withIndent:]
+-[Frame storeInDictionary:]
+-[Frame isEqual:]
+-[Frame hash]
+-[Frame kind]
+-[Frame setKind:]
+-[Frame hello]
+-[Frame setHello:]
+-[Frame heartbeat]
+-[Frame setHeartbeat:]
+-[Frame payload]
+-[Frame setPayload:]
+-[Frame ports]
+-[Frame setPorts:]
+-[Frame connected]
+-[Frame setConnected:]
+-[Frame disconnected]
+-[Frame setDisconnected:]
+-[Frame longTransfer]
+-[Frame setLongTransfer:]
+-[Frame .cxx_destruct]
+-[FrameBuilder init]
+-[FrameBuilder internalGetResult]
+-[FrameBuilder clear]
+-[FrameBuilder clone]
+-[FrameBuilder defaultInstance]
+-[FrameBuilder build]
+-[FrameBuilder buildPartial]
+-[FrameBuilder mergeFrom:]
+-[FrameBuilder mergeFromCodedInputStream:]
+-[FrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[FrameBuilder hasKind]
+-[FrameBuilder kind]
+-[FrameBuilder setKind:]
+-[FrameBuilder clearKind]
+-[FrameBuilder hasHello]
+-[FrameBuilder hello]
+-[FrameBuilder setHello:]
+-[FrameBuilder setHelloBuilder:]
+-[FrameBuilder mergeHello:]
+-[FrameBuilder clearHello]
+-[FrameBuilder hasHeartbeat]
+-[FrameBuilder heartbeat]
+-[FrameBuilder setHeartbeat:]
+-[FrameBuilder setHeartbeatBuilder:]
+-[FrameBuilder mergeHeartbeat:]
+-[FrameBuilder clearHeartbeat]
+-[FrameBuilder hasPayload]
+-[FrameBuilder payload]
+-[FrameBuilder setPayload:]
+-[FrameBuilder setPayloadBuilder:]
+-[FrameBuilder mergePayload:]
+-[FrameBuilder clearPayload]
+-[FrameBuilder hasPorts]
+-[FrameBuilder ports]
+-[FrameBuilder setPorts:]
+-[FrameBuilder setPortsBuilder:]
+-[FrameBuilder mergePorts:]
+-[FrameBuilder clearPorts]
+-[FrameBuilder hasConnected]
+-[FrameBuilder connected]
+-[FrameBuilder setConnected:]
+-[FrameBuilder setConnectedBuilder:]
+-[FrameBuilder mergeConnected:]
+-[FrameBuilder clearConnected]
+-[FrameBuilder hasDisconnected]
+-[FrameBuilder disconnected]
+-[FrameBuilder setDisconnected:]
+-[FrameBuilder setDisconnectedBuilder:]
+-[FrameBuilder mergeDisconnected:]
+-[FrameBuilder clearDisconnected]
+-[FrameBuilder hasLongTransfer]
+-[FrameBuilder longTransfer]
+-[FrameBuilder setLongTransfer:]
+-[FrameBuilder setLongTransferBuilder:]
+-[FrameBuilder mergeLongTransfer:]
+-[FrameBuilder clearLongTransfer]
+-[FrameBuilder resultFrame]
+-[FrameBuilder setResultFrame:]
+-[FrameBuilder .cxx_destruct]
+-[Peer hasAddress]
+-[Peer setHasAddress:]
+-[Peer hasLegacy]
+-[Peer setHasLegacy:]
+-[Peer legacy]
+-[Peer setLegacy:]
+-[Peer init]
++[Peer initialize]
++[Peer defaultInstance]
+-[Peer defaultInstance]
+-[Peer ports]
+-[Peer portsAtIndex:]
+-[Peer isInitialized]
+-[Peer writeToCodedOutputStream:]
+-[Peer serializedSize]
++[Peer parseFromData:]
++[Peer parseFromData:extensionRegistry:]
++[Peer parseFromInputStream:]
++[Peer parseFromInputStream:extensionRegistry:]
++[Peer parseFromCodedInputStream:]
++[Peer parseFromCodedInputStream:extensionRegistry:]
++[Peer builder]
++[Peer builderWithPrototype:]
+-[Peer builder]
+-[Peer toBuilder]
+-[Peer writeDescriptionTo:withIndent:]
+__38-[Peer writeDescriptionTo:withIndent:]_block_invoke
+-[Peer storeInDictionary:]
+-[Peer isEqual:]
+-[Peer hash]
+__12-[Peer hash]_block_invoke
+__copy_helper_block_.397
+__destroy_helper_block_.398
+-[Peer address]
+-[Peer setAddress:]
+-[Peer portsArray]
+-[Peer setPortsArray:]
+-[Peer .cxx_destruct]
+-[PeerBuilder init]
+-[PeerBuilder internalGetResult]
+-[PeerBuilder clear]
+-[PeerBuilder clone]
+-[PeerBuilder defaultInstance]
+-[PeerBuilder build]
+-[PeerBuilder buildPartial]
+-[PeerBuilder mergeFrom:]
+-[PeerBuilder mergeFromCodedInputStream:]
+-[PeerBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[PeerBuilder hasAddress]
+-[PeerBuilder address]
+-[PeerBuilder setAddress:]
+-[PeerBuilder clearAddress]
+-[PeerBuilder hasLegacy]
+-[PeerBuilder legacy]
+-[PeerBuilder setLegacy:]
+-[PeerBuilder clearLegacy]
+-[PeerBuilder ports]
+-[PeerBuilder portsAtIndex:]
+-[PeerBuilder addPorts:]
+-[PeerBuilder setPortsArray:]
+-[PeerBuilder setPortsValues:count:]
+-[PeerBuilder clearPorts]
+-[PeerBuilder resultPeer]
+-[PeerBuilder setResultPeer:]
+-[PeerBuilder .cxx_destruct]
+-[HelloFrame hasNodeId]
+-[HelloFrame setHasNodeId:]
+-[HelloFrame hasPeer]
+-[HelloFrame setHasPeer:]
+-[HelloFrame init]
++[HelloFrame initialize]
++[HelloFrame defaultInstance]
+-[HelloFrame defaultInstance]
+-[HelloFrame isInitialized]
+-[HelloFrame writeToCodedOutputStream:]
+-[HelloFrame serializedSize]
++[HelloFrame parseFromData:]
++[HelloFrame parseFromData:extensionRegistry:]
++[HelloFrame parseFromInputStream:]
++[HelloFrame parseFromInputStream:extensionRegistry:]
++[HelloFrame parseFromCodedInputStream:]
++[HelloFrame parseFromCodedInputStream:extensionRegistry:]
++[HelloFrame builder]
++[HelloFrame builderWithPrototype:]
+-[HelloFrame builder]
+-[HelloFrame toBuilder]
+-[HelloFrame writeDescriptionTo:withIndent:]
+-[HelloFrame storeInDictionary:]
+-[HelloFrame isEqual:]
+-[HelloFrame hash]
+-[HelloFrame nodeId]
+-[HelloFrame setNodeId:]
+-[HelloFrame peer]
+-[HelloFrame setPeer:]
+-[HelloFrame .cxx_destruct]
+-[HelloFrameBuilder init]
+-[HelloFrameBuilder internalGetResult]
+-[HelloFrameBuilder clear]
+-[HelloFrameBuilder clone]
+-[HelloFrameBuilder defaultInstance]
+-[HelloFrameBuilder build]
+-[HelloFrameBuilder buildPartial]
+-[HelloFrameBuilder mergeFrom:]
+-[HelloFrameBuilder mergeFromCodedInputStream:]
+-[HelloFrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[HelloFrameBuilder hasNodeId]
+-[HelloFrameBuilder nodeId]
+-[HelloFrameBuilder setNodeId:]
+-[HelloFrameBuilder clearNodeId]
+-[HelloFrameBuilder hasPeer]
+-[HelloFrameBuilder peer]
+-[HelloFrameBuilder setPeer:]
+-[HelloFrameBuilder setPeerBuilder:]
+-[HelloFrameBuilder mergePeer:]
+-[HelloFrameBuilder clearPeer]
+-[HelloFrameBuilder resultHelloFrame]
+-[HelloFrameBuilder setResultHelloFrame:]
+-[HelloFrameBuilder .cxx_destruct]
+-[HeartbeatFrame init]
++[HeartbeatFrame initialize]
++[HeartbeatFrame defaultInstance]
+-[HeartbeatFrame defaultInstance]
+-[HeartbeatFrame isInitialized]
+-[HeartbeatFrame writeToCodedOutputStream:]
+-[HeartbeatFrame serializedSize]
++[HeartbeatFrame parseFromData:]
++[HeartbeatFrame parseFromData:extensionRegistry:]
++[HeartbeatFrame parseFromInputStream:]
++[HeartbeatFrame parseFromInputStream:extensionRegistry:]
++[HeartbeatFrame parseFromCodedInputStream:]
++[HeartbeatFrame parseFromCodedInputStream:extensionRegistry:]
++[HeartbeatFrame builder]
++[HeartbeatFrame builderWithPrototype:]
+-[HeartbeatFrame builder]
+-[HeartbeatFrame toBuilder]
+-[HeartbeatFrame writeDescriptionTo:withIndent:]
+-[HeartbeatFrame storeInDictionary:]
+-[HeartbeatFrame isEqual:]
+-[HeartbeatFrame hash]
+-[HeartbeatFrameBuilder init]
+-[HeartbeatFrameBuilder internalGetResult]
+-[HeartbeatFrameBuilder clear]
+-[HeartbeatFrameBuilder clone]
+-[HeartbeatFrameBuilder defaultInstance]
+-[HeartbeatFrameBuilder build]
+-[HeartbeatFrameBuilder buildPartial]
+-[HeartbeatFrameBuilder mergeFrom:]
+-[HeartbeatFrameBuilder mergeFromCodedInputStream:]
+-[HeartbeatFrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[HeartbeatFrameBuilder resultHeartbeatFrame]
+-[HeartbeatFrameBuilder setResultHeartbeatFrame:]
+-[HeartbeatFrameBuilder .cxx_destruct]
+-[PayloadFrame hasPayload]
+-[PayloadFrame setHasPayload:]
+-[PayloadFrame init]
++[PayloadFrame initialize]
++[PayloadFrame defaultInstance]
+-[PayloadFrame defaultInstance]
+-[PayloadFrame isInitialized]
+-[PayloadFrame writeToCodedOutputStream:]
+-[PayloadFrame serializedSize]
++[PayloadFrame parseFromData:]
++[PayloadFrame parseFromData:extensionRegistry:]
++[PayloadFrame parseFromInputStream:]
++[PayloadFrame parseFromInputStream:extensionRegistry:]
++[PayloadFrame parseFromCodedInputStream:]
++[PayloadFrame parseFromCodedInputStream:extensionRegistry:]
++[PayloadFrame builder]
++[PayloadFrame builderWithPrototype:]
+-[PayloadFrame builder]
+-[PayloadFrame toBuilder]
+-[PayloadFrame writeDescriptionTo:withIndent:]
+-[PayloadFrame storeInDictionary:]
+-[PayloadFrame isEqual:]
+-[PayloadFrame hash]
+-[PayloadFrame payload]
+-[PayloadFrame setPayload:]
+-[PayloadFrame .cxx_destruct]
+-[PayloadFrameBuilder init]
+-[PayloadFrameBuilder internalGetResult]
+-[PayloadFrameBuilder clear]
+-[PayloadFrameBuilder clone]
+-[PayloadFrameBuilder defaultInstance]
+-[PayloadFrameBuilder build]
+-[PayloadFrameBuilder buildPartial]
+-[PayloadFrameBuilder mergeFrom:]
+-[PayloadFrameBuilder mergeFromCodedInputStream:]
+-[PayloadFrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[PayloadFrameBuilder hasPayload]
+-[PayloadFrameBuilder payload]
+-[PayloadFrameBuilder setPayload:]
+-[PayloadFrameBuilder clearPayload]
+-[PayloadFrameBuilder resultPayloadFrame]
+-[PayloadFrameBuilder setResultPayloadFrame:]
+-[PayloadFrameBuilder .cxx_destruct]
+-[PortsFrame hasAddress]
+-[PortsFrame setHasAddress:]
+-[PortsFrame init]
++[PortsFrame initialize]
++[PortsFrame defaultInstance]
+-[PortsFrame defaultInstance]
+-[PortsFrame ports]
+-[PortsFrame portsAtIndex:]
+-[PortsFrame isInitialized]
+-[PortsFrame writeToCodedOutputStream:]
+-[PortsFrame serializedSize]
++[PortsFrame parseFromData:]
++[PortsFrame parseFromData:extensionRegistry:]
++[PortsFrame parseFromInputStream:]
++[PortsFrame parseFromInputStream:extensionRegistry:]
++[PortsFrame parseFromCodedInputStream:]
++[PortsFrame parseFromCodedInputStream:extensionRegistry:]
++[PortsFrame builder]
++[PortsFrame builderWithPrototype:]
+-[PortsFrame builder]
+-[PortsFrame toBuilder]
+-[PortsFrame writeDescriptionTo:withIndent:]
+__44-[PortsFrame writeDescriptionTo:withIndent:]_block_invoke
+__copy_helper_block_.538
+__destroy_helper_block_.539
+-[PortsFrame storeInDictionary:]
+-[PortsFrame isEqual:]
+-[PortsFrame hash]
+__18-[PortsFrame hash]_block_invoke
+__copy_helper_block_.541
+__destroy_helper_block_.542
+-[PortsFrame address]
+-[PortsFrame setAddress:]
+-[PortsFrame portsArray]
+-[PortsFrame setPortsArray:]
+-[PortsFrame .cxx_destruct]
+-[PortsFrameBuilder init]
+-[PortsFrameBuilder internalGetResult]
+-[PortsFrameBuilder clear]
+-[PortsFrameBuilder clone]
+-[PortsFrameBuilder defaultInstance]
+-[PortsFrameBuilder build]
+-[PortsFrameBuilder buildPartial]
+-[PortsFrameBuilder mergeFrom:]
+-[PortsFrameBuilder mergeFromCodedInputStream:]
+-[PortsFrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[PortsFrameBuilder hasAddress]
+-[PortsFrameBuilder address]
+-[PortsFrameBuilder setAddress:]
+-[PortsFrameBuilder clearAddress]
+-[PortsFrameBuilder ports]
+-[PortsFrameBuilder portsAtIndex:]
+-[PortsFrameBuilder addPorts:]
+-[PortsFrameBuilder setPortsArray:]
+-[PortsFrameBuilder setPortsValues:count:]
+-[PortsFrameBuilder clearPorts]
+-[PortsFrameBuilder resultPortsFrame]
+-[PortsFrameBuilder setResultPortsFrame:]
+-[PortsFrameBuilder .cxx_destruct]
+-[ConnectedFrame hasPeer]
+-[ConnectedFrame setHasPeer:]
+-[ConnectedFrame init]
++[ConnectedFrame initialize]
++[ConnectedFrame defaultInstance]
+-[ConnectedFrame defaultInstance]
+-[ConnectedFrame isInitialized]
+-[ConnectedFrame writeToCodedOutputStream:]
+-[ConnectedFrame serializedSize]
++[ConnectedFrame parseFromData:]
++[ConnectedFrame parseFromData:extensionRegistry:]
++[ConnectedFrame parseFromInputStream:]
++[ConnectedFrame parseFromInputStream:extensionRegistry:]
++[ConnectedFrame parseFromCodedInputStream:]
++[ConnectedFrame parseFromCodedInputStream:extensionRegistry:]
++[ConnectedFrame builder]
++[ConnectedFrame builderWithPrototype:]
+-[ConnectedFrame builder]
+-[ConnectedFrame toBuilder]
+-[ConnectedFrame writeDescriptionTo:withIndent:]
+-[ConnectedFrame storeInDictionary:]
+-[ConnectedFrame isEqual:]
+-[ConnectedFrame hash]
+-[ConnectedFrame peer]
+-[ConnectedFrame setPeer:]
+-[ConnectedFrame .cxx_destruct]
+-[ConnectedFrameBuilder init]
+-[ConnectedFrameBuilder internalGetResult]
+-[ConnectedFrameBuilder clear]
+-[ConnectedFrameBuilder clone]
+-[ConnectedFrameBuilder defaultInstance]
+-[ConnectedFrameBuilder build]
+-[ConnectedFrameBuilder buildPartial]
+-[ConnectedFrameBuilder mergeFrom:]
+-[ConnectedFrameBuilder mergeFromCodedInputStream:]
+-[ConnectedFrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[ConnectedFrameBuilder hasPeer]
+-[ConnectedFrameBuilder peer]
+-[ConnectedFrameBuilder setPeer:]
+-[ConnectedFrameBuilder setPeerBuilder:]
+-[ConnectedFrameBuilder mergePeer:]
+-[ConnectedFrameBuilder clearPeer]
+-[ConnectedFrameBuilder resultConnectedFrame]
+-[ConnectedFrameBuilder setResultConnectedFrame:]
+-[ConnectedFrameBuilder .cxx_destruct]
+-[DisconnectedFrame hasAddress]
+-[DisconnectedFrame setHasAddress:]
+-[DisconnectedFrame init]
++[DisconnectedFrame initialize]
++[DisconnectedFrame defaultInstance]
+-[DisconnectedFrame defaultInstance]
+-[DisconnectedFrame isInitialized]
+-[DisconnectedFrame writeToCodedOutputStream:]
+-[DisconnectedFrame serializedSize]
++[DisconnectedFrame parseFromData:]
++[DisconnectedFrame parseFromData:extensionRegistry:]
++[DisconnectedFrame parseFromInputStream:]
++[DisconnectedFrame parseFromInputStream:extensionRegistry:]
++[DisconnectedFrame parseFromCodedInputStream:]
++[DisconnectedFrame parseFromCodedInputStream:extensionRegistry:]
++[DisconnectedFrame builder]
++[DisconnectedFrame builderWithPrototype:]
+-[DisconnectedFrame builder]
+-[DisconnectedFrame toBuilder]
+-[DisconnectedFrame writeDescriptionTo:withIndent:]
+-[DisconnectedFrame storeInDictionary:]
+-[DisconnectedFrame isEqual:]
+-[DisconnectedFrame hash]
+-[DisconnectedFrame address]
+-[DisconnectedFrame setAddress:]
+-[DisconnectedFrame .cxx_destruct]
+-[DisconnectedFrameBuilder init]
+-[DisconnectedFrameBuilder internalGetResult]
+-[DisconnectedFrameBuilder clear]
+-[DisconnectedFrameBuilder clone]
+-[DisconnectedFrameBuilder defaultInstance]
+-[DisconnectedFrameBuilder build]
+-[DisconnectedFrameBuilder buildPartial]
+-[DisconnectedFrameBuilder mergeFrom:]
+-[DisconnectedFrameBuilder mergeFromCodedInputStream:]
+-[DisconnectedFrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[DisconnectedFrameBuilder hasAddress]
+-[DisconnectedFrameBuilder address]
+-[DisconnectedFrameBuilder setAddress:]
+-[DisconnectedFrameBuilder clearAddress]
+-[DisconnectedFrameBuilder resultDisconnectedFrame]
+-[DisconnectedFrameBuilder setResultDisconnectedFrame:]
+-[DisconnectedFrameBuilder .cxx_destruct]
+-[LongTransferFrame hasLock]
+-[LongTransferFrame setHasLock:]
+-[LongTransferFrame lock]
+-[LongTransferFrame setLock:]
+-[LongTransferFrame init]
++[LongTransferFrame initialize]
++[LongTransferFrame defaultInstance]
+-[LongTransferFrame defaultInstance]
+-[LongTransferFrame isInitialized]
+-[LongTransferFrame writeToCodedOutputStream:]
+-[LongTransferFrame serializedSize]
++[LongTransferFrame parseFromData:]
++[LongTransferFrame parseFromData:extensionRegistry:]
++[LongTransferFrame parseFromInputStream:]
++[LongTransferFrame parseFromInputStream:extensionRegistry:]
++[LongTransferFrame parseFromCodedInputStream:]
++[LongTransferFrame parseFromCodedInputStream:extensionRegistry:]
++[LongTransferFrame builder]
++[LongTransferFrame builderWithPrototype:]
+-[LongTransferFrame builder]
+-[LongTransferFrame toBuilder]
+-[LongTransferFrame writeDescriptionTo:withIndent:]
+-[LongTransferFrame storeInDictionary:]
+-[LongTransferFrame isEqual:]
+-[LongTransferFrame hash]
+-[LongTransferFrameBuilder init]
+-[LongTransferFrameBuilder internalGetResult]
+-[LongTransferFrameBuilder clear]
+-[LongTransferFrameBuilder clone]
+-[LongTransferFrameBuilder defaultInstance]
+-[LongTransferFrameBuilder build]
+-[LongTransferFrameBuilder buildPartial]
+-[LongTransferFrameBuilder mergeFrom:]
+-[LongTransferFrameBuilder mergeFromCodedInputStream:]
+-[LongTransferFrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[LongTransferFrameBuilder hasLock]
+-[LongTransferFrameBuilder lock]
+-[LongTransferFrameBuilder setLock:]
+-[LongTransferFrameBuilder clearLock]
+-[LongTransferFrameBuilder resultLongTransferFrame]
+-[LongTransferFrameBuilder setResultLongTransferFrame:]
+-[LongTransferFrameBuilder .cxx_destruct]
+extensionRegistry
+OBJC_CLASSLIST_REFERENCES_$_.1
+OBJC_METH_VAR_NAME_.2
+OBJC_SELECTOR_REFERENCES_.3
+l_OBJC_$_CLASS_METHODS_FramesRoot
+l_OBJC_METACLASS_RO_$_FramesRoot
+l_OBJC_CLASS_RO_$_FramesRoot
+OBJC_IVAR_$_Frame.hasKind_
+OBJC_IVAR_$_Frame.hasHello_
+OBJC_IVAR_$_Frame.hasHeartbeat_
+OBJC_IVAR_$_Frame.hasPayload_
+OBJC_IVAR_$_Frame.hasPorts_
+OBJC_IVAR_$_Frame.hasConnected_
+OBJC_IVAR_$_Frame.hasDisconnected_
+OBJC_IVAR_$_Frame.hasLongTransfer_
+OBJC_CLASSLIST_REFERENCES_$_.22
+OBJC_CLASSLIST_REFERENCES_$_.28
+defaultFrameInstance
+OBJC_CLASSLIST_REFERENCES_$_.37
+OBJC_SELECTOR_REFERENCES_.75
+OBJC_SELECTOR_REFERENCES_.77
+OBJC_SELECTOR_REFERENCES_.79
+OBJC_METH_VAR_NAME_.80
+OBJC_SELECTOR_REFERENCES_.81
+OBJC_SELECTOR_REFERENCES_.99
+OBJC_CLASSLIST_REFERENCES_$_.100
+OBJC_METH_VAR_NAME_.101
+OBJC_SELECTOR_REFERENCES_.102
+OBJC_METH_VAR_NAME_.103
+OBJC_SELECTOR_REFERENCES_.104
+OBJC_METH_VAR_NAME_.107
+OBJC_SELECTOR_REFERENCES_.108
+OBJC_CLASSLIST_REFERENCES_$_.113
+.str.114
+_unnamed_cfstring_.115
+OBJC_SELECTOR_REFERENCES_.117
+OBJC_SELECTOR_REFERENCES_.119
+.str.120
+_unnamed_cfstring_.121
+.str.122
+_unnamed_cfstring_.123
+.str.124
+_unnamed_cfstring_.125
+.str.126
+_unnamed_cfstring_.127
+.str.128
+_unnamed_cfstring_.129
+.str.130
+_unnamed_cfstring_.131
+.str.132
+_unnamed_cfstring_.133
+OBJC_CLASSLIST_REFERENCES_$_.134
+OBJC_SELECTOR_REFERENCES_.136
+OBJC_CLASSLIST_REFERENCES_$_.139
+OBJC_METH_VAR_NAME_.140
+OBJC_SELECTOR_REFERENCES_.141
+OBJC_SELECTOR_REFERENCES_.143
+OBJC_CLASSLIST_REFERENCES_$_.144
+OBJC_METH_VAR_NAME_.149
+OBJC_SELECTOR_REFERENCES_.150
+OBJC_IVAR_$_Frame.kind
+OBJC_IVAR_$_Frame.hello
+OBJC_IVAR_$_Frame.heartbeat
+OBJC_IVAR_$_Frame.payload
+OBJC_IVAR_$_Frame.ports
+OBJC_IVAR_$_Frame.connected
+OBJC_IVAR_$_Frame.disconnected
+OBJC_IVAR_$_Frame.longTransfer
+OBJC_CLASS_NAME_.153
+l_OBJC_$_CLASS_METHODS_Frame
+OBJC_METH_VAR_TYPE_.165
+OBJC_CLASS_NAME_.168
+OBJC_METH_VAR_TYPE_.169
+OBJC_METH_VAR_TYPE_.172
+OBJC_METH_VAR_TYPE_.177
+OBJC_METH_VAR_TYPE_.181
+OBJC_CLASS_NAME_.182
+OBJC_METH_VAR_TYPE_.183
+OBJC_METH_VAR_TYPE_.187
+OBJC_METH_VAR_TYPE_.193
+OBJC_METH_VAR_NAME_.194
+OBJC_METH_VAR_TYPE_.196
+OBJC_METH_VAR_TYPE_.198
+OBJC_METH_VAR_NAME_.199
+OBJC_METH_VAR_TYPE_.201
+OBJC_METH_VAR_NAME_.203
+OBJC_METH_VAR_TYPE_.204
+OBJC_CLASS_NAME_.209
+OBJC_PROP_NAME_ATTR_.212
+OBJC_PROP_NAME_ATTR_.213
+OBJC_PROP_NAME_ATTR_.214
+OBJC_PROP_NAME_ATTR_.215
+l_OBJC_$_PROTOCOL_REFS_PBMessage
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_PBMessage
+l_OBJC_$_PROTOCOL_METHOD_TYPES_PBMessage
+l_OBJC_PROTOCOL_$_PBMessage
+l_OBJC_LABEL_PROTOCOL_$_PBMessage
+l_OBJC_$_PROTOCOL_REFS_GeneratedMessageProtocol
+l_OBJC_$_PROTOCOL_CLASS_METHODS_GeneratedMessageProtocol
+l_OBJC_$_PROTOCOL_METHOD_TYPES_GeneratedMessageProtocol
+l_OBJC_PROTOCOL_$_GeneratedMessageProtocol
+l_OBJC_LABEL_PROTOCOL_$_GeneratedMessageProtocol
+l_OBJC_CLASS_PROTOCOLS_$_Frame
+l_OBJC_METACLASS_RO_$_Frame
+OBJC_CLASS_NAME_.216
+OBJC_METH_VAR_TYPE_.218
+OBJC_METH_VAR_NAME_.219
+OBJC_METH_VAR_NAME_.221
+l_OBJC_$_INSTANCE_METHODS_Frame
+OBJC_METH_VAR_TYPE_.230
+OBJC_METH_VAR_NAME_.231
+OBJC_METH_VAR_TYPE_.238
+OBJC_METH_VAR_TYPE_.242
+OBJC_METH_VAR_TYPE_.244
+l_OBJC_$_INSTANCE_VARIABLES_Frame
+OBJC_PROP_NAME_ATTR_.249
+OBJC_PROP_NAME_ATTR_.254
+OBJC_PROP_NAME_ATTR_.255
+OBJC_PROP_NAME_ATTR_.256
+OBJC_PROP_NAME_ATTR_.257
+OBJC_PROP_NAME_ATTR_.258
+OBJC_PROP_NAME_ATTR_.259
+OBJC_PROP_NAME_ATTR_.260
+OBJC_PROP_NAME_ATTR_.261
+l_OBJC_$_PROP_LIST_Frame
+l_OBJC_CLASS_RO_$_Frame
+.str.262
+_unnamed_cfstring_.263
+.str.264
+_unnamed_cfstring_.265
+.str.266
+_unnamed_cfstring_.267
+.str.268
+_unnamed_cfstring_.269
+.str.270
+_unnamed_cfstring_.271
+.str.272
+_unnamed_cfstring_.273
+.str.274
+_unnamed_cfstring_.275
+OBJC_CLASSLIST_SUP_REFS_$_.276
+OBJC_SELECTOR_REFERENCES_.278
+OBJC_IVAR_$_FrameBuilder.resultFrame
+OBJC_SELECTOR_REFERENCES_.280
+OBJC_SELECTOR_REFERENCES_.282
+OBJC_SELECTOR_REFERENCES_.284
+OBJC_SELECTOR_REFERENCES_.286
+OBJC_SELECTOR_REFERENCES_.288
+OBJC_SELECTOR_REFERENCES_.290
+OBJC_SELECTOR_REFERENCES_.292
+OBJC_SELECTOR_REFERENCES_.294
+OBJC_SELECTOR_REFERENCES_.296
+OBJC_SELECTOR_REFERENCES_.298
+OBJC_CLASSLIST_REFERENCES_$_.299
+OBJC_SELECTOR_REFERENCES_.301
+OBJC_CLASSLIST_REFERENCES_$_.302
+OBJC_SELECTOR_REFERENCES_.304
+OBJC_SELECTOR_REFERENCES_.306
+OBJC_SELECTOR_REFERENCES_.308
+OBJC_SELECTOR_REFERENCES_.310
+OBJC_SELECTOR_REFERENCES_.312
+OBJC_SELECTOR_REFERENCES_.314
+OBJC_SELECTOR_REFERENCES_.316
+OBJC_SELECTOR_REFERENCES_.317
+OBJC_SELECTOR_REFERENCES_.318
+OBJC_SELECTOR_REFERENCES_.319
+OBJC_SELECTOR_REFERENCES_.320
+OBJC_SELECTOR_REFERENCES_.321
+OBJC_SELECTOR_REFERENCES_.322
+OBJC_SELECTOR_REFERENCES_.323
+OBJC_SELECTOR_REFERENCES_.324
+OBJC_CLASS_NAME_.325
+l_OBJC_METACLASS_RO_$_FrameBuilder
+OBJC_CLASS_NAME_.326
+OBJC_METH_VAR_NAME_.327
+OBJC_METH_VAR_NAME_.328
+OBJC_METH_VAR_NAME_.329
+OBJC_METH_VAR_TYPE_.330
+OBJC_METH_VAR_NAME_.331
+OBJC_METH_VAR_NAME_.333
+OBJC_METH_VAR_NAME_.335
+OBJC_METH_VAR_NAME_.340
+OBJC_METH_VAR_NAME_.346
+l_OBJC_$_INSTANCE_METHODS_FrameBuilder
+OBJC_METH_VAR_TYPE_.347
+l_OBJC_$_INSTANCE_VARIABLES_FrameBuilder
+OBJC_PROP_NAME_ATTR_.348
+OBJC_PROP_NAME_ATTR_.349
+l_OBJC_$_PROP_LIST_FrameBuilder
+l_OBJC_CLASS_RO_$_FrameBuilder
+OBJC_IVAR_$_Peer.hasAddress_
+OBJC_IVAR_$_Peer.hasLegacy_
+OBJC_IVAR_$_Peer.legacy_
+OBJC_CLASSLIST_SUP_REFS_$_.350
+OBJC_CLASSLIST_REFERENCES_$_.351
+OBJC_SELECTOR_REFERENCES_.352
+OBJC_SELECTOR_REFERENCES_.354
+OBJC_SELECTOR_REFERENCES_.356
+defaultPeerInstance
+OBJC_CLASSLIST_REFERENCES_$_.357
+OBJC_IVAR_$_Peer.portsArray
+OBJC_SELECTOR_REFERENCES_.359
+OBJC_METH_VAR_NAME_.360
+OBJC_SELECTOR_REFERENCES_.361
+OBJC_SELECTOR_REFERENCES_.363
+OBJC_SELECTOR_REFERENCES_.365
+OBJC_SELECTOR_REFERENCES_.367
+OBJC_SELECTOR_REFERENCES_.369
+OBJC_SELECTOR_REFERENCES_.371
+OBJC_SELECTOR_REFERENCES_.373
+OBJC_SELECTOR_REFERENCES_.375
+OBJC_SELECTOR_REFERENCES_.377
+OBJC_CLASSLIST_REFERENCES_$_.378
+.str.379
+_unnamed_cfstring_.380
+.str.381
+_unnamed_cfstring_.382
+OBJC_METH_VAR_NAME_.383
+OBJC_SELECTOR_REFERENCES_.384
+.str.385
+OBJC_METH_VAR_NAME_.386
+OBJC_SELECTOR_REFERENCES_.387
+OBJC_CLASSLIST_REFERENCES_$_.388
+OBJC_METH_VAR_NAME_.389
+OBJC_SELECTOR_REFERENCES_.390
+OBJC_METH_VAR_NAME_.391
+OBJC_SELECTOR_REFERENCES_.392
+OBJC_METH_VAR_NAME_.393
+OBJC_SELECTOR_REFERENCES_.394
+OBJC_METH_VAR_NAME_.395
+OBJC_SELECTOR_REFERENCES_.396
+.str.399
+__block_descriptor_tmp.400
+OBJC_IVAR_$_Peer.address
+OBJC_CLASS_NAME_.401
+l_OBJC_$_CLASS_METHODS_Peer
+l_OBJC_CLASS_PROTOCOLS_$_Peer
+l_OBJC_METACLASS_RO_$_Peer
+OBJC_CLASS_NAME_.402
+OBJC_METH_VAR_NAME_.403
+OBJC_METH_VAR_NAME_.404
+OBJC_METH_VAR_NAME_.405
+OBJC_METH_VAR_TYPE_.406
+OBJC_METH_VAR_NAME_.407
+l_OBJC_$_INSTANCE_METHODS_Peer
+OBJC_METH_VAR_NAME_.408
+OBJC_METH_VAR_NAME_.409
+OBJC_METH_VAR_NAME_.410
+OBJC_METH_VAR_TYPE_.411
+OBJC_METH_VAR_TYPE_.412
+l_OBJC_$_INSTANCE_VARIABLES_Peer
+OBJC_PROP_NAME_ATTR_.413
+OBJC_PROP_NAME_ATTR_.414
+OBJC_PROP_NAME_ATTR_.415
+OBJC_PROP_NAME_ATTR_.416
+OBJC_PROP_NAME_ATTR_.417
+OBJC_PROP_NAME_ATTR_.418
+OBJC_PROP_NAME_ATTR_.419
+l_OBJC_$_PROP_LIST_Peer
+l_OBJC_CLASS_RO_$_Peer
+OBJC_CLASSLIST_SUP_REFS_$_.420
+OBJC_METH_VAR_NAME_.421
+OBJC_SELECTOR_REFERENCES_.422
+OBJC_IVAR_$_PeerBuilder.resultPeer
+OBJC_METH_VAR_NAME_.423
+OBJC_SELECTOR_REFERENCES_.424
+OBJC_SELECTOR_REFERENCES_.425
+OBJC_METH_VAR_NAME_.426
+OBJC_SELECTOR_REFERENCES_.427
+OBJC_METH_VAR_NAME_.428
+OBJC_SELECTOR_REFERENCES_.429
+OBJC_METH_VAR_NAME_.430
+OBJC_SELECTOR_REFERENCES_.431
+OBJC_METH_VAR_NAME_.432
+OBJC_SELECTOR_REFERENCES_.433
+OBJC_METH_VAR_NAME_.434
+OBJC_SELECTOR_REFERENCES_.435
+OBJC_SELECTOR_REFERENCES_.436
+OBJC_SELECTOR_REFERENCES_.437
+OBJC_SELECTOR_REFERENCES_.438
+OBJC_CLASSLIST_REFERENCES_$_.439
+OBJC_METH_VAR_NAME_.440
+OBJC_SELECTOR_REFERENCES_.441
+OBJC_METH_VAR_NAME_.442
+OBJC_SELECTOR_REFERENCES_.443
+OBJC_METH_VAR_NAME_.444
+OBJC_SELECTOR_REFERENCES_.445
+OBJC_METH_VAR_NAME_.446
+OBJC_SELECTOR_REFERENCES_.447
+OBJC_CLASS_NAME_.448
+l_OBJC_METACLASS_RO_$_PeerBuilder
+OBJC_CLASS_NAME_.449
+OBJC_METH_VAR_NAME_.450
+OBJC_METH_VAR_TYPE_.451
+OBJC_METH_VAR_NAME_.452
+OBJC_METH_VAR_NAME_.453
+OBJC_METH_VAR_TYPE_.454
+OBJC_METH_VAR_NAME_.455
+l_OBJC_$_INSTANCE_METHODS_PeerBuilder
+OBJC_METH_VAR_TYPE_.456
+l_OBJC_$_INSTANCE_VARIABLES_PeerBuilder
+OBJC_PROP_NAME_ATTR_.457
+OBJC_PROP_NAME_ATTR_.458
+l_OBJC_$_PROP_LIST_PeerBuilder
+l_OBJC_CLASS_RO_$_PeerBuilder
+OBJC_IVAR_$_HelloFrame.hasNodeId_
+OBJC_IVAR_$_HelloFrame.hasPeer_
+OBJC_CLASSLIST_SUP_REFS_$_.459
+OBJC_METH_VAR_NAME_.460
+OBJC_SELECTOR_REFERENCES_.461
+OBJC_METH_VAR_NAME_.462
+OBJC_SELECTOR_REFERENCES_.463
+defaultHelloFrameInstance
+OBJC_METH_VAR_NAME_.464
+OBJC_SELECTOR_REFERENCES_.465
+OBJC_METH_VAR_NAME_.466
+OBJC_SELECTOR_REFERENCES_.467
+OBJC_METH_VAR_NAME_.468
+OBJC_SELECTOR_REFERENCES_.469
+OBJC_METH_VAR_NAME_.470
+OBJC_SELECTOR_REFERENCES_.471
+OBJC_METH_VAR_NAME_.472
+OBJC_SELECTOR_REFERENCES_.473
+OBJC_CLASSLIST_REFERENCES_$_.474
+.str.475
+_unnamed_cfstring_.476
+OBJC_METH_VAR_NAME_.477
+OBJC_SELECTOR_REFERENCES_.478
+.str.479
+_unnamed_cfstring_.480
+OBJC_IVAR_$_HelloFrame.nodeId
+OBJC_IVAR_$_HelloFrame.peer
+OBJC_CLASS_NAME_.481
+l_OBJC_$_CLASS_METHODS_HelloFrame
+l_OBJC_CLASS_PROTOCOLS_$_HelloFrame
+l_OBJC_METACLASS_RO_$_HelloFrame
+OBJC_CLASS_NAME_.482
+OBJC_METH_VAR_NAME_.483
+OBJC_METH_VAR_NAME_.484
+OBJC_METH_VAR_TYPE_.485
+OBJC_METH_VAR_TYPE_.486
+l_OBJC_$_INSTANCE_METHODS_HelloFrame
+OBJC_METH_VAR_NAME_.487
+OBJC_METH_VAR_NAME_.488
+OBJC_METH_VAR_TYPE_.489
+l_OBJC_$_INSTANCE_VARIABLES_HelloFrame
+OBJC_PROP_NAME_ATTR_.490
+OBJC_PROP_NAME_ATTR_.491
+OBJC_PROP_NAME_ATTR_.492
+OBJC_PROP_NAME_ATTR_.493
+l_OBJC_$_PROP_LIST_HelloFrame
+l_OBJC_CLASS_RO_$_HelloFrame
+OBJC_CLASSLIST_SUP_REFS_$_.494
+OBJC_METH_VAR_NAME_.495
+OBJC_SELECTOR_REFERENCES_.496
+OBJC_IVAR_$_HelloFrameBuilder.resultHelloFrame
+OBJC_METH_VAR_NAME_.497
+OBJC_SELECTOR_REFERENCES_.498
+OBJC_METH_VAR_NAME_.499
+OBJC_SELECTOR_REFERENCES_.500
+OBJC_SELECTOR_REFERENCES_.501
+OBJC_SELECTOR_REFERENCES_.502
+OBJC_CLASS_NAME_.503
+l_OBJC_METACLASS_RO_$_HelloFrameBuilder
+OBJC_CLASS_NAME_.504
+OBJC_METH_VAR_TYPE_.505
+OBJC_METH_VAR_NAME_.506
+OBJC_METH_VAR_NAME_.507
+OBJC_METH_VAR_NAME_.508
+OBJC_METH_VAR_NAME_.509
+l_OBJC_$_INSTANCE_METHODS_HelloFrameBuilder
+l_OBJC_$_INSTANCE_VARIABLES_HelloFrameBuilder
+OBJC_PROP_NAME_ATTR_.510
+OBJC_PROP_NAME_ATTR_.511
+l_OBJC_$_PROP_LIST_HelloFrameBuilder
+l_OBJC_CLASS_RO_$_HelloFrameBuilder
+OBJC_CLASSLIST_SUP_REFS_$_.512
+defaultHeartbeatFrameInstance
+OBJC_CLASSLIST_REFERENCES_$_.513
+OBJC_CLASS_NAME_.514
+l_OBJC_$_CLASS_METHODS_HeartbeatFrame
+l_OBJC_CLASS_PROTOCOLS_$_HeartbeatFrame
+l_OBJC_METACLASS_RO_$_HeartbeatFrame
+l_OBJC_$_INSTANCE_METHODS_HeartbeatFrame
+l_OBJC_$_PROP_LIST_HeartbeatFrame
+l_OBJC_CLASS_RO_$_HeartbeatFrame
+OBJC_CLASSLIST_SUP_REFS_$_.515
+OBJC_METH_VAR_NAME_.516
+OBJC_SELECTOR_REFERENCES_.517
+OBJC_IVAR_$_HeartbeatFrameBuilder.resultHeartbeatFrame
+OBJC_CLASS_NAME_.518
+l_OBJC_METACLASS_RO_$_HeartbeatFrameBuilder
+OBJC_CLASS_NAME_.519
+OBJC_METH_VAR_NAME_.520
+l_OBJC_$_INSTANCE_METHODS_HeartbeatFrameBuilder
+l_OBJC_$_INSTANCE_VARIABLES_HeartbeatFrameBuilder
+OBJC_PROP_NAME_ATTR_.521
+OBJC_PROP_NAME_ATTR_.522
+l_OBJC_$_PROP_LIST_HeartbeatFrameBuilder
+l_OBJC_CLASS_RO_$_HeartbeatFrameBuilder
+OBJC_IVAR_$_PayloadFrame.hasPayload_
+OBJC_CLASSLIST_SUP_REFS_$_.523
+defaultPayloadFrameInstance
+OBJC_CLASSLIST_REFERENCES_$_.524
+OBJC_IVAR_$_PayloadFrame.payload
+OBJC_CLASS_NAME_.525
+l_OBJC_$_CLASS_METHODS_PayloadFrame
+l_OBJC_CLASS_PROTOCOLS_$_PayloadFrame
+l_OBJC_METACLASS_RO_$_PayloadFrame
+OBJC_CLASS_NAME_.526
+l_OBJC_$_INSTANCE_METHODS_PayloadFrame
+l_OBJC_$_INSTANCE_VARIABLES_PayloadFrame
+OBJC_PROP_NAME_ATTR_.527
+l_OBJC_$_PROP_LIST_PayloadFrame
+l_OBJC_CLASS_RO_$_PayloadFrame
+OBJC_CLASSLIST_SUP_REFS_$_.528
+OBJC_METH_VAR_NAME_.529
+OBJC_SELECTOR_REFERENCES_.530
+OBJC_IVAR_$_PayloadFrameBuilder.resultPayloadFrame
+OBJC_CLASS_NAME_.531
+l_OBJC_METACLASS_RO_$_PayloadFrameBuilder
+OBJC_CLASS_NAME_.532
+OBJC_METH_VAR_NAME_.533
+l_OBJC_$_INSTANCE_METHODS_PayloadFrameBuilder
+l_OBJC_$_INSTANCE_VARIABLES_PayloadFrameBuilder
+OBJC_PROP_NAME_ATTR_.534
+OBJC_PROP_NAME_ATTR_.535
+l_OBJC_$_PROP_LIST_PayloadFrameBuilder
+l_OBJC_CLASS_RO_$_PayloadFrameBuilder
+OBJC_IVAR_$_PortsFrame.hasAddress_
+OBJC_CLASSLIST_SUP_REFS_$_.536
+defaultPortsFrameInstance
+OBJC_IVAR_$_PortsFrame.portsArray
+OBJC_CLASSLIST_REFERENCES_$_.537
+__block_descriptor_tmp.540
+__block_descriptor_tmp.543
+OBJC_IVAR_$_PortsFrame.address
+OBJC_CLASS_NAME_.544
+l_OBJC_$_CLASS_METHODS_PortsFrame
+l_OBJC_CLASS_PROTOCOLS_$_PortsFrame
+l_OBJC_METACLASS_RO_$_PortsFrame
+OBJC_CLASS_NAME_.545
+l_OBJC_$_INSTANCE_METHODS_PortsFrame
+l_OBJC_$_INSTANCE_VARIABLES_PortsFrame
+l_OBJC_$_PROP_LIST_PortsFrame
+l_OBJC_CLASS_RO_$_PortsFrame
+OBJC_CLASSLIST_SUP_REFS_$_.546
+OBJC_METH_VAR_NAME_.547
+OBJC_SELECTOR_REFERENCES_.548
+OBJC_IVAR_$_PortsFrameBuilder.resultPortsFrame
+OBJC_CLASS_NAME_.549
+l_OBJC_METACLASS_RO_$_PortsFrameBuilder
+OBJC_CLASS_NAME_.550
+OBJC_METH_VAR_NAME_.551
+l_OBJC_$_INSTANCE_METHODS_PortsFrameBuilder
+l_OBJC_$_INSTANCE_VARIABLES_PortsFrameBuilder
+OBJC_PROP_NAME_ATTR_.552
+OBJC_PROP_NAME_ATTR_.553
+l_OBJC_$_PROP_LIST_PortsFrameBuilder
+l_OBJC_CLASS_RO_$_PortsFrameBuilder
+OBJC_IVAR_$_ConnectedFrame.hasPeer_
+OBJC_CLASSLIST_SUP_REFS_$_.554
+defaultConnectedFrameInstance
+OBJC_CLASSLIST_REFERENCES_$_.555
+OBJC_IVAR_$_ConnectedFrame.peer
+OBJC_CLASS_NAME_.556
+l_OBJC_$_CLASS_METHODS_ConnectedFrame
+l_OBJC_CLASS_PROTOCOLS_$_ConnectedFrame
+l_OBJC_METACLASS_RO_$_ConnectedFrame
+OBJC_CLASS_NAME_.557
+l_OBJC_$_INSTANCE_METHODS_ConnectedFrame
+l_OBJC_$_INSTANCE_VARIABLES_ConnectedFrame
+l_OBJC_$_PROP_LIST_ConnectedFrame
+l_OBJC_CLASS_RO_$_ConnectedFrame
+OBJC_CLASSLIST_SUP_REFS_$_.558
+OBJC_METH_VAR_NAME_.559
+OBJC_SELECTOR_REFERENCES_.560
+OBJC_IVAR_$_ConnectedFrameBuilder.resultConnectedFrame
+OBJC_CLASS_NAME_.561
+l_OBJC_METACLASS_RO_$_ConnectedFrameBuilder
+OBJC_CLASS_NAME_.562
+OBJC_METH_VAR_NAME_.563
+l_OBJC_$_INSTANCE_METHODS_ConnectedFrameBuilder
+l_OBJC_$_INSTANCE_VARIABLES_ConnectedFrameBuilder
+OBJC_PROP_NAME_ATTR_.564
+OBJC_PROP_NAME_ATTR_.565
+l_OBJC_$_PROP_LIST_ConnectedFrameBuilder
+l_OBJC_CLASS_RO_$_ConnectedFrameBuilder
+OBJC_IVAR_$_DisconnectedFrame.hasAddress_
+OBJC_CLASSLIST_SUP_REFS_$_.566
+defaultDisconnectedFrameInstance
+OBJC_CLASSLIST_REFERENCES_$_.567
+OBJC_IVAR_$_DisconnectedFrame.address
+OBJC_CLASS_NAME_.568
+l_OBJC_$_CLASS_METHODS_DisconnectedFrame
+l_OBJC_CLASS_PROTOCOLS_$_DisconnectedFrame
+l_OBJC_METACLASS_RO_$_DisconnectedFrame
+OBJC_CLASS_NAME_.569
+l_OBJC_$_INSTANCE_METHODS_DisconnectedFrame
+l_OBJC_$_INSTANCE_VARIABLES_DisconnectedFrame
+l_OBJC_$_PROP_LIST_DisconnectedFrame
+l_OBJC_CLASS_RO_$_DisconnectedFrame
+OBJC_CLASSLIST_SUP_REFS_$_.570
+OBJC_METH_VAR_NAME_.571
+OBJC_SELECTOR_REFERENCES_.572
+OBJC_IVAR_$_DisconnectedFrameBuilder.resultDisconnectedFrame
+OBJC_CLASS_NAME_.573
+l_OBJC_METACLASS_RO_$_DisconnectedFrameBuilder
+OBJC_CLASS_NAME_.574
+OBJC_METH_VAR_NAME_.575
+l_OBJC_$_INSTANCE_METHODS_DisconnectedFrameBuilder
+l_OBJC_$_INSTANCE_VARIABLES_DisconnectedFrameBuilder
+OBJC_PROP_NAME_ATTR_.576
+OBJC_PROP_NAME_ATTR_.577
+l_OBJC_$_PROP_LIST_DisconnectedFrameBuilder
+l_OBJC_CLASS_RO_$_DisconnectedFrameBuilder
+OBJC_IVAR_$_LongTransferFrame.hasLock_
+OBJC_IVAR_$_LongTransferFrame.lock_
+OBJC_CLASSLIST_SUP_REFS_$_.578
+OBJC_METH_VAR_NAME_.579
+OBJC_SELECTOR_REFERENCES_.580
+defaultLongTransferFrameInstance
+OBJC_METH_VAR_NAME_.581
+OBJC_SELECTOR_REFERENCES_.582
+OBJC_METH_VAR_NAME_.583
+OBJC_SELECTOR_REFERENCES_.584
+OBJC_CLASSLIST_REFERENCES_$_.585
+.str.586
+_unnamed_cfstring_.587
+OBJC_CLASS_NAME_.588
+l_OBJC_$_CLASS_METHODS_LongTransferFrame
+l_OBJC_CLASS_PROTOCOLS_$_LongTransferFrame
+l_OBJC_METACLASS_RO_$_LongTransferFrame
+OBJC_METH_VAR_NAME_.589
+l_OBJC_$_INSTANCE_METHODS_LongTransferFrame
+OBJC_METH_VAR_NAME_.590
+OBJC_METH_VAR_NAME_.591
+l_OBJC_$_INSTANCE_VARIABLES_LongTransferFrame
+OBJC_PROP_NAME_ATTR_.592
+l_OBJC_$_PROP_LIST_LongTransferFrame
+l_OBJC_CLASS_RO_$_LongTransferFrame
+OBJC_CLASSLIST_SUP_REFS_$_.593
+OBJC_METH_VAR_NAME_.594
+OBJC_SELECTOR_REFERENCES_.595
+OBJC_IVAR_$_LongTransferFrameBuilder.resultLongTransferFrame
+OBJC_SELECTOR_REFERENCES_.596
+OBJC_CLASS_NAME_.597
+l_OBJC_METACLASS_RO_$_LongTransferFrameBuilder
+OBJC_CLASS_NAME_.598
+OBJC_METH_VAR_NAME_.599
+OBJC_METH_VAR_NAME_.600
+l_OBJC_$_INSTANCE_METHODS_LongTransferFrameBuilder
+l_OBJC_$_INSTANCE_VARIABLES_LongTransferFrameBuilder
+OBJC_PROP_NAME_ATTR_.601
+OBJC_PROP_NAME_ATTR_.602
+l_OBJC_$_PROP_LIST_LongTransferFrameBuilder
+l_OBJC_CLASS_RO_$_LongTransferFrameBuilder
+-[LongTransferFrameBuilder .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/Frames.pb.m
+-[LongTransferFrameBuilder setResultLongTransferFrame:]
+-[LongTransferFrameBuilder resultLongTransferFrame]
+-[LongTransferFrameBuilder clearLock]
+-[LongTransferFrameBuilder setLock:]
+-[LongTransferFrameBuilder lock]
+-[LongTransferFrameBuilder hasLock]
+-[LongTransferFrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[LongTransferFrameBuilder mergeFromCodedInputStream:]
+-[LongTransferFrameBuilder mergeFrom:]
+-[LongTransferFrameBuilder buildPartial]
+-[LongTransferFrameBuilder build]
+-[LongTransferFrameBuilder defaultInstance]
+-[LongTransferFrameBuilder clone]
+-[LongTransferFrameBuilder clear]
+-[LongTransferFrameBuilder internalGetResult]
+-[LongTransferFrameBuilder init]
+-[LongTransferFrame hash]
+-[LongTransferFrame isEqual:]
+-[LongTransferFrame storeInDictionary:]
+-[LongTransferFrame writeDescriptionTo:withIndent:]
+-[LongTransferFrame toBuilder]
+-[LongTransferFrame builder]
++[LongTransferFrame builderWithPrototype:]
++[LongTransferFrame builder]
++[LongTransferFrame parseFromCodedInputStream:extensionRegistry:]
++[LongTransferFrame parseFromCodedInputStream:]
++[LongTransferFrame parseFromInputStream:extensionRegistry:]
++[LongTransferFrame parseFromInputStream:]
++[LongTransferFrame parseFromData:extensionRegistry:]
++[LongTransferFrame parseFromData:]
+-[LongTransferFrame serializedSize]
+-[LongTransferFrame writeToCodedOutputStream:]
+-[LongTransferFrame isInitialized]
+-[LongTransferFrame defaultInstance]
++[LongTransferFrame defaultInstance]
++[LongTransferFrame initialize]
+-[LongTransferFrame init]
+-[LongTransferFrame setLock:]
+-[LongTransferFrame lock]
+-[LongTransferFrame setHasLock:]
+-[LongTransferFrame hasLock]
+-[DisconnectedFrameBuilder .cxx_destruct]
+-[DisconnectedFrameBuilder setResultDisconnectedFrame:]
+-[DisconnectedFrameBuilder resultDisconnectedFrame]
+-[DisconnectedFrameBuilder clearAddress]
+-[DisconnectedFrameBuilder setAddress:]
+-[DisconnectedFrameBuilder address]
+-[DisconnectedFrameBuilder hasAddress]
+-[DisconnectedFrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[DisconnectedFrameBuilder mergeFromCodedInputStream:]
+-[DisconnectedFrameBuilder mergeFrom:]
+-[DisconnectedFrameBuilder buildPartial]
+-[DisconnectedFrameBuilder build]
+-[DisconnectedFrameBuilder defaultInstance]
+-[DisconnectedFrameBuilder clone]
+-[DisconnectedFrameBuilder clear]
+-[DisconnectedFrameBuilder internalGetResult]
+-[DisconnectedFrameBuilder init]
+-[DisconnectedFrame .cxx_destruct]
+-[DisconnectedFrame setAddress:]
+-[DisconnectedFrame address]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/Frames.pb.h
+-[DisconnectedFrame hash]
+-[DisconnectedFrame isEqual:]
+-[DisconnectedFrame storeInDictionary:]
+-[DisconnectedFrame writeDescriptionTo:withIndent:]
+-[DisconnectedFrame toBuilder]
+-[DisconnectedFrame builder]
++[DisconnectedFrame builderWithPrototype:]
++[DisconnectedFrame builder]
++[DisconnectedFrame parseFromCodedInputStream:extensionRegistry:]
++[DisconnectedFrame parseFromCodedInputStream:]
++[DisconnectedFrame parseFromInputStream:extensionRegistry:]
++[DisconnectedFrame parseFromInputStream:]
++[DisconnectedFrame parseFromData:extensionRegistry:]
++[DisconnectedFrame parseFromData:]
+-[DisconnectedFrame serializedSize]
+-[DisconnectedFrame writeToCodedOutputStream:]
+-[DisconnectedFrame isInitialized]
+-[DisconnectedFrame defaultInstance]
++[DisconnectedFrame defaultInstance]
++[DisconnectedFrame initialize]
+-[DisconnectedFrame init]
+-[DisconnectedFrame setHasAddress:]
+-[DisconnectedFrame hasAddress]
+-[ConnectedFrameBuilder .cxx_destruct]
+-[ConnectedFrameBuilder setResultConnectedFrame:]
+-[ConnectedFrameBuilder resultConnectedFrame]
+-[ConnectedFrameBuilder clearPeer]
+-[ConnectedFrameBuilder mergePeer:]
+-[ConnectedFrameBuilder setPeerBuilder:]
+-[ConnectedFrameBuilder setPeer:]
+-[ConnectedFrameBuilder peer]
+-[ConnectedFrameBuilder hasPeer]
+-[ConnectedFrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[ConnectedFrameBuilder mergeFromCodedInputStream:]
+-[ConnectedFrameBuilder mergeFrom:]
+-[ConnectedFrameBuilder buildPartial]
+-[ConnectedFrameBuilder build]
+-[ConnectedFrameBuilder defaultInstance]
+-[ConnectedFrameBuilder clone]
+-[ConnectedFrameBuilder clear]
+-[ConnectedFrameBuilder internalGetResult]
+-[ConnectedFrameBuilder init]
+-[ConnectedFrame .cxx_destruct]
+-[ConnectedFrame setPeer:]
+-[ConnectedFrame peer]
+-[ConnectedFrame hash]
+-[ConnectedFrame isEqual:]
+-[ConnectedFrame storeInDictionary:]
+-[ConnectedFrame writeDescriptionTo:withIndent:]
+-[ConnectedFrame toBuilder]
+-[ConnectedFrame builder]
++[ConnectedFrame builderWithPrototype:]
++[ConnectedFrame builder]
++[ConnectedFrame parseFromCodedInputStream:extensionRegistry:]
++[ConnectedFrame parseFromCodedInputStream:]
++[ConnectedFrame parseFromInputStream:extensionRegistry:]
++[ConnectedFrame parseFromInputStream:]
++[ConnectedFrame parseFromData:extensionRegistry:]
++[ConnectedFrame parseFromData:]
+-[ConnectedFrame serializedSize]
+-[ConnectedFrame writeToCodedOutputStream:]
+-[ConnectedFrame isInitialized]
+-[ConnectedFrame defaultInstance]
++[ConnectedFrame defaultInstance]
++[ConnectedFrame initialize]
+-[ConnectedFrame init]
+-[ConnectedFrame setHasPeer:]
+-[ConnectedFrame hasPeer]
+-[PortsFrameBuilder .cxx_destruct]
+-[PortsFrameBuilder setResultPortsFrame:]
+-[PortsFrameBuilder resultPortsFrame]
+-[PortsFrameBuilder clearPorts]
+-[PortsFrameBuilder setPortsValues:count:]
+-[PortsFrameBuilder setPortsArray:]
+-[PortsFrameBuilder addPorts:]
+-[PortsFrameBuilder portsAtIndex:]
+-[PortsFrameBuilder ports]
+-[PortsFrameBuilder clearAddress]
+-[PortsFrameBuilder setAddress:]
+-[PortsFrameBuilder address]
+-[PortsFrameBuilder hasAddress]
+-[PortsFrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[PortsFrameBuilder mergeFromCodedInputStream:]
+-[PortsFrameBuilder mergeFrom:]
+-[PortsFrameBuilder buildPartial]
+-[PortsFrameBuilder build]
+-[PortsFrameBuilder defaultInstance]
+-[PortsFrameBuilder clone]
+-[PortsFrameBuilder clear]
+-[PortsFrameBuilder internalGetResult]
+-[PortsFrameBuilder init]
+-[PortsFrame .cxx_destruct]
+-[PortsFrame setPortsArray:]
+-[PortsFrame portsArray]
+-[PortsFrame setAddress:]
+-[PortsFrame address]
+-[PortsFrame hash]
+-[PortsFrame isEqual:]
+-[PortsFrame storeInDictionary:]
+-[PortsFrame writeDescriptionTo:withIndent:]
+-[PortsFrame toBuilder]
+-[PortsFrame builder]
++[PortsFrame builderWithPrototype:]
++[PortsFrame builder]
++[PortsFrame parseFromCodedInputStream:extensionRegistry:]
++[PortsFrame parseFromCodedInputStream:]
++[PortsFrame parseFromInputStream:extensionRegistry:]
++[PortsFrame parseFromInputStream:]
++[PortsFrame parseFromData:extensionRegistry:]
++[PortsFrame parseFromData:]
+-[PortsFrame serializedSize]
+-[PortsFrame writeToCodedOutputStream:]
+-[PortsFrame isInitialized]
+-[PortsFrame portsAtIndex:]
+-[PortsFrame ports]
+-[PortsFrame defaultInstance]
++[PortsFrame defaultInstance]
++[PortsFrame initialize]
+-[PortsFrame init]
+-[PortsFrame setHasAddress:]
+-[PortsFrame hasAddress]
+-[PayloadFrameBuilder .cxx_destruct]
+-[PayloadFrameBuilder setResultPayloadFrame:]
+-[PayloadFrameBuilder resultPayloadFrame]
+-[PayloadFrameBuilder clearPayload]
+-[PayloadFrameBuilder setPayload:]
+-[PayloadFrameBuilder payload]
+-[PayloadFrameBuilder hasPayload]
+-[PayloadFrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[PayloadFrameBuilder mergeFromCodedInputStream:]
+-[PayloadFrameBuilder mergeFrom:]
+-[PayloadFrameBuilder buildPartial]
+-[PayloadFrameBuilder build]
+-[PayloadFrameBuilder defaultInstance]
+-[PayloadFrameBuilder clone]
+-[PayloadFrameBuilder clear]
+-[PayloadFrameBuilder internalGetResult]
+-[PayloadFrameBuilder init]
+-[PayloadFrame .cxx_destruct]
+-[PayloadFrame setPayload:]
+-[PayloadFrame payload]
+-[PayloadFrame hash]
+-[PayloadFrame isEqual:]
+-[PayloadFrame storeInDictionary:]
+-[PayloadFrame writeDescriptionTo:withIndent:]
+-[PayloadFrame toBuilder]
+-[PayloadFrame builder]
++[PayloadFrame builderWithPrototype:]
++[PayloadFrame builder]
++[PayloadFrame parseFromCodedInputStream:extensionRegistry:]
++[PayloadFrame parseFromCodedInputStream:]
++[PayloadFrame parseFromInputStream:extensionRegistry:]
++[PayloadFrame parseFromInputStream:]
++[PayloadFrame parseFromData:extensionRegistry:]
++[PayloadFrame parseFromData:]
+-[PayloadFrame serializedSize]
+-[PayloadFrame writeToCodedOutputStream:]
+-[PayloadFrame isInitialized]
+-[PayloadFrame defaultInstance]
++[PayloadFrame defaultInstance]
++[PayloadFrame initialize]
+-[PayloadFrame init]
+-[PayloadFrame setHasPayload:]
+-[PayloadFrame hasPayload]
+-[HeartbeatFrameBuilder .cxx_destruct]
+-[HeartbeatFrameBuilder setResultHeartbeatFrame:]
+-[HeartbeatFrameBuilder resultHeartbeatFrame]
+-[HeartbeatFrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[HeartbeatFrameBuilder mergeFromCodedInputStream:]
+-[HeartbeatFrameBuilder mergeFrom:]
+-[HeartbeatFrameBuilder buildPartial]
+-[HeartbeatFrameBuilder build]
+-[HeartbeatFrameBuilder defaultInstance]
+-[HeartbeatFrameBuilder clone]
+-[HeartbeatFrameBuilder clear]
+-[HeartbeatFrameBuilder internalGetResult]
+-[HeartbeatFrameBuilder init]
+-[HeartbeatFrame hash]
+-[HeartbeatFrame isEqual:]
+-[HeartbeatFrame storeInDictionary:]
+-[HeartbeatFrame writeDescriptionTo:withIndent:]
+-[HeartbeatFrame toBuilder]
+-[HeartbeatFrame builder]
++[HeartbeatFrame builderWithPrototype:]
++[HeartbeatFrame builder]
++[HeartbeatFrame parseFromCodedInputStream:extensionRegistry:]
++[HeartbeatFrame parseFromCodedInputStream:]
++[HeartbeatFrame parseFromInputStream:extensionRegistry:]
++[HeartbeatFrame parseFromInputStream:]
++[HeartbeatFrame parseFromData:extensionRegistry:]
++[HeartbeatFrame parseFromData:]
+-[HeartbeatFrame serializedSize]
+-[HeartbeatFrame writeToCodedOutputStream:]
+-[HeartbeatFrame isInitialized]
+-[HeartbeatFrame defaultInstance]
++[HeartbeatFrame defaultInstance]
++[HeartbeatFrame initialize]
+-[HeartbeatFrame init]
+-[HelloFrameBuilder .cxx_destruct]
+-[HelloFrameBuilder setResultHelloFrame:]
+-[HelloFrameBuilder resultHelloFrame]
+-[HelloFrameBuilder clearPeer]
+-[HelloFrameBuilder mergePeer:]
+-[HelloFrameBuilder setPeerBuilder:]
+-[HelloFrameBuilder setPeer:]
+-[HelloFrameBuilder peer]
+-[HelloFrameBuilder hasPeer]
+-[HelloFrameBuilder clearNodeId]
+-[HelloFrameBuilder setNodeId:]
+-[HelloFrameBuilder nodeId]
+-[HelloFrameBuilder hasNodeId]
+-[HelloFrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[HelloFrameBuilder mergeFromCodedInputStream:]
+-[HelloFrameBuilder mergeFrom:]
+-[HelloFrameBuilder buildPartial]
+-[HelloFrameBuilder build]
+-[HelloFrameBuilder defaultInstance]
+-[HelloFrameBuilder clone]
+-[HelloFrameBuilder clear]
+-[HelloFrameBuilder internalGetResult]
+-[HelloFrameBuilder init]
+-[HelloFrame .cxx_destruct]
+-[HelloFrame setPeer:]
+-[HelloFrame peer]
+-[HelloFrame setNodeId:]
+-[HelloFrame nodeId]
+-[HelloFrame hash]
+-[HelloFrame isEqual:]
+-[HelloFrame storeInDictionary:]
+-[HelloFrame writeDescriptionTo:withIndent:]
+-[HelloFrame toBuilder]
+-[HelloFrame builder]
++[HelloFrame builderWithPrototype:]
++[HelloFrame builder]
++[HelloFrame parseFromCodedInputStream:extensionRegistry:]
++[HelloFrame parseFromCodedInputStream:]
++[HelloFrame parseFromInputStream:extensionRegistry:]
++[HelloFrame parseFromInputStream:]
++[HelloFrame parseFromData:extensionRegistry:]
++[HelloFrame parseFromData:]
+-[HelloFrame serializedSize]
+-[HelloFrame writeToCodedOutputStream:]
+-[HelloFrame isInitialized]
+-[HelloFrame defaultInstance]
++[HelloFrame defaultInstance]
++[HelloFrame initialize]
+-[HelloFrame init]
+-[HelloFrame setHasPeer:]
+-[HelloFrame hasPeer]
+-[HelloFrame setHasNodeId:]
+-[HelloFrame hasNodeId]
+-[PeerBuilder .cxx_destruct]
+-[PeerBuilder setResultPeer:]
+-[PeerBuilder resultPeer]
+-[PeerBuilder clearPorts]
+-[PeerBuilder setPortsValues:count:]
+-[PeerBuilder setPortsArray:]
+-[PeerBuilder addPorts:]
+-[PeerBuilder portsAtIndex:]
+-[PeerBuilder ports]
+-[PeerBuilder clearLegacy]
+-[PeerBuilder setLegacy:]
+-[PeerBuilder legacy]
+-[PeerBuilder hasLegacy]
+-[PeerBuilder clearAddress]
+-[PeerBuilder setAddress:]
+-[PeerBuilder address]
+-[PeerBuilder hasAddress]
+-[PeerBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[PeerBuilder mergeFromCodedInputStream:]
+-[PeerBuilder mergeFrom:]
+-[PeerBuilder buildPartial]
+-[PeerBuilder build]
+-[PeerBuilder defaultInstance]
+-[PeerBuilder clone]
+-[PeerBuilder clear]
+-[PeerBuilder internalGetResult]
+-[PeerBuilder init]
+-[Peer .cxx_destruct]
+-[Peer setPortsArray:]
+-[Peer portsArray]
+-[Peer setAddress:]
+-[Peer address]
+-[Peer hash]
+-[Peer isEqual:]
+-[Peer storeInDictionary:]
+-[Peer writeDescriptionTo:withIndent:]
+-[Peer toBuilder]
+-[Peer builder]
++[Peer builderWithPrototype:]
++[Peer builder]
++[Peer parseFromCodedInputStream:extensionRegistry:]
++[Peer parseFromCodedInputStream:]
++[Peer parseFromInputStream:extensionRegistry:]
++[Peer parseFromInputStream:]
++[Peer parseFromData:extensionRegistry:]
++[Peer parseFromData:]
+-[Peer serializedSize]
+-[Peer writeToCodedOutputStream:]
+-[Peer isInitialized]
+-[Peer portsAtIndex:]
+-[Peer ports]
+-[Peer defaultInstance]
++[Peer defaultInstance]
++[Peer initialize]
+-[Peer init]
+-[Peer setLegacy:]
+-[Peer legacy]
+-[Peer setHasLegacy:]
+-[Peer hasLegacy]
+-[Peer setHasAddress:]
+-[Peer hasAddress]
+-[FrameBuilder .cxx_destruct]
+-[FrameBuilder setResultFrame:]
+-[FrameBuilder resultFrame]
+-[FrameBuilder clearLongTransfer]
+-[FrameBuilder mergeLongTransfer:]
+-[FrameBuilder setLongTransferBuilder:]
+-[FrameBuilder setLongTransfer:]
+-[FrameBuilder longTransfer]
+-[FrameBuilder hasLongTransfer]
+-[FrameBuilder clearDisconnected]
+-[FrameBuilder mergeDisconnected:]
+-[FrameBuilder setDisconnectedBuilder:]
+-[FrameBuilder setDisconnected:]
+-[FrameBuilder disconnected]
+-[FrameBuilder hasDisconnected]
+-[FrameBuilder clearConnected]
+-[FrameBuilder mergeConnected:]
+-[FrameBuilder setConnectedBuilder:]
+-[FrameBuilder setConnected:]
+-[FrameBuilder connected]
+-[FrameBuilder hasConnected]
+-[FrameBuilder clearPorts]
+-[FrameBuilder mergePorts:]
+-[FrameBuilder setPortsBuilder:]
+-[FrameBuilder setPorts:]
+-[FrameBuilder ports]
+-[FrameBuilder hasPorts]
+-[FrameBuilder clearPayload]
+-[FrameBuilder mergePayload:]
+-[FrameBuilder setPayloadBuilder:]
+-[FrameBuilder setPayload:]
+-[FrameBuilder payload]
+-[FrameBuilder hasPayload]
+-[FrameBuilder clearHeartbeat]
+-[FrameBuilder mergeHeartbeat:]
+-[FrameBuilder setHeartbeatBuilder:]
+-[FrameBuilder setHeartbeat:]
+-[FrameBuilder heartbeat]
+-[FrameBuilder hasHeartbeat]
+-[FrameBuilder clearHello]
+-[FrameBuilder mergeHello:]
+-[FrameBuilder setHelloBuilder:]
+-[FrameBuilder setHello:]
+-[FrameBuilder hello]
+-[FrameBuilder hasHello]
+-[FrameBuilder clearKind]
+-[FrameBuilder setKind:]
+-[FrameBuilder kind]
+-[FrameBuilder hasKind]
+-[FrameBuilder mergeFromCodedInputStream:extensionRegistry:]
+-[FrameBuilder mergeFromCodedInputStream:]
+-[FrameBuilder mergeFrom:]
+-[FrameBuilder buildPartial]
+-[FrameBuilder build]
+-[FrameBuilder defaultInstance]
+-[FrameBuilder clone]
+-[FrameBuilder clear]
+-[FrameBuilder internalGetResult]
+-[FrameBuilder init]
+NSStringFromFrameKind
+FrameKindIsValidValue
+-[Frame .cxx_destruct]
+-[Frame setLongTransfer:]
+-[Frame longTransfer]
+-[Frame setDisconnected:]
+-[Frame disconnected]
+-[Frame setConnected:]
+-[Frame connected]
+-[Frame setPorts:]
+-[Frame ports]
+-[Frame setPayload:]
+-[Frame payload]
+-[Frame setHeartbeat:]
+-[Frame heartbeat]
+-[Frame setHello:]
+-[Frame hello]
+-[Frame setKind:]
+-[Frame kind]
+-[Frame hash]
+-[Frame isEqual:]
+-[Frame storeInDictionary:]
+-[Frame writeDescriptionTo:withIndent:]
+-[Frame toBuilder]
+-[Frame builder]
++[Frame builderWithPrototype:]
++[Frame builder]
++[Frame parseFromCodedInputStream:extensionRegistry:]
++[Frame parseFromCodedInputStream:]
++[Frame parseFromInputStream:extensionRegistry:]
++[Frame parseFromInputStream:]
++[Frame parseFromData:extensionRegistry:]
++[Frame parseFromData:]
+-[Frame serializedSize]
+-[Frame writeToCodedOutputStream:]
+-[Frame isInitialized]
+-[Frame defaultInstance]
++[Frame defaultInstance]
++[Frame initialize]
+-[Frame init]
+-[Frame setHasLongTransfer:]
+-[Frame hasLongTransfer]
+-[Frame setHasDisconnected:]
+-[Frame hasDisconnected]
+-[Frame setHasConnected:]
+-[Frame hasConnected]
+-[Frame setHasPorts:]
+-[Frame hasPorts]
+-[Frame setHasPayload:]
+-[Frame hasPayload]
+-[Frame setHasHeartbeat:]
+-[Frame hasHeartbeat]
+-[Frame setHasHello:]
+-[Frame hasHello]
+-[Frame setHasKind:]
+-[Frame hasKind]
++[FramesRoot registerAllExtensions:]
++[FramesRoot initialize]
++[FramesRoot extensionRegistry]
+-[UDFutureImpl init]
+-[UDFutureImpl dealloc]
+-[UDFutureImpl listen:block:]
+-[UDFutureImpl internal_succeed:]
+-[UDFutureImpl internal_fail:]
+-[UDFutureImpl .cxx_destruct]
+OBJC_IVAR_$_UDFutureImpl._lock
+OBJC_IVAR_$_UDFutureImpl._state
+OBJC_IVAR_$_UDFutureImpl._listeners
+OBJC_IVAR_$_UDFutureImpl._result
+OBJC_IVAR_$_UDFutureImpl._error
+l_OBJC_METACLASS_RO_$_UDFutureImpl
+OBJC_METH_VAR_TYPE_.20
+l_OBJC_$_INSTANCE_METHODS_UDFutureImpl
+l_OBJC_$_INSTANCE_VARIABLES_UDFutureImpl
+l_OBJC_CLASS_RO_$_UDFutureImpl
+-[UDFutureImpl .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDFutureImpl.m
+-[UDFutureImpl internal_fail:]
+-[UDFutureImpl internal_succeed:]
+-[UDFutureImpl listen:block:]
+-[UDFutureImpl dealloc]
+-[UDFutureImpl init]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDLogging.m
+l_OBJC_METACLASS_RO_$_UDConfig
+l_OBJC_CLASS_RO_$_UDConfig
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDConfig.m
+-[UDNsdService initWithDelegate:thread:]
+-[UDNsdService cancelResolve]
+-[UDNsdService resolve]
+UDServiceResolveReply
+UDServiceFileDescriptorCallBack
+-[UDNsdService peerToPeer]
+-[UDNsdService setPeerToPeer:]
+-[UDNsdService flags]
+-[UDNsdService setFlags:]
+-[UDNsdService interfaceIndex]
+-[UDNsdService setInterfaceIndex:]
+-[UDNsdService name]
+-[UDNsdService setName:]
+-[UDNsdService regtype]
+-[UDNsdService setRegtype:]
+-[UDNsdService domain]
+-[UDNsdService setDomain:]
+-[UDNsdService host]
+-[UDNsdService address]
+-[UDNsdService port]
+-[UDNsdService delegate]
+-[UDNsdService thread]
+-[UDNsdService .cxx_destruct]
+UDServiceGetAddrInfoReply
+UDResolveRunLoopTimerCallBack
+OBJC_IVAR_$_UDNsdService._delegate
+OBJC_IVAR_$_UDNsdService._thread
+OBJC_IVAR_$_UDNsdService._fd
+OBJC_IVAR_$_UDNsdService._source
+OBJC_IVAR_$_UDNsdService._resolveRef
+OBJC_IVAR_$_UDNsdService._flags
+OBJC_IVAR_$_UDNsdService._interfaceIndex
+OBJC_IVAR_$_UDNsdService._name
+OBJC_IVAR_$_UDNsdService._regtype
+OBJC_IVAR_$_UDNsdService._domain
+__PRETTY_FUNCTION__.-[UDNsdService resolve]
+.str.8
+OBJC_IVAR_$_UDNsdService._peerToPeer
+OBJC_IVAR_$_UDNsdService._host
+OBJC_IVAR_$_UDNsdService._address
+OBJC_IVAR_$_UDNsdService._port
+l_OBJC_METACLASS_RO_$_UDNsdService
+OBJC_METH_VAR_TYPE_.38
+l_OBJC_$_INSTANCE_METHODS_UDNsdService
+OBJC_IVAR_$_UDNsdService._queryingName
+OBJC_METH_VAR_TYPE_.60
+OBJC_METH_VAR_NAME_.61
+OBJC_METH_VAR_TYPE_.71
+l_OBJC_$_INSTANCE_VARIABLES_UDNsdService
+OBJC_CLASS_NAME_.74
+OBJC_PROP_NAME_ATTR_.75
+OBJC_PROP_NAME_ATTR_.76
+OBJC_PROP_NAME_ATTR_.77
+OBJC_PROP_NAME_ATTR_.78
+OBJC_PROP_NAME_ATTR_.79
+OBJC_PROP_NAME_ATTR_.82
+OBJC_PROP_NAME_ATTR_.83
+OBJC_PROP_NAME_ATTR_.84
+OBJC_PROP_NAME_ATTR_.85
+OBJC_PROP_NAME_ATTR_.86
+OBJC_PROP_NAME_ATTR_.87
+OBJC_PROP_NAME_ATTR_.88
+OBJC_PROP_NAME_ATTR_.89
+OBJC_PROP_NAME_ATTR_.90
+OBJC_PROP_NAME_ATTR_.91
+OBJC_PROP_NAME_ATTR_.92
+OBJC_PROP_NAME_ATTR_.93
+OBJC_PROP_NAME_ATTR_.94
+OBJC_PROP_NAME_ATTR_.95
+l_OBJC_$_PROP_LIST_UDNsdService
+l_OBJC_CLASS_RO_$_UDNsdService
+__PRETTY_FUNCTION__.UDServiceResolveReply
+.str.96
+_unnamed_cfstring_.97
+OBJC_SELECTOR_REFERENCES_.98
+OBJC_CLASSLIST_REFERENCES_$_.107
+OBJC_SELECTOR_REFERENCES_.109
+__PRETTY_FUNCTION__.UDServiceGetAddrInfoReply
+.str.112
+_unnamed_cfstring_.113
+__PRETTY_FUNCTION__.UDResolveRunLoopTimerCallBack
+.str.118
+_unnamed_cfstring_.119
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDNsdService.m
+_OSSwapInt16
+-[UDNsdService .cxx_destruct]
+-[UDNsdService thread]
+-[UDNsdService delegate]
+-[UDNsdService port]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDNsdService.h
+-[UDNsdService address]
+-[UDNsdService host]
+-[UDNsdService setDomain:]
+-[UDNsdService domain]
+-[UDNsdService setRegtype:]
+-[UDNsdService regtype]
+-[UDNsdService setName:]
+-[UDNsdService name]
+-[UDNsdService setInterfaceIndex:]
+-[UDNsdService interfaceIndex]
+-[UDNsdService setFlags:]
+-[UDNsdService flags]
+-[UDNsdService setPeerToPeer:]
+-[UDNsdService peerToPeer]
+-[UDNsdService resolve]
+-[UDNsdService cancelResolve]
+-[UDNsdService initWithDelegate:thread:]
+-[UDFutureSource init]
+-[UDFutureSource dealloc]
+-[UDFutureSource future]
+-[UDFutureSource succeed:]
+-[UDFutureSource fail:]
+-[UDFutureSource .cxx_destruct]
+OBJC_IVAR_$_UDFutureSource._future
+l_OBJC_METACLASS_RO_$_UDFutureSource
+OBJC_CLASS_NAME_.9
+l_OBJC_$_INSTANCE_METHODS_UDFutureSource
+l_OBJC_$_INSTANCE_VARIABLES_UDFutureSource
+OBJC_PROP_NAME_ATTR_.18
+l_OBJC_$_PROP_LIST_UDFutureSource
+l_OBJC_CLASS_RO_$_UDFutureSource
+-[UDFutureSource .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDFutureSource.m
+-[UDFutureSource fail:]
+-[UDFutureSource succeed:]
+-[UDFutureSource future]
+-[UDFutureSource dealloc]
+-[UDFutureSource init]
+-[UDAggTransport initWithAppId:nodeId:delegate:queue:]
+-[UDAggTransport addAdapter:]
+-[UDAggTransport start]
+__23-[UDAggTransport start]_block_invoke
+-[UDAggTransport stop]
+__22-[UDAggTransport stop]_block_invoke
+__copy_helper_block_.31
+__destroy_helper_block_.32
+-[UDAggTransport adapterAppWatcher:]
+-[UDAggTransport adapter:shouldConnectChannelId:]
+-[UDAggTransport adapter:channelConnected:]
+__43-[UDAggTransport adapter:channelConnected:]_block_invoke
+__copy_helper_block_.52
+__destroy_helper_block_.53
+-[UDAggTransport adapter:channelDisconnected:]
+__46-[UDAggTransport adapter:channelDisconnected:]_block_invoke
+__copy_helper_block_.63
+__destroy_helper_block_.64
+-[UDAggTransport adapter:channelCanSendMore:]
+-[UDAggTransport adapter:channel:didReceiveFrame:]
+__50-[UDAggTransport adapter:channel:didReceiveFrame:]_block_invoke
+__copy_helper_block_.70
+__destroy_helper_block_.71
+-[UDAggTransport queue]
+-[UDAggTransport ioqueue]
+-[UDAggTransport nodeId]
+-[UDAggTransport cache]
+-[UDAggTransport .cxx_destruct]
+OBJC_IVAR_$_UDAggTransport._appId
+OBJC_IVAR_$_UDAggTransport._nodeId
+OBJC_IVAR_$_UDAggTransport._queue
+OBJC_IVAR_$_UDAggTransport._ioqueue
+OBJC_IVAR_$_UDAggTransport._delegate
+OBJC_IVAR_$_UDAggTransport._adapters
+OBJC_IVAR_$_UDAggTransport._links
+OBJC_CLASSLIST_REFERENCES_$_.6
+OBJC_IVAR_$_UDAggTransport._cache
+OBJC_CLASSLIST_REFERENCES_$_.11
+OBJC_IVAR_$_UDAggTransport._appWatcher
+OBJC_IVAR_$_UDAggTransport._running
+__PRETTY_FUNCTION__.__23-[UDAggTransport start]_block_invoke
+.str.28
+__block_descriptor_tmp.33
+OBJC_SELECTOR_REFERENCES_.37
+OBJC_CLASSLIST_REFERENCES_$_.45
+__block_descriptor_tmp.54
+OBJC_SELECTOR_REFERENCES_.62
+__block_descriptor_tmp.65
+__block_descriptor_tmp.72
+OBJC_METH_VAR_TYPE_.74
+OBJC_CLASS_NAME_.76
+OBJC_METH_VAR_TYPE_.82
+OBJC_METH_VAR_TYPE_.84
+OBJC_METH_VAR_TYPE_.86
+OBJC_METH_VAR_TYPE_.88
+OBJC_METH_VAR_TYPE_.90
+OBJC_METH_VAR_TYPE_.93
+OBJC_METH_VAR_TYPE_.95
+OBJC_METH_VAR_TYPE_.98
+OBJC_METH_VAR_NAME_.100
+OBJC_METH_VAR_TYPE_.107
+OBJC_CLASS_NAME_.109
+OBJC_PROP_NAME_ATTR_.110
+OBJC_PROP_NAME_ATTR_.111
+OBJC_PROP_NAME_ATTR_.112
+OBJC_PROP_NAME_ATTR_.113
+OBJC_PROP_NAME_ATTR_.114
+OBJC_PROP_NAME_ATTR_.115
+l_OBJC_$_PROTOCOL_REFS_UDTransport
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDTransport
+OBJC_PROP_NAME_ATTR_.116
+OBJC_PROP_NAME_ATTR_.117
+l_OBJC_$_PROP_LIST_UDTransport
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDTransport
+l_OBJC_PROTOCOL_$_UDTransport
+l_OBJC_LABEL_PROTOCOL_$_UDTransport
+OBJC_METH_VAR_TYPE_.120
+OBJC_METH_VAR_TYPE_.122
+OBJC_METH_VAR_TYPE_.125
+OBJC_METH_VAR_TYPE_.130
+OBJC_CLASS_NAME_.132
+l_OBJC_$_PROTOCOL_REFS_UDAdapterDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDAdapterDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDAdapterDelegate
+l_OBJC_PROTOCOL_$_UDAdapterDelegate
+l_OBJC_LABEL_PROTOCOL_$_UDAdapterDelegate
+l_OBJC_CLASS_PROTOCOLS_$_UDAggTransport
+l_OBJC_METACLASS_RO_$_UDAggTransport
+OBJC_CLASS_NAME_.133
+OBJC_METH_VAR_TYPE_.135
+OBJC_METH_VAR_NAME_.136
+OBJC_METH_VAR_TYPE_.137
+l_OBJC_$_INSTANCE_METHODS_UDAggTransport
+OBJC_METH_VAR_TYPE_.144
+OBJC_METH_VAR_TYPE_.150
+OBJC_METH_VAR_TYPE_.152
+OBJC_METH_VAR_TYPE_.154
+OBJC_METH_VAR_TYPE_.156
+OBJC_METH_VAR_TYPE_.159
+OBJC_METH_VAR_TYPE_.161
+l_OBJC_$_INSTANCE_VARIABLES_UDAggTransport
+OBJC_CLASS_NAME_.162
+OBJC_PROP_NAME_ATTR_.163
+OBJC_PROP_NAME_ATTR_.164
+OBJC_PROP_NAME_ATTR_.165
+OBJC_PROP_NAME_ATTR_.166
+OBJC_PROP_NAME_ATTR_.167
+OBJC_PROP_NAME_ATTR_.168
+OBJC_PROP_NAME_ATTR_.169
+l_OBJC_$_PROP_LIST_UDAggTransport
+l_OBJC_CLASS_RO_$_UDAggTransport
+-[UDAggTransport .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDAggTransport.m
+-[UDAggTransport cache]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDAggTransport.h
+-[UDAggTransport nodeId]
+-[UDAggTransport ioqueue]
+-[UDAggTransport queue]
+-[UDAggTransport adapter:channel:didReceiveFrame:]
+-[UDAggTransport adapter:channelCanSendMore:]
+-[UDAggTransport adapter:channelDisconnected:]
+-[UDAggTransport adapter:channelConnected:]
+-[UDAggTransport adapter:shouldConnectChannelId:]
+-[UDAggTransport adapterAppWatcher:]
+-[UDAggTransport stop]
+-[UDAggTransport start]
+-[UDAggTransport addAdapter:]
+-[UDAggTransport initWithAppId:nodeId:delegate:queue:]
+__sldispatch_async_block_invoke
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDAsyncUtils.m
+sldispatch_async
+-[UDBonjourAdapter init]
+-[UDBonjourAdapter initWithAppId:nodeId:delegate:queue:peerToPeer:]
+-[UDBonjourAdapter dealloc]
+-[UDBonjourAdapter start]
+-[UDBonjourAdapter stop]
+-[UDBonjourAdapter longTransferLock]
+-[UDBonjourAdapter longTransferUnlock]
+-[UDBonjourAdapter applicationDidWakeUp]
+__40-[UDBonjourAdapter applicationDidWakeUp]_block_invoke
+-[UDBonjourAdapter applicationWillSuspend]
+__42-[UDBonjourAdapter applicationWillSuspend]_block_invoke
+-[UDBonjourAdapter wifiDidChangeState:]
+__39-[UDBonjourAdapter wifiDidChangeState:]_block_invoke
+__copy_helper_block_.72
+__destroy_helper_block_.73
+-[UDBonjourAdapter bluetoothDidChangeState:]
+__44-[UDBonjourAdapter bluetoothDidChangeState:]_block_invoke
+__copy_helper_block_.77
+__destroy_helper_block_.78
+-[UDBonjourAdapter shouldConnectToAddress:]
+-[UDBonjourAdapter shouldAdvertise]
+-[UDBonjourAdapter browserDidFail:]
+-[UDBonjourAdapter browser:foundResult:]
+-[UDBonjourAdapter advertiserDidFail:]
+-[UDBonjourAdapter advertiser:didAcceptClient:]
+-[UDBonjourAdapter priorityForChannel:]
+-[UDBonjourAdapter channelConnecting:]
+-[UDBonjourAdapter channelConnected:]
+-[UDBonjourAdapter channelDisconnected:]
+-[UDBonjourAdapter channelTerminated:]
+-[UDBonjourAdapter channelCanSendMore:]
+-[UDBonjourAdapter channel:sentLongTransferFrame:]
+-[UDBonjourAdapter channel:receivedLongTransferFrame:]
+-[UDBonjourAdapter channel:receivedFrame:]
+-[UDBonjourAdapter appId]
+-[UDBonjourAdapter nodeId]
+-[UDBonjourAdapter priority]
+-[UDBonjourAdapter queue]
+-[UDBonjourAdapter ioThread]
+-[UDBonjourAdapter peerToPeer]
+-[UDBonjourAdapter .cxx_destruct]
+OBJC_IVAR_$_UDBonjourAdapter._peerToPeer
+OBJC_IVAR_$_UDBonjourAdapter._appId
+OBJC_IVAR_$_UDBonjourAdapter._nodeId
+OBJC_IVAR_$_UDBonjourAdapter._delegate
+OBJC_IVAR_$_UDBonjourAdapter._queue
+OBJC_IVAR_$_UDBonjourAdapter._channelsConnecting
+OBJC_IVAR_$_UDBonjourAdapter._channels
+OBJC_IVAR_$_UDBonjourAdapter._channelsTerminating
+OBJC_IVAR_$_UDBonjourAdapter._ioThread
+OBJC_IVAR_$_UDBonjourAdapter._priority
+OBJC_IVAR_$_UDBonjourAdapter._browser
+OBJC_CLASSLIST_REFERENCES_$_.24
+OBJC_IVAR_$_UDBonjourAdapter._advertiser
+OBJC_IVAR_$_UDBonjourAdapter._running
+OBJC_IVAR_$_UDBonjourAdapter._awake
+OBJC_CLASSLIST_REFERENCES_$_.35
+OBJC_IVAR_$_UDBonjourAdapter._longTransferCount
+OBJC_CLASSLIST_REFERENCES_$_.44
+__PRETTY_FUNCTION__.-[UDBonjourAdapter longTransferLock]
+.str.48
+_unnamed_cfstring_.49
+__PRETTY_FUNCTION__.-[UDBonjourAdapter longTransferUnlock]
+__PRETTY_FUNCTION__.-[UDBonjourAdapter applicationDidWakeUp]
+.str.54
+_unnamed_cfstring_.55
+__PRETTY_FUNCTION__.-[UDBonjourAdapter applicationWillSuspend]
+__PRETTY_FUNCTION__.-[UDBonjourAdapter wifiDidChangeState:]
+_unnamed_cfstring_.67
+.str.68
+_unnamed_cfstring_.69
+.str.70
+_unnamed_cfstring_.71
+OBJC_IVAR_$_UDBonjourAdapter._reachable
+__block_descriptor_tmp.74
+__PRETTY_FUNCTION__.-[UDBonjourAdapter bluetoothDidChangeState:]
+.str.75
+_unnamed_cfstring_.76
+__block_descriptor_tmp.79
+__PRETTY_FUNCTION__.-[UDBonjourAdapter shouldConnectToAddress:]
+_unnamed_cfstring_.87
+__PRETTY_FUNCTION__.-[UDBonjourAdapter browser:foundResult:]
+.str.92
+_unnamed_cfstring_.93
+OBJC_CLASSLIST_REFERENCES_$_.94
+OBJC_METH_VAR_NAME_.95
+OBJC_SELECTOR_REFERENCES_.96
+OBJC_SELECTOR_REFERENCES_.106
+OBJC_SELECTOR_REFERENCES_.113
+__PRETTY_FUNCTION__.-[UDBonjourAdapter advertiser:didAcceptClient:]
+OBJC_SELECTOR_REFERENCES_.121
+OBJC_SELECTOR_REFERENCES_.123
+OBJC_SELECTOR_REFERENCES_.125
+OBJC_METH_VAR_NAME_.126
+OBJC_SELECTOR_REFERENCES_.127
+OBJC_SELECTOR_REFERENCES_.137
+OBJC_SELECTOR_REFERENCES_.139
+OBJC_CLASS_NAME_.145
+OBJC_METH_VAR_NAME_.162
+OBJC_METH_VAR_NAME_.166
+OBJC_CLASS_NAME_.179
+OBJC_PROP_NAME_ATTR_.182
+OBJC_PROP_NAME_ATTR_.183
+OBJC_PROP_NAME_ATTR_.184
+OBJC_PROP_NAME_ATTR_.185
+l_OBJC_$_PROTOCOL_REFS_UDAppWatcherDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDAppWatcherDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDAppWatcherDelegate
+l_OBJC_PROTOCOL_$_UDAppWatcherDelegate
+l_OBJC_LABEL_PROTOCOL_$_UDAppWatcherDelegate
+OBJC_METH_VAR_TYPE_.188
+OBJC_METH_VAR_TYPE_.190
+OBJC_METH_VAR_TYPE_.192
+OBJC_CLASS_NAME_.195
+l_OBJC_$_PROTOCOL_REFS_UDBonjourBrowserDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDBonjourBrowserDelegate
+OBJC_PROP_NAME_ATTR_.196
+OBJC_PROP_NAME_ATTR_.197
+OBJC_PROP_NAME_ATTR_.198
+OBJC_PROP_NAME_ATTR_.199
+l_OBJC_$_PROP_LIST_UDBonjourBrowserDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDBonjourBrowserDelegate
+l_OBJC_PROTOCOL_$_UDBonjourBrowserDelegate
+l_OBJC_LABEL_PROTOCOL_$_UDBonjourBrowserDelegate
+OBJC_CLASS_NAME_.204
+l_OBJC_$_PROTOCOL_REFS_UDBonjourAdvertiserDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDBonjourAdvertiserDelegate
+l_OBJC_$_PROP_LIST_UDBonjourAdvertiserDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDBonjourAdvertiserDelegate
+l_OBJC_PROTOCOL_$_UDBonjourAdvertiserDelegate
+l_OBJC_LABEL_PROTOCOL_$_UDBonjourAdvertiserDelegate
+OBJC_METH_VAR_TYPE_.207
+OBJC_METH_VAR_NAME_.211
+OBJC_METH_VAR_NAME_.213
+OBJC_METH_VAR_TYPE_.216
+OBJC_CLASS_NAME_.220
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDBonjourChannelDelegate
+l_OBJC_$_PROP_LIST_UDBonjourChannelDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDBonjourChannelDelegate
+l_OBJC_PROTOCOL_$_UDBonjourChannelDelegate
+l_OBJC_LABEL_PROTOCOL_$_UDBonjourChannelDelegate
+OBJC_CLASS_NAME_.221
+l_OBJC_$_PROTOCOL_REFS_UDAdapter
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDAdapter
+l_OBJC_$_PROP_LIST_UDAdapter
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDAdapter
+l_OBJC_PROTOCOL_$_UDAdapter
+l_OBJC_LABEL_PROTOCOL_$_UDAdapter
+l_OBJC_CLASS_PROTOCOLS_$_UDBonjourAdapter
+l_OBJC_METACLASS_RO_$_UDBonjourAdapter
+OBJC_CLASS_NAME_.222
+OBJC_METH_VAR_TYPE_.225
+OBJC_METH_VAR_NAME_.228
+OBJC_METH_VAR_TYPE_.229
+l_OBJC_$_INSTANCE_METHODS_UDBonjourAdapter
+OBJC_METH_VAR_TYPE_.235
+OBJC_METH_VAR_NAME_.250
+OBJC_METH_VAR_TYPE_.254
+OBJC_METH_VAR_NAME_.259
+l_OBJC_$_INSTANCE_VARIABLES_UDBonjourAdapter
+OBJC_CLASS_NAME_.260
+OBJC_PROP_NAME_ATTR_.268
+OBJC_PROP_NAME_ATTR_.269
+OBJC_PROP_NAME_ATTR_.270
+l_OBJC_$_PROP_LIST_UDBonjourAdapter
+l_OBJC_CLASS_RO_$_UDBonjourAdapter
+-[UDBonjourAdapter .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDBonjourAdapter.m
+-[UDBonjourAdapter peerToPeer]
+-[UDBonjourAdapter ioThread]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDBonjourAdapter.h
+-[UDBonjourAdapter queue]
+-[UDBonjourAdapter priority]
+-[UDBonjourAdapter nodeId]
+-[UDBonjourAdapter appId]
+-[UDBonjourAdapter channel:receivedFrame:]
+-[UDBonjourAdapter channel:receivedLongTransferFrame:]
+-[UDBonjourAdapter channel:sentLongTransferFrame:]
+-[UDBonjourAdapter channelCanSendMore:]
+-[UDBonjourAdapter channelTerminated:]
+-[UDBonjourAdapter channelDisconnected:]
+-[UDBonjourAdapter channelConnected:]
+-[UDBonjourAdapter channelConnecting:]
+-[UDBonjourAdapter priorityForChannel:]
+-[UDBonjourAdapter advertiser:didAcceptClient:]
+-[UDBonjourAdapter advertiserDidFail:]
+-[UDBonjourAdapter browser:foundResult:]
+-[UDBonjourAdapter browserDidFail:]
+-[UDBonjourAdapter shouldAdvertise]
+-[UDBonjourAdapter shouldConnectToAddress:]
+-[UDBonjourAdapter bluetoothDidChangeState:]
+-[UDBonjourAdapter wifiDidChangeState:]
+-[UDBonjourAdapter applicationWillSuspend]
+-[UDBonjourAdapter applicationDidWakeUp]
+-[UDBonjourAdapter longTransferUnlock]
+-[UDBonjourAdapter longTransferLock]
+-[UDBonjourAdapter stop]
+-[UDBonjourAdapter start]
+-[UDBonjourAdapter dealloc]
+-[UDBonjourAdapter initWithAppId:nodeId:delegate:queue:peerToPeer:]
+-[UDBonjourAdapter init]
+-[UDNsdBrowser init]
+-[UDNsdBrowser initWithDelegate:service:queue:]
+-[UDNsdBrowser dealloc]
+-[UDNsdBrowser start]
+__21-[UDNsdBrowser start]_block_invoke
+-[UDNsdBrowser stop]
+__20-[UDNsdBrowser stop]_block_invoke
+__copy_helper_block_.25
+__destroy_helper_block_.26
+-[UDNsdBrowser startImpl]
+UDServiceBrowseReply
+UDFileDescriptorCallBack
+-[UDNsdBrowser stopImpl]
+-[UDNsdBrowser reconfirmRecord:interface:]
+-[UDNsdBrowser serviceDidResolve:]
+__34-[UDNsdBrowser serviceDidResolve:]_block_invoke
+__copy_helper_block_.110
+__destroy_helper_block_.111
+-[UDNsdBrowser serviceDidNotResolve:]
+-[UDNsdBrowser peerToPeer]
+-[UDNsdBrowser setPeerToPeer:]
+-[UDNsdBrowser running]
+-[UDNsdBrowser delegate]
+-[UDNsdBrowser queue]
+-[UDNsdBrowser .cxx_destruct]
+OBJC_IVAR_$_UDNsdBrowser._delegate
+OBJC_IVAR_$_UDNsdBrowser._serviceType
+OBJC_IVAR_$_UDNsdBrowser._queue
+OBJC_IVAR_$_UDNsdBrowser._services
+OBJC_IVAR_$_UDNsdBrowser._thread
+.str.22
+__block_descriptor_tmp.27
+OBJC_IVAR_$_UDNsdBrowser._running
+OBJC_IVAR_$_UDNsdBrowser._browseRef
+OBJC_IVAR_$_UDNsdBrowser._peerToPeer
+__PRETTY_FUNCTION__.-[UDNsdBrowser startImpl]
+OBJC_IVAR_$_UDNsdBrowser._browseFd
+OBJC_IVAR_$_UDNsdBrowser._browseSource
+OBJC_SELECTOR_REFERENCES_.50
+OBJC_SELECTOR_REFERENCES_.52
+OBJC_SELECTOR_REFERENCES_.64
+.str.69
+_unnamed_cfstring_.70
+.str.73
+_unnamed_cfstring_.74
+OBJC_CLASSLIST_REFERENCES_$_.79
+__PRETTY_FUNCTION__.-[UDNsdBrowser reconfirmRecord:interface:]
+.str.80
+_unnamed_cfstring_.81
+.str.88
+_unnamed_cfstring_.89
+__PRETTY_FUNCTION__.-[UDNsdBrowser serviceDidResolve:]
+.str.94
+_unnamed_cfstring_.95
+OBJC_SELECTOR_REFERENCES_.101
+__block_descriptor_tmp.112
+OBJC_METH_VAR_TYPE_.114
+OBJC_CLASS_NAME_.116
+OBJC_METH_VAR_TYPE_.127
+OBJC_METH_VAR_TYPE_.129
+OBJC_METH_VAR_TYPE_.139
+OBJC_METH_VAR_TYPE_.142
+OBJC_CLASS_NAME_.150
+OBJC_PROP_NAME_ATTR_.155
+OBJC_PROP_NAME_ATTR_.156
+l_OBJC_$_PROTOCOL_REFS_UDNsdServiceDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDNsdServiceDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDNsdServiceDelegate
+l_OBJC_PROTOCOL_$_UDNsdServiceDelegate
+l_OBJC_LABEL_PROTOCOL_$_UDNsdServiceDelegate
+l_OBJC_CLASS_PROTOCOLS_$_UDNsdBrowser
+l_OBJC_METACLASS_RO_$_UDNsdBrowser
+OBJC_CLASS_NAME_.157
+l_OBJC_$_INSTANCE_METHODS_UDNsdBrowser
+OBJC_METH_VAR_TYPE_.185
+l_OBJC_$_INSTANCE_VARIABLES_UDNsdBrowser
+OBJC_CLASS_NAME_.188
+OBJC_PROP_NAME_ATTR_.189
+OBJC_PROP_NAME_ATTR_.190
+OBJC_PROP_NAME_ATTR_.191
+OBJC_PROP_NAME_ATTR_.192
+OBJC_PROP_NAME_ATTR_.193
+OBJC_PROP_NAME_ATTR_.194
+OBJC_PROP_NAME_ATTR_.195
+l_OBJC_$_PROP_LIST_UDNsdBrowser
+l_OBJC_CLASS_RO_$_UDNsdBrowser
+__PRETTY_FUNCTION__.UDServiceBrowseReply
+.str.197
+_unnamed_cfstring_.198
+.str.202
+_unnamed_cfstring_.203
+OBJC_CLASSLIST_REFERENCES_$_.204
+OBJC_SELECTOR_REFERENCES_.206
+OBJC_SELECTOR_REFERENCES_.207
+OBJC_SELECTOR_REFERENCES_.209
+OBJC_SELECTOR_REFERENCES_.211
+OBJC_SELECTOR_REFERENCES_.217
+OBJC_SELECTOR_REFERENCES_.219
+.str.220
+_unnamed_cfstring_.221
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDNsdBrowser.m
+-[UDNsdBrowser .cxx_destruct]
+-[UDNsdBrowser queue]
+-[UDNsdBrowser delegate]
+-[UDNsdBrowser running]
+-[UDNsdBrowser setPeerToPeer:]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDNsdBrowser.h
+-[UDNsdBrowser peerToPeer]
+-[UDNsdBrowser serviceDidNotResolve:]
+-[UDNsdBrowser serviceDidResolve:]
+-[UDNsdBrowser reconfirmRecord:interface:]
+-[UDNsdBrowser stopImpl]
+-[UDNsdBrowser startImpl]
+-[UDNsdBrowser stop]
+-[UDNsdBrowser start]
+-[UDNsdBrowser dealloc]
+-[UDNsdBrowser initWithDelegate:service:queue:]
+-[UDNsdBrowser init]
+-[UDNsdAdvertiser init]
+-[UDNsdAdvertiser initWithDelegate:service:name:queue:]
+-[UDNsdAdvertiser dealloc]
+-[UDNsdAdvertiser startWithPort:]
+UDServiceRegisterReply
+-[UDNsdAdvertiser stop]
+-[UDNsdAdvertiser peerToPeer]
+-[UDNsdAdvertiser setPeerToPeer:]
+-[UDNsdAdvertiser delegate]
+-[UDNsdAdvertiser queue]
+-[UDNsdAdvertiser .cxx_destruct]
+OBJC_IVAR_$_UDNsdAdvertiser._delegate
+OBJC_IVAR_$_UDNsdAdvertiser._serviceType
+OBJC_IVAR_$_UDNsdAdvertiser._serviceName
+OBJC_IVAR_$_UDNsdAdvertiser._queue
+OBJC_IVAR_$_UDNsdAdvertiser._running
+OBJC_IVAR_$_UDNsdAdvertiser._sdref
+OBJC_IVAR_$_UDNsdAdvertiser._peerToPeer
+__PRETTY_FUNCTION__.-[UDNsdAdvertiser startWithPort:]
+.str.10
+l_OBJC_METACLASS_RO_$_UDNsdAdvertiser
+OBJC_CLASS_NAME_.15
+l_OBJC_$_INSTANCE_METHODS_UDNsdAdvertiser
+l_OBJC_$_INSTANCE_VARIABLES_UDNsdAdvertiser
+OBJC_CLASS_NAME_.40
+OBJC_PROP_NAME_ATTR_.41
+OBJC_PROP_NAME_ATTR_.42
+OBJC_PROP_NAME_ATTR_.43
+OBJC_PROP_NAME_ATTR_.44
+OBJC_PROP_NAME_ATTR_.45
+l_OBJC_$_PROP_LIST_UDNsdAdvertiser
+l_OBJC_CLASS_RO_$_UDNsdAdvertiser
+__PRETTY_FUNCTION__.UDServiceRegisterReply
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDNsdAdvertiser.m
+-[UDNsdAdvertiser .cxx_destruct]
+-[UDNsdAdvertiser queue]
+-[UDNsdAdvertiser delegate]
+-[UDNsdAdvertiser setPeerToPeer:]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDNsdAdvertiser.h
+-[UDNsdAdvertiser peerToPeer]
+-[UDNsdAdvertiser stop]
+-[UDNsdAdvertiser startWithPort:]
+-[UDNsdAdvertiser dealloc]
+-[UDNsdAdvertiser initWithDelegate:service:name:queue:]
+-[UDNsdAdvertiser init]
++[UDOutputItem ending]
+-[UDOutputItem init]
+-[UDOutputItem initWithData:]
+-[UDOutputItem dealloc]
+-[UDOutputItem isEnding]
+-[UDOutputItem markAsSent]
+-[UDOutputItem markAsDiscarded]
+-[UDOutputItem data]
+-[UDOutputItem internal]
+-[UDOutputItem setInternal:]
+-[UDOutputItem future]
+-[UDOutputItem setFuture:]
+-[UDOutputItem .cxx_destruct]
+OBJC_IVAR_$_UDOutputItem._futureSource
+OBJC_IVAR_$_UDOutputItem._future
+OBJC_IVAR_$_UDOutputItem._data
+OBJC_IVAR_$_UDOutputItem._internal
+l_OBJC_$_CLASS_METHODS_UDOutputItem
+l_OBJC_METACLASS_RO_$_UDOutputItem
+OBJC_CLASS_NAME_.13
+OBJC_METH_VAR_TYPE_.27
+l_OBJC_$_INSTANCE_METHODS_UDOutputItem
+l_OBJC_$_INSTANCE_VARIABLES_UDOutputItem
+OBJC_PROP_NAME_ATTR_.36
+OBJC_PROP_NAME_ATTR_.37
+OBJC_PROP_NAME_ATTR_.38
+OBJC_PROP_NAME_ATTR_.39
+OBJC_PROP_NAME_ATTR_.40
+l_OBJC_$_PROP_LIST_UDOutputItem
+l_OBJC_CLASS_RO_$_UDOutputItem
+-[UDOutputItem .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDOutputItem.m
+-[UDOutputItem setFuture:]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDOutputItem.h
+-[UDOutputItem future]
+-[UDOutputItem setInternal:]
+-[UDOutputItem internal]
+-[UDOutputItem data]
+-[UDOutputItem markAsDiscarded]
+-[UDOutputItem markAsSent]
+-[UDOutputItem isEnding]
+-[UDOutputItem dealloc]
+-[UDOutputItem initWithData:]
+-[UDOutputItem init]
++[UDOutputItem ending]
+-[UDNsdServer init]
+-[UDNsdServer initWithDelegate:nodeId:queue:]
+-[UDNsdServer dealloc]
+-[UDNsdServer startAccepting]
+UDServerSocketCallBack
+-[UDNsdServer stopAccepting]
+-[UDNsdServer acceptCallback:address:handle:]
+-[UDNsdServer isLinkConnectedToNodeId:]
+-[UDNsdServer connectToHost:port:interface:]
+-[UDNsdServer linkConnecting:]
+-[UDNsdServer linkConnected:]
+-[UDNsdServer linkDisconnected:]
+__32-[UDNsdServer linkDisconnected:]_block_invoke
+-[UDNsdServer linkTerminated:]
+-[UDNsdServer link:didReceiveFrame:]
+-[UDNsdServer nodeId]
+-[UDNsdServer port]
+-[UDNsdServer priority]
+-[UDNsdServer setPriority:]
+-[UDNsdServer queue]
+-[UDNsdServer ioThread]
+-[UDNsdServer delegate]
+-[UDNsdServer .cxx_destruct]
+__UDServerSocketCallBack_block_invoke
+__copy_helper_block_.141
+__destroy_helper_block_.142
+OBJC_IVAR_$_UDNsdServer._delegate
+OBJC_IVAR_$_UDNsdServer._queue
+OBJC_IVAR_$_UDNsdServer._nodeId
+OBJC_IVAR_$_UDNsdServer._priority
+OBJC_IVAR_$_UDNsdServer._links
+OBJC_IVAR_$_UDNsdServer._linksConnecting
+OBJC_IVAR_$_UDNsdServer._linksTerminating
+OBJC_IVAR_$_UDNsdServer._acceptThread
+OBJC_IVAR_$_UDNsdServer._ioThread
+.str.12
+_unnamed_cfstring_.13
+OBJC_IVAR_$_UDNsdServer._accepting
+OBJC_IVAR_$_UDNsdServer._socket
+__PRETTY_FUNCTION__.-[UDNsdServer startAccepting]
+OBJC_IVAR_$_UDNsdServer._port
+__PRETTY_FUNCTION__.-[UDNsdServer acceptCallback:address:handle:]
+__PRETTY_FUNCTION__.-[UDNsdServer connectToHost:port:interface:]
+.str.74
+l_OBJC_METACLASS_RO_$_UDNsdServer
+OBJC_CLASS_NAME_.77
+OBJC_METH_VAR_TYPE_.80
+OBJC_METH_VAR_TYPE_.85
+OBJC_METH_VAR_TYPE_.87
+OBJC_METH_VAR_TYPE_.89
+OBJC_METH_VAR_TYPE_.102
+l_OBJC_$_INSTANCE_METHODS_UDNsdServer
+OBJC_METH_VAR_TYPE_.108
+OBJC_METH_VAR_NAME_.109
+OBJC_METH_VAR_TYPE_.110
+OBJC_METH_VAR_TYPE_.112
+OBJC_METH_VAR_TYPE_.118
+l_OBJC_$_INSTANCE_VARIABLES_UDNsdServer
+OBJC_CLASS_NAME_.128
+OBJC_PROP_NAME_ATTR_.129
+OBJC_PROP_NAME_ATTR_.130
+OBJC_PROP_NAME_ATTR_.131
+OBJC_PROP_NAME_ATTR_.132
+OBJC_PROP_NAME_ATTR_.133
+OBJC_PROP_NAME_ATTR_.134
+OBJC_PROP_NAME_ATTR_.135
+OBJC_PROP_NAME_ATTR_.136
+OBJC_PROP_NAME_ATTR_.137
+OBJC_PROP_NAME_ATTR_.138
+OBJC_PROP_NAME_ATTR_.139
+l_OBJC_$_PROP_LIST_UDNsdServer
+l_OBJC_CLASS_RO_$_UDNsdServer
+__block_descriptor_tmp.143
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDNsdServer.m
+-[UDNsdServer .cxx_destruct]
+-[UDNsdServer delegate]
+-[UDNsdServer ioThread]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDNsdServer.h
+-[UDNsdServer queue]
+-[UDNsdServer setPriority:]
+-[UDNsdServer priority]
+-[UDNsdServer port]
+-[UDNsdServer nodeId]
+-[UDNsdServer link:didReceiveFrame:]
+-[UDNsdServer linkTerminated:]
+-[UDNsdServer linkDisconnected:]
+-[UDNsdServer linkConnected:]
+-[UDNsdServer linkConnecting:]
+-[UDNsdServer connectToHost:port:interface:]
+-[UDNsdServer isLinkConnectedToNodeId:]
+-[UDNsdServer acceptCallback:address:handle:]
+-[UDNsdServer stopAccepting]
+-[UDNsdServer startAccepting]
+-[UDNsdServer dealloc]
+-[UDNsdServer initWithDelegate:nodeId:queue:]
+-[UDNsdServer init]
+-[UDNsdAdapter init]
+-[UDNsdAdapter initWithDelegate:appId:nodeId:peerToPeer:queue:]
+-[UDNsdAdapter start]
+-[UDNsdAdapter stop]
+-[UDNsdAdapter longTransferLock]
+-[UDNsdAdapter longTransferUnlock]
+-[UDNsdAdapter applicationDidWakeUp]
+-[UDNsdAdapter applicationWillSuspend]
+-[UDNsdAdapter wifiDidChangeState:]
+-[UDNsdAdapter bluetoothDidChangeStae:]
+-[UDNsdAdapter serviceResolved:]
+-[UDNsdAdapter server:linkConnected:]
+-[UDNsdAdapter server:linkDisconnected:]
+-[UDNsdAdapter server:link:didReceiveFrame:]
+-[UDNsdAdapter queue]
+-[UDNsdAdapter delegate]
+-[UDNsdAdapter .cxx_destruct]
+OBJC_IVAR_$_UDNsdAdapter._delegate
+OBJC_IVAR_$_UDNsdAdapter._queue
+OBJC_IVAR_$_UDNsdAdapter._nodeId
+OBJC_IVAR_$_UDNsdAdapter._serviceType
+OBJC_IVAR_$_UDNsdAdapter._server
+OBJC_IVAR_$_UDNsdAdapter._advertiser
+OBJC_IVAR_$_UDNsdAdapter._browser
+OBJC_IVAR_$_UDNsdAdapter._running
+OBJC_SELECTOR_REFERENCES_.48
+OBJC_METH_VAR_TYPE_.56
+OBJC_CLASS_NAME_.95
+OBJC_PROP_NAME_ATTR_.96
+OBJC_PROP_NAME_ATTR_.97
+OBJC_PROP_NAME_ATTR_.98
+OBJC_PROP_NAME_ATTR_.99
+OBJC_PROP_NAME_ATTR_.100
+OBJC_PROP_NAME_ATTR_.101
+l_OBJC_$_PROTOCOL_REFS_UDNsdServerDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDNsdServerDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDNsdServerDelegate
+l_OBJC_PROTOCOL_$_UDNsdServerDelegate
+l_OBJC_LABEL_PROTOCOL_$_UDNsdServerDelegate
+OBJC_CLASS_NAME_.105
+l_OBJC_$_PROTOCOL_REFS_UDNsdBrowserDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDNsdBrowserDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDNsdBrowserDelegate
+l_OBJC_PROTOCOL_$_UDNsdBrowserDelegate
+l_OBJC_LABEL_PROTOCOL_$_UDNsdBrowserDelegate
+OBJC_CLASS_NAME_.106
+l_OBJC_PROTOCOL_$_UDNsdAdvertiserDelegate
+l_OBJC_LABEL_PROTOCOL_$_UDNsdAdvertiserDelegate
+l_OBJC_CLASS_PROTOCOLS_$_UDNsdAdapter
+l_OBJC_METACLASS_RO_$_UDNsdAdapter
+OBJC_CLASS_NAME_.112
+l_OBJC_$_INSTANCE_METHODS_UDNsdAdapter
+OBJC_METH_VAR_TYPE_.124
+OBJC_METH_VAR_TYPE_.132
+l_OBJC_$_INSTANCE_VARIABLES_UDNsdAdapter
+OBJC_CLASS_NAME_.139
+OBJC_PROP_NAME_ATTR_.140
+OBJC_PROP_NAME_ATTR_.141
+OBJC_PROP_NAME_ATTR_.142
+l_OBJC_$_PROP_LIST_UDNsdAdapter
+l_OBJC_CLASS_RO_$_UDNsdAdapter
+-[UDNsdAdapter .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDNsdAdapter.m
+-[UDNsdAdapter delegate]
+-[UDNsdAdapter queue]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDNsdAdapter.h
+-[UDNsdAdapter server:link:didReceiveFrame:]
+-[UDNsdAdapter server:linkDisconnected:]
+-[UDNsdAdapter server:linkConnected:]
+-[UDNsdAdapter serviceResolved:]
+-[UDNsdAdapter bluetoothDidChangeStae:]
+-[UDNsdAdapter wifiDidChangeState:]
+-[UDNsdAdapter applicationWillSuspend]
+-[UDNsdAdapter applicationDidWakeUp]
+-[UDNsdAdapter longTransferUnlock]
+-[UDNsdAdapter longTransferLock]
+-[UDNsdAdapter stop]
+-[UDNsdAdapter start]
+-[UDNsdAdapter initWithDelegate:appId:nodeId:peerToPeer:queue:]
+-[UDNsdAdapter init]
+-[UDDictKey init]
+-[UDDictKey initWithObject:]
+-[UDDictKey copyWithZone:]
+-[UDDictKey isEqual:]
+-[UDDictKey isEqualToKey:]
+-[UDDictKey hash]
+-[UDDictKey description]
+-[UDDictKey object]
+-[UDDictKey .cxx_destruct]
+OBJC_IVAR_$_UDDictKey._object
+OBJC_CLASS_NAME_.18
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_NSCopying
+l_OBJC_$_PROTOCOL_METHOD_TYPES_NSCopying
+l_OBJC_PROTOCOL_$_NSCopying
+l_OBJC_LABEL_PROTOCOL_$_NSCopying
+l_OBJC_CLASS_PROTOCOLS_$_UDDictKey
+l_OBJC_METACLASS_RO_$_UDDictKey
+OBJC_CLASS_NAME_.19
+l_OBJC_$_INSTANCE_METHODS_UDDictKey
+l_OBJC_$_INSTANCE_VARIABLES_UDDictKey
+OBJC_PROP_NAME_ATTR_.28
+l_OBJC_$_PROP_LIST_UDDictKey
+l_OBJC_CLASS_RO_$_UDDictKey
+-[UDDictKey .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDDictKey.m
+-[UDDictKey object]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDDictKey.h
+-[UDDictKey description]
+-[UDDictKey hash]
+-[UDDictKey isEqualToKey:]
+-[UDDictKey isEqual:]
+-[UDDictKey copyWithZone:]
+-[UDDictKey initWithObject:]
+-[UDDictKey init]
+-[UDWifiReach init]
+-[UDWifiReach initWithDelegate:queue:]
+-[UDWifiReach dealloc]
+-[UDWifiReach start]
+-[UDWifiReach stop]
+-[UDWifiReach applicationDidEnterBackground:]
+__45-[UDWifiReach applicationDidEnterBackground:]_block_invoke
+-[UDWifiReach applicationDidBecomeActive:]
+__42-[UDWifiReach applicationDidBecomeActive:]_block_invoke
+__copy_helper_block_.17
+__destroy_helper_block_.18
+__42-[UDWifiReach applicationDidBecomeActive:]_block_invoke.20
+__copy_helper_block_.21
+__destroy_helper_block_.22
+__42-[UDWifiReach applicationDidBecomeActive:]_block_invoke.24
+__42-[UDWifiReach applicationDidBecomeActive:]_block_invoke.28
+__copy_helper_block_.29
+__destroy_helper_block_.30
+__42-[UDWifiReach applicationDidBecomeActive:]_block_invoke.32
+__copy_helper_block_.33
+__destroy_helper_block_.34
+-[UDWifiReach isReachable]
+-[UDWifiReach refresh]
+-[UDWifiReach isWiFiEnabledOld]
+-[UDWifiReach isWiFiEnabled]
+-[UDWifiReach wifiDetails]
+-[UDWifiReach isWiFiConnected]
+-[UDWifiReach SSID]
+-[UDWifiReach BSSID]
+-[UDWifiReach .cxx_destruct]
+OBJC_IVAR_$_UDWifiReach._delegate
+OBJC_IVAR_$_UDWifiReach._queue
+OBJC_IVAR_$_UDWifiReach._running
+OBJC_IVAR_$_UDWifiReach._reachable
+OBJC_IVAR_$_UDWifiReach._lastSSID
+__block_descriptor_tmp.19
+__block_descriptor_tmp.23
+__block_descriptor_tmp.31
+__block_descriptor_tmp.35
+OBJC_CLASSLIST_REFERENCES_$_.46
+__PRETTY_FUNCTION__.-[UDWifiReach refresh]
+OBJC_CLASSLIST_REFERENCES_$_.50
+OBJC_CLASSLIST_REFERENCES_$_.58
+.str.65
+_unnamed_cfstring_.66
+.str.72
+_unnamed_cfstring_.73
+.str.76
+_unnamed_cfstring_.77
+OBJC_CLASS_NAME_.80
+OBJC_METH_VAR_TYPE_.81
+OBJC_METH_VAR_TYPE_.83
+OBJC_METH_VAR_TYPE_.91
+OBJC_CLASS_NAME_.114
+OBJC_PROP_NAME_ATTR_.118
+OBJC_PROP_NAME_ATTR_.119
+OBJC_PROP_NAME_ATTR_.120
+l_OBJC_$_PROTOCOL_REFS_UDReach
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDReach
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDReach
+l_OBJC_PROTOCOL_$_UDReach
+l_OBJC_LABEL_PROTOCOL_$_UDReach
+l_OBJC_CLASS_PROTOCOLS_$_UDWifiReach
+l_OBJC_METACLASS_RO_$_UDWifiReach
+OBJC_CLASS_NAME_.121
+l_OBJC_$_INSTANCE_METHODS_UDWifiReach
+OBJC_METH_VAR_TYPE_.133
+l_OBJC_$_INSTANCE_VARIABLES_UDWifiReach
+OBJC_CLASS_NAME_.137
+l_OBJC_$_PROP_LIST_UDWifiReach
+l_OBJC_CLASS_RO_$_UDWifiReach
+-[UDWifiReach .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDWifiReach.m
+-[UDWifiReach BSSID]
+-[UDWifiReach SSID]
+-[UDWifiReach isWiFiConnected]
+-[UDWifiReach wifiDetails]
+-[UDWifiReach isWiFiEnabled]
+-[UDWifiReach isWiFiEnabledOld]
+-[UDWifiReach refresh]
+-[UDWifiReach isReachable]
+-[UDWifiReach applicationDidBecomeActive:]
+-[UDWifiReach applicationDidEnterBackground:]
+-[UDWifiReach stop]
+-[UDWifiReach start]
+-[UDWifiReach dealloc]
+-[UDWifiReach initWithDelegate:queue:]
+-[UDWifiReach init]
+-[UDTimer initWithTimeInterval:target:selector:userInfo:repeats:dispatchQueue:]
+-[UDTimer init]
++[UDTimer scheduledTimerWithTimeInterval:target:selector:userInfo:repeats:dispatchQueue:]
+-[UDTimer dealloc]
+-[UDTimer description]
+-[UDTimer setTolerance:]
+-[UDTimer tolerance]
+-[UDTimer resetTimerProperties]
+-[UDTimer schedule]
+__19-[UDTimer schedule]_block_invoke
+-[UDTimer fire]
+-[UDTimer invalidate]
+__21-[UDTimer invalidate]_block_invoke
+__copy_helper_block_.54
+__destroy_helper_block_.55
+-[UDTimer timerFired]
+-[UDTimer timeInterval]
+-[UDTimer setTimeInterval:]
+-[UDTimer target]
+-[UDTimer setTarget:]
+-[UDTimer selector]
+-[UDTimer setSelector:]
+-[UDTimer userInfo]
+-[UDTimer setUserInfo:]
+-[UDTimer repeats]
+-[UDTimer setRepeats:]
+-[UDTimer privateSerialQueue]
+-[UDTimer setPrivateSerialQueue:]
+-[UDTimer timer]
+-[UDTimer setTimer:]
+-[UDTimer .cxx_destruct]
+OBJC_IVAR_$_UDTimer._tolerance
+OBJC_IVAR_$_UDTimer._timerFlags
+__block_descriptor_tmp.56
+OBJC_IVAR_$_UDTimer._timeInterval
+OBJC_IVAR_$_UDTimer._target
+OBJC_IVAR_$_UDTimer._selector
+OBJC_IVAR_$_UDTimer._userInfo
+OBJC_IVAR_$_UDTimer._repeats
+OBJC_IVAR_$_UDTimer._privateSerialQueue
+OBJC_IVAR_$_UDTimer._timer
+l_OBJC_$_CLASS_METHODS_UDTimer
+l_OBJC_METACLASS_RO_$_UDTimer
+OBJC_CLASS_NAME_.60
+OBJC_METH_VAR_TYPE_.66
+l_OBJC_$_INSTANCE_METHODS_UDTimer
+l_OBJC_$_INSTANCE_VARIABLES_UDTimer
+OBJC_CLASS_NAME_.90
+OBJC_PROP_NAME_ATTR_.102
+OBJC_PROP_NAME_ATTR_.103
+OBJC_PROP_NAME_ATTR_.104
+OBJC_PROP_NAME_ATTR_.105
+l_OBJC_$_PROP_LIST_UDTimer
+l_OBJC_CLASS_RO_$_UDTimer
+-[UDTimer .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/Public/UDTimer.m
+-[UDTimer setTimer:]
+-[UDTimer timer]
+-[UDTimer setPrivateSerialQueue:]
+-[UDTimer privateSerialQueue]
+-[UDTimer setRepeats:]
+-[UDTimer repeats]
+-[UDTimer setUserInfo:]
+-[UDTimer userInfo]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/Public/UDTimer.h
+-[UDTimer setSelector:]
+-[UDTimer selector]
+-[UDTimer setTarget:]
+-[UDTimer target]
+-[UDTimer setTimeInterval:]
+-[UDTimer timeInterval]
+-[UDTimer timerFired]
+-[UDTimer invalidate]
+-[UDTimer fire]
+-[UDTimer schedule]
+-[UDTimer resetTimerProperties]
+-[UDTimer tolerance]
+-[UDTimer setTolerance:]
+-[UDTimer description]
+-[UDTimer dealloc]
++[UDTimer scheduledTimerWithTimeInterval:target:selector:userInfo:repeats:dispatchQueue:]
+-[UDTimer init]
+-[UDTimer initWithTimeInterval:target:selector:userInfo:repeats:dispatchQueue:]
+-[UDBtReach initWithDelegate:queue:]
+-[UDBtReach start]
+-[UDBtReach stop]
+-[UDBtReach isReachable]
+-[UDBtReach centralManagerDidUpdateState:]
+-[UDBtReach .cxx_destruct]
+OBJC_IVAR_$_UDBtReach._delegate
+OBJC_IVAR_$_UDBtReach._queue
+OBJC_IVAR_$_UDBtReach._running
+OBJC_IVAR_$_UDBtReach._manager
+OBJC_IVAR_$_UDBtReach._reachable
+OBJC_CLASS_NAME_.31
+OBJC_METH_VAR_TYPE_.41
+OBJC_METH_VAR_TYPE_.52
+OBJC_METH_VAR_TYPE_.58
+OBJC_PROP_NAME_ATTR_.67
+OBJC_PROP_NAME_ATTR_.68
+OBJC_PROP_NAME_ATTR_.69
+OBJC_PROP_NAME_ATTR_.70
+OBJC_PROP_NAME_ATTR_.71
+OBJC_PROP_NAME_ATTR_.72
+l_OBJC_$_PROTOCOL_REFS_CBCentralManagerDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_CBCentralManagerDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_CBCentralManagerDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_CBCentralManagerDelegate
+l_OBJC_PROTOCOL_$_CBCentralManagerDelegate
+l_OBJC_LABEL_PROTOCOL_$_CBCentralManagerDelegate
+OBJC_CLASS_NAME_.78
+l_OBJC_CLASS_PROTOCOLS_$_UDBtReach
+l_OBJC_METACLASS_RO_$_UDBtReach
+OBJC_CLASS_NAME_.79
+l_OBJC_$_INSTANCE_METHODS_UDBtReach
+l_OBJC_$_INSTANCE_VARIABLES_UDBtReach
+OBJC_CLASS_NAME_.92
+l_OBJC_$_PROP_LIST_UDBtReach
+l_OBJC_CLASS_RO_$_UDBtReach
+-[UDBtReach .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDBtReach.m
+-[UDBtReach centralManagerDidUpdateState:]
+-[UDBtReach isReachable]
+-[UDBtReach stop]
+-[UDBtReach start]
+-[UDBtReach initWithDelegate:queue:]
+-[UDAppWatcher init]
+-[UDAppWatcher dealloc]
+-[UDAppWatcher addDelegate:]
+__28-[UDAppWatcher addDelegate:]_block_invoke
+-[UDAppWatcher removeDelegate:]
+__31-[UDAppWatcher removeDelegate:]_block_invoke
+__copy_helper_block_.42
+__destroy_helper_block_.43
+-[UDAppWatcher start]
+__21-[UDAppWatcher start]_block_invoke
+__copy_helper_block_.47
+__destroy_helper_block_.48
+-[UDAppWatcher startImpl]
+-[UDAppWatcher stop]
+__20-[UDAppWatcher stop]_block_invoke
+__copy_helper_block_.67
+__destroy_helper_block_.68
+-[UDAppWatcher applicationWillSuspend:]
+-[UDAppWatcher applicationDidEnterBackground:]
+-[UDAppWatcher applicationWillEnterForeground:]
+-[UDAppWatcher applicationWillResignActive:]
+-[UDAppWatcher applicationDidBecomeActive:]
+-[UDAppWatcher reachUpdated:]
+-[UDAppWatcher applicationDidWakeUp]
+-[UDAppWatcher applicationWillSuspend]
+-[UDAppWatcher wifiDidChangeState:]
+-[UDAppWatcher bluetoothDidChangeState:]
+-[UDAppWatcher suspendLock]
+-[UDAppWatcher .cxx_destruct]
+OBJC_IVAR_$_UDAppWatcher._delegates
+OBJC_IVAR_$_UDAppWatcher._suspendLock
+OBJC_CLASSLIST_REFERENCES_$_.12
+OBJC_IVAR_$_UDAppWatcher._reachBt
+OBJC_CLASSLIST_REFERENCES_$_.15
+OBJC_IVAR_$_UDAppWatcher._reachWifi
+OBJC_IVAR_$_UDAppWatcher._awake
+OBJC_IVAR_$_UDAppWatcher._running
+__block_descriptor_tmp.44
+__block_descriptor_tmp.49
+__block_descriptor_tmp.69
+__PRETTY_FUNCTION__.-[UDAppWatcher applicationWillSuspend:]
+__PRETTY_FUNCTION__.-[UDAppWatcher applicationDidEnterBackground:]
+.str.83
+_unnamed_cfstring_.84
+OBJC_CLASS_NAME_.89
+OBJC_METH_VAR_TYPE_.97
+OBJC_METH_VAR_TYPE_.105
+OBJC_METH_VAR_TYPE_.116
+OBJC_CLASS_NAME_.124
+OBJC_PROP_NAME_ATTR_.125
+OBJC_PROP_NAME_ATTR_.126
+OBJC_PROP_NAME_ATTR_.127
+OBJC_PROP_NAME_ATTR_.128
+l_OBJC_$_PROTOCOL_REFS_UDSuspendDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDSuspendDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDSuspendDelegate
+l_OBJC_PROTOCOL_$_UDSuspendDelegate
+l_OBJC_LABEL_PROTOCOL_$_UDSuspendDelegate
+l_OBJC_$_PROTOCOL_REFS_UDReachDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDReachDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDReachDelegate
+l_OBJC_PROTOCOL_$_UDReachDelegate
+l_OBJC_LABEL_PROTOCOL_$_UDReachDelegate
+l_OBJC_CLASS_PROTOCOLS_$_UDAppWatcher
+l_OBJC_METACLASS_RO_$_UDAppWatcher
+OBJC_CLASS_NAME_.134
+l_OBJC_$_INSTANCE_METHODS_UDAppWatcher
+l_OBJC_$_INSTANCE_VARIABLES_UDAppWatcher
+l_OBJC_$_PROP_LIST_UDAppWatcher
+l_OBJC_CLASS_RO_$_UDAppWatcher
+-[UDAppWatcher .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDAppWatcher.m
+-[UDAppWatcher suspendLock]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDAppWatcher.h
+-[UDAppWatcher bluetoothDidChangeState:]
+-[UDAppWatcher wifiDidChangeState:]
+-[UDAppWatcher applicationWillSuspend]
+-[UDAppWatcher applicationDidWakeUp]
+-[UDAppWatcher reachUpdated:]
+-[UDAppWatcher applicationDidBecomeActive:]
+-[UDAppWatcher applicationWillResignActive:]
+-[UDAppWatcher applicationWillEnterForeground:]
+-[UDAppWatcher applicationDidEnterBackground:]
+-[UDAppWatcher applicationWillSuspend:]
+-[UDAppWatcher stop]
+-[UDAppWatcher startImpl]
+-[UDAppWatcher start]
+-[UDAppWatcher removeDelegate:]
+-[UDAppWatcher addDelegate:]
+-[UDAppWatcher dealloc]
+-[UDAppWatcher init]
++[UDBonjourUtil errorForCode:]
++[UDBonjourUtil errorName:message:]
++[UDBonjourUtil addressFromSockaddr:port:]
+__PRETTY_FUNCTION__.+[UDBonjourUtil addressFromSockaddr:port:]
+l_OBJC_$_CLASS_METHODS_UDBonjourUtil
+l_OBJC_METACLASS_RO_$_UDBonjourUtil
+l_OBJC_CLASS_RO_$_UDBonjourUtil
++[UDBonjourUtil addressFromSockaddr:port:]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDBonjourUtil.m
++[UDBonjourUtil errorName:message:]
++[UDBonjourUtil errorForCode:]
+-[UDSuspendDelegateWrapper delegate]
+-[UDSuspendDelegateWrapper setDelegate:]
+-[UDSuspendDelegateWrapper .cxx_destruct]
+-[UDSuspendLock init]
+-[UDSuspendLock initWithName:]
+-[UDSuspendLock dealloc]
+-[UDSuspendLock addDelegate:]
+-[UDSuspendLock removeDelegate:]
+-[UDSuspendLock applicationDidEnterBackground:]
+-[UDSuspendLock lock]
+-[UDSuspendLock unlock]
+-[UDSuspendLock cancel]
+-[UDSuspendLock notifyDelegates]
+-[UDSuspendLock extend]
+__23-[UDSuspendLock extend]_block_invoke
+-[UDSuspendLock name]
+-[UDSuspendLock .cxx_destruct]
+OBJC_IVAR_$_UDSuspendDelegateWrapper._delegate
+l_OBJC_METACLASS_RO_$_UDSuspendDelegateWrapper
+OBJC_METH_VAR_TYPE_.2
+OBJC_METH_VAR_TYPE_.4
+l_OBJC_$_INSTANCE_METHODS_UDSuspendDelegateWrapper
+l_OBJC_$_INSTANCE_VARIABLES_UDSuspendDelegateWrapper
+OBJC_CLASS_NAME_.7
+OBJC_PROP_NAME_ATTR_.8
+l_OBJC_$_PROP_LIST_UDSuspendDelegateWrapper
+l_OBJC_CLASS_RO_$_UDSuspendDelegateWrapper
+OBJC_IVAR_$_UDSuspendLock._backgroundTaskId
+OBJC_IVAR_$_UDSuspendLock._name
+OBJC_IVAR_$_UDSuspendLock._wrappers
+OBJC_CLASSLIST_REFERENCES_$_.27
+OBJC_IVAR_$_UDSuspendLock._count
+__PRETTY_FUNCTION__.-[UDSuspendLock cancel]
+OBJC_CLASSLIST_REFERENCES_$_.53
+__PRETTY_FUNCTION__.-[UDSuspendLock extend]
+.str.62
+_unnamed_cfstring_.63
+__PRETTY_FUNCTION__.__23-[UDSuspendLock extend]_block_invoke
+.str.64
+_unnamed_cfstring_.65
+OBJC_CLASS_NAME_.69
+l_OBJC_METACLASS_RO_$_UDSuspendLock
+OBJC_CLASS_NAME_.70
+l_OBJC_$_INSTANCE_METHODS_UDSuspendLock
+l_OBJC_$_INSTANCE_VARIABLES_UDSuspendLock
+l_OBJC_$_PROP_LIST_UDSuspendLock
+l_OBJC_CLASS_RO_$_UDSuspendLock
+-[UDSuspendLock .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDSuspendLock.m
+-[UDSuspendLock name]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDSuspendLock.h
+-[UDSuspendLock extend]
+-[UDSuspendLock notifyDelegates]
+-[UDSuspendLock cancel]
+-[UDSuspendLock unlock]
+-[UDSuspendLock lock]
+-[UDSuspendLock applicationDidEnterBackground:]
+-[UDSuspendLock removeDelegate:]
+-[UDSuspendLock addDelegate:]
+-[UDSuspendLock dealloc]
+-[UDSuspendLock initWithName:]
+-[UDSuspendLock init]
+-[UDSuspendDelegateWrapper .cxx_destruct]
+-[UDSuspendDelegateWrapper setDelegate:]
+-[UDSuspendDelegateWrapper delegate]
+-[UDSockServer initWithDelegate:queue:]
+-[UDSockServer dealloc]
+-[UDSockServer start]
+UDSockServerCallBack
+-[UDSockServer stop]
+-[UDSockServer acceptCallback:address:]
+-[UDSockServer delegate]
+-[UDSockServer port]
+-[UDSockServer queue]
+-[UDSockServer .cxx_destruct]
+__UDSockServerCallBack_block_invoke
+OBJC_IVAR_$_UDSockServer._delegate
+OBJC_IVAR_$_UDSockServer._queue
+OBJC_IVAR_$_UDSockServer._acceptThread
+OBJC_IVAR_$_UDSockServer._running
+OBJC_IVAR_$_UDSockServer._port
+OBJC_IVAR_$_UDSockServer._socket4
+OBJC_IVAR_$_UDSockServer._socket6
+.str.18
+__PRETTY_FUNCTION__.-[UDSockServer start]
+.str.20
+_unnamed_cfstring_.21
+start.yes
+_unnamed_cfstring_.29
+.str.30
+_unnamed_cfstring_.31
+OBJC_CLASSLIST_REFERENCES_$_.38
+l_OBJC_METACLASS_RO_$_UDSockServer
+OBJC_CLASS_NAME_.45
+OBJC_METH_VAR_TYPE_.54
+l_OBJC_$_INSTANCE_METHODS_UDSockServer
+l_OBJC_$_INSTANCE_VARIABLES_UDSockServer
+l_OBJC_$_PROP_LIST_UDSockServer
+l_OBJC_CLASS_RO_$_UDSockServer
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDSockServer.m
+-[UDSockServer .cxx_destruct]
+-[UDSockServer queue]
+-[UDSockServer port]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDSockServer.h
+-[UDSockServer delegate]
+-[UDSockServer acceptCallback:address:]
+-[UDSockServer stop]
+-[UDSockServer start]
+-[UDSockServer dealloc]
+-[UDSockServer initWithDelegate:queue:]
+-[UDSockServerClient init]
+-[UDSockServerClient initWithSocket:sockaddr:]
+-[UDSockServerClient dealloc]
+-[UDSockServerClient getInput:output:]
+-[UDSockServerClient address]
+-[UDSockServerClient .cxx_destruct]
+OBJC_IVAR_$_UDSockServerClient._handle
+OBJC_IVAR_$_UDSockServerClient._sa
+OBJC_IVAR_$_UDSockServerClient._address
+OBJC_IVAR_$_UDSockServerClient._closeOnDealloc
+__PRETTY_FUNCTION__.-[UDSockServerClient getInput:output:]
+l_OBJC_METACLASS_RO_$_UDSockServerClient
+OBJC_CLASS_NAME_.14
+l_OBJC_$_INSTANCE_METHODS_UDSockServerClient
+l_OBJC_$_INSTANCE_VARIABLES_UDSockServerClient
+OBJC_PROP_NAME_ATTR_.30
+l_OBJC_$_PROP_LIST_UDSockServerClient
+l_OBJC_CLASS_RO_$_UDSockServerClient
+-[UDSockServerClient .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDSockServerClient.m
+-[UDSockServerClient address]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDSockServerClient.h
+-[UDSockServerClient getInput:output:]
+-[UDSockServerClient dealloc]
+-[UDSockServerClient initWithSocket:sockaddr:]
+-[UDSockServerClient init]
+-[UDBonjourBrowser init]
+-[UDBonjourBrowser initWithDelegate:nodeId:serviceType:peerToPeer:]
+-[UDBonjourBrowser start]
+-[UDBonjourBrowser stop]
+-[UDBonjourBrowser restart]
+-[UDBonjourBrowser startImpl]
+-[UDBonjourBrowser stopImpl]
+-[UDBonjourBrowser checkDesiredState]
+-[UDBonjourBrowser netServiceBrowser:didFindService:moreComing:]
+-[UDBonjourBrowser netServiceBrowserWillSearch:]
+-[UDBonjourBrowser netServiceBrowserDidStopSearch:]
+-[UDBonjourBrowser netServiceBrowser:didNotSearch:]
+__51-[UDBonjourBrowser netServiceBrowser:didNotSearch:]_block_invoke
+-[UDBonjourBrowser netServiceBrowser:didFindDomain:moreComing:]
+-[UDBonjourBrowser netServiceBrowser:didRemoveDomain:moreComing:]
+-[UDBonjourBrowser netServiceBrowser:didRemoveService:moreComing:]
+-[UDBonjourBrowser netServiceWillResolve:]
+-[UDBonjourBrowser netServiceDidResolveAddress:]
+__48-[UDBonjourBrowser netServiceDidResolveAddress:]_block_invoke
+__copy_helper_block_.107
+__destroy_helper_block_.108
+-[UDBonjourBrowser netService:didNotResolve:]
+-[UDBonjourBrowser netServiceDidStop:]
+-[UDBonjourBrowser delegate]
+-[UDBonjourBrowser queue]
+-[UDBonjourBrowser ioThread]
+-[UDBonjourBrowser nodeId]
+-[UDBonjourBrowser serviceType]
+-[UDBonjourBrowser peerToPeer]
+-[UDBonjourBrowser .cxx_destruct]
+OBJC_IVAR_$_UDBonjourBrowser._delegate
+OBJC_IVAR_$_UDBonjourBrowser._queue
+OBJC_IVAR_$_UDBonjourBrowser._ioThread
+OBJC_IVAR_$_UDBonjourBrowser._nodeId
+OBJC_IVAR_$_UDBonjourBrowser._serviceType
+OBJC_IVAR_$_UDBonjourBrowser._peerToPeer
+OBJC_IVAR_$_UDBonjourBrowser._state
+OBJC_IVAR_$_UDBonjourBrowser._desiredState
+OBJC_IVAR_$_UDBonjourBrowser._servicesResolving
+OBJC_IVAR_$_UDBonjourBrowser._times
+OBJC_CLASSLIST_REFERENCES_$_.17
+OBJC_IVAR_$_UDBonjourBrowser._browser
+OBJC_CLASSLIST_REFERENCES_$_.54
+__PRETTY_FUNCTION__.-[UDBonjourBrowser netServiceBrowserDidStopSearch:]
+OBJC_CLASSLIST_REFERENCES_$_.69
+__PRETTY_FUNCTION__.-[UDBonjourBrowser netServiceBrowser:didNotSearch:]
+_unnamed_cfstring_.75
+OBJC_CLASSLIST_REFERENCES_$_.76
+__PRETTY_FUNCTION__.-[UDBonjourBrowser netServiceBrowser:didFindDomain:moreComing:]
+__PRETTY_FUNCTION__.-[UDBonjourBrowser netServiceBrowser:didRemoveDomain:moreComing:]
+__PRETTY_FUNCTION__.-[UDBonjourBrowser netServiceDidResolveAddress:]
+__block_descriptor_tmp.109
+__PRETTY_FUNCTION__.-[UDBonjourBrowser netService:didNotResolve:]
+.str.110
+_unnamed_cfstring_.111
+OBJC_CLASS_NAME_.125
+OBJC_CLASS_NAME_.160
+OBJC_PROP_NAME_ATTR_.161
+OBJC_PROP_NAME_ATTR_.162
+l_OBJC_$_PROTOCOL_REFS_NSNetServiceBrowserDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSNetServiceBrowserDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_NSNetServiceBrowserDelegate
+l_OBJC_PROTOCOL_$_NSNetServiceBrowserDelegate
+l_OBJC_LABEL_PROTOCOL_$_NSNetServiceBrowserDelegate
+OBJC_METH_VAR_TYPE_.179
+OBJC_CLASS_NAME_.181
+l_OBJC_$_PROTOCOL_REFS_NSNetServiceDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSNetServiceDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_NSNetServiceDelegate
+l_OBJC_PROTOCOL_$_NSNetServiceDelegate
+l_OBJC_LABEL_PROTOCOL_$_NSNetServiceDelegate
+l_OBJC_CLASS_PROTOCOLS_$_UDBonjourBrowser
+l_OBJC_METACLASS_RO_$_UDBonjourBrowser
+l_OBJC_$_INSTANCE_METHODS_UDBonjourBrowser
+OBJC_METH_VAR_NAME_.191
+OBJC_METH_VAR_TYPE_.195
+OBJC_METH_VAR_TYPE_.200
+OBJC_METH_VAR_TYPE_.202
+OBJC_METH_VAR_TYPE_.208
+OBJC_METH_VAR_NAME_.209
+OBJC_METH_VAR_TYPE_.210
+l_OBJC_$_INSTANCE_VARIABLES_UDBonjourBrowser
+OBJC_CLASS_NAME_.211
+OBJC_PROP_NAME_ATTR_.216
+OBJC_PROP_NAME_ATTR_.217
+OBJC_PROP_NAME_ATTR_.218
+OBJC_PROP_NAME_ATTR_.219
+OBJC_PROP_NAME_ATTR_.220
+OBJC_PROP_NAME_ATTR_.221
+OBJC_PROP_NAME_ATTR_.222
+OBJC_PROP_NAME_ATTR_.223
+l_OBJC_$_PROP_LIST_UDBonjourBrowser
+l_OBJC_CLASS_RO_$_UDBonjourBrowser
+-[UDBonjourBrowser .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDBonjourBrowser.m
+-[UDBonjourBrowser peerToPeer]
+-[UDBonjourBrowser serviceType]
+-[UDBonjourBrowser nodeId]
+-[UDBonjourBrowser ioThread]
+-[UDBonjourBrowser queue]
+-[UDBonjourBrowser delegate]
+-[UDBonjourBrowser netServiceDidStop:]
+-[UDBonjourBrowser netService:didNotResolve:]
+-[UDBonjourBrowser netServiceDidResolveAddress:]
+-[UDBonjourBrowser netServiceWillResolve:]
+-[UDBonjourBrowser netServiceBrowser:didRemoveService:moreComing:]
+-[UDBonjourBrowser netServiceBrowser:didRemoveDomain:moreComing:]
+-[UDBonjourBrowser netServiceBrowser:didFindDomain:moreComing:]
+-[UDBonjourBrowser netServiceBrowser:didNotSearch:]
+-[UDBonjourBrowser netServiceBrowserDidStopSearch:]
+-[UDBonjourBrowser netServiceBrowserWillSearch:]
+-[UDBonjourBrowser netServiceBrowser:didFindService:moreComing:]
+-[UDBonjourBrowser checkDesiredState]
+-[UDBonjourBrowser stopImpl]
+-[UDBonjourBrowser startImpl]
+-[UDBonjourBrowser restart]
+-[UDBonjourBrowser stop]
+-[UDBonjourBrowser start]
+-[UDBonjourBrowser initWithDelegate:nodeId:serviceType:peerToPeer:]
+-[UDBonjourBrowser init]
+-[UDBrowseResult init]
+-[UDBrowseResult initWithNodeId:sockaddr:]
+-[UDBrowseResult getInput:output:]
+-[UDBrowseResult nodeId]
+-[UDBrowseResult address]
+-[UDBrowseResult port]
+-[UDBrowseResult .cxx_destruct]
+OBJC_IVAR_$_UDBrowseResult._nodeId
+OBJC_IVAR_$_UDBrowseResult._sa
+OBJC_IVAR_$_UDBrowseResult._port
+OBJC_IVAR_$_UDBrowseResult._address
+l_OBJC_METACLASS_RO_$_UDBrowseResult
+OBJC_METH_VAR_TYPE_.5
+l_OBJC_$_INSTANCE_METHODS_UDBrowseResult
+l_OBJC_$_INSTANCE_VARIABLES_UDBrowseResult
+OBJC_PROP_NAME_ATTR_.23
+OBJC_PROP_NAME_ATTR_.24
+OBJC_PROP_NAME_ATTR_.25
+OBJC_PROP_NAME_ATTR_.26
+OBJC_PROP_NAME_ATTR_.27
+l_OBJC_$_PROP_LIST_UDBrowseResult
+l_OBJC_CLASS_RO_$_UDBrowseResult
+-[UDBrowseResult .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDBrowseResult.m
+-[UDBrowseResult port]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDBrowseResult.h
+-[UDBrowseResult address]
+-[UDBrowseResult nodeId]
+-[UDBrowseResult getInput:output:]
+-[UDBrowseResult initWithNodeId:sockaddr:]
+-[UDBrowseResult init]
+-[UDBonjourAdvertiser init]
+-[UDBonjourAdvertiser initWithDelegate:nodeId:serviceType:peerToPeer:]
+-[UDBonjourAdvertiser start]
+-[UDBonjourAdvertiser stop]
+-[UDBonjourAdvertiser restart]
+-[UDBonjourAdvertiser sockServerDidAcceptClient:]
+-[UDBonjourAdvertiser startImpl]
+__32-[UDBonjourAdvertiser startImpl]_block_invoke
+-[UDBonjourAdvertiser stopImpl]
+-[UDBonjourAdvertiser checkDesiredState]
+-[UDBonjourAdvertiser netServiceDidStop:]
+-[UDBonjourAdvertiser netService:didUpdateTXTRecordData:]
+-[UDBonjourAdvertiser netServiceWillPublish:]
+-[UDBonjourAdvertiser netServiceDidPublish:]
+-[UDBonjourAdvertiser netService:didNotPublish:]
+__48-[UDBonjourAdvertiser netService:didNotPublish:]_block_invoke
+__copy_helper_block_.82
+__destroy_helper_block_.83
+-[UDBonjourAdvertiser netService:didAcceptConnectionWithInputStream:outputStream:]
+-[UDBonjourAdvertiser delegate]
+-[UDBonjourAdvertiser queue]
+-[UDBonjourAdvertiser ioThread]
+-[UDBonjourAdvertiser nodeId]
+-[UDBonjourAdvertiser serviceType]
+-[UDBonjourAdvertiser peerToPeer]
+-[UDBonjourAdvertiser .cxx_destruct]
+OBJC_IVAR_$_UDBonjourAdvertiser._delegate
+OBJC_IVAR_$_UDBonjourAdvertiser._queue
+OBJC_IVAR_$_UDBonjourAdvertiser._ioThread
+OBJC_IVAR_$_UDBonjourAdvertiser._nodeId
+OBJC_IVAR_$_UDBonjourAdvertiser._serviceType
+OBJC_IVAR_$_UDBonjourAdvertiser._peerToPeer
+OBJC_IVAR_$_UDBonjourAdvertiser._state
+OBJC_IVAR_$_UDBonjourAdvertiser._desiredState
+OBJC_IVAR_$_UDBonjourAdvertiser._server
+__PRETTY_FUNCTION__.-[UDBonjourAdvertiser startImpl]
+OBJC_IVAR_$_UDBonjourAdvertiser._service
+__PRETTY_FUNCTION__.-[UDBonjourAdvertiser netServiceDidStop:]
+__PRETTY_FUNCTION__.-[UDBonjourAdvertiser netService:didUpdateTXTRecordData:]
+__PRETTY_FUNCTION__.-[UDBonjourAdvertiser netServiceDidPublish:]
+.str.67
+_unnamed_cfstring_.68
+OBJC_CLASSLIST_REFERENCES_$_.73
+__PRETTY_FUNCTION__.-[UDBonjourAdvertiser netService:didNotPublish:]
+.str.78
+_unnamed_cfstring_.79
+__block_descriptor_tmp.84
+__PRETTY_FUNCTION__.-[UDBonjourAdvertiser netService:didAcceptConnectionWithInputStream:outputStream:]
+.str.85
+_unnamed_cfstring_.86
+OBJC_METH_VAR_TYPE_.92
+OBJC_CLASS_NAME_.102
+OBJC_CLASS_NAME_.136
+l_OBJC_$_PROTOCOL_REFS_UDSockServerDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UDSockServerDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UDSockServerDelegate
+l_OBJC_PROTOCOL_$_UDSockServerDelegate
+l_OBJC_LABEL_PROTOCOL_$_UDSockServerDelegate
+l_OBJC_CLASS_PROTOCOLS_$_UDBonjourAdvertiser
+l_OBJC_METACLASS_RO_$_UDBonjourAdvertiser
+OBJC_CLASS_NAME_.146
+l_OBJC_$_INSTANCE_METHODS_UDBonjourAdvertiser
+l_OBJC_$_INSTANCE_VARIABLES_UDBonjourAdvertiser
+OBJC_CLASS_NAME_.173
+OBJC_PROP_NAME_ATTR_.174
+OBJC_PROP_NAME_ATTR_.175
+OBJC_PROP_NAME_ATTR_.176
+l_OBJC_$_PROP_LIST_UDBonjourAdvertiser
+l_OBJC_CLASS_RO_$_UDBonjourAdvertiser
+-[UDBonjourAdvertiser .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDBonjourAdvertiser.m
+-[UDBonjourAdvertiser peerToPeer]
+-[UDBonjourAdvertiser serviceType]
+-[UDBonjourAdvertiser nodeId]
+-[UDBonjourAdvertiser ioThread]
+-[UDBonjourAdvertiser queue]
+-[UDBonjourAdvertiser delegate]
+-[UDBonjourAdvertiser netService:didAcceptConnectionWithInputStream:outputStream:]
+-[UDBonjourAdvertiser netService:didNotPublish:]
+-[UDBonjourAdvertiser netServiceDidPublish:]
+-[UDBonjourAdvertiser netServiceWillPublish:]
+-[UDBonjourAdvertiser netService:didUpdateTXTRecordData:]
+-[UDBonjourAdvertiser netServiceDidStop:]
+-[UDBonjourAdvertiser checkDesiredState]
+-[UDBonjourAdvertiser stopImpl]
+-[UDBonjourAdvertiser startImpl]
+-[UDBonjourAdvertiser sockServerDidAcceptClient:]
+-[UDBonjourAdvertiser restart]
+-[UDBonjourAdvertiser stop]
+-[UDBonjourAdvertiser start]
+-[UDBonjourAdvertiser initWithDelegate:nodeId:serviceType:peerToPeer:]
+-[UDBonjourAdvertiser init]
++[UDAggItem ending]
++[UDAggItem longTransferLock]
++[UDAggItem longTransferUnlock]
+-[UDAggItem initWithSource:]
+-[UDAggItem dealloc]
+-[UDAggItem markAsSent]
+-[UDAggItem markAsDiscarded]
+-[UDAggItem source]
+-[UDAggItem future]
+-[UDAggItem isEnding]
+-[UDAggItem isLongTransferLock]
+-[UDAggItem isLongTransferUnlock]
+-[UDAggItem .cxx_destruct]
+OBJC_IVAR_$_UDAggItem._isEnding
+OBJC_IVAR_$_UDAggItem._isLongTransferLock
+OBJC_IVAR_$_UDAggItem._isLongTransferUnlock
+OBJC_IVAR_$_UDAggItem._futureSource
+OBJC_IVAR_$_UDAggItem._future
+OBJC_IVAR_$_UDAggItem._source
+l_OBJC_$_CLASS_METHODS_UDAggItem
+l_OBJC_METACLASS_RO_$_UDAggItem
+l_OBJC_$_INSTANCE_METHODS_UDAggItem
+l_OBJC_$_INSTANCE_VARIABLES_UDAggItem
+OBJC_PROP_NAME_ATTR_.46
+l_OBJC_$_PROP_LIST_UDAggItem
+l_OBJC_CLASS_RO_$_UDAggItem
+-[UDAggItem .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDAggItem.m
+-[UDAggItem isLongTransferUnlock]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDAggItem.h
+-[UDAggItem isLongTransferLock]
+-[UDAggItem isEnding]
+-[UDAggItem future]
+-[UDAggItem source]
+-[UDAggItem markAsDiscarded]
+-[UDAggItem markAsSent]
+-[UDAggItem dealloc]
+-[UDAggItem initWithSource:]
++[UDAggItem longTransferUnlock]
++[UDAggItem longTransferLock]
++[UDAggItem ending]
+-[UDAsyncSource init]
+-[UDAsyncSource initWithQueue:dataId:block:]
+-[UDAsyncSource listen:block:]
+__30-[UDAsyncSource listen:block:]_block_invoke
+__30-[UDAsyncSource listen:block:]_block_invoke_2
+__30-[UDAsyncSource listen:block:]_block_invoke_3
+__copy_helper_block_.7
+__destroy_helper_block_.8
+-[UDAsyncSource future]
+-[UDAsyncSource dataId]
+-[UDAsyncSource .cxx_destruct]
+OBJC_IVAR_$_UDAsyncSource._queue
+OBJC_IVAR_$_UDAsyncSource._retriever
+OBJC_IVAR_$_UDAsyncSource._future
+__block_descriptor_tmp.10
+OBJC_IVAR_$_UDAsyncSource._dataId
+l_OBJC_CLASS_PROTOCOLS_$_UDAsyncSource
+l_OBJC_METACLASS_RO_$_UDAsyncSource
+l_OBJC_$_INSTANCE_METHODS_UDAsyncSource
+OBJC_METH_VAR_TYPE_.76
+OBJC_METH_VAR_TYPE_.78
+l_OBJC_$_INSTANCE_VARIABLES_UDAsyncSource
+l_OBJC_$_PROP_LIST_UDAsyncSource
+l_OBJC_CLASS_RO_$_UDAsyncSource
+-[UDAsyncSource .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/Public/UDAsyncSource.m
+-[UDAsyncSource dataId]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/Public/UDAsyncSource.h
+-[UDAsyncSource future]
+-[UDAsyncSource listen:block:]
+-[UDAsyncSource initWithQueue:dataId:block:]
+-[UDAsyncSource init]
+-[UDFutureStub init]
+-[UDFutureStub initWithDelegate:]
+-[UDFutureStub dealloc]
+-[UDFutureStub listen:block:]
+-[UDFutureStub delegate]
+-[UDFutureStub .cxx_destruct]
+OBJC_IVAR_$_UDFutureStub._delegate
+l_OBJC_METACLASS_RO_$_UDFutureStub
+l_OBJC_$_INSTANCE_METHODS_UDFutureStub
+l_OBJC_$_INSTANCE_VARIABLES_UDFutureStub
+l_OBJC_$_PROP_LIST_UDFutureStub
+l_OBJC_CLASS_RO_$_UDFutureStub
+-[UDFutureStub .cxx_destruct]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDFutureStub.m
+-[UDFutureStub delegate]
+/Users/virl/Projects/underdark/underdark-cocoa/Underdark/UDFutureStub.h
+-[UDFutureStub listen:block:]
+-[UDFutureStub dealloc]
+-[UDFutureStub initWithDelegate:]
+-[UDFutureStub init]
+/Users/virl/Library/Developer/Xcode/DerivedData/Underdark-eouzvostwyqlsygrwtkfrlnohtpp/Build/Intermediates/Underdark.build/Release-iphoneos/Underdark.build/DerivedSources/Underdark_vers.c
+_ZL15__ARCLite__loadv
+_ZL30add_image_hook_autoreleasepoolPK11mach_headerl
+_ZL34__arclite_objc_autoreleasePoolPushv
+_ZL33__arclite_objc_autoreleasePoolPopPv
+_ZL19patch_lazy_pointersPK11mach_headerP7patch_tm
+_ZL42__arclite_NSArray_objectAtIndexedSubscriptP7NSArrayP13objc_selectorj
+_ZL53__arclite_NSMutableArray_setObject_atIndexedSubscriptP14NSMutableArrayP13objc_selectorP11objc_objectj
+_ZL46__arclite_NSDictionary_objectForKeyedSubscriptP12NSDictionaryP13objc_selectorP11objc_object
+_ZL47__arclite_NSOrderedSet_objectAtIndexedSubscriptP12NSOrderedSetP13objc_selectorj
+_ZL58__arclite_NSMutableOrderedSet_setObject_atIndexedSubscriptP19NSMutableOrderedSetP13objc_selectorP11objc_objectj
+_ZL58__arclite_NSMutableDictionary__setObject_forKeyedSubscriptP19NSMutableDictionaryP13objc_selectorP11objc_objectS4_
+_ZL18add_image_hook_ARCPK11mach_headerl
+_ZL36__arclite_object_setInstanceVariableP11objc_objectPKcPv
+_ZL24__arclite_object_setIvarP11objc_objectP9objc_ivarS0_
+_ZL21__arclite_object_copyP11objc_objectm
+_ZL21__arclite_objc_retainP11objc_object
+_ZL26__arclite_objc_retainBlockP11objc_object
+_ZL22__arclite_objc_releaseP11objc_object
+_ZL26__arclite_objc_autoreleaseP11objc_object
+_ZL32__arclite_objc_retainAutoreleaseP11objc_object
+_ZL37__arclite_objc_autoreleaseReturnValueP11objc_object
+_ZL43__arclite_objc_retainAutoreleaseReturnValueP11objc_object
+_ZL44__arclite_objc_retainAutoreleasedReturnValueP11objc_object
+_ZL26__arclite_objc_storeStrongPP11objc_objectS0_
+_ZL22add_image_hook_swiftV1PK11mach_headerl
+_ZL42__arclite_NSUndoManagerProxy_isKindOfClassP11objc_objectP13objc_selectorP10objc_class
+_ZL13replaceMethodP10objc_classP13objc_selectorPFP11objc_objectS4_S2_zEPS6_
+_ZL30__arclite_NSManagedObject_initP11objc_objectP13objc_selector
+_ZL41__arclite_NSManagedObject_allocWithEntityP11objc_objectP13objc_selectorS0_
+_ZL36__arclite_NSManagedObject_allocBatchP11objc_objectP13objc_selectorPS0_S0_j
+_ZL37__arclite_NSKKMS_fastIndexForKnownKeyP11objc_objectP13objc_selectorS0_
+_ZL28__arclite_NSKKMS_indexForKeyP11objc_objectP13objc_selectorS0_
+_ZL29__arclite_NSKKsD_objectForKeyP11objc_objectP13objc_selectorS0_
+_ZL35__arclite_NSKKsD_removeObjectForKeyP11objc_objectP13objc_selectorS0_
+_ZL33__arclite_NSKKsD_setObject_forKeyP11objc_objectP13objc_selectorS0_S0_
+_ZL41__arclite_NSKKsD_addEntriesFromDictionaryP11objc_objectP13objc_selectorP12NSDictionary
+_ZL28__arclite_objc_readClassPairP10objc_classPK15objc_image_info
+_ZL32__arclite_objc_allocateClassPairP10objc_classPKcm
+_ZL32__arclite_object_getIndexedIvarsP11objc_object
+_ZL23__arclite_objc_getClassPKc
+_ZL27__arclite_objc_getMetaClassPKc
+_ZL31__arclite_objc_getRequiredClassPKc
+_ZL26__arclite_objc_lookUpClassPKc
+_ZL26__arclite_objc_getProtocolPKc
+_ZL23__arclite_class_getNameP10objc_class
+_ZL26__arclite_protocol_getNameP8Protocol
+_ZL37__arclite_objc_copyClassNamesForImagePKcPj
+_ZL17transcribeMethodsP10objc_classP15glue_class_ro_t
+_ZL19transcribeProtocolsP10objc_classP15glue_class_ro_t
+_ZL20transcribePropertiesP10objc_classP15glue_class_ro_t
+_ZL14initialize_impP11objc_objectP13objc_selector
+_ZL18allocateMaybeSwiftP18glue_swift_class_tm
+_ZL22copySwiftV1MangledNamePKcb
+_ZL13demangledNamePKcb
+_ZL16scanMangledFieldRPKcS0_S1_Ri
+_ZL30arclite_uninitialized_functionv
+_ZL12cxxConstructP11objc_object
+_ZL20fixStringForCoreDataP11objc_object
+OBJC_METACLASS_$___ARCLite__
+_ZL24OBJC_CLASS_$___ARCLite__
+_ZL31OBJC_METACLASS_RO_$___ARCLite__
+_non_lazy_classes
+_ZL27OBJC_CLASS_RO_$___ARCLite__
+_ZL11_class_name
+_ZL32OBJC_$_CLASS_METHODS___ARCLite__
+_ZL17_load_method_name
+_ZL17_load_method_type
+_ZL23NSAutoreleasePool_class
+_ZZL30add_image_hook_autoreleasepoolPK11mach_headerlE7patches
+_ZGVZL30add_image_hook_autoreleasepoolPK11mach_headerlE7patches
+.str.2
+.str.6
+.str.16
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS___ARCLiteIndexedSubscripting__
+l_OBJC_$_PROTOCOL_METHOD_TYPES___ARCLiteIndexedSubscripting__
+l_OBJC_PROTOCOL_$___ARCLiteIndexedSubscripting__
+l_OBJC_LABEL_PROTOCOL_$___ARCLiteIndexedSubscripting__
+l_OBJC_PROTOCOL_REFERENCE_$___ARCLiteIndexedSubscripting__
+OBJC_CLASS_NAME_.32
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS___ARCLiteKeyedSubscripting__
+l_OBJC_$_PROTOCOL_METHOD_TYPES___ARCLiteKeyedSubscripting__
+l_OBJC_PROTOCOL_$___ARCLiteKeyedSubscripting__
+l_OBJC_LABEL_PROTOCOL_$___ARCLiteKeyedSubscripting__
+l_OBJC_PROTOCOL_REFERENCE_$___ARCLiteKeyedSubscripting__
+_ZZL18add_image_hook_ARCPK11mach_headerlE7patches
+_ZGVZL18add_image_hook_ARCPK11mach_headerlE7patches
+.str.42
+.str.44
+.str.50
+_ZL30NSUndoManagerProxy_targetClass
+_ZL29original_NSManagedObject_init
+_ZL40original_NSManagedObject_allocWithEntity
+_ZL35original_NSManagedObject_allocBatch
+_ZL25NSMutableDictionary_class
+.str.71
+_ZL22NSConstantString_class
+_ZL14NSString_class
+_ZL36original_NSKKMS_fastIndexForKnownKey
+_ZL27original_NSKKMS_indexForKey
+_ZL28original_NSKKsD_objectForKey
+_ZL34original_NSKKsD_removeObjectForKey
+_ZL32original_NSKKsD_setObject_forKey
+_ZL40original_NSKKsD_addEntriesFromDictionary
+_ZZL22add_image_hook_swiftV1PK11mach_headerlE7patches
+_ZGVZL22add_image_hook_swiftV1PK11mach_headerlE7patches
+.str.81
+.str.82
+_ZL31original_objc_allocateClassPair
+_ZL31original_object_getIndexedIvars
+_ZL22original_objc_getClass
+_ZL26original_objc_getMetaClass
+_ZL30original_objc_getRequiredClass
+.str.87
+_ZL25original_objc_lookUpClass
+_ZL25original_objc_getProtocol
+_ZL22original_class_getName
+_ZL25original_protocol_getName
+_ZL36original_objc_copyClassNamesForImage
+.str.100
+.str.102
+_ZL12demangleLock
+_ZL9Demangled
+.str.104
+OBJC_SELECTOR_REFERENCES_.115
+Apple LLVM version 7.3.0 (clang-703.0.21)
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch armv7 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -Wno-trigraphs -fno-exceptions -fno-rtti -mpascal-strings -Os -Wno-missing-field-initializers -Wmissing-prototypes -Wno-implicit-atomic-properties -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -D NDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.Internal.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -miphoneos-version-min=4.3 -g -fno-threadsafe-statics -Wno-sign-conversion -fembed-bitcode -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~248/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-generated-files.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~248/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-own-target-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~248/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-all-target-headers.hmap -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~248/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-project-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~248/Symbols/BuiltProducts/include -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~248/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources/armv7 -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~248/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources -F/Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~248/Symbols/BuiltProducts -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.Internal.sdk/System/Library/PrivateFrameworks -Wall -Wextra -Wno-gcc-compat -fgnu-inline-asm -MMD -MT dependencies -MF /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~248/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/armv7/arclite.d --serialize-diagnostics /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~248/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/armv7/arclite.dia -c /Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-65/source/arclite.mm -o /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~248/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/armv7/arclite.o -mlinker-version=264.3 -march=armv7a
+__arclite_NSKKsD_addEntriesFromDictionary
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-65/source/arclite.mm
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-65
+__arclite_NSKKsD_setObject_forKey
+__arclite_NSKKsD_removeObjectForKey
+__arclite_NSKKsD_objectForKey
+__arclite_NSKKMS_indexForKey
+fixStringForCoreData
+__arclite_NSKKMS_fastIndexForKnownKey
+__arclite_NSManagedObject_allocBatch
+__arclite_NSManagedObject_allocWithEntity
+cxxConstruct
+__arclite_NSManagedObject_init
+arclite_uninitialized_function
+replaceMethod
+__arclite_NSUndoManagerProxy_isKindOfClass
+patch_t<const char **(const char *, unsigned int *)>
+__arclite_objc_copyClassNamesForImage
+patch_t<const char *(Protocol *)>
+__arclite_protocol_getName
+patch_t<const char *(Class)>
+__isctype
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.Internal.sdk/usr/include/ctype.h
+isdigit
+scanMangledField
+copySwiftV1DemangledName
+demangledName
+__arclite_class_getName
+patch_t<Protocol *(const char *)>
+__arclite_objc_getProtocol
+__arclite_objc_lookUpClass
+__arclite_objc_getRequiredClass
+__arclite_objc_getMetaClass
+patch_t<Class (const char *)>
+copySwiftV1MangledName
+__arclite_objc_getClass
+patch_t<void *(id)>
+word_align
+__arclite_object_getIndexedIvars
+patch_t<Class (Class, const char *, unsigned long)>
+allocateMaybeSwift
+isSwift
+metaclass
+__arclite_objc_allocateClassPair
+patch_t<Class (Class, const objc_image_info *)>
+initialize_imp
+property_list_nth
+transcribeProperties
+transcribeProtocols
+method_list_nth
+transcribeMethods
+alignment
+max
+ivar_list_nth
+transcribeIvars
+fastFlags
+ro
+__arclite_objc_readClassPair
+add_image_hook_swiftV1
+install_swiftV1
+patch_t<void (id *, id)>
+__arclite_objc_storeStrong
+__arclite_objc_retainAutoreleasedReturnValue
+__arclite_objc_retainAutoreleaseReturnValue
+__arclite_objc_autoreleaseReturnValue
+__arclite_objc_retainAutorelease
+__arclite_objc_autorelease
+patch_t<void (id)>
+__arclite_objc_release
+__arclite_objc_retainBlock
+patch_t<id (id)>
+__arclite_objc_retain
+patch_t<id (id, unsigned long)>
+fixupCopiedReferences
+classOrSuperClassesUseARR
+__arclite_object_copy
+patch_t<void (id, objc_ivar *, id)>
+isScannedOffset
+alignedInstanceStart
+_class_getInstanceStart
+data
+__arclite_class_usesAutomaticRetainRelease
+_ivar_getClass
+__arclite_object_setIvar
+patch_t<objc_ivar *(id, const char *, void *)>
+__arclite_object_setInstanceVariable
+add_image_hook_ARC
+install_ARC
+objc_collectingEnabled
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.Internal.sdk/usr/include/objc/objc-auto.h
+__arclite_NSMutableDictionary__setObject_forKeyedSubscript
+addOrReplaceMethod
+install_dict_nil_value
+__arclite_NSMutableOrderedSet_setObject_atIndexedSubscript
+__arclite_NSOrderedSet_objectAtIndexedSubscript
+keyedGetter
+__arclite_NSDictionary_objectForKeyedSubscript
+__arclite_NSMutableArray_setObject_atIndexedSubscript
+indexedGetter
+__arclite_NSArray_objectAtIndexedSubscript
+addMethod
+install_subscripting
+patch_lazy_pointers
+patch_t<void (void *)>
+__arclite_objc_autoreleasePoolPop
+patch_t<void *()>
+__arclite_objc_autoreleasePoolPush
+add_image_hook_autoreleasepool
+install_autoreleasepool
+__ARCLite__load
