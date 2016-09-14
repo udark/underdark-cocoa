@@ -7,9 +7,9 @@
 
 typedef void (^UDFutureCallback)(bool success, id _Nullable result, id _Nullable error);
 
-@interface UDFuture<SuccessType, ErrorType> : NSObject
+@interface UDFuture<ResultType, ErrorType> : NSObject
 
 - (void) listen:(nullable dispatch_queue_t)queue
-          block:(nonnull void (^)(bool success, SuccessType _Nullable result, ErrorType _Nullable error))block;
+          block:(nonnull void (^)(bool success, ResultType _Nullable result, ErrorType _Nullable error))block;
 
 @end

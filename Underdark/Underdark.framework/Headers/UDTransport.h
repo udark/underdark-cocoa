@@ -63,6 +63,7 @@ extern NSString* _Nonnull UDBeaconDetectedNotification;
 
 @protocol UDTransport <NSObject>
 
+@property (nonatomic, weak, nullable) id<UDTransportDelegate> delegate;
 @property (nonatomic, readonly, nonnull) dispatch_queue_t queue;
 
 /**

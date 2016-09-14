@@ -65,7 +65,7 @@
  * Sends bytes to remote device as single atomic frame.
  * @param dataSource data source with bytes to send.
  */
-- (nonnull UDFuture*) sendFrameWithSource:(nonnull id<UDSource>)dataSource;
+- (nonnull UDFuture*) sendFrameWithSource:(nonnull UDSource*)source;
 
 @end
 

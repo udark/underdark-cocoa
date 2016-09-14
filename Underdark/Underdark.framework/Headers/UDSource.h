@@ -18,20 +18,23 @@
 
 @import Foundation;
 
-/**
- * Protocol for raw frame data storage for sending and receiving.
- */
-@protocol UDSource<NSObject>
+@interface UDSource<DataType> : NSObject
 
 /**
  * Future that retrieves source's data.
  */
-@property (nonatomic, readonly, nonnull) UDFuture<NSData*, id>* future;
+@property (nonatomic, readonly, nonnull) UDFuture<DataType, id>* future;
 
 /**
  * Unique ID for the data being sent (can be nil).
  * Used for automatic data sharing between links.
  */
 @property (nonatomic, readonly, nullable) NSString* dataId;
+
+- (nullable instancetype) init NS_UNAVAILABLE;
+
+- (nonnull instancetype) initWithFuture:(nonnull UDFuture<DataType, id>*)future
+                                 dataId:(nullable NSString*)dataId NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype) initWithFuture:(nonnull UDFuture<DataType, id>*)future;
 
 @end

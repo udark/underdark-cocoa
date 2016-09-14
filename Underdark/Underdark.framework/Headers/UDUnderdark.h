@@ -31,16 +31,16 @@ typedef NS_ENUM(NSUInteger, UDTransportKind) {
  */
 @interface UDUnderdark : NSObject
 
-+ (id<UDLogger>) logger;
-+ (void) setLogger:(id<UDLogger>)logger;
++ (nullable id<UDLogger>) logger;
++ (void) setLogger:(nullable id<UDLogger>)logger;
 
 /**
  * Configures aggregate UDTransport that supports communication through given protocols.
  * It must be started via [UDTransport start] before use
  * and stopped via [UDTransport stop] when is no longer needed.
+ * You must set transport's delegate property before using it.
  * @param appId identifier for current application. Must be same across all devices.
  * @param nodeId globally unique identifier of curent device.
- * @param delegate delegate for transport events.
  * @param queue queue which will be used to dispatch delegate callbacks.
  *                Supply nil if you want to receive callbacks on main thread.
  * @param kinds 0 or more NSNumber values of UDTransportKind
@@ -48,10 +48,8 @@ typedef NS_ENUM(NSUInteger, UDTransportKind) {
  * @return transport that communicates via specified protocols and uses given delegate for callbacks.
  * All methods of returned UDTransport object must be called on supplied queue.
  */
-+ (id<UDTransport>) configureTransportWithAppId:(int32_t)appId
-										 nodeId:(int64_t)nodeId
-									   delegate:(id<UDTransportDelegate>)delegate
-										  queue:(dispatch_queue_t)queue
-										  kinds:(NSArray*)kinds;
-
++ (nonnull id<UDTransport>) configureTransportWithAppId:(int32_t)appId
+												 nodeId:(int64_t)nodeId
+												  queue:(nonnull dispatch_queue_t)queue
+												  kinds:(nonnull NSArray*)kinds;
 @end

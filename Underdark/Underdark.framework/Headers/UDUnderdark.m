@@ -41,7 +41,6 @@ static id<UDLogger> underdarkLogger = nil;
 
 + (id<UDTransport>) configureTransportWithAppId:(int32_t)appId
 										 nodeId:(int64_t)nodeId
-									   delegate:(id<UDTransportDelegate>)delegate
 										  queue:(dispatch_queue_t)queue
 										  kinds:(NSArray*)kinds
 {
@@ -53,7 +52,7 @@ static id<UDLogger> underdarkLogger = nil;
 	}
 		
 	UDAggTransport* transport =
-		[[UDAggTransport alloc] initWithAppId:appId nodeId:nodeId delegate:delegate queue:queue];
+		[[UDAggTransport alloc] initWithAppId:appId nodeId:nodeId queue:queue];
 	
 	/*id<UDAdapter> adapter = [[UDNsdAdapter alloc] initWithDelegate:aggTransport appId:appId nodeId:nodeId peerToPeer:false queue:aggTransport.ioqueue];
 	[transport addAdapter:adapter];
