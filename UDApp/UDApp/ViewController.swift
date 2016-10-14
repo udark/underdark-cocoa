@@ -20,24 +20,27 @@ class ViewController: UIViewController
 	
 	@IBOutlet weak var progressView: UIProgressView!
 	@IBOutlet weak var progressHeight: NSLayoutConstraint!
-	
+
+	private var node: Node!
+
 	//MARK: - Initialization
 	
 	required init?(coder aDecoder: NSCoder)
 	{
 		super.init(coder: aDecoder)
-		
-		AppModel.shared.node.controller = self;
 	}
 	
 	deinit
 	{
-		AppModel.shared.node.stop()
+		node.stop()
 	}
 	
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
+		
+		self.node = AppModel.shared.node
+		node.controller = self
 		
 		progressHeight.constant = 9
 		
@@ -45,8 +48,10 @@ class ViewController: UIViewController
 		{
 			let _ = vc.view
 		}
-		
-		AppModel.shared.node.start()
+
+		updatePeersCount()
+
+		node.start()
 	}
 
 	override func didReceiveMemoryWarning()
@@ -56,7 +61,11 @@ class ViewController: UIViewController
 
 	func updatePeersCount()
 	{
-		navItem.title = "\(AppModel.shared.node.peersCount)" + ((AppModel.shared.node.peersCount == 1) ? " peer" : " peers");
+		let peersSuffix = ((AppModel.shared.node.peersCount == 1) ? "peer" : "peers")
+		let linksSuffix = ((AppModel.shared.node.linksCount == 1) ? "link" : "links")
+
+		navItem.title = "\(AppModel.shared.node.peersCount) " + peersSuffix
+				+ " | \(AppModel.shared.node.linksCount) " + linksSuffix
 	}
 	
 	func updateFramesCount()
@@ -76,38 +85,96 @@ class ViewController: UIViewController
 	
 	func frameData(dataLength:Int) -> UDSource
 	{
-		let result = UDLazySource(queue: bgqueue, block: { (source) -> NSData? in
+		let future = UDFutureLazy(queue: bgqueue) { (context) -> NSData? in
 			let data = NSMutableData(length: dataLength);
 			arc4random_buf(data!.mutableBytes, data!.length)
-			//SecRandomCopyBytes(kSecRandomDefault, UInt(s.length), UnsafePointer<UInt8>(s.mutableBytes))
-			
 			return data
-		})
+		}
 		
 		/*let data = NSMutableData(length: dataLength);
 		arc4random_buf(data!.mutableBytes, data!.length)
-		let result = UDMemorySource(data: data!)*/
+		let result = UDFutureKnown(data: data!)*/
+
+		return UDSource(future: future)
+	}
+	
+	func frameData2(dataLength:Int) -> UDSource
+	{
+		let data = NSMutableData(length: dataLength);
+		arc4random_buf(data!.mutableBytes, data!.length)
 		
-		return result
+		let future = UDFutureKnown(result: data)
+		
+		return UDSource(future: future)
 	}
 	
 	@IBAction func sendFramesSmall(sender: AnyObject)
 	{
-		AppModel.shared.node.broadcastFrame(frameData(1))
-		
-		for _ in 0 ..< 2000
-		{
-			AppModel.shared.node.broadcastFrame(frameData(1024));
+		autoreleasepool { 
+			node.broadcastFrame(frameData(1))
+			
+			node.longTransferBegin()
+			
+			for _ in 0 ..< 2000
+			{
+				node.broadcastFrame(frameData(1024));
+			}
+			
+			node.longTransferEnd()
 		}
 	}
 	
 	@IBAction func sendFramesLarge(sender: AnyObject)
 	{
-		AppModel.shared.node.broadcastFrame(frameData(1))
+		autoreleasepool { 
+			node.broadcastFrame(frameData(1))
+			
+			node.longTransferBegin()
+			
+			for _ in 0 ..< 20
+			{
+				AppModel.shared.node.broadcastFrame(frameData(100 * 1024));
+			}
+			
+			node.longTransferEnd()
+		}
+	}
+	
+	@IBAction func sendFramesVeryLarge(sender: AnyObject)
+	{
+		autoreleasepool { 
+			node.broadcastFrame(frameData(1))
+			
+			node.longTransferBegin()
+			
+			for _ in 0 ..< 2
+			{
+				node.broadcastFrame(frameData(2 * 1024 * 1024));
+			}
+			
+			node.longTransferEnd()			
+		}
+	}
 
-		for _ in 0 ..< 20
-		{
-			AppModel.shared.node.broadcastFrame(frameData(100 * 1024));
+	@IBAction func sendFramesGigantic(sender: AnyObject)
+	{
+		autoreleasepool {
+			node.broadcastFrame(frameData(1))
+			
+			node.longTransferBegin()
+			
+			var frames = [UDSource]()
+			
+			for _ in 0 ..< 1000
+			{
+				autoreleasepool {
+					frames.append(frameData(1024 * 1024))
+				}
+			}
+			
+			node.broadcastFrames(frames)
+			
+			node.longTransferEnd()
 		}
 	}
 } // ViewController

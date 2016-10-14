@@ -8,28 +8,41 @@
 
 import Foundation
 
-//import CocoaLumberjack
+import CocoaLumberjack
+import XCDLumberjackNSLogger
 import Underdark
 
 class AppModel
 {
 	static let shared = AppModel()
 	
-	let node: Node
-	var udlogger = UDJackLogger()
+	var node: Node!
+	var formLogger = FormLogger()
 	
-	init() {
-		UDUnderdark.setLogger(udlogger)
-		//DDLog.addLogger(DDTTYLogger.sharedInstance())
-		
-		node = Node();
-	}
-	
-	deinit
+	init()
 	{
+		
 	}
-	
+
 	func configure()
 	{
+		configureLogging()
+		
+		node = Node()
+	}
+	
+	func configureLogging()
+	{
+		DDTTYLogger.sharedInstance().logFormatter = LogFormatter()
+		DDLog.addLogger(DDTTYLogger.sharedInstance())
+		
+		let xcdlogger = XCDLumberjackNSLogger(bonjourServiceName: "solidlog")
+		LoggerSetViewerHost(xcdlogger.logger, "192.168.4.148", 50000)
+		DDLog.addLogger(xcdlogger)
+		
+		formLogger.logFormatter = LogFormatter()
+		DDLog.addLogger(formLogger)
+
+		UDUnderdark.setLogger(UDJackLogger())
 	}
 } // AppModel

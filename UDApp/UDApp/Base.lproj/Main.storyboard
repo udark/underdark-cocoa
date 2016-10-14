@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZRN-lh-kPv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZRN-lh-kPv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -94,6 +94,44 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOJ-VG-Dbl">
+                                <rect key="frame" x="20" y="423" width="140" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="UBd-cg-Ajq"/>
+                                    <constraint firstAttribute="height" constant="50" id="eZb-YT-qA0"/>
+                                </constraints>
+                                <state key="normal" title="Send 2 x 1MB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendFramesVeryLarge:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Hu-3B-kar"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAT-Xa-6hF">
+                                <rect key="frame" x="440" y="423" width="140" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3a7-g1-Rlu"/>
+                                    <constraint firstAttribute="width" constant="140" id="h0V-Qt-49v"/>
+                                </constraints>
+                                <state key="normal" title="Send 1K x 1MB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendFramesGigantic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QPl-9S-V1Y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -103,17 +141,21 @@
                             <constraint firstAttribute="trailingMargin" secondItem="rUm-4w-TXY" secondAttribute="trailing" id="4Do-aB-lSA"/>
                             <constraint firstAttribute="leadingMargin" secondItem="nFL-dx-vDp" secondAttribute="leading" id="62H-en-YKQ"/>
                             <constraint firstItem="fz9-Q1-LAI" firstAttribute="top" secondItem="rUm-4w-TXY" secondAttribute="bottom" constant="20" id="6mo-N1-tWs"/>
+                            <constraint firstItem="Ms4-St-WqT" firstAttribute="top" secondItem="ZOJ-VG-Dbl" secondAttribute="bottom" constant="8" id="AAB-uT-eef"/>
                             <constraint firstAttribute="leadingMargin" secondItem="fz9-Q1-LAI" secondAttribute="leading" id="F7z-wh-IwV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UKS-Vd-7tE" secondAttribute="trailing" id="HQq-Yc-dhY"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ZOJ-VG-Dbl" secondAttribute="leading" id="MYK-hS-rvv"/>
                             <constraint firstAttribute="trailing" secondItem="kKp-IB-i7p" secondAttribute="trailing" id="NFv-wd-DMh"/>
                             <constraint firstItem="UKS-Vd-7tE" firstAttribute="top" secondItem="fz9-Q1-LAI" secondAttribute="bottom" constant="20" id="OWG-oz-4gz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2Q0-MB-veC" secondAttribute="trailing" id="QuS-VX-zUQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eAT-Xa-6hF" secondAttribute="trailing" id="T3w-zv-5Hb"/>
                             <constraint firstItem="rUm-4w-TXY" firstAttribute="top" secondItem="nFL-dx-vDp" secondAttribute="bottom" constant="20" id="VcF-IC-T5k"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nFL-dx-vDp" secondAttribute="trailing" id="btv-GU-mFy"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Ms4-St-WqT" secondAttribute="leading" id="g2X-jT-65k"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fz9-Q1-LAI" secondAttribute="trailing" id="j63-0X-C1T"/>
                             <constraint firstItem="nFL-dx-vDp" firstAttribute="top" secondItem="kKp-IB-i7p" secondAttribute="bottom" constant="21" id="jUf-yp-pmf"/>
                             <constraint firstItem="kKp-IB-i7p" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="k56-o6-crj"/>
+                            <constraint firstItem="2Q0-MB-veC" firstAttribute="top" secondItem="eAT-Xa-6hF" secondAttribute="bottom" constant="8" id="pIX-FT-joS"/>
                             <constraint firstAttribute="leadingMargin" secondItem="rUm-4w-TXY" secondAttribute="leading" id="pWt-Ui-xdA"/>
                             <constraint firstItem="kKp-IB-i7p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zoZ-Sd-KnJ"/>
                         </constraints>

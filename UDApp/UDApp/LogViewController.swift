@@ -8,30 +8,31 @@
 
 import UIKit
 
-class LogViewController: UIViewController, UDJackLoggerDelegate {
+class LogViewController: UIViewController, FormLoggerDelegate {
 
 	@IBOutlet weak var textView: UITextView!
-	
+
+	private let formatter = NSDateFormatter()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		AppModel.shared.udlogger.delegate = self
+
+	    formatter.dateStyle = .NoStyle
+	    formatter.timeStyle = .MediumStyle
+
+		AppModel.shared.formLogger.updateDelegate(self)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 	
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+	}
+
 	@IBAction func clearLog(sender: AnyObject) {
 		textView.text = ""
 	}
@@ -41,12 +42,10 @@ class LogViewController: UIViewController, UDJackLoggerDelegate {
 		textView.scrollRangeToVisible(range);
 	}
 	
-	// MARK: - UDJackLoggerDelegate
+	// MARK: - UDLoggerDelegate
 	
 	func logMessage(message: String)
 	{
-		textView.text = textView.text + message + "\n"
-		
-		
+		textView.text = textView.text + message + "\n"// + "\n"
 	}
 }

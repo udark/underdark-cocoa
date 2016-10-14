@@ -8,30 +8,43 @@
 
 import Foundation
 
-//import CocoaLumberjack
+import CocoaLumberjack
 import Underdark
 
-protocol UDJackLoggerDelegate : class {
-	func logMessage(message: String)
-}
-
 @objc
-class UDJackLogger: NSObject, UDLogger {
-	
-	weak var delegate : UDJackLoggerDelegate?
-	
+class UDJackLogger: NSObject, UDLogger
+{
 	override init()
 	{
 	}
-	
-    func log(asynchronous: Bool, level: UDLogLevel, flag: UDLogFlag, context: Int, file: UnsafePointer<Int8>, function: UnsafePointer<Int8>, line: UInt, tag: AnyObject?, message: String)
+
+    func log(
+		    asynchronous: Bool,
+		    level: UDLogLevel,
+		    flag: UDLogFlag,
+		    context: Int,
+		    file: UnsafePointer<Int8>,
+		    function: UnsafePointer<Int8>,
+		    line: UInt,
+		    tag: AnyObject?,
+		    message: String
+    )
 	{
-		//DDLog.log(asynchronous, message: message, level:  DDLogLevel(rawValue: level.rawValue)!, flag: DDLogFlag(rawValue: flag.rawValue), context: context, file: file, function: function, line: line, tag: tag)
-		
-		let nmessage = message
-		
-		dispatch_async(dispatch_get_main_queue()) { 
-			self.delegate?.logMessage(nmessage)			
+		// Any thread.
+
+		withVaList([message]) { pointer in
+			DDLog.log(
+					asynchronous,
+					level: DDLogLevel(rawValue: level.rawValue) ?? DDLogLevel.Info,
+					flag: DDLogFlag(rawValue: flag.rawValue) ?? DDLogFlag.Info,
+					context: context,
+					file: file,
+					function: function,
+					line: line,
+					tag: tag,
+					format: "%@",
+					args: pointer
+					)
 		}
-	}
+	} // log
 }
