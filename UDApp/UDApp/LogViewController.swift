@@ -12,13 +12,13 @@ class LogViewController: UIViewController, FormLoggerDelegate {
 
 	@IBOutlet weak var textView: UITextView!
 
-	private let formatter = NSDateFormatter()
+	fileprivate let formatter = DateFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-	    formatter.dateStyle = .NoStyle
-	    formatter.timeStyle = .MediumStyle
+	    formatter.dateStyle = .none
+	    formatter.timeStyle = .medium
 
 		AppModel.shared.formLogger.updateDelegate(self)
     }
@@ -29,11 +29,11 @@ class LogViewController: UIViewController, FormLoggerDelegate {
 	
     // MARK: - Navigation
 
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
 	}
 
-	@IBAction func clearLog(sender: AnyObject) {
+	@IBAction func clearLog(_ sender: AnyObject) {
 		textView.text = ""
 	}
 
@@ -44,7 +44,7 @@ class LogViewController: UIViewController, FormLoggerDelegate {
 	
 	// MARK: - UDLoggerDelegate
 	
-	func logMessage(message: String)
+	func logMessage(_ message: String)
 	{
 		textView.text = textView.text + message + "\n"// + "\n"
 	}

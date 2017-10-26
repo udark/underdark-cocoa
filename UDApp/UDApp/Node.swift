@@ -14,7 +14,7 @@ class Node: NSObject, UDTransportDelegate
 {
 	let appId: Int32 = 234235
 	let nodeId: Int64
-	let queue = dispatch_get_main_queue()
+	let queue = DispatchQueue.main
 	var transport: UDTransport
 	
 	var peers = [String:[UDLink]]()   // nodeId to links to it.
@@ -26,15 +26,15 @@ class Node: NSObject, UDTransportDelegate
 	var framesCount = 0
 	
 	var bytesCount = 0
-	var timeStart : NSTimeInterval = 0
-	var timeEnd : NSTimeInterval = 0
+	var timeStart : TimeInterval = 0
+	var timeEnd : TimeInterval = 0
 	
 	override init()
 	{
 		var buf : Int64 = 0
 		repeat
 		{
-			arc4random_buf(&buf, sizeofValue(buf))
+			arc4random_buf(&buf, MemoryLayout.size(ofValue: buf))
 		} while buf == 0
 
 		if(buf < 0) {
@@ -43,11 +43,11 @@ class Node: NSObject, UDTransportDelegate
 
 		nodeId = buf;
 
-		let transportKinds = [UDTransportKind.Wifi.rawValue, UDTransportKind.Bluetooth.rawValue]
+		let transportKinds = [UDTransportKind.wifi.rawValue, UDTransportKind.bluetooth.rawValue]
 		//let transportKinds = [UDTransportKind.Wifi.rawValue];
 		//let transportKinds = [UDTransportKind.Bluetooth.rawValue];
 		
-		transport = UDUnderdark.configureTransportWithAppId(appId, nodeId: nodeId, queue: queue, kinds: transportKinds)
+		transport = UDUnderdark.configureTransport(withAppId: appId, nodeId: nodeId, queue: queue, kinds: transportKinds)
 
 		super.init()
 
@@ -70,7 +70,7 @@ class Node: NSObject, UDTransportDelegate
 		controller?.updateFramesCount()
 	}
 	
-	func broadcastFrame(frameData: UDSource)
+	func broadcastFrame(_ frameData: UDSource<NSData>)
 	{
 		if(peers.isEmpty) { return; }
 		
@@ -82,11 +82,11 @@ class Node: NSObject, UDTransportDelegate
 				continue
 			}
 
-			link.sendFrameWithSource(frameData)
+			link.sendFrame(with: frameData as! UDSource<AnyObject>)
 		}
 	}
 	
-	func broadcastFrames(sources: [UDSource])
+	func broadcastFrames(_ sources: [UDSource<NSData>])
 	{
 		for source in sources
 		{
@@ -112,7 +112,7 @@ class Node: NSObject, UDTransportDelegate
 	
 	// MARK: - UDTransportDelegate
 	
-	func transport(transport: UDTransport, linkConnected link: UDLink)
+	func transport(_ transport: UDTransport, linkConnected link: UDLink)
 	{
 		if(peers[String(link.nodeId)] == nil) {
 			peers[String(link.nodeId)] = [UDLink]()
@@ -121,7 +121,7 @@ class Node: NSObject, UDTransportDelegate
 
 		var links: [UDLink] = peers[String(link.nodeId)]!
 		links.append(link)
-		links.sortInPlace { (link1, link2) -> Bool in
+		links.sort { (link1, link2) -> Bool in
 			return link1.priority < link2.priority
 		}
 
@@ -131,7 +131,7 @@ class Node: NSObject, UDTransportDelegate
 		controller?.updatePeersCount();
 	}
 	
-	func transport(transport: UDTransport, linkDisconnected link: UDLink)
+	func transport(_ transport: UDTransport, linkDisconnected link: UDLink)
 	{
 		guard var links = peers[String(link.nodeId)] else {
 			return
@@ -140,7 +140,7 @@ class Node: NSObject, UDTransportDelegate
 		links = links.filter() { $0 !== link }
 
 		if(links.isEmpty) {
-			peers.removeValueForKey(String(link.nodeId))
+			peers.removeValue(forKey: String(link.nodeId))
 			peersCount -= 1
 		} else {
 			peers[String(link.nodeId)] = links
@@ -150,18 +150,18 @@ class Node: NSObject, UDTransportDelegate
 		controller?.updatePeersCount();
 	}
 	
-	func transport(transport: UDTransport, link: UDLink, didReceiveFrame data: NSData)
+	func transport(_ transport: UDTransport, link: UDLink, didReceiveFrame data: Data)
 	{
-		if(data.length == 1) {
+		if(data.count == 1) {
 			framesCount = 0
 			bytesCount = 0
-			timeStart = NSDate.timeIntervalSinceReferenceDate()
-			timeEnd = NSDate.timeIntervalSinceReferenceDate()
+			timeStart = Date.timeIntervalSinceReferenceDate
+			timeEnd = Date.timeIntervalSinceReferenceDate
 		}
 		else {
 			framesCount += 1
-			bytesCount += data.length
-			timeEnd = NSDate.timeIntervalSinceReferenceDate()
+			bytesCount += data.count
+			timeEnd = Date.timeIntervalSinceReferenceDate
 		}
 		
 		controller?.updateFramesCount();

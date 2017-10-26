@@ -33,15 +33,15 @@ class AppModel
 	
 	func configureLogging()
 	{
-		DDTTYLogger.sharedInstance().logFormatter = LogFormatter()
-		DDLog.addLogger(DDTTYLogger.sharedInstance())
+		DDTTYLogger.sharedInstance.logFormatter = LogFormatter()
+		DDLog.add(DDTTYLogger.sharedInstance)
 		
 		let xcdlogger = XCDLumberjackNSLogger(bonjourServiceName: "solidlog")
-		LoggerSetViewerHost(xcdlogger.logger, "192.168.4.148", 50000)
-		DDLog.addLogger(xcdlogger)
+		LoggerSetViewerHost(xcdlogger.logger, "192.168.4.148" as CFString, 50000)
+		DDLog.add(xcdlogger)
 		
 		formLogger.logFormatter = LogFormatter()
-		DDLog.addLogger(formLogger)
+		DDLog.add(formLogger)
 
 		UDUnderdark.setLogger(UDJackLogger())
 	}

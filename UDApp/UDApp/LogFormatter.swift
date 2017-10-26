@@ -11,7 +11,7 @@ import CocoaLumberjack
 
 class LogFormatter: NSObject, DDLogFormatter
 {
-	let dateFormatter = NSDateFormatter()
+	let dateFormatter = DateFormatter()
 	
 	override init()
 	{
@@ -23,27 +23,38 @@ class LogFormatter: NSObject, DDLogFormatter
 		//[_dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
 		//[_dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm:ss:SSS"];
 		
-		dateFormatter.formatterBehavior = NSDateFormatterBehavior.Behavior10_4
+		dateFormatter.formatterBehavior = DateFormatter.Behavior.behavior10_4
 		dateFormatter.dateFormat = "HH:mm:ss.SSS"
 	}
 	
-	func formatLogMessage(logMessage: DDLogMessage) -> String
+	/**
+	* Formatters may optionally be added to any logger.
+	* This allows for increased flexibility in the logging environment.
+	* For example, log messages for log files may be formatted differently than log messages for the console.
+	*
+	* For more information about formatters, see the "Custom Formatters" page:
+	* Documentation/CustomFormatters.md
+	*
+	* The formatter may also optionally filter the log message by returning nil,
+	* in which case the logger will not log the message.
+	**/
+	func format(message logMessage: DDLogMessage) -> String?
 	{
 		let level: String
 		
-		if(logMessage.flag.contains(DDLogFlag.Debug)) {
+		if(logMessage.flag.contains(DDLogFlag.debug)) {
 			level = ""
-		} else if(logMessage.flag.contains(DDLogFlag.Info)) {
+		} else if(logMessage.flag.contains(DDLogFlag.info)) {
 			level = ""
-		} else if(logMessage.flag.contains(DDLogFlag.Warning)) {
+		} else if(logMessage.flag.contains(DDLogFlag.warning)) {
 			level = "WARN"
-		} else if(logMessage.flag.contains(DDLogFlag.Error)) {
+		} else if(logMessage.flag.contains(DDLogFlag.error)) {
 			level = "ERROR"
 		} else {
 			level = ""
 		}
 		
-		let date = dateFormatter.stringFromDate(logMessage.timestamp)
+		let date = dateFormatter.string(from: logMessage.timestamp)
 		
 		let result = "\(date) \(level)\t\(logMessage.message)"
 		return result

@@ -11,10 +11,10 @@
 		D5077F661CA2F1DA00AA3B24 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5077F651CA2F1DA00AA3B24 /* AppModel.swift */; };
 		D5077F6C1CA2F3B400AA3B24 /* UDJackLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5077F6B1CA2F3B400AA3B24 /* UDJackLogger.swift */; };
 		D5077F701CA2FC6200AA3B24 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5077F6F1CA2FC6200AA3B24 /* LogViewController.swift */; };
-		D510AD301DB0699A00783CC6 /* ProtocolBuffers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D510AD2E1DB0699A00783CC6 /* ProtocolBuffers.framework */; };
-		D510AD311DB0699A00783CC6 /* ProtocolBuffers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D510AD2E1DB0699A00783CC6 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D510AD321DB0699A00783CC6 /* Underdark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D510AD2F1DB0699A00783CC6 /* Underdark.framework */; };
-		D510AD331DB0699A00783CC6 /* Underdark.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D510AD2F1DB0699A00783CC6 /* Underdark.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D531646C1FA1D00D0078C16B /* ProtocolBuffers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D531646A1FA1D00D0078C16B /* ProtocolBuffers.framework */; };
+		D531646D1FA1D00D0078C16B /* Underdark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D531646B1FA1D00D0078C16B /* Underdark.framework */; };
+		D531646E1FA1D1E80078C16B /* ProtocolBuffers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D531646A1FA1D00D0078C16B /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D531646F1FA1D1E80078C16B /* Underdark.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D531646B1FA1D00D0078C16B /* Underdark.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5C068071D5A11C6009F41D6 /* FormLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C068061D5A11C6009F41D6 /* FormLogger.swift */; };
 		D5C0681A1D5A14C1009F41D6 /* LogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C068191D5A14C1009F41D6 /* LogFormatter.swift */; };
 		D5D0712E1BAEF02500AF0161 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D0712D1BAEF02500AF0161 /* AppDelegate.swift */; };
@@ -37,14 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D510AD341DB0699A00783CC6 /* Embed Frameworks */ = {
+		D53888121D01D1240074AA75 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D510AD311DB0699A00783CC6 /* ProtocolBuffers.framework in Embed Frameworks */,
-				D510AD331DB0699A00783CC6 /* Underdark.framework in Embed Frameworks */,
+				D531646E1FA1D1E80078C16B /* ProtocolBuffers.framework in Embed Frameworks */,
+				D531646F1FA1D1E80078C16B /* Underdark.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,8 +58,9 @@
 		D5077F651CA2F1DA00AA3B24 /* AppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		D5077F6B1CA2F3B400AA3B24 /* UDJackLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UDJackLogger.swift; sourceTree = "<group>"; };
 		D5077F6F1CA2FC6200AA3B24 /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
-		D510AD2E1DB0699A00783CC6 /* ProtocolBuffers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProtocolBuffers.framework; path = ../Underdark/ProtocolBuffers.framework; sourceTree = "<group>"; };
-		D510AD2F1DB0699A00783CC6 /* Underdark.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Underdark.framework; path = ../Underdark/Underdark.framework; sourceTree = "<group>"; };
+		D531646A1FA1D00D0078C16B /* ProtocolBuffers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProtocolBuffers.framework; path = ../Underdark/ProtocolBuffers.framework; sourceTree = "<group>"; };
+		D531646B1FA1D00D0078C16B /* Underdark.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Underdark.framework; path = ../Underdark/Underdark.framework; sourceTree = "<group>"; };
+		D54A1D841D50835B00FC6B6A /* ProtocolBuffers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProtocolBuffers.framework; path = Carthage/Build/iOS/ProtocolBuffers.framework; sourceTree = "<group>"; };
 		D5C068061D5A11C6009F41D6 /* FormLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormLogger.swift; sourceTree = "<group>"; };
 		D5C068091D5A1260009F41D6 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = Carthage/Build/iOS/CocoaLumberjack.framework; sourceTree = "<group>"; };
 		D5C0680A1D5A1260009F41D6 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = Carthage/Build/iOS/CocoaLumberjackSwift.framework; sourceTree = "<group>"; };
@@ -85,9 +86,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D510AD321DB0699A00783CC6 /* Underdark.framework in Frameworks */,
-				D510AD301DB0699A00783CC6 /* ProtocolBuffers.framework in Frameworks */,
 				6F213EE9A2F2F9AA5F486E3F /* Pods_UDApp.framework in Frameworks */,
+				D531646C1FA1D00D0078C16B /* ProtocolBuffers.framework in Frameworks */,
+				D531646D1FA1D00D0078C16B /* Underdark.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,10 +105,13 @@
 		99AC6183B1B59A9AACCC8379 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D531646A1FA1D00D0078C16B /* ProtocolBuffers.framework */,
+				D531646B1FA1D00D0078C16B /* Underdark.framework */,
 				D5C068091D5A1260009F41D6 /* CocoaLumberjack.framework */,
 				D5C0680A1D5A1260009F41D6 /* CocoaLumberjackSwift.framework */,
 				D5C0680B1D5A1260009F41D6 /* NSLogger.framework */,
 				D5C0680C1D5A1260009F41D6 /* XCDLumberjackNSLogger.framework */,
+				D54A1D841D50835B00FC6B6A /* ProtocolBuffers.framework */,
 				D2CB1E3203AC68D9B24A0043 /* Pods.framework */,
 				095F6AF6F7476E32D0DFEA6C /* Pods_UDApp.framework */,
 			);
@@ -127,8 +131,6 @@
 		D5D071211BAEF02500AF0161 = {
 			isa = PBXGroup;
 			children = (
-				D510AD2E1DB0699A00783CC6 /* ProtocolBuffers.framework */,
-				D510AD2F1DB0699A00783CC6 /* Underdark.framework */,
 				D5D0712C1BAEF02500AF0161 /* UDApp */,
 				D5D071411BAEF02500AF0161 /* UDAppTests */,
 				D5D0712B1BAEF02500AF0161 /* Products */,
@@ -210,8 +212,8 @@
 				D5D071281BAEF02500AF0161 /* Resources */,
 				EFB20F7920B70D3FCB45E192 /* [CP] Embed Pods Frameworks */,
 				43613718EBEA278528DD1DD3 /* [CP] Copy Pods Resources */,
+				D53888121D01D1240074AA75 /* Embed Frameworks */,
 				D54A1D7F1D50805900FC6B6A /* Carthage Copy Frameworks */,
-				D510AD341DB0699A00783CC6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -247,13 +249,13 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = "";
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Underdark;
 				TargetAttributes = {
 					D5D071291BAEF02500AF0161 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = RRTBW4XF74;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					D5D0713D1BAEF02500AF0161 = {
@@ -323,13 +325,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UDApp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D54A1D7F1D50805900FC6B6A /* Carthage Copy Frameworks */ = {
@@ -354,9 +359,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UDApp/Pods-UDApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/NSLogger/NSLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/XCDLumberjackNSLogger/XCDLumberjackNSLogger.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCDLumberjackNSLogger.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -427,14 +439,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -473,14 +491,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -522,7 +546,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.underdark.udapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -543,7 +568,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.underdark.udapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

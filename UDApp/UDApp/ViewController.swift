@@ -21,7 +21,7 @@ class ViewController: UIViewController
 	@IBOutlet weak var progressView: UIProgressView!
 	@IBOutlet weak var progressHeight: NSLayoutConstraint!
 
-	private var node: Node!
+	fileprivate var node: Node!
 
 	//MARK: - Initialization
 	
@@ -81,14 +81,14 @@ class ViewController: UIViewController
 	
 	//MARK: - Actions
 
-	let bgqueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
+	let bgqueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
 	
-	func frameData(dataLength:Int) -> UDSource
+	func frameData(_ dataLength:Int) -> UDSource<NSData>
 	{
-		let future = UDFutureLazy(queue: bgqueue) { (context) -> NSData? in
+		let future = UDFutureLazy<NSData, AnyObject>(queue: bgqueue) { (context) -> AnyObject in
 			let data = NSMutableData(length: dataLength);
 			arc4random_buf(data!.mutableBytes, data!.length)
-			return data
+			return data!
 		}
 		
 		/*let data = NSMutableData(length: dataLength);
@@ -98,17 +98,17 @@ class ViewController: UIViewController
 		return UDSource(future: future)
 	}
 	
-	func frameData2(dataLength:Int) -> UDSource
+	func frameData2(_ dataLength:Int) -> UDSource<NSData>
 	{
 		let data = NSMutableData(length: dataLength);
 		arc4random_buf(data!.mutableBytes, data!.length)
 		
-		let future = UDFutureKnown(result: data)
+		let future = UDFutureKnown<NSData, AnyObject>(result: data)
 		
 		return UDSource(future: future)
 	}
 	
-	@IBAction func sendFramesSmall(sender: AnyObject)
+	@IBAction func sendFramesSmall(_ sender: AnyObject)
 	{
 		autoreleasepool { 
 			node.broadcastFrame(frameData(1))
@@ -124,7 +124,7 @@ class ViewController: UIViewController
 		}
 	}
 	
-	@IBAction func sendFramesLarge(sender: AnyObject)
+	@IBAction func sendFramesLarge(_ sender: AnyObject)
 	{
 		autoreleasepool { 
 			node.broadcastFrame(frameData(1))
@@ -140,7 +140,7 @@ class ViewController: UIViewController
 		}
 	}
 	
-	@IBAction func sendFramesVeryLarge(sender: AnyObject)
+	@IBAction func sendFramesVeryLarge(_ sender: AnyObject)
 	{
 		autoreleasepool { 
 			node.broadcastFrame(frameData(1))
@@ -156,14 +156,14 @@ class ViewController: UIViewController
 		}
 	}
 
-	@IBAction func sendFramesGigantic(sender: AnyObject)
+	@IBAction func sendFramesGigantic(_ sender: AnyObject)
 	{
 		autoreleasepool {
 			node.broadcastFrame(frameData(1))
 			
 			node.longTransferBegin()
 			
-			var frames = [UDSource]()
+			var frames = [UDSource<NSData>]()
 			
 			for _ in 0 ..< 1000
 			{
